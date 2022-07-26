@@ -17,7 +17,7 @@ echo Press 4=="Travel to Folders"
 echo Press 5=="QR-Code"
 
 echo[
-set /P c=Feed me just Number so I can work for you!! [1-5]?
+set /P c=Feed me just Number so I can work for you!! [1-5] ?  
 if /I "%c%" EQU "1" goto :somewhere
 if /I "%c%" EQU "2" goto :somewhere_else
 if /I "%c%" EQU "3" goto :faraway
@@ -48,7 +48,7 @@ exit
 
 echo "I am here because you want to see Stock "
 start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://merolagani.com/ https://newweb.nepalstock.com.np/ https://www.sharebazarnepal.com.np/ http://nepalstockinfo.com/ https://investingnepal.com/ https://www.bizshala.com/ http://www.mexnepal.com/webpages/technical_analysis_mex.html https://merocapital.com/company/nepse/nepal-stock-exchange-limited/advanced_technical_chart/ https://nepsealpha.com/trading/chart https://www.sharesansar.com/ https://www.nepalipaisa.com/
-%SystemRoot%\explorer.exe "D:\business.xlsx"
+%SystemRoot%\explorer.exe "D:\DEca.xlsx"
 
 #pause
 exit
@@ -56,13 +56,13 @@ exit
 :bitfar
 echo "I am here because you want to travel to folders "
 echo[
-echo Press 1=="ONE File"
-echo Press 2=="TWO File"
-echo Press 3=="THREE File"
+echo Press 1=="fFile"
+echo Press 2=="f File"
+echo Press 3=="file"
 
 
    :ConfirmBox 
-        set /P c= Which Folder you want to Travel (1/2/3)?
+        set /P c= Which Folder you want to Travel (1/2/3) ?  
 
     if /I "%c%" EQU "1" (
     goto :Fnpy 
@@ -77,15 +77,15 @@ echo Press 3=="THREE File"
 
 :Fnpy
     echo Travelling to Python Folder
-    %SystemRoot%\explorer.exe "D:\YOUR DIRECTORY"
+    %SystemRoot%\explorer.exe "D:\Aozlrkasteck"
     goto :END
 :Fncmd
     echo Travelling to Command Folder
-    %SystemRoot%\explorer.exe "D:\YOUR DIRECTORY"
+    %SystemRoot%\explorer.exe "D:\Aozlrkasteckn"
     goto :END
 :Fnexcel
     echo Travelling to Excel Folder
-    %SystemRoot%\explorer.exe "D:\YOUR DIRECTORY"
+    %SystemRoot%\explorer.exe "D:\Aozlrkasteck"
     goto :END
 :InValid
     echo Invalid selection. Enter given seleted number [1/2/3].
@@ -94,9 +94,8 @@ echo Press 3=="THREE File"
 
 :jstfar 
 	@echo off
-	echo Press 1=="Qr"
-	echo Press 2=="No Qr"
-
+	
+	echo[	
 	@echo off
 	md %USERPROFILE%\pictures\QRcode   
 	pip install qrcode[pil]		
@@ -104,21 +103,32 @@ echo Press 3=="THREE File"
 
 	set Output="%USERPROFILE%\pictures\QRcode"
 	set File="%USERPROFILE%\pictures\QRcode"
+	
+	echo[	
+	
+	echo Press 1=="Create QR code"
+	echo Press 2=="NO QR code"
 
+   :Box 
+        set /P c= Create QR to share Fast (1/2) ? 
+	echo[
+	if /I "%c%" EQU "1" (
+	goto :Yesqr 
+    	) else if /I "%c%" EQU "2" ( 
+    	goto :Noqr)
+	goto:Box
 
-   :ConfirmBox 
-        set /P c= Create QR to share Fast (1/2)?
-
-	if /I "%c%" EQU "1" goto :Yesqr
-	if /I "%c%" EQU "2" goto :Noqr
 
 :Yesqr
-	set /p Qrask=Enter variable one value:
+	set /p Qrask=Type desired text to convert into Qr code:
 	REM enter your desired output here
 	qr %Qrask% >> %Output%\Qr.png
 	echo Qrinput   = %Qrask% >> %Output%\Qrinputdata.txt
-	echo File has been placed %File%
+	echo File has been placed %File%	
 	pause	
+	exit
+	
+	
 
 	
 :Noqr	
