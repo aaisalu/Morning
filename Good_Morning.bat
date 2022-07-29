@@ -46,7 +46,7 @@ echo[
 echo Press 1 = Start your day with Updated News Sources
 echo Press 2 = Beep Boop! It's Stock Time
 echo Press 3 = Travel to Folders
-echo Press 4 = Download Youtube Videos
+echo Press 4 = Summon *.py
 echo Press 5 = Apply IPO
 rem echo Press 6 =  Navigate to Project Folder.
 rem echo Press 6=="QR-Code"
@@ -55,7 +55,7 @@ set /P c=Feed me just Number so, I can work for you!! [1-5] ?
 if /I "%c%" EQU "1" goto :somewhere
 if /I "%c%" EQU "2" goto :somewhere_else
 if /I "%c%" EQU "3" goto :bitfar
-if /I "%c%" EQU "4" goto :ytdown
+if /I "%c%" EQU "4" goto :pyproj
 if /I "%c%" EQU "5" goto :lazyme
 rem if /I "%c%" EQU "6" goto :faraway
 rem if /I "%c%" EQU "7" goto :jstfar
@@ -63,11 +63,11 @@ goto :choice
 
 
 :somewhere
-echo[
-echo %username% Just teleported into the chat from Jungle
-echo Press 1 = World News
-echo Press 2 = Tech News
-echo Press 3 = Stock News
+    echo[
+    echo %username% Just teleported into the chat from Jungle
+    echo Press 1 = World News
+    echo Press 2 = Tech News
+    echo Press 3 = Stock News
    :ConfirmBox 
         set /P c= Which News type you want to be updated with (1/2/3) ?  
 
@@ -86,7 +86,7 @@ echo Press 3 = Stock News
     echo[
     echo I am here because you want to see World News
   	echo Please ! Don't close this Window.  
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/ https://news.google.com/topstories/
+	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/
   	echo[
   	echo Please ! Wait for 2 min for Next wave of News to lunch
     ping -n 120 127.0.0.1 > nul	
@@ -123,11 +123,11 @@ echo Press 3 = Stock News
 exit
 
 :somewhere_else
-echo I'm here because it's Business hrs
-rem start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
-start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
-%SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"   
-exit
+    echo I'm here because it's Business hrs
+    rem start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
+    start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
+    %SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"   
+    exit
 
 rem :faraway
 rem echo "I am here because you want to see Your Project Folder "
@@ -136,12 +136,12 @@ rem pause
 rem exit
 
 :bitfar
-echo[
-echo Brace yourselves..Activating Jasmine flying carpet
-echo Press 1 =  Folder 1
-echo Press 2 =  Folder 2
-echo Press 3 =  Folder 3
-echo Press 4 =  Folder 4
+    echo[
+    echo Brace yourselves..Activating Jasmine flying carpet
+    echo Press 1 =  Folder 1
+    echo Press 2 =  Folder 2
+    echo Press 3 =  Folder 3
+    echo Press 4 =  Folder 4
 
    :SUREBOX
         set /P c= Which Folder you want to Travel (1/2/3/4) ?  
@@ -183,10 +183,10 @@ echo Press 4 =  Folder 4
 
 
 :lazyme
-echo[
-echo Roses are red, violets are blue, %username% joined this chat to apply IPO.
-echo Press 1 = APPLY IPO
-echo Press * = Give up!
+    echo[
+    echo Roses are red, violets are blue, %username% joined this chat to apply IPO.
+    echo Press 1 = APPLY IPO
+    echo Press * = Give up!
    :CHECKBOX 
         set /P c= Welcome, press secret key to activate God's eye:   
 
@@ -214,12 +214,31 @@ echo Press * = Give up!
     goto :choice
 
 
+
+:pyproj
+    echo[
+    echo Press 1 = Download Youtube Videos
+    echo Press 2 = Scrap IMDb Movies
+    echo Press * = Give up!
+    :CHECKBOX 
+        set /P c= Welcome, press secret key to lunch *.py:   
+
+    if /I "%c%" EQU "1" (
+    goto :ytdown
+    ) else ( 
+    goto :Wrongpy
+    )
+
 :ytdown
-echo[
-echo I'm here because you want to download Youtube Videos
-rem echo Current Directory: %cd%
-cmd /k "cd %cd%\venv\Scripts & activate & cd /d  %cd% & pip install -U -r requirements.txt & cd /d %cd%\modules & python youtube.py & cd /d%cd%\venv\Scripts & deactivate.bat & exit"
-goto:choice
+    echo[
+    echo I'm here because you want to download Youtube Videos
+    rem echo Current Directory: %cd%
+    cmd /k "cd %cd%\venv\Scripts & activate & cd /d  %cd% & pip install -U -r requirements.txt & cd /d %cd%\modules & python youtube.py & cd /d%cd%\venv\Scripts & deactivate.bat & exit"
+    goto:exit
+
+:Wrongpy
+    echo "Goodbye %username% ! It's gonna be lonely without ya.",
+    goto:pyproj
 
 rem :jstfar 
 rem 	@echo off
