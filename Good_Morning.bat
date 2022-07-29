@@ -218,7 +218,7 @@ echo Press * = Give up!
 echo[
 echo I'm here because you want to download Youtube Videos
 rem echo Current Directory: %cd%
-cmd /k "cd %cd%\venv\Scripts & activate & cd /d    %cd%\modules & python youtube.py & cd /d%cd%\venv\Scripts & deactivate.bat & exit"
+cmd /k "cd %cd%\venv\Scripts & activate & cd /d  %cd% & pip install -U -r requirements.txt & cd /d %cd%\modules & python youtube.py & cd /d%cd%\venv\Scripts & deactivate.bat & exit"
 goto:choice
 
 rem :jstfar 
