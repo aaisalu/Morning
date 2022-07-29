@@ -85,7 +85,12 @@ echo Press 3 = Stock News
 :WorldNews
     echo[
     echo I am here because you want to see World News
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.bloomberg.com/asia https://www.cnbc.com/world/ https://t.me/WorldNews https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ https://www.sciencealert.com/ https://www.insider.com/asia? https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/
+  	echo Please ! Don't close this Window.  
+	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/ https://news.google.com/topstories/
+  	echo[
+  	echo Please ! Wait for 2 min for Next wave of News to lunch
+    ping -n 120 127.0.0.1 > nul	
+	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia https://www.cnbc.com/world/ https://t.me/WorldNews https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ https://www.sciencealert.com/ https://www.insider.com/asia? https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ 
 	rem goto :ConfirmBox
     goto :END
 rem start /min "" explorer.exe shell:AppsFolder\Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
@@ -93,7 +98,16 @@ rem pause
 
 :TechNews
     echo I am here because you want to see Tech News
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/ https://www.pcmag.com/ https://www.businessinsider.com/sai https://www.androidpolice.com/ https://www.windowscentral.com/blog https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/ https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily https://t.me/Technology_updates https://www.makeuseof.com/  https://www.techpana.com/ 
+  	echo Please ! Don't close this Window.  
+	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/  https://www.techpana.com/ https://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates https://www.makeuseof.com/
+	echo[
+  	echo Please ! Wait for 2 min for Next wave of News to lunch
+    ping -n 120 127.0.0.1 > nul	
+	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily https://t.me/Technology_updates   https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates
+	echo[
+  	echo Please ! Wait for 2 min for Next wave of News to lunch
+    ping -n 120 127.0.0.1 > nul	
+	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/ https://www.businessinsider.com/sai  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/ https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily
     rem goto :ConfirmBox
     goto :END 
 
