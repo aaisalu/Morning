@@ -13,7 +13,7 @@ echo          "Y8888P88  "Y88P"   "Y88P"   "Y88888       888       888  "Y88P"  
 echo                                                                                                               888 
 echo                                                                                                          Y8b d88P 
 echo                                                                                                           "Y88P"  
-)else if %%A LSS 12 (
+)else if %%A LSS 18 (
 echo[
 echo         .oOOOo.                   o          Oo    .oOo                                             
 echo        .O     o                  O          o  O   O                                                
@@ -35,7 +35,7 @@ echo       888    888 888  888 888  888 888  888       888        Y88  88P 88888
 echo        88b  d88P Y88..88P Y88..88P Y88b 888       888         Y8bd8P  Y8b.     888  888 888 888  888 Y88b 888 
 echo        "Y8888P88  "Y88P"   "Y88P"   "Y88888       8888888888   Y88P    "Y8888  888  888 888 888  888  "Y88888 
 echo                                                                                                           888 
-echo                                                                                                      Y8b d88P                                                                                                "Y88P"  
+echo                                                                                                      Y8b d88P
 echo                                                                                                       "Y88P" 
 )
 echo %date% %time% 
@@ -93,8 +93,8 @@ echo Press 3 = Stock News
 	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia https://www.cnbc.com/world/ https://t.me/WorldNews https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ https://www.sciencealert.com/ https://www.insider.com/asia? https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ 
 	rem goto :ConfirmBox
     goto :END
-rem start /min "" explorer.exe shell:AppsFolder\Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
-rem pause
+	rem start /min "" explorer.exe shell:AppsFolder\Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
+	rem pause
 
 :TechNews
     echo I am here because you want to see Tech News
