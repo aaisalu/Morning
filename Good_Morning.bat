@@ -15,14 +15,14 @@ echo                                                                            
 echo                                                                                                           "Y88P"  
 )else if %%A LSS 18 (
 echo[
-echo         .oOOOo.                   o          Oo    .oOo                                             
+echo         .oOOOo.                   o          Oo    oooo                                             
 echo        .O     o                  O          o  O   O                                                
 echo        o                         o         O    o  o     O                                          
-echo        O                         o        oOooOoOo OoO  oOo                                         
-echo        O   .oOOo .oOo. .oOo. .oOoO        o      O o     o   .oOo. `OoOo. 'OoOo. .oOo. .oOo. 'OoOo. 
-echo        o.      O O   o O   o o   O        O      o O     O   OooO'  o      o   O O   o O   o  o   O 
-echo         O.    oO o   O o   O O   o        o      O o     o   O      O      O   o o   O o   O  O   o 
-echo          `OooO'  `OoO' `OoO' `OoO'o       O.     O O'    `oO `OoO'  o      o   O `OoO' `OoO'  o   O   
+echo        O                         o        oOooOoOo OoO  oOo                                          
+echo        O   .oOOo .oOo. .oOo. .oOoO        o      O o     o    .oOo. `OoOo. 'OoOo. .oOo. .oOo.  ooOoo 
+echo        o.      O O   o O   o o   O        O      o O     O    OooO'  o      o   O O   o O   o  o   O 
+echo         O.    oO o   O o   O O   o        o      O o     o    O      O      O   o o   O o   O  O   o 
+echo          `OooO'  `OoO' `OoO' `OoO'o       O.     O O     ooo  `OoO'  o      o   O `OoO' `OoO'  o   O   
 echo[                                                                                                                                                                                           
 ) else if %%A LSS 22 (
 echo[
