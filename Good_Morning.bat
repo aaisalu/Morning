@@ -55,11 +55,11 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
 :choice
 echo[
 echo Press 1 = Start your day with Updated News Sources
-echo Press 2 = Beep Boop! It's Stock Time
+echo Press 2 = Beep..Beep Boop! It's Stock Time
 echo Press 3 = Travel to Folders
 echo Press 4 = Summon *.py
 echo Press 5 = Apply IPO
-rem echo Press 6 =  Navigate to Project Folder.
+echo Press 6 = Dress up
 rem echo Press 6=="QR-Code"
 
 echo[
@@ -69,7 +69,7 @@ if /I "%c%" EQU "2" goto :somewhere_else
 if /I "%c%" EQU "3" goto :bitfar
 if /I "%c%" EQU "4" goto :pyproj
 if /I "%c%" EQU "5" goto :lazyme
-rem if /I "%c%" EQU "6" goto :faraway
+if /I "%c%" EQU "6" goto :faraway
 rem if /I "%c%" EQU "7" goto :jstfar
 goto :choice
 
@@ -143,12 +143,6 @@ goto :choice
     %SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"   
     exit
 
-rem :faraway
-rem echo "I am here because you want to see Your Project Folder "
-rem %SystemRoot%\explorer.exe "D:\OxiFy. Proj~"
-rem pause
-rem exit
-
 :bitfar
     echo[
     echo Brace yourselves..Activating Jasmine flying carpet
@@ -196,7 +190,7 @@ rem exit
     echo[
     echo Roses are red, violets are blue, %username% joined this chat to apply IPO.
     echo Press 1 = Summon up Bot!
-    echo Press * = see ya!
+    echo Press * = See ya!
    :CHECKBOX 
         set /P c= Welcome, press secret key to activate God's eye:   
 
@@ -224,7 +218,30 @@ rem exit
         echo "Goodbye %username% ! It's gonna be lonely without ya.",
         goto :choice
 
+:faraway
+    echo[
+    echo Smells like %username% device is Fresh! 
+    echo Press 1 = Basic kit
+    echo Press 2 = Intermediate kit
+    rem echo Press 3 = Advanced kit
+   :farbox 
+        set /P c= Which kit would you like to proceed with (1/2) ?  
 
+    if /I "%c%" EQU "1" (
+    goto :Basic
+    ) else if /I "%c%" EQU "2" ( 
+    goto :Intermediate
+    ) else ( 
+    goto :Errorkit 
+    )
+    :Basic
+        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.mozilla.org/en-US/  https://discord.com/download http://bit.ly/2WZMML0 https://www.sublimetext.com/download http://obsproject.com/download http://www.google.com/chrome/ http://www.zoom.us/download https://www.videolan.org/vlc/download-windows.en_GB.html http://calibre-ebook.com/download http://www.7-zip.org/download.html  http://bit.ly/3Et0NB0 https://bit.ly/3OMQuMW
+        goto:farbox
+    :Intermediate
+        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3bhyTPG https://intel.ly/3bklcQ3 http://www.qbittorrent.org/download.php http://www.virtualbox.org/ http://github.com/hovancik/stretchly/releases  https://git-scm.com/downloads http://www.python.org/downloads/  http://codecguide.com/download_kl.htm http://bit.ly/3nikTZx  http://code.visualstudio.com/download
+        goto:END    
+    :Errorkit 
+        goto:faraway
 
 
 :pyproj
@@ -266,6 +283,7 @@ rem exit
     :Wrongpy
         echo "Goodbye %username% ! It's gonna be lonely without ya.",
         goto:pyproj
+
 
 rem :jstfar 
 rem 	@echo off
