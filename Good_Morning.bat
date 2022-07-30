@@ -53,25 +53,26 @@ rem echo It's a bird! It's a plane! - Nope, its %username% from %COMPUTERNAME% d
 echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% device!
 
 :choice
-echo[
-echo Press 1 = Start your day with Updated News Sources
-echo Press 2 = Beep..Beep Boop! It's Stock Time
-echo Press 3 = Travel to Folders
-echo Press 4 = Summon *.py
-echo Press 5 = Apply IPO
-echo Press 6 = Dress up
-rem echo Press 6=="QR-Code"
+    echo[
+    echo Press 1 = Start your day with Updated News Sources
+    echo Press 2 = Beep..Beep Boop! It's Stock Time
+    echo Press 3 = Travel to Folders
+    echo Press 4 = Summon *.py
+    echo Press 5 = Apply IPO
+    echo Press 6 = Dress up
+    rem echo Press 6=="QR-Code"
+    echo[
 
-echo[
-set /P c=Feed me just Number so, I can work for you!! [1-5] ?  
-if /I "%c%" EQU "1" goto :somewhere
-if /I "%c%" EQU "2" goto :somewhere_else
-if /I "%c%" EQU "3" goto :bitfar
-if /I "%c%" EQU "4" goto :pyproj
-if /I "%c%" EQU "5" goto :lazyme
-if /I "%c%" EQU "6" goto :faraway
-rem if /I "%c%" EQU "7" goto :jstfar
-goto :choice
+    set /P c=Feed me just Number so, I can work for you!! [1-5] ?  
+    if /I "%c%" EQU "1" (goto :somewhere
+    ) else if  /I "%c%" EQU "2" ( goto :somewhere_else
+    ) else if  /I "%c%" EQU "3" ( goto :bitfar
+    ) else if  /I "%c%" EQU "4" ( goto :pyproj
+    ) else if  /I "%c%" EQU "5" ( goto :lazyme
+    ) else if  /I "%c%" EQU "6" ( goto :faraway
+    ) else ( goto :choice) 
+    rem if /I "%c%" EQU "7" goto :jstfar
+    
 
 
 :somewhere
@@ -81,20 +82,19 @@ goto :choice
     echo Press 2 = Tech News
     echo Press 3 = Stock News
    :ConfirmBox 
-        set /P c= Which News type you want to be updated with (1/2/3) ?  
+        set /P n= Which News type you want to be updated with (1/2/3) ?  
 
-    if /I "%c%" EQU "1" (
+    if /I "%n%" EQU "1" (
     goto :WorldNews
-    ) else if /I "%c%" EQU "2" ( 
+    ) else if /I "%n%" EQU "2" ( 
     goto :TechNews
-    )  else if /I "%c%" EQU "3" ( 
+    )  else if /I "%n%" EQU "3" ( 
     goto :StockNews
     ) else ( 
     goto :InERROR 
     )
     :WorldNews
-        echo[
-        
+        echo[      
         echo I am here because you want to see World News
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/
         echo[
@@ -133,7 +133,7 @@ goto :choice
 
     :InERROR
         echo Invalid selection. Enter given seleted number [1/2/3].
-        goto :ConfirmBox 
+        goto :choice 
     exit
 
 :somewhere_else
@@ -152,15 +152,15 @@ goto :choice
     echo Press 4 =  Folder 4
 
    :SUREBOX
-        set /P c= Which Folder you want to Travel (1/2/3/4) ?  
+        set /P t= Which Folder you want to Travel (1/2/3/4) ?  
 
-    if /I "%c%" EQU "1" (
+    if /I "%t%" EQU "1" (
     goto :Fnpy 
-    ) else if /I "%c%" EQU "2" ( 
+    ) else if /I "%t%" EQU "2" ( 
     goto :Fncmd
-    )  else if /I "%c%" EQU "3" ( 
+    )  else if /I "%t%" EQU "3" ( 
     goto :Fnexcel
-    ) else if /I "%c%" EQU "4" ( 
+    ) else if /I "%t%" EQU "4" ( 
     goto :Fnproj
     ) else ( 
     goto :InValid 
@@ -183,7 +183,7 @@ goto :choice
         goto :END
     :InValid
         echo Invalid selection. Enter given seleted number [1/2/3/4].
-        goto :SUREBOX
+        goto :choice
     exit
 
 :lazyme
@@ -192,9 +192,9 @@ goto :choice
     echo Press 1 = Summon up Bot!
     echo Press * = See ya!
    :CHECKBOX 
-        set /P c= Welcome, press secret key to activate God's eye:   
+        set /P s= Welcome, press secret key to activate God's eye:   
 
-    if /I "%c%" EQU "1" (
+    if /I "%s%" EQU "1" (
     goto :APLYIPO
     ) else ( 
     goto :InWrong
@@ -212,7 +212,8 @@ goto :choice
         echo       "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
         echo[
     	echo "IN WIP"
-        goto:choice
+        pause
+        exit
 
     :InWrong
         echo "Goodbye %username% ! It's gonna be lonely without ya.",
@@ -225,11 +226,11 @@ goto :choice
     echo Press 2 = Intermediate kit
     rem echo Press 3 = Advanced kit
    :farbox 
-        set /P c= Which kit would you like to proceed with (1/2) ?  
+        set /P k= Which kit would you like to proceed with (1/2) ?  
 
-    if /I "%c%" EQU "1" (
+    if /I "%k%" EQU "1" (
     goto :Basic
-    ) else if /I "%c%" EQU "2" ( 
+    ) else if /I "%k%" EQU "2" ( 
     goto :Intermediate
     ) else ( 
     goto :Errorkit 
@@ -241,7 +242,7 @@ goto :choice
         start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3bhyTPG https://intel.ly/3bklcQ3 http://www.qbittorrent.org/download.php http://www.virtualbox.org/ http://github.com/hovancik/stretchly/releases  https://git-scm.com/downloads http://www.python.org/downloads/  http://codecguide.com/download_kl.htm http://bit.ly/3nikTZx  http://code.visualstudio.com/download
         goto:END    
     :Errorkit 
-        goto:faraway
+        goto:choice
 
 
 :pyproj
@@ -250,10 +251,10 @@ goto :choice
     echo Press 2 = Scrap IMDb Movies
     echo Press * = Give up!
     :checkpy 
-        set /P c= Welcome, press secret key to lunch *.py :       
-    if /I "%c%" EQU "1" (
+        set /P p= Welcome, press secret key to lunch *.py :       
+    if /I "%p%" EQU "1" (
     goto :ytdown
-    ) else if /I "%c%" EQU "2" ( 
+    ) else if /I "%p%" EQU "2" ( 
     goto :scrapimdb
     ) else ( 
     goto :Wrongpy
@@ -282,7 +283,7 @@ goto :choice
 
     :Wrongpy
         echo "Goodbye %username% ! It's gonna be lonely without ya.",
-        goto:pyproj
+        goto:choice
 
 
 rem :jstfar 
