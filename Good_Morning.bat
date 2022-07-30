@@ -24,7 +24,7 @@ echo        o.      O O   o O   o o   O        O      o O     O   OooO'  o      
 echo         O.    oO o   O o   O O   o        o      O o     o   O      O      O   o o   O o   O  O   o 
 echo          `OooO'  `OoO' `OoO' `OoO'o       O.     O O'    `oO `OoO'  o      o   O `OoO' `OoO'  o   O   
 echo[                                                                                                                                                                                           
-)else (
+) else if %%A LSS 22 (
 echo[
 echo        .d8888b.                         888       8888888888                            d8b                   
 echo       .88P  Y88b                        888       888                                   Y8P                   
@@ -37,10 +37,21 @@ echo        "Y8888P88  "Y88P"   "Y88P"   "Y88888       8888888888   Y88P    "Y88
 echo                                                                                                           888 
 echo                                                                                                      Y8b d88P
 echo                                                                                                       "Y88P" 
+) else (
+echo[
+echo         ::::::::   ::::::::   ::::::::  :::::::::       ::::    ::: ::::::::::: ::::::::  :::    ::: ::::::::::: 
+echo        :+:    :+: :+:    :+: :+:    :+: :+:    :+:      :+:+:   :+:     :+:    :+:    :+: :+:    :+:     :+:     
+echo        +:+        +:+    +:+ +:+    +:+ +:+    +:+      :+:+:+  +:+     +:+    +:+        +:+    +:+     +:+     
+echo        :#:        +#+    +:+ +#+    +:+ +#+    +:+      +#+ +:+ +#+     +#+    :#:        +#++:++#++     +#+     
+echo        +#+   +#+# +#+    +#+ +#+    +#+ +#+    +#+      +#+  +#+#+#     +#+    +#+   +#+# +#+    +#+     +#+     
+echo        #+#    #+# #+#    #+# #+#    #+# #+#    #+#      #+#   #+#+#     #+#    #+#    #+# #+#    #+#     #+#     
+echo         ########   ########   ########  #########       ###    #### ########### ########  ###    ###     ###     
 )
+
 echo %date% %time% 
 rem echo It's a bird! It's a plane! - Nope, its %username% from %COMPUTERNAME% device!
 echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% device!
+
 :choice
 echo[
 echo Press 1 = Start your day with Updated News Sources
@@ -50,6 +61,7 @@ echo Press 4 = Summon *.py
 echo Press 5 = Apply IPO
 rem echo Press 6 =  Navigate to Project Folder.
 rem echo Press 6=="QR-Code"
+
 echo[
 set /P c=Feed me just Number so, I can work for you!! [1-5] ?  
 if /I "%c%" EQU "1" goto :somewhere
@@ -80,47 +92,49 @@ goto :choice
     ) else ( 
     goto :InERROR 
     )
+    :WorldNews
+        echo[
+        
+        echo I am here because you want to see World News
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/
+        echo[
+        echo Please ! Don't close this Window. 
+        echo Please ! Wait for 2 min for next wave of news to lunch
+        ping -n 120 127.0.0.1 > nul 
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia https://www.cnbc.com/world/ https://t.me/WorldNews https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/
+        goto :END      
+        rem goto :ConfirmBox  
+    	rem start /min "" explorer.exe shell:AppsFolder\Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
+    	rem pause
 
+    :TechNews
+        echo I am here because you want to see Tech News 
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/  https://www.techpana.com/ https://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates https://www.makeuseof.com/
+        
+        echo[
+        echo Please ! Don't close this Window. 
+        echo Please ! Wait for 2 min for next wave of news to lunch
+        ping -n 120 127.0.0.1 > nul 
 
-:WorldNews
-    echo[
-    echo I am here because you want to see World News
-  	echo Please ! Don't close this Window.  
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/
-  	echo[
-  	echo Please ! Wait for 2 min for Next wave of News to lunch
-    ping -n 120 127.0.0.1 > nul	
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia https://www.cnbc.com/world/ https://t.me/WorldNews https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ https://www.sciencealert.com/ https://www.insider.com/asia? https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ 
-	rem goto :ConfirmBox
-    goto :END
-	rem start /min "" explorer.exe shell:AppsFolder\Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
-	rem pause
+        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily https://t.me/Technology_updates   https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates/
+        
+        echo[
+        echo Please ! Don't close this Window. 
+        echo Please ! Wait for 2 min for next wave of news to lunch
+        ping -n 120 127.0.0.1 > nul 
 
-:TechNews
-    echo I am here because you want to see Tech News
-  	echo Please ! Don't close this Window.  
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/  https://www.techpana.com/ https://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates https://www.makeuseof.com/
-	echo[
-  	echo Please ! Wait for 2 min for Next wave of News to lunch
-    ping -n 120 127.0.0.1 > nul	
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily https://t.me/Technology_updates   https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates
-	echo[
-  	echo Please ! Wait for 2 min for Next wave of News to lunch
-    ping -n 120 127.0.0.1 > nul	
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/ https://www.businessinsider.com/sai  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/ https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily
-    rem goto :ConfirmBox
-    goto :END 
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/ https://www.businessinsider.com/sai  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/ https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily/
+        goto :END 
 
-:StockNews
-    echo I am here because you want to see Stock News
-	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.nepalstock.com/news/category/0 https://merolagani.com/ https://nepsealpha.com/ https://www.bizshala.com/ https://newweb.nepalstock.com.np/ https://www.sharebazarnepal.com.np/ http://nepalstockinfo.com/ https://investingnepal.com/ https://www.sharesansar.com/ https://www.nepalipaisa.com/ https://merocapital.com/
-	rem goto :ConfirmBox
-    goto :END
+    :StockNews
+        echo I am here because you want to see Stock News
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.nepalstock.com/news/category/0 https://merolagani.com/ https://nepsealpha.com/ https://www.bizshala.com/ https://newweb.nepalstock.com.np/ https://www.sharebazarnepal.com.np/ http://nepalstockinfo.com/ https://investingnepal.com/ https://www.sharesansar.com/ https://www.nepalipaisa.com/ https://merocapital.com/
+        goto :END
 
-:InERROR
-    echo Invalid selection. Enter given seleted number [1/2/3].
-    goto :ConfirmBox 
-exit
+    :InERROR
+        echo Invalid selection. Enter given seleted number [1/2/3].
+        goto :ConfirmBox 
+    exit
 
 :somewhere_else
     echo I'm here because it's Business hrs
@@ -157,36 +171,32 @@ rem exit
     ) else ( 
     goto :InValid 
     )
-
-
-:Fnpy
-    echo Travelling to  Folder
-    %SystemRoot%\explorer.exe "D:\Folder1"
-    goto :END
-:Fncmd
-    echo Travelling to  Folder
-    %SystemRoot%\explorer.exe "D:\Folder2"
-    goto :END
-:Fnexcel
-    echo Travelling to  Folder
-    %SystemRoot%\explorer.exe "D:\Folder3"
-    goto :END
-:Fnproj
-    echo Travelling to Project Folder "
-    %SystemRoot%\explorer.exe "D:\Folder4"
-    goto :END
-
-
-:InValid
-    echo Invalid selection. Enter given seleted number [1/2/3/4].
-    goto :SUREBOX
-
+    :Fnpy
+        echo Travelling to  Folder
+        %SystemRoot%\explorer.exe "D:\Folder2"
+        goto :END
+    :Fncmd
+        echo Travelling to  Folder      
+        %SystemRoot%\explorer.exe "D:\Folder2"
+        goto :END
+    :Fnexcel
+        echo Travelling to  Folder        
+        %SystemRoot%\explorer.exe "D:\Folder3"
+        goto :END
+    :Fnproj
+        echo Travelling to  Folder
+        %SystemRoot%\explorer.exe "D:\Folder4"
+        goto :END
+    :InValid
+        echo Invalid selection. Enter given seleted number [1/2/3/4].
+        goto :SUREBOX
+    exit
 
 :lazyme
     echo[
     echo Roses are red, violets are blue, %username% joined this chat to apply IPO.
-    echo Press 1 = APPLY IPO
-    echo Press * = Give up!
+    echo Press 1 = Summon up Bot!
+    echo Press * = see ya!
    :CHECKBOX 
         set /P c= Welcome, press secret key to activate God's eye:   
 
@@ -196,22 +206,24 @@ rem exit
     goto :InWrong
     )
 
-:APLYIPO
-    echo[
-    echo       .d8888b.   .d88888b.   .d88888b.  8888888b.       888     888     888  .d8888b.  888    d8P  
-    echo      d88P  Y88b d88P" "Y88b d88P" "Y88b 888  "Y88b      888     888     888 d88P  Y88b 888   d8P   
-    echo      888    888 888     888 888     888 888    888      888     888     888 888    888 888  d8P    
-    echo      888        888     888 888     888 888    888      888     888     888 888        888d88K     
-    echo      888  88888 888     888 888     888 888    888      888     888     888 888        8888888b    
-    echo      888    888 888     888 888     888 888    888      888     888     888 888    888 888  Y88b   
-    echo      Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b  
-    echo       "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
-    echo[
-	echo "IN WIP"
+    :APLYIPO
+        echo[
+        echo       .d8888b.   .d88888b.   .d88888b.  8888888b.       888     888     888  .d8888b.  888    d8P  
+        echo      d88P  Y88b d88P" "Y88b d88P" "Y88b 888  "Y88b      888     888     888 d88P  Y88b 888   d8P   
+        echo      888    888 888     888 888     888 888    888      888     888     888 888    888 888  d8P    
+        echo      888        888     888 888     888 888    888      888     888     888 888        888d88K     
+        echo      888  88888 888     888 888     888 888    888      888     888     888 888        8888888b    
+        echo      888    888 888     888 888     888 888    888      888     888     888 888    888 888  Y88b   
+        echo      Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b  
+        echo       "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
+        echo[
+    	echo "IN WIP"
+        goto:choice
 
-:InWrong
-    echo "Goodbye %username% ! It's gonna be lonely without ya.",
-    goto :choice
+    :InWrong
+        echo "Goodbye %username% ! It's gonna be lonely without ya.",
+        goto :choice
+
 
 
 
@@ -220,25 +232,40 @@ rem exit
     echo Press 1 = Download Youtube Videos
     echo Press 2 = Scrap IMDb Movies
     echo Press * = Give up!
-    :CHECKBOX 
-        set /P c= Welcome, press secret key to lunch *.py:   
-
+    :checkpy 
+        set /P c= Welcome, press secret key to lunch *.py :       
     if /I "%c%" EQU "1" (
     goto :ytdown
+    ) else if /I "%c%" EQU "2" ( 
+    goto :scrapimdb
     ) else ( 
     goto :Wrongpy
     )
+    :checkmate
+        @echo off
+        echo Creating venv for your *.py
+        python -m venv venv
+        echo Initialization of venv completed!
+        echo Soory..Please select again as i was replying to my girl :)
+        echo[
+        goto:pyproj
 
-:ytdown
-    echo[
-    echo I'm here because you want to download Youtube Videos
-    rem echo Current Directory: %cd%
-    cmd /k "cd %cd%\venv\Scripts & activate & cd /d  %cd% & pip install -U -r requirements.txt & cd /d %cd%\modules & python youtube.py & cd /d%cd%\venv\Scripts & deactivate.bat & exit"
-    goto:exit
+    :scrapimdb
+        echo Hello its' on WIP
+        ping -n 120 127.0.0.1 > nul 
+        exit
 
-:Wrongpy
-    echo "Goodbye %username% ! It's gonna be lonely without ya.",
-    goto:pyproj
+    :ytdown
+        @echo off
+        if NOT EXIST "venv\Scripts\activate" goto:checkmate
+        echo[
+        echo I'm here because you want to download Youtube Videos
+        cmd /k "cd %cd%\venv\Scripts & activate & cd /d  %cd% & pip install -U -r requirements.txt & cd /d %cd%\modules & python youtube.py & cd /d%cd%\venv\Scripts & deactivate.bat & exit"
+        goto:pyproj
+
+    :Wrongpy
+        echo "Goodbye %username% ! It's gonna be lonely without ya.",
+        goto:pyproj
 
 rem :jstfar 
 rem 	@echo off
