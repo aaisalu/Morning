@@ -20,10 +20,14 @@ def mp3(url):
     print(f"Title: {yt.title} ")
     print(f"Views: {yt.views} Duration:{yt.length}")
     print("")
-    out_file = pytube.YouTube(url,on_progress_callback=on_progress).streams.filter(only_audio=True).first().download(folder("Audios"))
-    base, ext = os.path.splitext(out_file)
-    new_file = base + '.mp3'
-    os.rename(out_file, new_file)
+    try: 
+        out_file = pytube.YouTube(url,on_progress_callback=on_progress).streams.filter(only_audio=True).first().download(folder("Audios"))
+        base, ext = os.path.splitext(out_file)
+        new_file = base + '.mp3'
+        os.rename(out_file, new_file)
+    except FileExistsError as file:
+        print(f"Looks like {yt.title} Music is already present")
+
 
 def solo_video(url):
     yt=pytube.YouTube(url)
