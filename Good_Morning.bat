@@ -60,20 +60,19 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
     echo Press 4 = Summon *.py
     echo Press 5 = Apply IPO
     echo Press 6 = Dress up
-    rem echo Press 6=="QR-Code"
+    echo Press 0 = Leave
     echo[
-
-    set /P c=Feed me just Number so, I can work for you!! [1-5] ?  
-    if /I "%c%" EQU "1" (goto :somewhere
-    ) else if  /I "%c%" EQU "2" ( goto :somewhere_else
-    ) else if  /I "%c%" EQU "3" ( goto :bitfar
-    ) else if  /I "%c%" EQU "4" ( goto :pyproj
-    ) else if  /I "%c%" EQU "5" ( goto :lazyme
-    ) else if  /I "%c%" EQU "6" ( goto :faraway
-    ) else ( goto :choice) 
-    rem if /I "%c%" EQU "7" goto :jstfar
+    :brain
+    set /P brn=Feed me just Number so, I can work for you!! [1-6] ?  
+    if /I "%brn%" EQU "1" ( goto :somewhere
+    ) else if  /I "%brn%" EQU "2" ( goto :somewhere_else
+    ) else if  /I "%brn%" EQU "3" ( goto :bitfar
+    ) else if  /I "%brn%" EQU "4" ( goto :pyproj
+    ) else if  /I "%brn%" EQU "5" ( goto :lazyme
+    ) else if  /I "%brn%" EQU "6" ( goto :faraway
+    ) else if  /I "%brn%" EQU "0" ( exit
+    ) else ( goto :choice ) 
     
-
 
 :somewhere
     echo[
@@ -133,7 +132,7 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
 
     :InERROR
         echo Invalid selection. Enter given seleted number [1/2/3].
-        goto :choice 
+        goto :somewhere 
     exit
 
 :somewhere_else
@@ -141,7 +140,7 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
     rem start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
     start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
     %SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"   
-    exit
+    goto:choice
 
 :bitfar
     echo[
@@ -183,7 +182,7 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
         goto :END
     :InValid
         echo Invalid selection. Enter given seleted number [1/2/3/4].
-        goto :choice
+        goto :bitfar
     exit
 
 :lazyme
@@ -212,7 +211,7 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
         echo       "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
         echo[
     	echo "IN WIP"
-        pause
+        ping -n 15 127.0.0.1 > nul         
         exit
 
     :InWrong
@@ -221,7 +220,7 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
 
 :faraway
     echo[
-    echo Smells like %username% device is Fresh! 
+    echo Smells like %username% device is fresh! 
     echo Press 1 = Basic kit
     echo Press 2 = Intermediate kit
     rem echo Press 3 = Advanced kit
@@ -242,16 +241,25 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
         start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3bhyTPG https://intel.ly/3bklcQ3 http://www.qbittorrent.org/download.php http://www.virtualbox.org/ http://github.com/hovancik/stretchly/releases  https://git-scm.com/downloads http://www.python.org/downloads/  http://codecguide.com/download_kl.htm http://bit.ly/3nikTZx  http://code.visualstudio.com/download
         goto:END    
     :Errorkit 
-        goto:choice
+        goto:faraway
 
 
-:pyproj
+:pyproj 
+    @echo off
+    cd %~dp0\
+    if not exist "%~dp0\venv\Scripts\activate" (
+    echo Creating venv for your *.py
+    cd %~dp0\
+    echo Changed directory to %~dp0
+    python -m venv venv
+    echo Initialization of venv completed!)
+
     echo[
     echo Press 1 = Download Youtube Videos
     echo Press 2 = Scrap IMDb Movies
     echo Press * = Give up!
     :checkpy 
-        set /P p= Welcome, press secret key to lunch *.py :       
+        set /P p= Welcome, press secret key to lunch *.py :      
     if /I "%p%" EQU "1" (
     goto :ytdown
     ) else if /I "%p%" EQU "2" ( 
@@ -259,31 +267,32 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
     ) else ( 
     goto :Wrongpy
     )
-    :checkmate
-        @echo off
-        echo Creating venv for your *.py
-        python -m venv venv
-        echo Initialization of venv completed!
-        echo Soory..Please select again as i was replying to my girl :)
-        echo[
-        goto:pyproj
-
+    
+    rem :checkmate
+    rem     @echo off
+    rem     echo Creating venv for your *.py
+    rem     python -m venv venv
+    rem     echo Initialization of venv completed!
+    rem     echo Soory..Please select again as i was replying to my girl :)
+    rem     echo[
+    rem     goto:pyproj  
     :scrapimdb
-        echo Hello its' on WIP
+        echo Arriving soon from aplha stage
         ping -n 120 127.0.0.1 > nul 
         exit
 
     :ytdown
         @echo off
-        if NOT EXIST "venv\Scripts\activate" goto:checkmate
+        rem if NOT EXIST "venv\Scripts\activate" goto:checkmate
         echo[
         echo I'm here because you want to download Youtube Videos
-        cmd /k "cd %cd%\venv\Scripts & activate & cd /d  %cd% & pip install -U -r requirements.txt & cd /d %cd%\modules & python youtube.py & cd /d%cd%\venv\Scripts & deactivate.bat & exit"
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
 
     :Wrongpy
         echo "Goodbye %username% ! It's gonna be lonely without ya.",
-        goto:choice
+        goto:pyproj
+
 
 
 rem :jstfar 
