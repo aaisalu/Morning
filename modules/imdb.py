@@ -1,11 +1,18 @@
 from bs4 import BeautifulSoup
 import requests,csv
+import os
 
-url=input("Please feed the imdb website: ")
+
+def folder(file):
+    global Path
+    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') 
+    Path=rf"{desktop}\{file}"
+    if not os.path.exists(Path):
+        os.makedirs(Path)
+    return Path
 
 
 def imdb_v5(url):
-	# url='https://www.imdb.com/search/title/?groups=top_1000&sort=user_rating,desc&count=100&start=%27+str(hi)+%27&ref_=adv_nxt'
 	incoming=requests.get(url).text
 	soup=BeautifulSoup(incoming,'lxml')
 	data=soup.find_all('div',{"class":'lister-item mode-advanced'})
@@ -28,10 +35,10 @@ def imdb_v5(url):
 		gross  =ballot[1].text if len(ballot)>2 and '$' in ballot[1].text and '#' not in ballot[1].text  else "Still Collecting Cash"
 		top_250=ballot[2].text if len(ballot)>2 and '#' in ballot[2].text and '$' not in ballot[2].text else "Can't be found in Top 250"
 		
-		with open("imdb_v5.csv",mode='a+',newline='') as editor:
+		with open(rf"{folder('Moviez')}\scrap_imdb.csv",mode='a+',newline='') as editor:
 			write=csv.writer(editor,delimiter=',')
 			write.writerow([index,title,rate,year,time,genre,summary,vote,meta,gross,certificate,top_250])
 		
 
-imdb_v5(url)
+imdb_v5(str(input("Please feed the imdb website: ")))
 

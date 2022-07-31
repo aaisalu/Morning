@@ -52,7 +52,6 @@ echo %date% %time%
 rem echo It's a bird! It's a plane! - Nope, its %username% from %COMPUTERNAME% device!
 echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% device!
 
-
 rem echo Copy this code to lunch Firefox browser :  start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe"
 rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program Files\Google\Chrome\Application\chrome.exe"
 
