@@ -271,11 +271,12 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :Wrongpy
     )
 
-    :scrapimdb
-        echo Arriving soon from aplha stage
-        ping -n 120 127.0.0.1 > nul 
-        exit
-
+    :scrapimdb                                                                                                                                            
+        echo Getteing on board !
+        echo[
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        goto:pyproj
+               
     :ytdown
         @echo off
         echo[
