@@ -66,7 +66,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo Press 0 = Leave
     echo[
     :brain
-    set /P brn=Feed me just Number so, I can work for you!! [1-6] ?  
+    set /P brn=Feed me just Number so, I can work for you!! [1-6] ? 
     if /I "%brn%" EQU "1" ( goto :somewhere
     ) else if  /I "%brn%" EQU "2" ( goto :somewhere_else
     ) else if  /I "%brn%" EQU "3" ( goto :bitfar
@@ -74,17 +74,17 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     ) else if  /I "%brn%" EQU "5" ( goto :lazyme
     ) else if  /I "%brn%" EQU "6" ( goto :faraway
     ) else if  /I "%brn%" EQU "0" ( exit
-    ) else ( goto :choice ) 
+    ) else (goto :choice) 
     
-
 :somewhere
     echo[
-    echo %username% Just teleported into the chat from Jungle
+    echo %username% Just teleported into the chat from Jungle!
     echo Press 1 = World News
     echo Press 2 = Tech News
     echo Press 3 = Stock News
+    echo Press 0 = Depart
    :ConfirmBox 
-        set /P n= Which News type you want to be updated with (1/2/3) ?  
+        set /P n= Which News type do you want to be updated with (1/2/3) ?  
 
     if /I "%n%" EQU "1" (
     goto :WorldNews
@@ -92,16 +92,17 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :TechNews
     )  else if /I "%n%" EQU "3" ( 
     goto :StockNews
-    ) else ( 
-    goto :InERROR 
+    ) else if /I "%n%" EQU "0" (
+    goto:choice 
+    )else ( goto :InERROR 
     )
     :WorldNews
         echo[      
         echo I am here because you want to see World News
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/
         echo[
-        echo Please ! Don't close this Window. 
-        echo Please ! Wait for 2 min for next wave of news to lunch
+        echo Please! Don't close this Window. 
+        echo Please! Wait for 2 min for the next wave of news to lunch
         ping -n 120 127.0.0.1 > nul 
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia https://www.cnbc.com/world/ https://t.me/WorldNews https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/
         goto :END      
@@ -110,51 +111,58 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     	rem pause
 
     :TechNews
+        echo[
         echo I am here because you want to see Tech News 
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/  https://www.techpana.com/ https://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates https://www.makeuseof.com/
         
         echo[
-        echo Please ! Don't close this Window. 
-        echo Please ! Wait for 2 min for next wave of news to lunch
+        echo Please! Don't close this Window. 
+        echo Please! Wait for 2 min for the next wave of news to lunch
         ping -n 120 127.0.0.1 > nul 
 
         start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily https://t.me/Technology_updates   https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates/
         
         echo[
-        echo Please ! Don't close this Window. 
-        echo Please ! Wait for 2 min for next wave of news to lunch
+        echo Please! Don't close this Window. 
+        echo Please! Wait for 2 min for the next wave of news to lunch
         ping -n 120 127.0.0.1 > nul 
 
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/ https://www.businessinsider.com/sai  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/ https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily/
         goto :END 
 
     :StockNews
+        echo[
         echo I am here because you want to see Stock News
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.nepalstock.com/news/category/0 https://merolagani.com/ https://nepsealpha.com/ https://www.bizshala.com/ https://newweb.nepalstock.com.np/ https://www.sharebazarnepal.com.np/ http://nepalstockinfo.com/ https://investingnepal.com/ https://www.sharesansar.com/ https://www.nepalipaisa.com/ https://merocapital.com/
         goto :END
 
     :InERROR
-        echo Invalid selection. Enter given seleted number [1/2/3].
+        echo[
+        echo Looks like someone having a hard time selecting a digit: [1/2/3].
         goto :somewhere 
     exit
 
 :somewhere_else
+    pause
+    echo[
     echo I'm here because it's Business hrs
     rem start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
-    start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
+    start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://mail.google.com/mail/u/0/#inbox https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
+    echo Opening your Excel balance sheet
     %SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"   
     goto:choice
 
 :bitfar
     echo[
-    echo Brace yourselves..Activating Jasmine flying carpet
-    echo Press 1 =  Folder 1
-    echo Press 2 =  Folder 2
-    echo Press 3 =  Folder 3
-    echo Press 4 =  Folder 4
+    echo Brace yourselves...Activating Jasmine flying carpet
+    echo Press 1 = Folder 1
+    echo Press 2 = Folder 2
+    echo Press 3 = Folder 3
+    echo Press 4 = Folder 4
+    echo Press 0 = Depart
 
    :SUREBOX
-        set /P t= Which Folder you want to Travel (1/2/3/4) ?  
+        set /P t= Which folder do you want to Travel (1/2/3/4) ?  
 
     if /I "%t%" EQU "1" (
     goto :Fnpy 
@@ -164,37 +172,40 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :Fnexcel
     ) else if /I "%t%" EQU "4" ( 
     goto :Fnproj
-    ) else ( 
+    ) else if /I "%t%" EQU "0" (
+    goto:choice 
+    )else ( 
     goto :InValid 
     )
     :Fnpy
-        echo Travelling to  Folder
+        echo Traveling to Folder
         %SystemRoot%\explorer.exe "D:\Folder2"
         goto :END
     :Fncmd
-        echo Travelling to  Folder      
+        echo Traveling to Folder      
         %SystemRoot%\explorer.exe "D:\Folder2"
         goto :END
     :Fnexcel
-        echo Travelling to  Folder        
+        echo Traveling to Folder        
         %SystemRoot%\explorer.exe "D:\Folder3"
         goto :END
     :Fnproj
-        echo Travelling to  Folder
+        echo Traveling to Folder
         %SystemRoot%\explorer.exe "D:\Folder4"
         goto :END
     :InValid
-        echo Invalid selection. Enter given seleted number [1/2/3/4].
+        echo Use your jet ticket wisely. [1-4]
         goto :bitfar
     exit
 
 :lazyme
     echo[
     echo Roses are red, violets are blue, %username% joined this chat to apply IPO.
-    echo Press 1 = Summon up Bot!
-    echo Press * = See ya!
+    echo Press 1 = Summon up Bot to apply IPO!
+    rem echo Press 2 = Wake Bot to check IPO
+    echo Press 0 = See ya!
    :CHECKBOX 
-        set /P s= Welcome, press secret key to activate God's eye:   
+        set /P s= Welcome, press the secret key to activate God's eye: 
 
     if /I "%s%" EQU "1" (
     goto :APLYIPO
@@ -218,32 +229,53 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         exit
 
     :InWrong
+        echo[
         echo "Goodbye %username% ! It's gonna be lonely without ya.",
         goto :choice
 
 :faraway
     echo[
-    echo Smells like %username% device is fresh! 
-    echo Press 1 = Basic kit
-    echo Press 2 = Intermediate kit
-    rem echo Press 3 = Advanced kit
+    echo Feels like %username% device needs some medic kit! 
+    echo Press 1 = Basic kit of Software
+    echo Press 2 = Intermediate kit of Software
+    echo Press 3 = Generate Battery report
+    echo Press 0 = Depart
+    rem echo Press 4 = Advanced kit
+
    :farbox 
-        set /P k= Which kit would you like to proceed with (1/2) ?  
+        set /P k= Which kit would you like to proceed with (1/2/3) ?  
 
     if /I "%k%" EQU "1" (
     goto :Basic
     ) else if /I "%k%" EQU "2" ( 
     goto :Intermediate
+    ) else if /I "%k%" EQU "0" (
+    goto:choice 
+    ) else if /I "%k%" EQU "3" ( 
+    goto :battreport
     ) else ( 
-    goto :Errorkit 
+    goto :faraway 
     )
     :Basic
+        echo[
+        echo Flying to respective links of Basic kit software
         start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.mozilla.org/en-US/  https://discord.com/download http://bit.ly/2WZMML0 https://www.sublimetext.com/download http://obsproject.com/download http://www.google.com/chrome/ http://www.zoom.us/download https://www.videolan.org/vlc/download-windows.en_GB.html http://calibre-ebook.com/download http://www.7-zip.org/download.html  http://bit.ly/3Et0NB0 https://bit.ly/3OMQuMW
-        goto:farbox
+        goto:faraway
     :Intermediate
+        echo[
+        echo Flying to respective links of Intermediate kit software
         start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3bhyTPG https://intel.ly/3bklcQ3 http://www.qbittorrent.org/download.php http://www.virtualbox.org/ http://github.com/hovancik/stretchly/releases  https://git-scm.com/downloads http://www.python.org/downloads/  http://codecguide.com/download_kl.htm http://bit.ly/3nikTZx  http://code.visualstudio.com/download
-        goto:END    
+        goto:faraway
+    :battreport
+        echo[
+        echo Generate battery report of your %COMPUTERNAME% device !
+        cd %USERPROFILE%\Desktop
+        powercfg /batteryreport
+        echo Saved at %USERPROFILE%\Desktop
+        goto:faraway
     :Errorkit 
+        echo[
+        echo You are playing it wrong, press only one digit! [1/2/3]
         goto:faraway
 
 
@@ -251,28 +283,36 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     @echo off
     cd %~dp0\
     if not exist "%~dp0\venv\Scripts\activate" (
+    echo[
     echo Creating venv for your *.py
     cd %~dp0\
     echo Changed directory to %~dp0
+    echo[ 
+    echo Please be patient...
+    echo This should only take another few minutes or less, and then you'll be good to go!
     python -m venv venv
-    echo Initialization of venv completed!)
+    echo Initialization of venv completed!
+    echo I apologize for making you wait )
 
     echo[
     echo Press 1 = Download Youtube Videos
     echo Press 2 = Scrap IMDb Movies
-    echo Press * = Give up!
-    :checkpy 
-        set /P p= Welcome, press secret key to lunch *.py :      
+    echo Press 0 = Depart
+
+    :checkpy   
+        set /P p= Welcome, press the secret key to lunch *.py: 
     if /I "%p%" EQU "1" (
     goto :ytdown
     ) else if /I "%p%" EQU "2" ( 
     goto :scrapimdb
+    ) else if /I "%p%" EQU "0" (
+    goto:choice
     ) else ( 
-    goto :Wrongpy
+    goto :pyproj
     )
 
     :scrapimdb                                                                                                                                            
-        echo Getteing on board !
+        echo Getting on board !
         echo[
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
@@ -283,11 +323,6 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo I'm here because you want to download Youtube Videos
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
-
-    :Wrongpy
-        echo "Goodbye %username% ! It's gonna be lonely without ya.",
-        goto:pyproj
-
 
 
 rem :jstfar 
