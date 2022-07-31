@@ -52,6 +52,10 @@ echo %date% %time%
 rem echo It's a bird! It's a plane! - Nope, its %username% from %COMPUTERNAME% device!
 echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% device!
 
+
+rem echo Copy this code to lunch Firefox browser :  start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe"
+rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program Files\Google\Chrome\Application\chrome.exe"
+
 :choice
     echo[
     echo Press 1 = Start your day with Updated News Sources
@@ -267,15 +271,7 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
     ) else ( 
     goto :Wrongpy
     )
-    
-    rem :checkmate
-    rem     @echo off
-    rem     echo Creating venv for your *.py
-    rem     python -m venv venv
-    rem     echo Initialization of venv completed!
-    rem     echo Soory..Please select again as i was replying to my girl :)
-    rem     echo[
-    rem     goto:pyproj  
+
     :scrapimdb
         echo Arriving soon from aplha stage
         ping -n 120 127.0.0.1 > nul 
@@ -283,7 +279,6 @@ echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% 
 
     :ytdown
         @echo off
-        rem if NOT EXIST "venv\Scripts\activate" goto:checkmate
         echo[
         echo I'm here because you want to download Youtube Videos
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
