@@ -62,5 +62,5 @@ def checkbox(link):
 url=checkbox(str(input("Enter the url of the video: ")))               
 t2 =time.perf_counter()
 print(f"Saved at {Path} took {t2-t1} seconds")
-time.sleep(2)
+
 
