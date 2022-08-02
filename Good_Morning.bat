@@ -236,8 +236,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 :faraway
     echo[
     echo Feels like %username% device needs some medic kit! 
-    echo Press 1 = Basic kit of Software
-    echo Press 2 = Intermediate kit of Software
+    echo Press 1 = Fly to the web of software
+    echo Press 2 = Install/Update software through chocolatey
     echo Press 3 = Generate Battery report
     echo Press 0 = Depart
     rem echo Press 4 = Advanced kit
@@ -246,9 +246,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         set /P k= Which kit would you like to proceed with (1/2/3) ?  
 
     if /I "%k%" EQU "1" (
-    goto :Basic
+    goto :websoft
     ) else if /I "%k%" EQU "2" ( 
-    goto :Intermediate
+    goto :choco
     ) else if /I "%k%" EQU "0" (
     goto:choice 
     ) else if /I "%k%" EQU "3" ( 
@@ -256,16 +256,78 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     ) else ( 
     goto :faraway 
     )
-    :Basic
+    :websoft
         echo[
-        echo Flying to respective links of Basic kit software
-        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.mozilla.org/en-US/  https://discord.com/download http://bit.ly/2WZMML0 https://www.sublimetext.com/download http://obsproject.com/download http://www.google.com/chrome/ http://www.zoom.us/download https://www.videolan.org/vlc/download-windows.en_GB.html http://calibre-ebook.com/download http://www.7-zip.org/download.html  http://bit.ly/3Et0NB0 https://bit.ly/3OMQuMW
-        goto:faraway
-    :Intermediate
-        echo[
-        echo Flying to respective links of Intermediate kit software
-        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3bhyTPG https://intel.ly/3bklcQ3 http://www.qbittorrent.org/download.php http://www.virtualbox.org/ http://github.com/hovancik/stretchly/releases  https://git-scm.com/downloads http://www.python.org/downloads/  http://codecguide.com/download_kl.htm http://bit.ly/3nikTZx  http://code.visualstudio.com/download
-        goto:faraway
+        echo Press 1 = Fly to the web of Basic kit software
+        echo Press 2 = Fly to the web of Intermediate kit software
+        echo Press 0 = Depart
+            set /P wb= Welcome, Which web of software do you want to fly ?[1/2]: 
+        if /I "%wb%" EQU "1" (
+        goto :basic
+        ) else if /I "%wb%" EQU "2" ( 
+         goto :mediate
+        )else if /I "%wb%" EQU "0" ( 
+         goto :faraway
+        )else ( 
+        goto :websoft
+        )
+        :basic
+            echo[
+            echo Flying to respective links of Basic kit software
+            start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.mozilla.org/en-US/  https://discord.com/download http://bit.ly/2WZMML0 https://www.sublimetext.com/download http://obsproject.com/download http://www.google.com/chrome/ http://www.zoom.us/download https://www.videolan.org/vlc/download-windows.en_GB.html http://calibre-ebook.com/download http://www.7-zip.org/download.html  http://bit.ly/3Et0NB0 https://bit.ly/3OMQuMW
+            goto:faraway
+        :mediate
+            echo[
+            echo Flying to respective links of Intermediate kit software
+            start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3bhyTPG https://intel.ly/3bklcQ3 http://www.qbittorrent.org/download.php http://www.virtualbox.org/ http://github.com/hovancik/stretchly/releases  https://git-scm.com/downloads http://www.python.org/downloads/  http://codecguide.com/download_kl.htm http://bit.ly/3nikTZx  http://code.visualstudio.com/download
+            goto:faraway
+    :choco
+        echo OFF
+        :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
+        NET SESSION >nul 2>&1
+        IF %ERRORLEVEL% EQU 0 (
+            echo[ 
+            echo Admin user detected!
+            echo Installing Chocolatey Please be patient...
+            echo This should only take another few minutes or less, and then you'll be good to go!
+            echo[
+            echo     .d8888b.  888                                888          888                     
+            echo    d88P  Y88b 888                                888          888                     
+            echo    888    888 888                                888          888                     
+            echo    888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
+            echo    888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
+            echo    888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
+            echo    Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
+            echo     "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
+            echo                                                                                   888 
+            echo                                                                              Y8b d88P 
+            echo                                                                               "Y88P"  
+            powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+            echo Sweet chocolate is ready to serve you!
+        ) ELSE (
+           echo[
+           echo             `OooOOo.                                            Oo         o                    
+           echo              o     `o                                          o  O       O           o         
+           echo              O      O                                         O    o      o                     
+           echo              o     .O                                        oOooOoOo     o                     
+           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
+           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
+           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
+           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
+           echo[                                                  
+           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+           echo This script must be run as administrator to work as it installs the chocolatey to install software 
+           echo[
+           echo If you're seeing this, then right click on this script and select "Run As Administrator".
+           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
+           echo[ 
+           PAUSE
+           EXIT /B 1
+        ) 
+        echo ON CHECK
+        choco install vlc
+        goto:faraway          
+                
     :battreport
         echo[
         echo Generate battery report of your %COMPUTERNAME% device !
@@ -273,6 +335,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         powercfg /batteryreport
         echo Saved at %USERPROFILE%\Desktop
         goto:faraway
+
     :Errorkit 
         echo[
         echo You are playing it wrong, press only one digit! [1/2/3]
@@ -314,6 +377,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :scrapimdb                                                                                                                                            
         echo Getting on board !
         echo[
+        :: Thanks to Ashish Gupta user2350219 for the py injection through bat
+        :: stackoverflow.com/a/30927921
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
                
