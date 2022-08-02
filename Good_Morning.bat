@@ -284,55 +284,55 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :choco
         echo OFF
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
-        rem NET SESSION >nul 2>&1
-        rem IF %ERRORLEVEL% EQU 0 (
-        rem     echo[ 
-        rem     echo Admin user detected!
-        rem     echo Installing Chocolatey Please be patient...
-        rem     echo This should only take another few minutes or less, and then you'll be good to go!
-        rem     echo[
-        rem     echo             .d8888b.  888                                888          888                     
-        rem     echo            d88P  Y88b 888                                888          888                     
-        rem     echo            888    888 888                                888          888                     
-        rem     echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
-        rem     echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
-        rem     echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
-        rem     echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
-        rem     echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
-        rem     echo                                                                                           888 
-        rem     echo                                                                                      Y8b d88P 
-        rem     echo                                                                                       "Y88P"  
-        rem     rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-        rem     echo Sweet chocolate is ready to serve you!
-        rem ) ELSE (
-        rem    echo[
-        rem    echo             `OooOOo.                                            Oo         o                    
-        rem    echo              o     `o                                          o  O       O           o         
-        rem    echo              O      O                                         O    o      o                     
-        rem    echo              o     .O                                        oOooOoOo     o                     
-        rem    echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
-        rem    echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
-        rem    echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
-        rem    echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
-        rem    echo[                                                  
-        rem    echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-        rem    echo This script must be run as administrator to work as it installs the chocolatey to install software 
-        rem    echo[
-        rem    echo If you're seeing this, then right click on this script and select "Run As Administrator".
-        rem    echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
-        rem    echo[ 
-        rem    PAUSE
-        rem    EXIT /B 1
-        rem )
+        NET SESSION >nul 2>&1
+        IF %ERRORLEVEL% EQU 0 (
+            echo[ 
+            echo Admin user detected!
+            echo Installing Chocolatey Please be patient...
+            echo This should only take another few minutes or less, and then you'll be good to go!
+            echo[
+            echo             .d8888b.  888                                888          888                     
+            echo            d88P  Y88b 888                                888          888                     
+            echo            888    888 888                                888          888                     
+            echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
+            echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
+            echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
+            echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
+            echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
+            echo                                                                                           888 
+            echo                                                                                      Y8b d88P 
+            echo                                                                                       "Y88P"  
+            rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+            echo Sweet chocolate is ready to serve you!
+        ) ELSE (
+           echo[
+           echo             `OooOOo.                                            Oo         o                    
+           echo              o     `o                                          o  O       O           o         
+           echo              O      O                                         O    o      o                     
+           echo              o     .O                                        oOooOoOo     o                     
+           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
+           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
+           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
+           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
+           echo[                                                  
+           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+           echo This script must be run as administrator to work as it installs the chocolatey to install software 
+           echo[
+           echo If you're seeing this, then right click on this script and select "Run As Administrator".
+           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
+           echo[ 
+           PAUSE
+           EXIT /B 1
+        )
         echo[
         echo                                                Chocolatey Packages:
         echo[
-        echo      [1] Chrome      [7]  Visual Studio Code  [13] Malwarebytes   [18] K-Lite Codec Pack      [24] Viber
-        echo      [2] Brave       [8]  Sublime Text        [14] WinRAR         [19] VLC media player       [25] Telegram 
-        echo      [3] Firefox     [9]  Notepad++           [15] 7-Zip          [20] Office 365 ProPlus 
-        echo      [4] Spotify     [10] Git                 [16] Google Drive   [21] LibreOffice
-        echo      [5] Calibre     [11] Atom                [17] VirtualBox     [22] Zoom Meetings
-        echo      [6] OBS Studio  [12] qBittorrent         [18] Discord        [23] Microsoft Teams
+        echo      [1] Chrome      [7]  Visual Studio Code  [13] Malwarebytes   [19] K-Lite Codec Pack   [25] Viber
+        echo      [2] Brave       [8]  Sublime Text        [14] WinRAR         [20] VLC media player    [26] Telegram 
+        echo      [3] Firefox     [9]  Notepad++           [15] 7-Zip          [21] Office 365 ProPlus  [27] WhatsApp 
+        echo      [4] Spotify     [10] Git                 [16] Google Drive   [22] libreoffice-fresh   [28] NVidia Graphics DCH
+        echo      [5] Calibre     [11] Adobereader         [17] VirtualBox     [23] Zoom Meetings       [29] Belnder  
+        echo      [6] OBS Studio  [12] qBittorrent         [18] Discord        [24] Microsoft Teams     
         echo      __________________________________________________________________________________________________________            
         echo                                                Intall Basic Software [100]
         echo                     Chrome,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 ProPlus 
@@ -396,67 +396,106 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
          goto :loveTwentyfive
         )else if /I "%fun%" EQU "26" ( 
          goto :loveTwentysix
-        )else ( 
+        )else if /I "%fun%" EQU "27" ( 
+         goto :loveTwentyseven
+        )else if /I "%fun%" EQU "28" ( 
+         goto :loveTwentyeight
+        )else if /I "%fun%" EQU "29" ( 
+         goto :loveTwentynine
+        )else if /I "%fun%" EQU "0" ( 
+         goto :choice
+        )else ( loveTwentynine
         goto :bitterchoco
         )
-
-        :loveOne        
+        echo Install choco GUI for software management
+        choco install chocolateygui
+        :loveOne    
+            choco install googlechrome    
             goto:choco           
-        :loveTwo    
-            goto:choco       
+        :loveTwo  
+            choco install brave        
+            goto:choco 
         :loveThree  
+            choco install firefox
             goto:choco   
         :loveFour   
+            choco install spotify
             goto:choco
-        :loveFive   
+        :loveFive  
+            choco install calibre 
             goto:choco   
-        :loveSix    
+        :loveSix   
+            choco install obs-studio.install 
             goto:choco       
         :loveSeven  
+            choco install vscode
             goto:choco   
         :loveEight  
+            choco install sublimetext4
             goto:choco   
         :loveNine   
+            choco install notepadplusplus.install
             goto:choco   
-        :loveTen    
+        :loveTen  
+            choco install git.install  
             goto:choco       
-        :loveEleven     
+        :loveEleven  
+            choco install adobereader 
             goto:choco
         :loveTwelve 
+            choco install qbittorrent
             goto:choco
         :loveThirteen
+            choco install malwarebytes
             goto:choco
         :loveFourteen
+            choco install winrar
             goto:choco
-        :loveFifteen    
+        :loveFifteen  
+            choco install 7zip.install  
             goto:choco
-        :loveSixteen    
+        :loveSixteen   
+            choco install googledrive 
             goto:choco
         :loveSeventeen
+            choco install virtualbox
             goto:choco
         :loveEighteen
+            choco install discord.install 
             goto:choco
         :loveNineteen
+            choco install k-litecodecpackfull 
             goto:choco
         :loveTwenty 
+            choco install vlc 
             :goto:choco
-        :loveTwentyone   
+        :loveTwentyone
+            choco install office365proplus   
             goto:choco
-        :loveTwentytwo   
+        :loveTwentytwo  
+            choco install libreoffice-fresh  
             goto:choco
         :loveTwentythree 
+            choco install zoom  
             goto:choco   
         :loveTwentyfour  
+            choco install microsoft-teams.install 
             goto:choco
-        :loveTwentyfive  
+        :loveTwentyfive
+            choco install viber
             goto:choco
-        :loveTwentysix   
+        :loveTwentysix 
+            choco install telegram.install    
             goto:choco
-        :loveTwentyseven 
+        :loveTwentyseven
+            rem choco install intel-graphics-driver
+            choco install whatsapp 
             goto:choco   
-        :loveTwentyeight 
+        :loveTwentyeight
+            choco install nvidia-display-driver 
             goto:choco   
         :loveTwentynine  
+            choco install blender
             goto:choco  
         :bitterchoco
             echo "Ops! Don't you like to have choco bar? "
