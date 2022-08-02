@@ -284,46 +284,46 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :choco
         echo OFF
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
-        NET SESSION >nul 2>&1
-        IF %ERRORLEVEL% EQU 0 (
-            echo[ 
-            echo Admin user detected!
-            echo Installing Chocolatey Please be patient...
-            echo This should only take another few minutes or less, and then you'll be good to go!
-            echo[
-            echo             .d8888b.  888                                888          888                     
-            echo            d88P  Y88b 888                                888          888                     
-            echo            888    888 888                                888          888                     
-            echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
-            echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
-            echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
-            echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
-            echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
-            echo                                                                                           888 
-            echo                                                                                      Y8b d88P 
-            echo                                                                                       "Y88P"  
-            rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-            echo Sweet chocolate is ready to serve you!
-        ) ELSE (
-           echo[
-           echo             `OooOOo.                                            Oo         o                    
-           echo              o     `o                                          o  O       O           o         
-           echo              O      O                                         O    o      o                     
-           echo              o     .O                                        oOooOoOo     o                     
-           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
-           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
-           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
-           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
-           echo[                                                  
-           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-           echo This script must be run as administrator to work as it installs the chocolatey to install software 
-           echo[
-           echo If you're seeing this, then right click on this script and select "Run As Administrator".
-           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
-           echo[ 
-           PAUSE
-           EXIT /B 1
-        )
+        rem NET SESSION >nul 2>&1
+        rem IF %ERRORLEVEL% EQU 0 (
+        rem     echo[ 
+        rem     echo Admin user detected!
+        rem     echo Installing Chocolatey Please be patient...
+        rem     echo This should only take another few minutes or less, and then you'll be good to go!
+        rem     echo[
+        rem     echo             .d8888b.  888                                888          888                     
+        rem     echo            d88P  Y88b 888                                888          888                     
+        rem     echo            888    888 888                                888          888                     
+        rem     echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
+        rem     echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
+        rem     echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
+        rem     echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
+        rem     echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
+        rem     echo                                                                                           888 
+        rem     echo                                                                                      Y8b d88P 
+        rem     echo                                                                                       "Y88P"  
+        rem     rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+        rem     echo Sweet chocolate is ready to serve you!
+        rem ) ELSE (
+        rem    echo[
+        rem    echo             `OooOOo.                                            Oo         o                    
+        rem    echo              o     `o                                          o  O       O           o         
+        rem    echo              O      O                                         O    o      o                     
+        rem    echo              o     .O                                        oOooOoOo     o                     
+        rem    echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
+        rem    echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
+        rem    echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
+        rem    echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
+        rem    echo[                                                  
+        rem    echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+        rem    echo This script must be run as administrator to work as it installs the chocolatey to install software 
+        rem    echo[
+        rem    echo If you're seeing this, then right click on this script and select "Run As Administrator".
+        rem    echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
+        rem    echo[ 
+        rem    PAUSE
+        rem    EXIT /B 1
+        rem )
         echo[
         echo                                                Chocolatey Packages:
         echo[
@@ -342,9 +342,125 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo                    Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git  
         echo                                            ____________________________________     
         echo[                                                                                        
-        echo                                                        [0] Exit                                                                               
-        goto:faraway         
-                
+        echo                                                        [0] Exit                                                                                     
+            set /P fun= Welcome, Which web of software do you install : 
+        if /I "%fun%" EQU "1" (
+        goto :loveOne                                                       
+        ) else if /I "%fun%" EQU "2" ( 
+         goto :loveTwo                                          
+        )else if /I "%fun%" EQU "3" ( 
+         goto :loveThree
+        )else if /I "%fun%" EQU "4" (                        
+         goto :loveFour
+        )else if /I "%fun%" EQU "4" ( 
+         goto :loveFive
+        )else if /I "%fun%" EQU "6" ( 
+         goto :loveSix
+        )else if /I "%fun%" EQU "7" ( 
+         goto :loveSeven
+        )else if /I "%fun%" EQU "8" ( 
+         goto :loveEight
+        )else if /I "%fun%" EQU "9" ( 
+         goto :loveNine
+        )else if /I "%fun%" EQU "10" ( 
+         goto :loveTen
+        )else if /I "%fun%" EQU "11" ( 
+         goto :loveEleven
+        )else if /I "%fun%" EQU "12" ( 
+         goto :loveTwelve
+        )else if /I "%fun%" EQU "13" ( 
+         goto :loveThirteen
+        )else if /I "%fun%" EQU "14" ( 
+         goto :loveFourteen
+        )else if /I "%fun%" EQU "15" ( 
+         goto :loveFifteen
+        )else if /I "%fun%" EQU "16" ( 
+         goto :loveSixteen
+        )else if /I "%fun%" EQU "17" ( 
+         goto :loveSeventeen
+        )else if /I "%fun%" EQU "18" ( 
+         goto :loveEighteen
+        )else if /I "%fun%" EQU "19" ( 
+         goto :loveNineteen
+        )else if /I "%fun%" EQU "20" ( 
+         goto :loveTwenty
+        )else if /I "%fun%" EQU "21" ( 
+         goto :loveTwentyone
+        )else if /I "%fun%" EQU "22" ( 
+         goto :loveTwentytwo
+        )else if /I "%fun%" EQU "23" ( 
+         goto :loveTwentythree
+        )else if /I "%fun%" EQU "24" ( 
+         goto :loveTwentyfour
+        )else if /I "%fun%" EQU "25" ( 
+         goto :loveTwentyfive
+        )else if /I "%fun%" EQU "26" ( 
+         goto :loveTwentysix
+        )else ( 
+        goto :bitterchoco
+        )
+
+        :loveOne        
+            goto:choco           
+        :loveTwo    
+            goto:choco       
+        :loveThree  
+            goto:choco   
+        :loveFour   
+            goto:choco
+        :loveFive   
+            goto:choco   
+        :loveSix    
+            goto:choco       
+        :loveSeven  
+            goto:choco   
+        :loveEight  
+            goto:choco   
+        :loveNine   
+            goto:choco   
+        :loveTen    
+            goto:choco       
+        :loveEleven     
+            goto:choco
+        :loveTwelve 
+            goto:choco
+        :loveThirteen
+            goto:choco
+        :loveFourteen
+            goto:choco
+        :loveFifteen    
+            goto:choco
+        :loveSixteen    
+            goto:choco
+        :loveSeventeen
+            goto:choco
+        :loveEighteen
+            goto:choco
+        :loveNineteen
+            goto:choco
+        :loveTwenty 
+            :goto:choco
+        :loveTwentyone   
+            goto:choco
+        :loveTwentytwo   
+            goto:choco
+        :loveTwentythree 
+            goto:choco   
+        :loveTwentyfour  
+            goto:choco
+        :loveTwentyfive  
+            goto:choco
+        :loveTwentysix   
+            goto:choco
+        :loveTwentyseven 
+            goto:choco   
+        :loveTwentyeight 
+            goto:choco   
+        :loveTwentynine  
+            goto:choco  
+        :bitterchoco
+            echo "Ops! Don't you like to have choco bar? "
+            goto:choco             
     :battreport
         echo[
         echo Generate battery report of your %COMPUTERNAME% device !
