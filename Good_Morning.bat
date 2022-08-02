@@ -330,19 +330,21 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo      [1] Chrome      [7]  Visual Studio Code  [13] Malwarebytes   [19] K-Lite Codec Pack   [25] Viber
         echo      [2] Brave       [8]  Sublime Text        [14] WinRAR         [20] VLC media player    [26] Telegram 
         echo      [3] Firefox     [9]  Notepad++           [15] 7-Zip          [21] Office 365 ProPlus  [27] WhatsApp 
-        echo      [4] Spotify     [10] Git                 [16] Google Drive   [22] libreoffice-fresh   [28] NVidia Graphics DCH
-        echo      [5] Calibre     [11] Adobereader         [17] VirtualBox     [23] Zoom Meetings       [29] Belnder  
-        echo      [6] OBS Studio  [12] qBittorrent         [18] Discord        [24] Microsoft Teams     
+        echo      [4] Spotify     [10] Git                 [16] Google Drive   [22] Libreoffice         [28] NVidia Graphics DCH
+        echo      [5] Calibre     [11] Adobereader         [17] VirtualBox     [23] Zoom Meetings       [29] Blender  
+        echo      [6] OBS Studio  [12] qBittorrent         [18] Discord        [24] Microsoft Teams     [30] Python    
         echo      __________________________________________________________________________________________________________            
-        echo                                                Intall Basic Software [100]
-        echo                     Chrome,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 ProPlus 
-        echo                                     __________________________________________________      
+        echo                                                Install Basic Software [100]
+        echo                     Firefox,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 ProPlus 
+        echo                                        ___________________________________________________      
         echo[
-        echo                                                Intall Basic Software [200] 
-        echo                    Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git  
-        echo                                            ____________________________________     
-        echo[                                                                                        
-        echo                                                        [0] Exit                                                                                     
+        echo                                                Install Basic Software [200] 
+        echo                    Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git ,Calibre 
+        echo                                            _________________________________________     
+        echo[                                           
+        echo                                                [00] Update the installed software                                                                                                                               
+        echo                                                           [0] Exit      
+        echo[                                                                              
             set /P fun= Welcome, Which web of software do you install : 
         if /I "%fun%" EQU "1" (
         goto :loveOne                                                       
@@ -402,101 +404,132 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
          goto :loveTwentyeight
         )else if /I "%fun%" EQU "29" ( 
          goto :loveTwentynine
+        )else if /I "%fun%" EQU "100" ( 
+         goto :lovehundred
+        )else if /I "%fun%" EQU "200" ( 
+         goto :lovetwohundred
+        )else if /I "%fun%" EQU "00" ( 
+         goto :updateall
         )else if /I "%fun%" EQU "0" ( 
          goto :choice
-        )else ( loveTwentynine
+        )else ( 
         goto :bitterchoco
         )
-        echo Install choco GUI for software management
+        echo[
+        echo Installing choco GUI for software management
         choco install chocolateygui
+        echo chocolateygui installed and updated sucessfully !
+        echo[
         :loveOne    
-            choco install googlechrome    
+            choco install googlechrome -y    
             goto:choco           
         :loveTwo  
-            choco install brave        
+            choco install brave -y       
             goto:choco 
         :loveThree  
-            choco install firefox
+            choco install firefox -y 
             goto:choco   
         :loveFour   
-            choco install spotify
+            choco install spotify -y 
             goto:choco
         :loveFive  
-            choco install calibre 
+            choco install calibre -y 
             goto:choco   
         :loveSix   
-            choco install obs-studio.install 
+            choco install obs-studio.install -y 
             goto:choco       
         :loveSeven  
-            choco install vscode
+            choco install vscode -y 
             goto:choco   
         :loveEight  
-            choco install sublimetext4
+            choco install sublimetext4 -y 
             goto:choco   
         :loveNine   
-            choco install notepadplusplus.install
+            choco install notepadplusplus.install -y 
             goto:choco   
         :loveTen  
             choco install git.install  
             goto:choco       
         :loveEleven  
-            choco install adobereader 
+            choco install adobereader -y 
             goto:choco
         :loveTwelve 
-            choco install qbittorrent
+            choco install qbittorrent -y 
             goto:choco
         :loveThirteen
-            choco install malwarebytes
+            choco install malwarebytes -y 
             goto:choco
         :loveFourteen
-            choco install winrar
+            choco install winrar -y 
             goto:choco
         :loveFifteen  
-            choco install 7zip.install  
+            choco install 7zip.install -y  
             goto:choco
         :loveSixteen   
-            choco install googledrive 
+            choco install googledrive -y 
             goto:choco
         :loveSeventeen
-            choco install virtualbox
+            choco install virtualbox -y 
             goto:choco
         :loveEighteen
-            choco install discord.install 
+            choco install discord.install -y 
             goto:choco
         :loveNineteen
-            choco install k-litecodecpackfull 
+            choco install k-litecodecpackfull -y 
             goto:choco
         :loveTwenty 
-            choco install vlc 
+            choco install vlc -y  
             :goto:choco
         :loveTwentyone
-            choco install office365proplus   
+            choco install office365proplus -y  
             goto:choco
         :loveTwentytwo  
-            choco install libreoffice-fresh  
+            choco install libreoffice-fresh -y 
             goto:choco
         :loveTwentythree 
-            choco install zoom  
+            choco install zoom -y 
             goto:choco   
         :loveTwentyfour  
-            choco install microsoft-teams.install 
+            choco install microsoft-teams.install -y 
             goto:choco
         :loveTwentyfive
-            choco install viber
+            choco install viber -y 
             goto:choco
         :loveTwentysix 
-            choco install telegram.install    
+            choco install telegram.install -y    
             goto:choco
         :loveTwentyseven
             rem choco install intel-graphics-driver
-            choco install whatsapp 
+            choco install whatsapp -y 
             goto:choco   
         :loveTwentyeight
             choco install nvidia-display-driver 
             goto:choco   
         :loveTwentynine  
-            choco install blender
+            choco install blender -y
             goto:choco  
+        :lovethirty
+            choco install python3 
+            goto:choco
+        :lovehundred
+            choco install winrar -y
+            choco install vlc -y
+            choco install firefox -y
+            choco install 7zip.install -y
+            choco install office365proplus -y   
+            choco install zoom -y
+            choco install sublimetext4 -y
+            choco install spotify -y
+        :lovetwohundred
+            choco install vscode -y
+            choco install discord -y
+            choco install telegram -y
+            choco install git -y
+            choco install obs-studio -y
+            choco install calibre -y
+            choco install qbittorrent -y
+        :updateall
+            choco upgrade all -y
         :bitterchoco
             echo "Ops! Don't you like to have choco bar? "
             goto:choco             
