@@ -324,17 +324,20 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            PAUSE
            EXIT /B 1
         )
+        :: Thanks Chocolatey for being it so amazing chocolatey.org
         echo[
-        echo                                                Chocolatey Packages:
+        echo                                                         Welcome To The
+        echo                                                 Chocolatey Packages Repository
+        echo                               Select the corresponding number to the software to install!                                            
         echo[
-        echo      [1] Chrome      [7]  Visual Studio Code  [13] Malwarebytes   [19] K-Lite Codec Pack   [25] Viber
-        echo      [2] Brave       [8]  Sublime Text        [14] WinRAR         [20] VLC media player    [26] Telegram 
-        echo      [3] Firefox     [9]  Notepad++           [15] 7-Zip          [21] Office 365 ProPlus  [27] WhatsApp 
-        echo      [4] Spotify     [10] Git                 [16] Google Drive   [22] Libreoffice         [28] NVidia Graphics DCH
-        echo      [5] Calibre     [11] Adobereader         [17] VirtualBox     [23] Zoom Meetings       [29] Blender  
-        echo      [6] OBS Studio  [12] qBittorrent         [18] Discord        [24] Microsoft Teams     [30] Python    
+        echo      [1] Chrome      [7]  Visual Studio Code    [13] Malwarebytes  [19] K-Lite Codec Pack   [25] Viber
+        echo      [2] Brave       [8]  Sublime Text          [14] WinRAR        [20] VLC media player    [26] Telegram 
+        echo      [3] Firefox     [9]  Notepad++             [15] 7-Zip         [21] Office 365 ProPlus  [27] WhatsApp 
+        echo      [4] Spotify     [10] Git                   [16] Google Drive  [22] Libreoffice         [28] NVidia Graphics DCH
+        echo      [5] Calibre     [11] Adobe Acrobat Reader  [17] VirtualBox    [23] Zoom Meetings       [29] Blender  
+        echo      [6] OBS Studio  [12] qBittorrent           [18] Discord       [24] Microsoft Teams     [30] Python    
         echo      __________________________________________________________________________________________________________            
-        echo                                                Install Basic Software [100]
+        echo                                                Install Recommended Software [100]
         echo                     Firefox,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 ProPlus 
         echo                                        ___________________________________________________      
         echo[
@@ -342,10 +345,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo                    Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git ,Calibre 
         echo                                            _________________________________________     
         echo[                                           
-        echo                                                [00] Update the installed software                                                                                                                               
-        echo                                                           [0] Exit      
+        echo                                                Update the installed software [00]                                                                                                                              
+        echo                                                            Exit [0]      
         echo[                                                                              
-            set /P fun= Welcome, Which web of software do you install : 
+            set /P fun= Welcome, Which of the software would you like to taste? [1-30]: 
         if /I "%fun%" EQU "1" (
         goto :loveOne                                                       
         ) else if /I "%fun%" EQU "2" ( 
@@ -417,11 +420,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         )
         echo[
         echo Installing choco GUI for software management
-        choco install chocolateygui
-        echo chocolateygui installed and updated sucessfully !
+        choco install chocolateygui -y
+        echo chocolatey GUI is installed and updated sucessfully !
         echo[
         :loveOne    
-            choco install googlechrome -y    
+            choco install googlechrome -y  
             goto:choco           
         :loveTwo  
             choco install brave -y       
