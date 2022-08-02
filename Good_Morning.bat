@@ -215,14 +215,14 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
     :APLYIPO
         echo[
-        echo       .d8888b.   .d88888b.   .d88888b.  8888888b.       888     888     888  .d8888b.  888    d8P  
-        echo      d88P  Y88b d88P" "Y88b d88P" "Y88b 888  "Y88b      888     888     888 d88P  Y88b 888   d8P   
-        echo      888    888 888     888 888     888 888    888      888     888     888 888    888 888  d8P    
-        echo      888        888     888 888     888 888    888      888     888     888 888        888d88K     
-        echo      888  88888 888     888 888     888 888    888      888     888     888 888        8888888b    
-        echo      888    888 888     888 888     888 888    888      888     888     888 888    888 888  Y88b   
-        echo      Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b  
-        echo       "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
+        echo             .d8888b.   .d88888b.   .d88888b.  8888888b.       888     888     888  .d8888b.  888    d8P  
+        echo            d88P  Y88b d88P" "Y88b d88P" "Y88b 888  "Y88b      888     888     888 d88P  Y88b 888   d8P   
+        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  d8P    
+        echo            888        888     888 888     888 888    888      888     888     888 888        888d88K     
+        echo            888  88888 888     888 888     888 888    888      888     888     888 888        8888888b    
+        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  Y88b   
+        echo            Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b  
+        echo             "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
         echo[
     	echo "IN WIP"
         ping -n 15 127.0.0.1 > nul         
@@ -291,18 +291,18 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo Installing Chocolatey Please be patient...
             echo This should only take another few minutes or less, and then you'll be good to go!
             echo[
-            echo     .d8888b.  888                                888          888                     
-            echo    d88P  Y88b 888                                888          888                     
-            echo    888    888 888                                888          888                     
-            echo    888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
-            echo    888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
-            echo    888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
-            echo    Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
-            echo     "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
-            echo                                                                                   888 
-            echo                                                                              Y8b d88P 
-            echo                                                                               "Y88P"  
-            powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+            echo             .d8888b.  888                                888          888                     
+            echo            d88P  Y88b 888                                888          888                     
+            echo            888    888 888                                888          888                     
+            echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
+            echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
+            echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
+            echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
+            echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
+            echo                                                                                           888 
+            echo                                                                                      Y8b d88P 
+            echo                                                                                       "Y88P"  
+            rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
             echo Sweet chocolate is ready to serve you!
         ) ELSE (
            echo[
@@ -323,10 +323,27 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo[ 
            PAUSE
            EXIT /B 1
-        ) 
-        echo ON CHECK
-        choco install vlc
-        goto:faraway          
+        )
+        echo[
+        echo                                                Chocolatey Packages:
+        echo[
+        echo      [1] Chrome      [7]  Visual Studio Code  [13] Malwarebytes   [18] K-Lite Codec Pack      [24] Viber
+        echo      [2] Brave       [8]  Sublime Text        [14] WinRAR         [19] VLC media player       [25] Telegram 
+        echo      [3] Firefox     [9]  Notepad++           [15] 7-Zip          [20] Office 365 ProPlus 
+        echo      [4] Spotify     [10] Git                 [16] Google Drive   [21] LibreOffice
+        echo      [5] Calibre     [11] Atom                [17] VirtualBox     [22] Zoom Meetings
+        echo      [6] OBS Studio  [12] qBittorrent         [18] Discord        [23] Microsoft Teams
+        echo      __________________________________________________________________________________________________________            
+        echo                                                Intall Basic Software [100]
+        echo                     Chrome,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 ProPlus 
+        echo                                     __________________________________________________      
+        echo[
+        echo                                                Intall Basic Software [200] 
+        echo                    Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git  
+        echo                                            ____________________________________     
+        echo[                                                                                        
+        echo                                                        [0] Exit                                                                               
+        goto:faraway         
                 
     :battreport
         echo[
@@ -356,7 +373,15 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     python -m venv venv
     echo Initialization of venv completed!
     echo I apologize for making you wait )
-
+    echo[
+    echo             dP                                   dP              dP                          
+    echo             88                                   88          8b. 88 .d8                      
+    echo             88        dP    dP 88d888b. .d8888b. 88d888b.     `8b88d8'     88d888b. dP    dP 
+    echo             88        88    88 88'  `88 88'  `"" 88'  `88     .8P88Y8.     88'  `88 88    88 
+    echo             88        88.  .88 88    88 88.  ... 88    88    8P' 88 `Y8 dP 88.  .88 88.  .88 
+    echo             88888888P `88888P' dP    dP `88888P' dP    dP        dP     88 88Y888P' `8888P88 
+    echo                                                                            88            .88 
+    echo                                                                            dP        d8888P  
     echo[
     echo Press 1 = Download Youtube Videos
     echo Press 2 = Scrap IMDb Movies
