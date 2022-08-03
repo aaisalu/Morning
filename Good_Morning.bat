@@ -1,4 +1,17 @@
 @ECHO OFF
+::_______________________________________________________________________________
+::
+::                       Welcome to the good morning project
+::
+::      Github Project link : https://github.com/aaisalu/Morning/
+::      If any bug or issue found please feel free to create a Isuue or submit pull request
+::      Feel free to contribute.    
+::      Email: kcpra7@protonmail.com
+::
+::________________________________________________________________________________
+
+::Thanks for the cool ascii banner manytools.org
+
 color 7
 for /f "delims=:" %%A in ("%time%") do if %%A LSS 12 (
 echo[
@@ -47,10 +60,11 @@ echo        +#+   +#+# +#+    +#+ +#+    +#+ +#+    +#+      +#+  +#+#+#     +#+
 echo        #+#    #+# #+#    #+# #+#    #+# #+#    #+#      #+#   #+#+#     #+#    #+#    #+# #+#    #+#     #+#     
 echo         ########   ########   ########  #########       ###    #### ########### ########  ###    ###     ###     
 )
-
+echo                                  x - ::k:  https://github.com/aaisalu/Morning  :c:: - x
+echo[
 echo %date% %time% 
-rem echo It's a bird! It's a plane! - Nope, its %username% from %COMPUTERNAME% device!
-echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% device!
+:: Some of welcome message are of github.com/AnimeKaizoku/SaitamaRobot from modules\sql\welcome_sql.py
+echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% device! 
 
 rem echo Copy this code to lunch Firefox browser :  start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe"
 rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -73,7 +87,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     ) else if  /I "%brn%" EQU "4" ( goto :pyproj
     ) else if  /I "%brn%" EQU "5" ( goto :lazyme
     ) else if  /I "%brn%" EQU "6" ( goto :faraway
-    ) else if  /I "%brn%" EQU "0" ( exit
+    ) else if  /I "%brn%" EQU "0" ( goto :saybye
     ) else (goto :choice) 
     
 :somewhere
@@ -99,12 +113,12 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :WorldNews
         echo[      
         echo I am here because you want to see World News
-    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/nepse-up-marginally-after-sunday-s-rally/ https://news.google.com/topstories/
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://news.google.com/topstories/
         echo[
         echo Please! Don't close this Window. 
         echo Please! Wait for 2 min for the next wave of news to lunch
         ping -n 120 127.0.0.1 > nul 
-    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia https://www.cnbc.com/world/ https://t.me/WorldNews https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://myrepublica.nagariknetwork.com/news/
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia  https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ 
         goto :END      
         rem goto :ConfirmBox  
     	rem start /min "" explorer.exe shell:AppsFolder\Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
@@ -113,27 +127,27 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :TechNews
         echo[
         echo I am here because you want to see Tech News 
-    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/  https://www.techpana.com/ https://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates https://www.makeuseof.com/
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/ 
         
         echo[
         echo Please! Don't close this Window. 
         echo Please! Wait for 2 min for the next wave of news to lunch
         ping -n 120 127.0.0.1 > nul 
 
-        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily https://t.me/Technology_updates   https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog https://t.me/Technology_updates/
+        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/  https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog 
         
         echo[
         echo Please! Don't close this Window. 
         echo Please! Wait for 2 min for the next wave of news to lunch
         ping -n 120 127.0.0.1 > nul 
 
-    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/ https://www.businessinsider.com/sai  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/ https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/ https://t.me/Science_News_Facts_Updates_daily/
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/  
         goto :END 
 
     :StockNews
         echo[
         echo I am here because you want to see Stock News
-    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.nepalstock.com/news/category/0 https://merolagani.com/ https://nepsealpha.com/ https://www.bizshala.com/ https://newweb.nepalstock.com.np/ https://www.sharebazarnepal.com.np/ http://nepalstockinfo.com/ https://investingnepal.com/ https://www.sharesansar.com/ https://www.nepalipaisa.com/ https://merocapital.com/
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.nepalstock.com/news/category/0 https://merolagani.com/ https://nepsealpha.com/ https://www.bizshala.com/ https://newweb.nepalstock.com.np/ https://www.sharebazarnepal.com.np/  https://www.sharesansar.com/ https://www.nepalipaisa.com/ https://merocapital.com/
         goto :END
 
     :InERROR
@@ -142,8 +156,12 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto :somewhere 
     exit
 
+:saybye
+    echo Check update at https://github.com/aaisalu/Morning
+    ping -n 5 127.0.0.1 > nul 
+    exit
+
 :somewhere_else
-    pause
     echo[
     echo I'm here because it's Business hrs
     rem start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
@@ -255,9 +273,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     ) else if /I "%k%" EQU "3" ( 
     goto :battreport
     )else if /I "%k%" EQU "4" ( 
-    goto :repairnet
-    )else if /I "%k%" EQU "5" ( 
     goto :repairpc
+    )else if /I "%k%" EQU "5" ( 
+    goto :repairnet
     ) else ( 
     goto :faraway 
     )
@@ -341,8 +359,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo       [4] Spotify          [12] qBittorrent      [20] VLC media player      [28] Youtube-dl     [36] IrfanView
         echo       [5] Calibre          [13] Malwarebytes     [21] Office 365            [29] Blender        [37] Audacity
         echo       [6] OBS Studio       [14] WinRAR           [22] Libreoffice           [30] Python         [38] Graphics
-        echo       [7] VScode           [15] 7-Zip            [23] Zoom Meetings         [31] Atom           [39] PDF24 
-        echo       [8] Sublime Text     [16] Google Drive     [24] Microsoft Teams       [32] Greenshot      [40]
+        echo       [7] VScode           [15] 7-Zip            [23] Zoom Meetings         [31] Stretchly      [39] PDF24 
+        echo       [8] Sublime Text     [16] Google Drive     [24] Microsoft Teams       [32] Greenshot      [40] Atom
         echo       _____________________________________________________________________________________________________________        
         echo                                                Install Recommended Software [100]
         echo                      Firefox,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 
@@ -543,7 +561,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install python3 -y
             goto:choco
         :loveThirtyOne    
-            choco install atom -y 
+            choco install stretchly -y
             goto:choco           
         :loveThirtyTwo  
             choco install greenshot -y       
@@ -588,6 +606,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install pdf24 -y
             goto:choco
         :loveFourty
+            choco install atom -y 
             goto:choco
 
         :lovehundred
@@ -627,7 +646,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo Saved at %USERPROFILE%\Desktop
         goto:faraway
-        
+
     :repairnet
         echo OFF
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
@@ -755,7 +774,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )
 
     :scrapimdb                                                                                                                                            
-        echo Getting on board !
+        echo Activating spider script to crawl a site to scrap information
         echo[
         :: Thanks to Ashish Gupta user2350219 for the py injection through bat
         :: stackoverflow.com/a/30927921
@@ -765,6 +784,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :ytdown
         @echo off
         echo[
+        :: Thanks to Ashish Gupta user2350219 for the py injection through bat
+        :: stackoverflow.com/a/30927921
         echo I'm here because you want to download Youtube Videos
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
