@@ -6,7 +6,7 @@
 ::      Github Project link : https://github.com/aaisalu/Morning/
 ::      If any bug or issue found please feel free to create a Isuue or submit pull request
 ::      Feel free to contribute.    
-::      Email: kcpra7@protonmail.com
+::      Email: kcpra7@proton.me
 ::
 ::________________________________________________________________________________
 
@@ -71,13 +71,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :choice
     echo[
-    echo Press 1 = Start your day with Updated News Sources
-    echo Press 2 = Beep..Beep Boop! It's Stock Time
-    echo Press 3 = Travel to Folders
-    echo Press 4 = Summon *.py
-    echo Press 5 = Apply IPO
-    echo Press 6 = Dress up
-    echo Press 0 = Leave
+    echo    Press 1 = Start your day with Updated News Sources
+    echo    Press 2 = Beep..Beep Boop! It's Stock Time
+    echo    Press 3 = Travel to Folders
+    echo    Press 4 = Summon *.py
+    echo    Press 5 = Apply IPO
+    echo    Press 6 = Dress up
+    echo    Press 0 = Leave
     echo[
     :brain
     set /P brn=Feed me just Number so, I can work for you!! [1-6] ? 
@@ -92,11 +92,19 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     
 :somewhere
     echo[
-    echo %username% Just teleported into the chat from Jungle!
-    echo Press 1 = World News
-    echo Press 2 = Tech News
-    echo Press 3 = Stock News
-    echo Press 0 = Depart
+    echo            :::::::::  :::    ::: :::        :::        :::::::::: ::::::::::: ::::::::::: ::::    ::: 
+    echo            :+:    :+: :+:    :+: :+:        :+:        :+:            :+:         :+:     :+:+:   :+: 
+    echo            +:+    +:+ +:+    +:+ +:+        +:+        +:+            +:+         +:+     :+:+:+  +:+ 
+    echo            +#++:++#+  +#+    +:+ +#+        +#+        +#++:++#       +#+         +#+     +#+ +:+ +#+ 
+    echo            +#+    +#+ +#+    +#+ +#+        +#+        +#+            +#+         +#+     +#+  +#+#+# 
+    echo            #+#    #+# #+#    #+# #+#        #+#        #+#            #+#         #+#     #+#   #+#+# 
+    echo            #########   ########  ########## ########## ##########     ###     ########### ###    #### 
+    echo                           ----- %username% Just teleported into the chat from Jungle!----- 
+    echo[ 
+    echo    Press 1 = World News
+    echo    Press 2 = Tech News
+    echo    Press 3 = Stock News
+    echo    Press 0 = Depart
    :ConfirmBox 
         set /P n= Which News type do you want to be updated with (1/2/3) ?  
 
@@ -172,12 +180,21 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :bitfar
     echo[
-    echo Brace yourselves...Activating Jasmine flying carpet
-    echo Press 1 = Folder 1
-    echo Press 2 = Folder 2
-    echo Press 3 = Folder 3
-    echo Press 4 = Folder 4
-    echo Press 0 = Depart
+    echo            ::::::::::: :::     :::    ::: ::::::::::       ::::::::  :::::::::: :::::::::: 
+    echo                :+:   :+: :+:   :+:   :+:  :+:             :+:    :+: :+:        :+:        
+    echo                +:+  +:+   +:+  +:+  +:+   +:+             +:+    +:+ +:+        +:+        
+    echo                +#+ +#++:++#++: +#++:++    +#++:++#        +#+    +:+ :#::+::#   :#::+::#   
+    echo                +#+ +#+     +#+ +#+  +#+   +#+             +#+    +#+ +#+        +#+        
+    echo                #+# #+#     #+# #+#   #+#  #+#             #+#    #+# #+#        #+#        
+    echo                ### ###     ### ###    ### ##########       ########  ###        ###      
+    echo[
+    echo                     --- Brace yourselves...Activating Jasmine flying carpet ---
+    echo[  
+    echo    Press 1 = Folder 1
+    echo    Press 2 = Folder 2
+    echo    Press 3 = Folder 3
+    echo    Press 4 = Folder 4
+    echo    Press 0 = Depart
 
    :SUREBOX
         set /P t= Which folder do you want to Travel (1/2/3/4) ?  
@@ -219,9 +236,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 :lazyme
     echo[
     echo Roses are red, violets are blue, %username% joined this chat to apply IPO.
-    echo Press 1 = Summon up Bot to apply IPO!
-    rem echo Press 2 = Wake Bot to check IPO
-    echo Press 0 = See ya!
+    echo    Press 1 = Summon up Bot to apply IPO!
+    rem echo    Press 2 = Wake Bot to check IPO
+    echo    Press 0 = See ya!
    :CHECKBOX 
         set /P s= Welcome, press the secret key to activate God's eye: 
 
@@ -253,14 +270,22 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :faraway
     echo[
-    echo Feels like %username% device needs some medic kit! 
+    echo               :::::::::  :::::::::  :::::::::: ::::::::   ::::::::       :::    ::: :::::::::  
+    echo               :+:    :+: :+:    :+: :+:       :+:    :+: :+:    :+:      :+:    :+: :+:    :+: 
+    echo               +:+    +:+ +:+    +:+ +:+       +:+        +:+             +:+    +:+ +:+    +:+ 
+    echo               +#+    +:+ +#++:++#:  +#++:++#  +#++:++#++ +#++:++#++      +#+    +:+ +#++:++#+  
+    echo               +#+    +#+ +#+    +#+ +#+              +#+        +#+      +#+    +#+ +#+        
+    echo               #+#    #+# #+#    #+# #+#       #+#    #+# #+#    #+#      #+#    #+# #+#        
+    echo               #########  ###    ### ########## ########   ########        ########  ###        
     echo[
-    echo Press 1 = Fly to the web of software
-    echo Press 2 = Install/Update software through chocolatey
-    echo Press 3 = Generate Battery report
-    echo Press 4 = Repair a Windows Image
-    echo Press 5 = Reset Network Devices 
-    echo Press 0 = Depart
+    echo                        ---- Feels like %username% device needs some medic kit! -----
+    echo[
+    echo    Press 1 = Fly to the web of software
+    echo    Press 2 = Install/Update software through chocolatey
+    echo    Press 3 = Generate Battery report
+    echo    Press 4 = Repair a Windows Image
+    echo    Press 5 = Reset Network Devices 
+    echo    Press 0 = Depart
    :farbox 
         set /P k= Which kit would you like to proceed with (1/2/3) ?  
 
@@ -281,9 +306,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )
     :websoft
         echo[
-        echo Press 1 = Fly to the web of Basic kit software
-        echo Press 2 = Fly to the web of Intermediate kit software
-        echo Press 0 = Depart
+        echo    Press 1 = Fly to the web of Basic kit software
+        echo    Press 2 = Fly to the web of Intermediate kit software
+        echo    Press 0 = Depart
             set /P wb= Welcome, Which web of software do you want to fly ?[1/2]: 
         if /I "%wb%" EQU "1" (
         goto :basic
@@ -748,18 +773,17 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo Initialization of venv completed!
     echo I apologize for making you wait )
     echo[
-    echo             dP                                   dP              dP                          
-    echo             88                                   88          8b. 88 .d8                      
-    echo             88        dP    dP 88d888b. .d8888b. 88d888b.     `8b88d8'     88d888b. dP    dP 
-    echo             88        88    88 88'  `88 88'  `"" 88'  `88     .8P88Y8.     88'  `88 88    88 
-    echo             88        88.  .88 88    88 88.  ... 88    88    8P' 88 `Y8 dP 88.  .88 88.  .88 
-    echo             88888888P `88888P' dP    dP `88888P' dP    dP        dP     88 88Y888P' `8888P88 
-    echo                                                                            88            .88 
-    echo                                                                            dP        d8888P  
+    echo            :::       :::    ::: ::::    :::  ::::::::  :::    :::                       :::::::::  :::   ::: 
+    echo            :+:       :+:    :+: :+:+:   :+: :+:    :+: :+:    :+:       :+:     :+:     :+:    :+: :+:   :+: 
+    echo            +:+       +:+    +:+ :+:+:+  +:+ +:+        +:+    +:+         +:+ +:+       +:+    +:+  +:+ +:+  
+    echo            +#+       +#+    +:+ +#+ +:+ +#+ +#+        +#++:++#++      +#++:++#++:++    +#++:++#+    +#++:   
+    echo            +#+       +#+    +#+ +#+  +#+#+# +#+        +#+    +#+         +#+ +#+       +#+           +#+    
+    echo            #+#       #+#    #+# #+#   #+#+# #+#    #+# #+#    #+#       #+#     #+# #+# #+#           #+#    
+    echo            ########## ########  ###    ####  ########  ###    ###                   ### ###           ###     
     echo[
-    echo Press 1 = Download Youtube Videos
-    echo Press 2 = Scrap IMDb Movies
-    echo Press 0 = Depart
+    echo    Press 1 = Download Youtube Videos
+    echo    Press 2 = Scrap IMDb Movies
+    echo    Press 0 = Depart
 
     :checkpy   
         set /P p= Welcome, press the secret key to lunch *.py: 
