@@ -260,6 +260,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo Press 1 = Fly to the web of Basic kit software
         echo Press 2 = Fly to the web of Intermediate kit software
+        echo Press 3 = Reset Network Devices
+        echo Press 4 = Repair your pc
         echo Press 0 = Depart
             set /P wb= Welcome, Which web of software do you want to fly ?[1/2]: 
         if /I "%wb%" EQU "1" (
@@ -303,7 +305,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo                                                                                      Y8b d88P 
             echo                                                                                       "Y88P"  
             rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-            echo Sweet chocolate is ready to serve you!
+            echo Sweet Chocolatey is ready to serve you!
         ) ELSE (
            echo[
            echo             `OooOOo.                                            Oo         o                    
@@ -325,29 +327,31 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            EXIT /B 1
         )
         :: Thanks Chocolatey for being it so amazing chocolatey.org
-        echo[
+        echo[                                
         echo                                                         Welcome To The
         echo                                                 Chocolatey Packages Repository
-        echo                               Select the corresponding number to the software to install!                                            
-        echo[
-        echo      [1] Chrome      [7]  Visual Studio Code    [13] Malwarebytes  [19] K-Lite Codec Pack   [25] Viber
-        echo      [2] Brave       [8]  Sublime Text          [14] WinRAR        [20] VLC media player    [26] Telegram 
-        echo      [3] Firefox     [9]  Notepad++             [15] 7-Zip         [21] Office 365 ProPlus  [27] WhatsApp 
-        echo      [4] Spotify     [10] Git                   [16] Google Drive  [22] Libreoffice         [28] NVidia Graphics DCH
-        echo      [5] Calibre     [11] Adobe Acrobat Reader  [17] VirtualBox    [23] Zoom Meetings       [29] Blender  
-        echo      [6] OBS Studio  [12] qBittorrent           [18] Discord       [24] Microsoft Teams     [30] Python    
-        echo      __________________________________________________________________________________________________________            
+        echo                                   Select the corresponding number to the software to install!                                            
+        echo[             
+        echo       [1] Chrome            [9] Notepad++        [17] VirtualBox            [25] Viber          [33] CrystalDiskInfo
+        echo       [2] Brave            [10] Git              [18] Discord               [26] Telegram       [34] Adobe Acrobat 
+        echo       [3] Firefox          [11] FFmpeg           [19] K-Lite Codec Pack     [27] WhatsApp       [35] AutoHotkey
+        echo       [4] Spotify          [12] qBittorrent      [20] VLC media player      [28] Youtube-dl     [36] Irfanview
+        echo       [5] Calibre          [13] Malwarebytes     [21] Office 365            [29] Blender        [37] Audacity
+        echo       [6] OBS Studio       [14] WinRAR           [22] Libreoffice           [30] Python         [38] Graphics
+        echo       [7] VScode           [15] 7-Zip            [23] Zoom Meetings         [31] Atom           [39] PDF24 
+        echo       [8] Sublime Text     [16] Google Drive     [24] Microsoft Teams       [32] Greenshot      [40]
+        echo       _____________________________________________________________________________________________________________        
         echo                                                Install Recommended Software [100]
-        echo                     Firefox,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 ProPlus 
-        echo                                        ___________________________________________________      
-        echo[
-        echo                                                Install Basic Software [200] 
-        echo                    Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git ,Calibre 
-        echo                                            _________________________________________     
-        echo[                                           
-        echo                                                Update the installed software [00]                                                                                                                              
-        echo                                                            Exit [0]      
-        echo[                                                                              
+        echo                      Firefox,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 
+        echo                                     ___________________________________________________________     
+        echo[     
+        echo                                                  Install Basic Software [200] 
+        echo                         Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git ,Calibre 
+        echo                                                _________________________________     
+        echo[                                        
+        echo                                                    Update all software [00]                                                                                                                              
+        echo                                                             Exit [0]      
+        echo[                                                                         
             set /P fun= Welcome, Which of the software would you like to taste? [1-30]: 
         if /I "%fun%" EQU "1" (
         goto :loveOne                                                       
@@ -407,6 +411,28 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
          goto :loveTwentyeight
         )else if /I "%fun%" EQU "29" ( 
          goto :loveTwentynine
+        )else if /I "%fun%" EQU "30" ( 
+         goto :loveThirty
+        )else if /I "%fun%" EQU "31" ( 
+         goto :loveThirtyOne
+        )else if /I "%fun%" EQU "32" ( 
+         goto :loveThirtyTwo
+        )else if /I "%fun%" EQU "33" ( 
+         goto :loveThirtyThree
+        )else if /I "%fun%" EQU "34" ( 
+         goto :loveThirtyFour
+        )else if /I "%fun%" EQU "35" ( 
+         goto :loveThirtyFive
+        )else if /I "%fun%" EQU "36" ( 
+         goto :loveThirtySix
+        )else if /I "%fun%" EQU "37" ( 
+         goto :loveThirtySeven
+        )else if /I "%fun%" EQU "38" ( 
+         goto :loveThirtyEight
+        )else if /I "%fun%" EQU "39" ( 
+         goto :loveThirtyNine
+        )else if /I "%fun%" EQU "40" ( 
+         goto :loveFourty
         )else if /I "%fun%" EQU "100" ( 
          goto :lovehundred
         )else if /I "%fun%" EQU "200" ( 
@@ -454,7 +480,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install git.install  
             goto:choco       
         :loveEleven  
-            choco install adobereader -y 
+            choco install ffmpeg
             goto:choco
         :loveTwelve 
             choco install qbittorrent -y 
@@ -502,17 +528,63 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install telegram.install -y    
             goto:choco
         :loveTwentyseven
-            rem choco install intel-graphics-driver
             choco install whatsapp -y 
             goto:choco   
         :loveTwentyeight
-            choco install nvidia-display-driver 
-            goto:choco   
-        :loveTwentynine  
+            choco install  youtube-dl -y  
+            goto:choco
+        :loveTwentynine
             choco install blender -y
-            goto:choco  
-        :lovethirty
+            goto:choco
+        :loveThirty 
             choco install python3 
+            goto:choco
+        :loveThirtyOne    
+            choco install atom -y 
+            goto:choco           
+        :loveThirtyTwo  
+            choco install greenshot -y       
+            goto:choco 
+        :loveThirtyThree  
+            choco install crystaldiskinfo -y 
+            goto:choco   
+        :loveThirtyFour   
+            choco install adobereader -y 
+            goto:choco
+        :loveThirtyFive  
+            choco install autohotkey.install -y 
+            goto:choco   
+        :loveThirtySix   
+            choco install irfanview -y
+            goto:choco       
+        :loveThirtySeven  
+            choco install audacity -y 
+            goto:choco   
+        :loveThirtyEight
+            echo[
+            echo [1] Intel  Graphics DCH  
+            echo [2] Nvidia Graphics DCH
+            echo [0] Exit 
+            set /P drv= Welcome, Which Graphics do you want to install?: 
+            if /I "%drv%" EQU "1" (
+            goto:intelgra
+            ) else if /I "%drv%" EQU "2" ( 
+            goto :nvidiagra
+            )else if /I "%drv%" EQU "0" ( 
+            goto :choco
+            )else ( 
+            goto :lovethirtyeight
+            )
+            :intelgra
+                choco install intel-graphics-driver
+                goto:choco
+            :nvidiagra
+                choco install nvidia-display-driver 
+                goto:choco   
+        :loveThirtyNine
+            choco install pdf24 -y
+            goto:choco
+        :loveFourty
             goto:choco
         :lovehundred
             choco install winrar -y
@@ -523,6 +595,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install zoom -y
             choco install sublimetext4 -y
             choco install spotify -y
+            goto:choco
+
         :lovetwohundred
             choco install vscode -y
             choco install discord -y
@@ -531,8 +605,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install obs-studio -y
             choco install calibre -y
             choco install qbittorrent -y
+            goto:choco
+
         :updateall
             choco upgrade all -y
+            goto:choco
         :bitterchoco
             echo "Ops! Don't you like to have choco bar? "
             goto:choco             
