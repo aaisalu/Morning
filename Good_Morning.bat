@@ -239,6 +239,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo Press 1 = Fly to the web of software
     echo Press 2 = Install/Update software through chocolatey
     echo Press 3 = Generate Battery report
+    echo Press 4 = Reset Network Devices
+    echo Press 5 = Repair your pc
     echo Press 0 = Depart
     rem echo Press 4 = Advanced kit
 
@@ -253,6 +255,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:choice 
     ) else if /I "%k%" EQU "3" ( 
     goto :battreport
+    )else if /I "%k%" EQU "4" ( 
+    goto :repairnet
+    )else if /I "%k%" EQU "5" ( 
+    goto :repairpc
     ) else ( 
     goto :faraway 
     )
@@ -260,8 +266,6 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo Press 1 = Fly to the web of Basic kit software
         echo Press 2 = Fly to the web of Intermediate kit software
-        echo Press 3 = Reset Network Devices
-        echo Press 4 = Repair your pc
         echo Press 0 = Depart
             set /P wb= Welcome, Which web of software do you want to fly ?[1/2]: 
         if /I "%wb%" EQU "1" (
@@ -286,46 +290,46 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :choco
         echo OFF
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
-        NET SESSION >nul 2>&1
-        IF %ERRORLEVEL% EQU 0 (
-            echo[ 
-            echo Admin user detected!
-            echo Installing Chocolatey Please be patient...
-            echo This should only take another few minutes or less, and then you'll be good to go!
-            echo[
-            echo             .d8888b.  888                                888          888                     
-            echo            d88P  Y88b 888                                888          888                     
-            echo            888    888 888                                888          888                     
-            echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
-            echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
-            echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
-            echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
-            echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
-            echo                                                                                           888 
-            echo                                                                                      Y8b d88P 
-            echo                                                                                       "Y88P"  
-            rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-            echo Sweet Chocolatey is ready to serve you!
-        ) ELSE (
-           echo[
-           echo             `OooOOo.                                            Oo         o                    
-           echo              o     `o                                          o  O       O           o         
-           echo              O      O                                         O    o      o                     
-           echo              o     .O                                        oOooOoOo     o                     
-           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
-           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
-           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
-           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
-           echo[                                                  
-           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-           echo This script must be run as administrator to work as it installs the chocolatey to install software 
-           echo[
-           echo If you're seeing this, then right click on this script and select "Run As Administrator".
-           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
-           echo[ 
-           PAUSE
-           EXIT /B 1
-        )
+        rem NET SESSION >nul 2>&1
+        rem IF %ERRORLEVEL% EQU 0 (
+        rem     echo[ 
+        rem     echo Admin user detected!
+        rem     echo Installing Chocolatey Please be patient...
+        rem     echo This should only take another few minutes or less, and then you'll be good to go!
+        rem     echo[
+        rem     echo             .d8888b.  888                                888          888                     
+        rem     echo            d88P  Y88b 888                                888          888                     
+        rem     echo            888    888 888                                888          888                     
+        rem     echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
+        rem     echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
+        rem     echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
+        rem     echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
+        rem     echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
+        rem     echo                                                                                           888 
+        rem     echo                                                                                      Y8b d88P 
+        rem     echo                                                                                       "Y88P"  
+        rem     rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+        rem     echo Sweet Chocolatey is ready to serve you!
+        rem ) ELSE (
+        rem    echo[
+        rem    echo             `OooOOo.                                            Oo         o                    
+        rem    echo              o     `o                                          o  O       O           o         
+        rem    echo              O      O                                         O    o      o                     
+        rem    echo              o     .O                                        oOooOoOo     o                     
+        rem    echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
+        rem    echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
+        rem    echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
+        rem    echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
+        rem    echo[                                                  
+        rem    echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+        rem    echo This script must be run as administrator to work as it installs the chocolatey to install software 
+        rem    echo[
+        rem    echo If you're seeing this, then right click on this script and select "Run As Administrator".
+        rem    echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
+        rem    echo[ 
+        rem    PAUSE
+        rem    EXIT /B 1
+        rem )
         :: Thanks Chocolatey for being it so amazing chocolatey.org
         echo[                                
         echo                                                         Welcome To The
@@ -347,7 +351,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[     
         echo                                                  Install Basic Software [200] 
         echo                         Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git ,Calibre 
-        echo                                                _________________________________     
+        echo                                                __________________________________     
         echo[                                        
         echo                                                    Update all software [00]                                                                                                                              
         echo                                                             Exit [0]      
@@ -620,6 +624,83 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         powercfg /batteryreport
         echo Saved at %USERPROFILE%\Desktop
         goto:faraway
+    :repairnet
+        echo OFF
+        :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
+        NET SESSION >nul 2>&1
+        IF %ERRORLEVEL% EQU 0 (
+            echo[ 
+            echo It resets your network devices and network stack
+            echo This should only take another few minutes or less, and then you'll be good to go!
+            echo Ref: https://intel.ly/3OP6luA
+            echo[
+            pause  
+            ipconfig /release 
+            ipconfig /flushdns
+            ipconfig /renew   
+            netsh int ip reset 
+            netsh winsock reset 
+            echo Please! Restart your pc
+            goto:faraway
+        ) ELSE (
+           echo[
+           echo             `OooOOo.                                            Oo         o                    
+           echo              o     `o                                          o  O       O           o         
+           echo              O      O                                         O    o      o                     
+           echo              o     .O                                        oOooOoOo     o                     
+           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
+           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
+           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
+           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
+           echo[                                                  
+           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+           echo This script must be run as administrator to work as it resets your network devices and network stack
+           echo[
+           echo If you're seeing this, then right click on this script and select "Run As Administrator".
+           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
+           echo[ 
+           PAUSE
+           EXIT /B 1
+        )
+
+    :repairpc
+        echo OFF
+        :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
+        NET SESSION >nul 2>&1
+        IF %ERRORLEVEL% EQU 0 (
+            echo[ 
+            echo The Deployment Image Servicing and Management tool can be used to scan and repair potential issues with the .wim store in Windows that may impact system files.
+            echo This should take 10-20 minutes to run, but depending on circumstances it can potentially take over an hour.
+            echo Ref: https://dell.to/3d2EqtO
+            echo[
+            pause
+            Dism /Online /Cleanup-Image /ScanHealth
+            Dism /Online /Cleanup-Image /RestoreHealth
+            ::for offline repair
+            rem Dism /Image:C:\offline /Cleanup-Image /RestoreHealth /Source:c:\test\mount\windows
+            rem Dism /Online /Cleanup-Image /CheckHealth
+            echo Please! Restart your pc
+            goto:faraway
+        ) ELSE (
+           echo[
+           echo             `OooOOo.                                            Oo         o                    
+           echo              o     `o                                          o  O       O           o         
+           echo              O      O                                         O    o      o                     
+           echo              o     .O                                        oOooOoOo     o                     
+           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
+           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
+           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
+           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
+           echo[                                                  
+           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+           echo This script must be run as administrator to work as it uses DISM to Repair a Windows image 
+           echo[
+           echo If you're seeing this, then right click on this script and select "Run As Administrator".
+           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
+           echo[ 
+           PAUSE
+           EXIT /B 1
+        )
 
     :Errorkit 
         echo[
