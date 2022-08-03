@@ -236,14 +236,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 :faraway
     echo[
     echo Feels like %username% device needs some medic kit! 
+    echo[
     echo Press 1 = Fly to the web of software
     echo Press 2 = Install/Update software through chocolatey
     echo Press 3 = Generate Battery report
-    echo Press 4 = Reset Network Devices
-    echo Press 5 = Repair your pc
+    echo Press 4 = Repair a Windows Image
+    echo Press 5 = Reset Network Devices 
     echo Press 0 = Depart
-    rem echo Press 4 = Advanced kit
-
    :farbox 
         set /P k= Which kit would you like to proceed with (1/2/3) ?  
 
@@ -290,46 +289,46 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :choco
         echo OFF
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
-        rem NET SESSION >nul 2>&1
-        rem IF %ERRORLEVEL% EQU 0 (
-        rem     echo[ 
-        rem     echo Admin user detected!
-        rem     echo Installing Chocolatey Please be patient...
-        rem     echo This should only take another few minutes or less, and then you'll be good to go!
-        rem     echo[
-        rem     echo             .d8888b.  888                                888          888                     
-        rem     echo            d88P  Y88b 888                                888          888                     
-        rem     echo            888    888 888                                888          888                     
-        rem     echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
-        rem     echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
-        rem     echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
-        rem     echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
-        rem     echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
-        rem     echo                                                                                           888 
-        rem     echo                                                                                      Y8b d88P 
-        rem     echo                                                                                       "Y88P"  
-        rem     rem powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-        rem     echo Sweet Chocolatey is ready to serve you!
-        rem ) ELSE (
-        rem    echo[
-        rem    echo             `OooOOo.                                            Oo         o                    
-        rem    echo              o     `o                                          o  O       O           o         
-        rem    echo              O      O                                         O    o      o                     
-        rem    echo              o     .O                                        oOooOoOo     o                     
-        rem    echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
-        rem    echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
-        rem    echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
-        rem    echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
-        rem    echo[                                                  
-        rem    echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-        rem    echo This script must be run as administrator to work as it installs the chocolatey to install software 
-        rem    echo[
-        rem    echo If you're seeing this, then right click on this script and select "Run As Administrator".
-        rem    echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
-        rem    echo[ 
-        rem    PAUSE
-        rem    EXIT /B 1
-        rem )
+        NET SESSION >nul 2>&1
+        IF %ERRORLEVEL% EQU 0 (
+            echo[ 
+            echo Admin user detected!
+            echo Installing Chocolatey Please be patient...
+            echo This should only take another few minutes or less, and then you'll be good to go!
+            echo[
+            echo             .d8888b.  888                                888          888                     
+            echo            d88P  Y88b 888                                888          888                     
+            echo            888    888 888                                888          888                     
+            echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
+            echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
+            echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
+            echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
+            echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
+            echo                                                                                           888 
+            echo                                                                                      Y8b d88P 
+            echo                                                                                       "Y88P"  
+            powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+            echo Sweet Chocolatey is ready to serve you!
+        ) ELSE (
+           echo[
+           echo             `OooOOo.                                            Oo         o                    
+           echo              o     `o                                          o  O       O           o         
+           echo              O      O                                         O    o      o                     
+           echo              o     .O                                        oOooOoOo     o                     
+           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
+           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
+           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
+           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
+           echo[                                                  
+           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+           echo This script must be run as administrator to work as it installs the chocolatey to install software 
+           echo[
+           echo If you're seeing this, then right click on this script and select "Run As Administrator".
+           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
+           echo[ 
+           PAUSE
+           EXIT /B 1
+        )
         :: Thanks Chocolatey for being it so amazing chocolatey.org
         echo[                                
         echo                                                         Welcome To The
@@ -339,7 +338,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo       [1] Chrome            [9] Notepad++        [17] VirtualBox            [25] Viber          [33] CrystalDiskInfo
         echo       [2] Brave            [10] Git              [18] Discord               [26] Telegram       [34] Adobe Acrobat 
         echo       [3] Firefox          [11] FFmpeg           [19] K-Lite Codec Pack     [27] WhatsApp       [35] AutoHotkey
-        echo       [4] Spotify          [12] qBittorrent      [20] VLC media player      [28] Youtube-dl     [36] Irfanview
+        echo       [4] Spotify          [12] qBittorrent      [20] VLC media player      [28] Youtube-dl     [36] IrfanView
         echo       [5] Calibre          [13] Malwarebytes     [21] Office 365            [29] Blender        [37] Audacity
         echo       [6] OBS Studio       [14] WinRAR           [22] Libreoffice           [30] Python         [38] Graphics
         echo       [7] VScode           [15] 7-Zip            [23] Zoom Meetings         [31] Atom           [39] PDF24 
@@ -481,10 +480,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install notepadplusplus.install -y 
             goto:choco   
         :loveTen  
-            choco install git.install  
+            choco install git.install -y
             goto:choco       
         :loveEleven  
-            choco install ffmpeg
+            choco install ffmpeg -y
             goto:choco
         :loveTwelve 
             choco install qbittorrent -y 
@@ -541,7 +540,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install blender -y
             goto:choco
         :loveThirty 
-            choco install python3 
+            choco install python3 -y
             goto:choco
         :loveThirtyOne    
             choco install atom -y 
@@ -590,6 +589,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:choco
         :loveFourty
             goto:choco
+
         :lovehundred
             choco install winrar -y
             choco install vlc -y
@@ -614,16 +614,20 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         :updateall
             choco upgrade all -y
             goto:choco
+
         :bitterchoco
             echo "Ops! Don't you like to have choco bar? "
-            goto:choco             
+            goto:choco    
+
     :battreport
         echo[
-        echo Generate battery report of your %COMPUTERNAME% device !
+        echo Generating battery report of your %COMPUTERNAME% device !
         cd %USERPROFILE%\Desktop
         powercfg /batteryreport
+        echo[
         echo Saved at %USERPROFILE%\Desktop
         goto:faraway
+        
     :repairnet
         echo OFF
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
@@ -640,6 +644,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             ipconfig /renew   
             netsh int ip reset 
             netsh winsock reset 
+            echo[
             echo Please! Restart your pc
             goto:faraway
         ) ELSE (
@@ -680,6 +685,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             rem Dism /Image:C:\offline /Cleanup-Image /RestoreHealth /Source:c:\test\mount\windows
             rem Dism /Online /Cleanup-Image /CheckHealth
             echo Please! Restart your pc
+            echo[
             goto:faraway
         ) ELSE (
            echo[
