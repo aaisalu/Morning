@@ -258,7 +258,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo            Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b  
         echo             "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
         echo[
-    	echo Bot on construction it'll be alive someday but today is not that day!
+    	echo Bot on construction it'll be alive someday but today isn't that day!
         ping -n 2 127.0.0.1 > nul         
         goto :choice
 
@@ -361,7 +361,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
            echo[                                                  
-           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+           echo                      ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
            echo This script must be run as administrator to work as it installs the chocolatey to install software 
            echo[
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
@@ -699,7 +699,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
            echo[                                                     
-           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+           echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
            echo This script must be run as administrator to work as it resets your network devices and network stack
            echo[
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
@@ -736,7 +736,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
            echo[    
-           echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+           echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
            echo This script must be run as administrator to work as it uses DISM to Repair a Windows image 
            echo[
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
@@ -776,6 +776,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo[
     echo    Press 1 = Download Youtube Videos
     echo    Press 2 = Scrap IMDb Movies
+    echo    Press 3 = Generate QR code
     echo    Press 0 = Depart
 
     :checkpy   
@@ -784,9 +785,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :ytdown
     ) else if /I "%p%" EQU "2" ( 
     goto :scrapimdb
+    ) else if /I "%p%" EQU "3" (
+    goto:qrcode
     ) else if /I "%p%" EQU "0" (
     goto:choice
-    ) else ( 
+    )else ( 
     goto :pyproj
     )
 
@@ -796,14 +799,19 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         :: Thanks to Ashish Gupta user2350219
         :: ref from stackoverflow.com/a/30927921
-        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & pip install -U -r requirements.txt & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
                
     :ytdown
         @echo off
         echo[
         echo I'm here because you want to download Youtube Videos
-        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & pip install -U -r requirements.txt & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        goto:pyproj
+
+    :qrcode
+        @echo off
+        echo WIP
         goto:pyproj
 
 :chkpy
