@@ -38,7 +38,7 @@ def imdb_v5(url):
 
 def checkbox(url):
     # Thanks to @prashant_srivastava at geeksforgeeks.org/check-if-an-url-is-valid-or-not-using-regular-expression for regex
-    regex = ("((http|https)://)(www.)?" +"[a-zA-Z0-9@:%._\\+~#?&//=]"+"title|imdb|sort|search|top|count|user_rating|groups|adv_nxt" +"{2,256}\\.[a-z]" +"{2,6}\\b([-a-zA-Z0-9@:%" +"._\\+~#?&//=]*)")
+    regex = ("((http|https)://)(www.)?" +"[a-zA-Z0-9@:%._\\+~#?&//=]"+"title|imdb|alpha|asc|runtime|year|release_date|your_rating_date|my_ratings|sort|search|num_votes|boxoffice_gross_us|top|count|user_rating|groups|adv_nxt" +"{2,256}\\.[a-z]" +"{2,6}\\b([-a-zA-Z0-9@:%" +"._\\+~#?&//=]*)")
     compiled = re.compile(regex,flags=re.IGNORECASE)
     if (url == None):
         print('Starting to Scrap Website by default link')  
