@@ -29,12 +29,11 @@ def imdb_v5(url):
         ballot =box.find_all('span',{'name':"nv"})
         vote   =ballot[0].text
         gross  =ballot[1].text if len(ballot)>2 and '$' in ballot[1].text and '#' not in ballot[1].text  else "Still Collecting Cash"
-        top_250=ballot[2].text if len(ballot)>2 and '#' in ballot[2].text and '$' not in ballot[2].text else "Can't be found in Top 250"
-        
+        top_250=ballot[2].text if len(ballot)>2 and '#' in ballot[2].text and '$' not in ballot[2].text else "Can't be found in Top 250"     
         with open(rf"{folder('Moviez')}\Imdb_movies_lists.csv",mode='a+',newline='') as editor:
             write=csv.writer(editor,delimiter=',')
             write.writerow([index,title,rate,year,time,genre,summary,vote,meta,gross,certificate,top_250])
-        return print(f'Saved at {Path}')					
+    return print(f'Saved at {Path}')					
 
 def checkbox(url):
     # Thanks to @prashant_srivastava at geeksforgeeks.org/check-if-an-url-is-valid-or-not-using-regular-expression for regex
@@ -48,7 +47,7 @@ def checkbox(url):
         return imdb_v5(url)
     else:
         print('Starting to Scrap Website by default link')  
-        return imdb_v5('https://www.imdb.com/search/title/?groups=top_1000&sort=user_rating,desc&count=100&start=%27+%27&ref_=adv_nxt')
+        return imdb_v5('https://www.imdb.com/search/title/?groups=top_1000&sort=alpha,asc')
 
 print('')
 print("If you don't understand what the heck is this then simply press enter to scrap with default link")
