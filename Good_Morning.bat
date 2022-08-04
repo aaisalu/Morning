@@ -825,7 +825,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     python --version >NUL 2>&1
     IF  %ERRORLEVEL% EQU 0 (
     echo[
-    echo Python is found lurking around, so I'll lend you my power.
+    echo                     --------  Python is found lurking around, so I'll lend you my power ---------
     goto:venvreqimnt
     ) ELSE (
     echo[
