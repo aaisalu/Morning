@@ -305,7 +305,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )
     :websoft
         echo[
-        echo This tab opens link of software on your browser i suggest you to install software from chocolatey fast and simple
+        echo This tab opens a link of software on your browser I suggest you install software from chocolatey fast and simple
         echo    Press 1 = Fly to the web of Basic kit software
         echo    Press 2 = Fly to the web of Intermediate kit software
         echo    Press 0 = Depart
@@ -764,7 +764,14 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo This should only take another few minutes or less, and then you'll be good to go!
     python -m venv venv
     echo Initialization of venv completed!
-    echo I apologize for making you wait )
+    echo[
+    echo Donwloading get-pip.py from bootstrap.pypa.io/get-pip.py 
+    echo Installing pip and requirements for the python script to work
+    echo[
+    cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & cd /d %~dp0 & pip install -U -r requirements.txt & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+    echo[
+    echo Successfully installed pip and required requirements!
+    echo I apologize for making you wait)
     echo[
     echo            :::       :::    ::: ::::    :::  ::::::::  :::    :::                       :::::::::  :::   ::: 
     echo            :+:       :+:    :+: :+:+:   :+: :+:    :+: :+:    :+:       :+:     :+:     :+:    :+: :+:   :+: 
@@ -796,17 +803,16 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :scrapimdb        
         echo[                                                                                                                                    
         echo Activating spider script to crawl a site to scrap information
-        echo[
         :: Thanks to Ashish Gupta user2350219
         :: ref from stackoverflow.com/a/30927921
-        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & pip install -U -r requirements.txt & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
                
     :ytdown
         @echo off
         echo[
         echo I'm here because you want to download Youtube Videos
-        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & pip install -U -r requirements.txt & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
 
     :qrcode
