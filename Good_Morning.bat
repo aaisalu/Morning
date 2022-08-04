@@ -11,7 +11,6 @@
 ::________________________________________________________________________________
 
 ::Thanks for the cool ascii banner manytools.org
-
 color 7
 for /f "delims=:" %%A in ("%time%") do if %%A LSS 12 (
 echo[
@@ -84,7 +83,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     if /I "%brn%" EQU "1" ( goto :somewhere
     ) else if  /I "%brn%" EQU "2" ( goto :somewhere_else
     ) else if  /I "%brn%" EQU "3" ( goto :bitfar
-    ) else if  /I "%brn%" EQU "4" ( goto :pyproj
+    ) else if  /I "%brn%" EQU "4" ( goto :chkpy
     ) else if  /I "%brn%" EQU "5" ( goto :lazyme
     ) else if  /I "%brn%" EQU "6" ( goto :faraway
     ) else if  /I "%brn%" EQU "0" ( goto :saybye
@@ -106,7 +105,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 3 = Stock News
     echo    Press 0 = Depart
    :ConfirmBox 
-        set /P n= Which News type do you want to be updated with (1/2/3) ?  
+        set /P n= Which News type do you want to be updated with? [1/2/3]:  
 
     if /I "%n%" EQU "1" (
     goto :WorldNews
@@ -197,7 +196,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 0 = Depart
 
    :SUREBOX
-        set /P t= Which folder do you want to Travel (1/2/3/4) ?  
+        set /P t= Which folder do you want to Travel? [1-4]:    
 
     if /I "%t%" EQU "1" (
     goto :Fnpy 
@@ -259,13 +258,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo            Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b  
         echo             "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
         echo[
-    	echo "IN WIP"
-        ping -n 15 127.0.0.1 > nul         
-        exit
+    	echo Bot on construction it'll be alive someday but today is not that day!
+        ping -n 2 127.0.0.1 > nul         
+        goto :choice
 
     :InWrong
         echo[
-        echo "Goodbye %username% ! It's gonna be lonely without ya.",
+        echo Goodbye %username% ! It's gonna be lonely without ya.,
         goto :choice
 
 :faraway
@@ -280,19 +279,19 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo[
     echo                        ---- Feels like %username% device needs some medic kit! -----
     echo[
-    echo    Press 1 = Fly to the web of software
-    echo    Press 2 = Install/Update software through chocolatey
+    echo    Press 1 = Install/Update software through chocolatey
+    echo    Press 2 = Fly to the web of software 
     echo    Press 3 = Generate Battery report
     echo    Press 4 = Repair a Windows Image
-    echo    Press 5 = Reset Network Devices 
+    echo    Press 5 = Reset Network setting 
     echo    Press 0 = Depart
    :farbox 
-        set /P k= Which kit would you like to proceed with (1/2/3) ?  
+        set /P k= Which kit would you like to proceed with? [1-5]:   
 
     if /I "%k%" EQU "1" (
-    goto :websoft
-    ) else if /I "%k%" EQU "2" ( 
     goto :choco
+    ) else if /I "%k%" EQU "2" ( 
+    goto :websoft
     ) else if /I "%k%" EQU "0" (
     goto:choice 
     ) else if /I "%k%" EQU "3" ( 
@@ -306,6 +305,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )
     :websoft
         echo[
+        echo This tab opens link of software on your browser i suggest you to install software from chocolatey fast and simple
         echo    Press 1 = Fly to the web of Basic kit software
         echo    Press 2 = Fly to the web of Intermediate kit software
         echo    Press 0 = Depart
@@ -354,14 +354,12 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo Sweet Chocolatey is ready to serve you!
         ) ELSE (
            echo[
-           echo             `OooOOo.                                            Oo         o                    
-           echo              o     `o                                          o  O       O           o         
-           echo              O      O                                         O    o      o                     
-           echo              o     .O                                        oOooOoOo     o                     
-           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
-           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
-           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
-           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
+           echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
+           echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
+           echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
+           echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
+           echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
+           echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
            echo[                                                  
            echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
            echo This script must be run as administrator to work as it installs the chocolatey to install software 
@@ -398,7 +396,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo                                                    Update all software [00]                                                                                                                              
         echo                                                             Exit [0]      
         echo[                                                                         
-            set /P fun= Welcome, Which of the software would you like to taste? [1-30]: 
+            set /P fun= Welcome, Which of the software would you like to taste? [1-40]: 
         if /I "%fun%" EQU "1" (
         goto :loveOne                                                       
         ) else if /I "%fun%" EQU "2" ( 
@@ -486,15 +484,17 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         )else if /I "%fun%" EQU "00" ( 
          goto :updateall
         )else if /I "%fun%" EQU "0" ( 
-         goto :choice
+         goto :faraway
         )else ( 
         goto :bitterchoco
         )
-        echo[
-        echo Installing choco GUI for software management
-        choco install chocolateygui -y
-        echo chocolatey GUI is installed and updated sucessfully !
-        echo[
+        :chocogui
+            echo[
+            echo Installing choco GUI for software management
+            choco install chocolateygui -y 
+            echo chocolatey GUI is installed and updated sucessfully !
+            echo[
+            goto:choco           
         :loveOne    
             choco install googlechrome -y  
             goto:choco           
@@ -674,7 +674,6 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
     :repairnet
         echo OFF
-        :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
         NET SESSION >nul 2>&1
         IF %ERRORLEVEL% EQU 0 (
             echo[ 
@@ -693,15 +692,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:faraway
         ) ELSE (
            echo[
-           echo             `OooOOo.                                            Oo         o                    
-           echo              o     `o                                          o  O       O           o         
-           echo              O      O                                         O    o      o                     
-           echo              o     .O                                        oOooOoOo     o                     
-           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
-           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
-           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
-           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
-           echo[                                                  
+           echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
+           echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
+           echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
+           echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
+           echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
+           echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
+           echo[                                                     
            echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
            echo This script must be run as administrator to work as it resets your network devices and network stack
            echo[
@@ -714,7 +711,6 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
     :repairpc
         echo OFF
-        :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
         NET SESSION >nul 2>&1
         IF %ERRORLEVEL% EQU 0 (
             echo[ 
@@ -733,15 +729,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:faraway
         ) ELSE (
            echo[
-           echo             `OooOOo.                                            Oo         o                    
-           echo              o     `o                                          o  O       O           o         
-           echo              O      O                                         O    o      o                     
-           echo              o     .O                                        oOooOoOo     o                     
-           echo              OOooOO'  O   o  'OoOo.       .oOoO' .oOo        o      O .oOoO  `oOOoOO. O  'OoOo. 
-           echo              o    o   o   O   o   O       O   o  `Ooo.       O      o o   O   O  o  o o   o   O 
-           echo              O     O  O   o   O   o       o   O      O       o      O O   o   o  O  O O   O   o 
-           echo              O      o `OoO'o  o   O       `OoO'o `OoO'       O.     O `OoO'o  O  o  o o'  o   O    
-           echo[                                                  
+           echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
+           echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
+           echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
+           echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
+           echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
+           echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
+           echo[    
            echo               ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
            echo This script must be run as administrator to work as it uses DISM to Repair a Windows image 
            echo[
@@ -754,9 +748,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
     :Errorkit 
         echo[
-        echo You are playing it wrong, press only one digit! [1/2/3]
+        echo You are playing it wrong, press only one digit! [1-5]
         goto:faraway
-
 
 :pyproj 
     @echo off
@@ -797,23 +790,40 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :pyproj
     )
 
-    :scrapimdb                                                                                                                                            
+    :scrapimdb        
+        echo[                                                                                                                                    
         echo Activating spider script to crawl a site to scrap information
         echo[
-        :: Thanks to Ashish Gupta user2350219 for the py injection through bat
-        :: stackoverflow.com/a/30927921
+        :: Thanks to Ashish Gupta user2350219
+        :: ref from stackoverflow.com/a/30927921
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
                
     :ytdown
         @echo off
         echo[
-        :: Thanks to Ashish Gupta user2350219 for the py injection through bat
-        :: stackoverflow.com/a/30927921
         echo I'm here because you want to download Youtube Videos
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & pip install -U -r requirements.txt & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
 
+:chkpy
+    :: Thanks to Drej user1536175 ref from stackoverflow.com/a/26241114 
+    @echo off
+    python --version >NUL 2>&1
+    IF  %ERRORLEVEL% EQU 0 (
+    echo[
+    echo Python is found lurking around, so I'll lend you my power.
+    goto:pyproj
+    ) ELSE (
+    echo[
+    echo Looks like python is not installed on your pc
+    echo Please,Install python to run this script!
+    echo Download from: https://www.python.org/downloads 
+    echo Or Install it by going into Dress up[6] then press [1] to open chocolatey packages finally press [30] to install python 
+    echo[
+    pause
+    goto:choice
+    )
 
 rem :jstfar 
 rem 	@echo off
