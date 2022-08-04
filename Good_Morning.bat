@@ -83,7 +83,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     if /I "%brn%" EQU "1" ( goto :somewhere
     ) else if  /I "%brn%" EQU "2" ( goto :somewhere_else
     ) else if  /I "%brn%" EQU "3" ( goto :bitfar
-    ) else if  /I "%brn%" EQU "4" ( goto :chkpy
+    ) else if  /I "%brn%" EQU "4" ( goto :chkifpy
     ) else if  /I "%brn%" EQU "5" ( goto :lazyme
     ) else if  /I "%brn%" EQU "6" ( goto :faraway
     ) else if  /I "%brn%" EQU "0" ( goto :saybye
@@ -752,6 +752,51 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto:faraway
 
 :pyproj 
+    echo[
+    echo            :::       :::    ::: ::::    :::  ::::::::  :::    :::                       :::::::::  :::   ::: 
+    echo            :+:       :+:    :+: :+:+:   :+: :+:    :+: :+:    :+:       :+:     :+:     :+:    :+: :+:   :+: 
+    echo            +:+       +:+    +:+ :+:+:+  +:+ +:+        +:+    +:+         +:+ +:+       +:+    +:+  +:+ +:+  
+    echo            +#+       +#+    +:+ +#+ +:+ +#+ +#+        +#++:++#++      +#++:++#++:++    +#++:++#+    +#++:   
+    echo            +#+       +#+    +#+ +#+  +#+#+# +#+        +#+    +#+         +#+ +#+       +#+           +#+    
+    echo            #+#       #+#    #+# #+#   #+#+# #+#    #+# #+#    #+#       #+#     #+# #+# #+#           #+#    
+    echo            ########## ########  ###    ####  ########  ###    ###                   ### ###           ###     
+    echo[
+    echo    Press 1 = Download Youtube Videos
+    echo    Press 2 = Scrap IMDb Movies
+    echo    Press 3 = Generate QR code
+    echo    Press 0 = Depart
+
+        set /P p= Welcome, press the secret key to lunch *.py: 
+    if /I "%p%" EQU "1" (
+    goto :ytdown
+    ) else if /I "%p%" EQU "2" ( 
+    goto :scrapimdb
+    ) else if /I "%p%" EQU "3" (
+    goto:qrcode
+    ) else if /I "%p%" EQU "0" (
+    goto:choice
+    )else ( 
+    goto :pyproj
+    )
+    :scrapimdb        
+        echo[                                                                                                                                    
+        echo Activating spider script to crawl a site to scrap information
+        :: Thanks to Ashish Gupta user2350219
+        :: ref from stackoverflow.com/a/30927921
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        goto:pyproj           
+    :ytdown
+        @echo off
+        echo[
+        echo I'm here because you want to download Youtube Videos
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        goto:pyproj
+    :qrcode
+        @echo off
+        echo WIP
+        goto:pyproj
+
+:venvreqimnt
     @echo off
     cd %~dp0\
     if not exist "%~dp0\venv\Scripts\activate" (
@@ -772,62 +817,16 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo[
     echo Successfully installed pip and required requirements!
     echo I apologize for making you wait)
-    echo[
-    echo            :::       :::    ::: ::::    :::  ::::::::  :::    :::                       :::::::::  :::   ::: 
-    echo            :+:       :+:    :+: :+:+:   :+: :+:    :+: :+:    :+:       :+:     :+:     :+:    :+: :+:   :+: 
-    echo            +:+       +:+    +:+ :+:+:+  +:+ +:+        +:+    +:+         +:+ +:+       +:+    +:+  +:+ +:+  
-    echo            +#+       +#+    +:+ +#+ +:+ +#+ +#+        +#++:++#++      +#++:++#++:++    +#++:++#+    +#++:   
-    echo            +#+       +#+    +#+ +#+  +#+#+# +#+        +#+    +#+         +#+ +#+       +#+           +#+    
-    echo            #+#       #+#    #+# #+#   #+#+# #+#    #+# #+#    #+#       #+#     #+# #+# #+#           #+#    
-    echo            ########## ########  ###    ####  ########  ###    ###                   ### ###           ###     
-    echo[
-    echo    Press 1 = Download Youtube Videos
-    echo    Press 2 = Scrap IMDb Movies
-    echo    Press 3 = Generate QR code
-    echo    Press 0 = Depart
+    goto:pyproj
 
-    :checkpy   
-        set /P p= Welcome, press the secret key to lunch *.py: 
-    if /I "%p%" EQU "1" (
-    goto :ytdown
-    ) else if /I "%p%" EQU "2" ( 
-    goto :scrapimdb
-    ) else if /I "%p%" EQU "3" (
-    goto:qrcode
-    ) else if /I "%p%" EQU "0" (
-    goto:choice
-    )else ( 
-    goto :pyproj
-    )
-
-    :scrapimdb        
-        echo[                                                                                                                                    
-        echo Activating spider script to crawl a site to scrap information
-        :: Thanks to Ashish Gupta user2350219
-        :: ref from stackoverflow.com/a/30927921
-        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
-        goto:pyproj
-               
-    :ytdown
-        @echo off
-        echo[
-        echo I'm here because you want to download Youtube Videos
-        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
-        goto:pyproj
-
-    :qrcode
-        @echo off
-        echo WIP
-        goto:pyproj
-
-:chkpy
+:chkifpy
     :: Thanks to Drej user1536175 ref from stackoverflow.com/a/26241114 
     @echo off
     python --version >NUL 2>&1
     IF  %ERRORLEVEL% EQU 0 (
     echo[
     echo Python is found lurking around, so I'll lend you my power.
-    goto:pyproj
+    goto:venvreqimnt
     ) ELSE (
     echo[
     echo Looks like python is not installed on your pc
