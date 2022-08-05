@@ -492,7 +492,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo[
             echo Installing choco GUI for software management
             choco install chocolateygui -y 
-            echo chocolatey GUI is installed and updated sucessfully !
+            echo chocolatey GUI is installed sucessfully !
             echo[
             goto:choco           
         :loveOne    

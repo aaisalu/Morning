@@ -36,31 +36,45 @@ def solo_video(url):
 
 def playlists(link,ask):
     urls=[]
-    playlist = Playlist(link)
-    print('Number of videos in playlist: %s' % len(playlist.video_urls))
+    playlist = Playlist(link)  
+    print('\nNumber of videos in playlist: %s' % len(playlist.video_urls))
     if re.search("audio|mp3|music|flac|wav|aac|ogg|audios",ask,flags=re.IGNORECASE):
-        print("Starting to download MP3s of the videos \n")
+        print("Starting to download MP3s of the videos\n")
         for music_url in playlist.video_urls:
             mp3(music_url)
     else:
         print("Starting to download videos in 720p\n")
         for video_url in playlist.video_urls:
-            solo_video(video_url)     
+            solo_video(video_url) 
 
-def checkbox(link):
-    ask=input("Which type do you prefer mp3 or mp4: ")
-    if "list" in link:
-        playlists(link,ask)      
-    else:
+def askuser(link,ask):
+    try:
         if re.search("audio|mp3|music|flac|wav|aac|ogg|audios",ask,flags=re.IGNORECASE):
-            print("Starting to download MP3s of the video \n")
+            print("\nStarting to download MP3s of the video")
             mp3(link)
         else:
-            print("Starting to download video in 720p \n")
+            print("\nStarting to download video in 720")
             solo_video(link)
+    except pytube.exceptions.RegexMatchError as returnlove:
+        print("\nPlease enter a valid server URL!")
 
-url=checkbox(str(input("Enter the url of the video: ")))               
+def roulette(link):
+    ask=input("Which type do you prefer mp3 or mp4: ")
+    try:
+        if Playlist(link):
+            print("Playlist Detected..calling playlist function")
+            return playlists(link,ask)
+        else:
+            return askuser(link,ask)
+    except KeyError:
+        return askuser(link,ask)
+
+url=roulette(str(input("Enter the url of the video: ")))               
 t2 =time.perf_counter()
-print(f"Saved at {Path} took {t2-t1} seconds")
 
+try:
+    print(f"Saved at {Path} took {t2-t1} seconds \n")
+except NameError:
+    print("Some input looks fishy as my AI smells it..")
 
+   
