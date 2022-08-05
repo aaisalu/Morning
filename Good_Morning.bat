@@ -145,7 +145,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         
         echo[
         echo Please! Don't close this Window. 
-        echo Please! Wait for 2 min for the next wave of news to lunch
+        echo Please! Wait for 2 min for the final wave of news to lunch
         ping -n 120 127.0.0.1 > nul 
 
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/  
@@ -189,10 +189,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo[
     echo                     --- Brace yourselves...Activating Jasmine flying carpet ---
     echo[  
-    echo    Press 1 = Folder 1
-    echo    Press 2 = Folder 2
-    echo    Press 3 = Folder 3
-    echo    Press 4 = Folder 4
+    echo    Press 1 = Downloads Folder
+    echo    Press 2 = Pictures Folder 
+    echo    Press 3 = Music Folder
+    echo    Press 4 = Documents Folder
     echo    Press 0 = Depart
 
    :SUREBOX
@@ -211,21 +211,22 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )else ( 
     goto :InValid 
     )
+    :: You can add you own custom folder to open as eg: D:\office\projectfolder
     :Fnpy
-        echo Traveling to Folder
-        %SystemRoot%\explorer.exe "D:\Folder2"
+        echo Traveling to Downloads Folder
+        %SystemRoot%\explorer.exe %USERPROFILE%\Downloads
         goto :END
     :Fncmd
-        echo Traveling to Folder      
-        %SystemRoot%\explorer.exe "D:\Folder2"
+        echo Traveling to Pictures Folder       
+        %SystemRoot%\explorer.exe %USERPROFILE%\Pictures
         goto :END
     :Fnexcel
-        echo Traveling to Folder        
-        %SystemRoot%\explorer.exe "D:\Folder3"
+        echo Traveling to Music Folder    
+        %SystemRoot%\explorer.exe %USERPROFILE%\Music
         goto :END
     :Fnproj
-        echo Traveling to Folder
-        %SystemRoot%\explorer.exe "D:\Folder4"
+        echo Traveling to Documents Folder
+        %SystemRoot%\explorer.exe %USERPROFILE%\Documents
         goto :END
     :InValid
         echo Use your jet ticket wisely. [1-4]
@@ -367,6 +368,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
            echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
            echo[ 
+           ping -n 5 127.0.0.1 > nul 
            PAUSE
            EXIT /B 1
         )
@@ -705,6 +707,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
            echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
            echo[ 
+           ping -n 5 127.0.0.1 > nul 
            PAUSE
            EXIT /B 1
         )
@@ -742,6 +745,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
            echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
            echo[ 
+           ping -n 5 127.0.0.1 > nul 
            PAUSE
            EXIT /B 1
         )
