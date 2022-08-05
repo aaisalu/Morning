@@ -367,6 +367,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
            echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
            echo[ 
+           ping -n 5 127.0.0.1 > nul 
            PAUSE
            EXIT /B 1
         )
@@ -705,6 +706,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
            echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
            echo[ 
+           ping -n 5 127.0.0.1 > nul 
            PAUSE
            EXIT /B 1
         )
@@ -742,6 +744,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
            echo If you're seeing this, then right click on this script and select "Run As Administrator".
            echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
            echo[ 
+           ping -n 5 127.0.0.1 > nul 
            PAUSE
            EXIT /B 1
         )
