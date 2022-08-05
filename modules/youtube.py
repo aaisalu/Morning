@@ -35,7 +35,6 @@ def solo_video(url):
     print(":) \n")
 
 def playlists(link,ask):
-    urls=[]
     playlist = Playlist(link)  
     print('\nNumber of videos in playlist: %s' % len(playlist.video_urls))
     if re.search("audio|mp3|music|flac|wav|aac|ogg|audios",ask,flags=re.IGNORECASE):
@@ -69,7 +68,7 @@ def roulette(link):
     except KeyError:
         return askuser(link,ask)
 
-url=roulette(str(input("Enter the url of the video: ")))               
+roulette(str(input("Enter the url of the video: ")))               
 t2 =time.perf_counter()
 
 try:

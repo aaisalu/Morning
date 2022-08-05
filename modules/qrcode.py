@@ -1,5 +1,5 @@
 from amzqr import amzqr
-import os
+import os,re
 
 def folder(file):
     global Path
@@ -9,15 +9,35 @@ def folder(file):
         os.makedirs(Path)
     return Path
 
-version, level, qr_name = amzqr.run(
-    'hello',
-    version=20,
+def chkreg(answer):
+    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah",f'{answer}',flags=re.IGNORECASE)  
+
+def roulette(info):
+    askimg=input("Do you want custom img or gif as output? [yes/no]: ")
+    if chkreg(askimg):
+        asktype=input("Do you want gif as output? [yes/no]: ")
+        if chkreg(asktype):
+            print("Processing output as gif with custom img")
+            return engine(info,r'..\images\rickroll.gif','gif',True)  
+        else:
+            print("Processing output as png with custom img")
+            return engine(info,r'..\images\onelove.jpg','png',True)
+    else:
+        print("Processing output as jpg without any custom img")
+        return engine(info,None,'jpg',True)
+
+def engine(info,img,ext,color):
+    version, level, qr_name = amzqr.run(
+    info,
+    version=10,
     level='Q',
-    picture=r'C:\\Users\\helo\Desktop\\Morning\\Morning\\modules\\onelove.jpg',
-    colorized=False,
+    picture=img,
+    colorized=color,
     contrast=1.0,
     brightness=1.0,
-    save_name='hello.png',
-    save_dir=folder("qrcode")
+    save_name=f'{info[:10]}.{ext}',
+    save_dir=folder("Qrcodes"))
 
-)
+roulette(str(input("Type anything which you want to convert it to QRcode: ")))               
+
+
