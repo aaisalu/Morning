@@ -324,12 +324,12 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo[
             echo Flying to respective links of Basic kit software
             start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" http://www.mozilla.org/en-US/  https://discord.com/download http://bit.ly/2WZMML0 https://www.sublimetext.com/download http://obsproject.com/download http://www.google.com/chrome/ http://www.zoom.us/download https://www.videolan.org/vlc/download-windows.en_GB.html http://calibre-ebook.com/download http://www.7-zip.org/download.html  http://bit.ly/3Et0NB0 https://bit.ly/3OMQuMW
-            goto:faraway
+            goto:websoft
         :mediate
             echo[
             echo Flying to respective links of Intermediate kit software
             start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3bhyTPG https://intel.ly/3bklcQ3 http://www.qbittorrent.org/download.php http://www.virtualbox.org/ http://github.com/hovancik/stretchly/releases  https://git-scm.com/downloads http://www.python.org/downloads/  http://codecguide.com/download_kl.htm http://bit.ly/3nikTZx  http://code.visualstudio.com/download
-            goto:faraway
+            goto:websoft
     :choco
         echo OFF
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407

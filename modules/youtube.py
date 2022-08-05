@@ -53,7 +53,7 @@ def askuser(link,ask):
             print("\nStarting to download MP3s of the video")
             mp3(link)
         else:
-            print("\nStarting to download video in 720")
+            print("\nStarting to download video in 720p")
             solo_video(link)
     except pytube.exceptions.RegexMatchError as returnlove:
         print("\nPlease enter a valid server URL!")
