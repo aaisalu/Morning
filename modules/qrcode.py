@@ -14,22 +14,24 @@ def chkreg(answer):
 
 def roulette(info):
     askimg=input("Do you want custom img or gif as output? [yes/no]: ")
-    if chkreg(askimg):
-        asktype=input("Do you want gif as output? [yes/no]: ")
-        if chkreg(asktype):
-            print("Processing output as gif with custom img")
-            return engine(info,r'..\images\rickroll.gif','gif',True)  
+    try:
+        if chkreg(askimg):
+            asktype=input("Do you want gif as output? [yes/no]: ")
+            if chkreg(asktype):
+                print("\nProcessing output as gif with custom img")
+                return engine(info,r'..\images\rickroll.gif','gif',True,10)  
+            else:
+                print("\nProcessing output as png with custom gif")
+                return engine(info,r'..\images\onelove.jpg','png',True,10)
         else:
-            print("Processing output as png with custom img")
-            return engine(info,r'..\images\onelove.jpg','png',True)
-    else:
-        print("Processing output as jpg without any custom img")
-        return engine(info,None,'jpg',True)
-
-def engine(info,img,ext,color):
+            print("Processing output as jpg without any custom img")
+            return engine(info,None,'jpg',True,7)
+    except ValueError:
+        print("\nOh snap!! Feels like my brain can't process this input")
+def engine(info,img,ext,color,ver):
     version, level, qr_name = amzqr.run(
     info,
-    version=10,
+    version=ver,
     level='Q',
     picture=img,
     colorized=color,
