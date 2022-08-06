@@ -767,7 +767,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo[
     echo    Press 1 = Download Youtube Videos
     echo    Press 2 = Scrap IMDb Movies
-    echo    Press 3 = Generate QR code
+    echo    Press 3 = Generate QRcode
     echo    Press 0 = Depart
 
         set /P p= Welcome, press the secret key to lunch *.py: 
@@ -797,7 +797,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto:pyproj
     :qrcode
         @echo off
-        echo WIP
+        echo I'm here because you want to Generate QRcode
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python qrcode.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
 
 :venvreqimnt
@@ -842,50 +843,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:choice
     )
 
-rem :jstfar 
-rem 	@echo off
-	
-rem 	echo[	
-rem 	@echo off
-rem 	md %USERPROFILE%\pictures\QRcode   
-rem 	pip install qrcode[pil]		
 
-
-rem 	set Output="%USERPROFILE%\pictures\QRcode"
-rem 	set File="%USERPROFILE%\pictures\QRcode"
-	
-rem 	echo[	
-	
-rem 	echo Press 1=="Create QR code"
-rem 	echo Press 2=="NO QR code"
-
-rem    :Box 
-rem         set /P c= Create QR to share Fast (1/2) ? 
-rem 	echo[
-rem 	if /I "%c%" EQU "1" (
-rem 	goto :Yesqr 
-rem     	) else if /I "%c%" EQU "2" ( 
-rem     	goto :Noqr)
-rem 	goto:Box
-
-
-rem :Yesqr
-rem 	set /p Qrask=Type desired text to convert into Qr code:
-rem 	REM enter your desired output here
-rem 	qr %Qrask% >> %Output%\Qr.png
-rem 	echo Qrinput   = %Qrask% >> %Output%\Qrinputdata.txt
-rem 	echo File has been placed %File%	
-rem 	pause	
-rem 	exit
-	
-rem :Noqr	
-rem 	echo No Jokearound here!!
-rem 	timeout 2 >nul
-rem 	goto :END
-
-rem pause
-rem exit
-	
 	 
 
      

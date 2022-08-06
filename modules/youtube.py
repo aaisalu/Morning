@@ -74,6 +74,6 @@ t2 =time.perf_counter()
 try:
     print(f"Saved at {Path} took {t2-t1} seconds \n")
 except NameError:
-    print("Some input looks fishy as my AI smells it..")
+    print("Some input or your network connection looks fishy as my AI smells it..")
 
    
