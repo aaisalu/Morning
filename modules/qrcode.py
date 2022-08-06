@@ -23,8 +23,9 @@ def getimg(string):
 
 def roulette(info):
     askimg=input("Do you want custom img or gif as output? [yes/no]: ")
-    default=engine(info,None,'png',True,7)
-    # level=input("What version would you like as QRcode output? [1-40]: ")
+    # ver=input("What version would you like as QRcode output? [1-40]: ")
+    ver=7
+    default=engine(info,None,'png',True,ver)
     try:
         if chkreg(askimg):
             asktype=input("Do you want gif as output? [yes/no]: ")
