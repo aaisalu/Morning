@@ -23,6 +23,7 @@ def getimg(string):
 
 def roulette(info):
     askimg=input("Do you want custom img or gif as output? [yes/no]: ")
+    default=engine(info,None,'png',True,7)
     # level=input("What version would you like as QRcode output? [1-40]: ")
     try:
         if chkreg(askimg):
@@ -33,17 +34,18 @@ def roulette(info):
                     return engine(info,storegif[0],storegif[1],True,10)                         
                 else:
                     print("GIF isn't present in gallery folder so, processing output with png.") 
-                    return engine(info,None,'jpg',True,7) 
+                    return default
             else:
                 if not None is (storeimg:=getimg('jpg')):
                     print("\nProcessing output as png with custom img.")
                     return engine(info,storeimg[0],'png',True,10)                         
                 else:
                     print("Picture isn't present in gallery folder so, processing output with png.") 
-                    return engine(info,None,'png',True,7) 
+                    return default
         else:
             print("Processing output as jpg without any custom img")
-            return engine(info,None,'jpg',True,7)
+            return default
+
     except ValueError:
         print("\nOh snap!! Feels like my brain can't process this input")
 
