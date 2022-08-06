@@ -10,9 +10,22 @@ def folder(file):
     if not os.path.exists(Path):
         os.makedirs(Path)
     return Path
-    
-def imdb_v5(url):
-    incoming=requests.get(url).text
+ 
+def cheknet(url):
+    try:
+        incoming=requests.get(url)
+        if incoming.status_code !=200:
+            raise RuntimeError("SOORY ERROR OUT due to excess Resonse Status over 200")
+        print(f"\nServer Response : {incoming}")
+        print('')
+        return  imdb_v5(incoming)
+    except requests.exceptions.ConnectionError:
+        print("\nHmmm…can't reach to the server")
+        print("Please...Check your network connection.")
+
+
+def imdb_v5(getdata):
+    incoming=getdata.text
     soup=BeautifulSoup(incoming,'lxml')
     data=soup.find_all('div',{"class":'lister-item mode-advanced'})
     for index,box in enumerate(data):
@@ -41,13 +54,13 @@ def checkbox(url):
     compiled = re.compile(regex,flags=re.IGNORECASE)
     if (url == None):
         print('Starting to Scrap Website by default link')  
-        return imdb_v5('https://www.imdb.com/search/title/?groups=top_1000&sort=user_rating,desc&count=100&start=%27+%27&ref_=adv_nxt')
+        return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=user_rating,desc&count=100&start=%27+%27&ref_=adv_nxt')
     elif (re.search(compiled, url)):
         print("I'll crawl like spider! wait & watch")  
-        return imdb_v5(url)
+        return cheknet(url)
     else:
         print('Starting to Scrap Website by default link')  
-        return imdb_v5('https://www.imdb.com/search/title/?groups=top_1000&sort=alpha,asc')
+        return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=alpha,asc')
 
 print('')
 print("If you don't understand what the heck is this then simply press enter to scrap with default link")
