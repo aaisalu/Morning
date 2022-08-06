@@ -21,9 +21,9 @@ def getimg(string):
        print("Gallery folder can't be found in the Morning project folder")
        return None,'png'
 
-
 def roulette(info):
     askimg=input("Do you want custom img or gif as output? [yes/no]: ")
+    # level=input("What version would you like as QRcode output? [1-40]: ")
     try:
         if chkreg(askimg):
             asktype=input("Do you want gif as output? [yes/no]: ")
@@ -32,12 +32,12 @@ def roulette(info):
                     print("\nProcessing output as gif with custom img.")
                     return engine(info,storegif[0],storegif[1],True,10)                         
                 else:
-                    print("GIF isn't present in gallery folder so, processing output with jpg.") 
+                    print("GIF isn't present in gallery folder so, processing output with png.") 
                     return engine(info,None,'jpg',True,7) 
             else:
                 if not None is (storeimg:=getimg('jpg')):
                     print("\nProcessing output as png with custom img.")
-                    return engine(info,storeimg[0],storeimg[1],True,10)                         
+                    return engine(info,storeimg[0],'png',True,10)                         
                 else:
                     print("Picture isn't present in gallery folder so, processing output with png.") 
                     return engine(info,None,'png',True,7) 
