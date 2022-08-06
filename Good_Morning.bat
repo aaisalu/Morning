@@ -767,7 +767,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo[
     echo    Press 1 = Download Youtube Videos
     echo    Press 2 = Scrap IMDb Movies
-    echo    Press 3 = Generate QR code
+    echo    Press 3 = Generate QRcode
     echo    Press 0 = Depart
 
         set /P p= Welcome, press the secret key to lunch *.py: 
@@ -797,7 +797,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto:pyproj
     :qrcode
         @echo off
-        echo WIP
+        echo I'm here because you want to Generate QRcode
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python qrcode.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         goto:pyproj
 
 :venvreqimnt
