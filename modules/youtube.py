@@ -35,7 +35,6 @@ def solo_video(url):
     print(":) \n")
 
 def playlists(link,ask):
-    urls=[]
     playlist = Playlist(link)  
     print('\nNumber of videos in playlist: %s' % len(playlist.video_urls))
     if re.search("audio|mp3|music|flac|wav|aac|ogg|audios",ask,flags=re.IGNORECASE):
@@ -53,7 +52,7 @@ def askuser(link,ask):
             print("\nStarting to download MP3s of the video")
             mp3(link)
         else:
-            print("\nStarting to download video in 720")
+            print("\nStarting to download video in 720p")
             solo_video(link)
     except pytube.exceptions.RegexMatchError as returnlove:
         print("\nPlease enter a valid server URL!")
@@ -69,7 +68,7 @@ def roulette(link):
     except KeyError:
         return askuser(link,ask)
 
-url=roulette(str(input("Enter the url of the video: ")))               
+roulette(str(input("Enter the url of the video: ")))               
 t2 =time.perf_counter()
 
 try:
