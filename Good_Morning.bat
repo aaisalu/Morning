@@ -675,8 +675,20 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto:faraway
 
     :repairnet
+        ::Thanks to Ir Relevant & ceztko for admin prevlge stackoverflow.com/a/24665214
         echo OFF
+        echo[
+        echo As the task can't be run without the Administrator privileges 
+        echo Do you want to open the script with the Administrator privileges?  
+        echo[
+        pause
+        net file 1>NUL 2>NUL
+        if not '%errorlevel%' == '0' (
+            powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
+            exit /b)
+        cd /d %1        
         NET SESSION >nul 2>&1
+        ::proceed with Script
         IF %ERRORLEVEL% EQU 0 (
             echo[ 
             echo It resets your network devices and network stack
