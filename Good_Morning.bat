@@ -3,7 +3,7 @@
 ::
 ::                       Welcome to the good morning project
 ::
-::      Github Project link : https://github.com/aaisalu/Morning/
+::      Github Project link : https://github.com/aaisalu/Morning
 ::      If any bug or issue found please feel free to create a Isuue or submit pull request
 ::      Feel free to contribute.    
 ::      Email: kcpra7@proton.me
@@ -60,6 +60,16 @@ echo        #+#    #+# #+#    #+# #+#    #+# #+#    #+#      #+#   #+#+#     #+#
 echo         ########   ########   ########  #########       ###    #### ########### ########  ###    ###     ###     
 )
 echo                                  x - ::k:  https://github.com/aaisalu/Morning  :c:: - x
+
+::check admin right
+NET SESSION >nul 2>&1
+IF %ERRORLEVEL% EQU 0 (
+    echo                                                      -: Sudo Mode :-
+    goto:faraway
+) ELSE (
+    echo                                                    -: Normal Mode :-    
+)
+
 echo[
 echo %date% %time% 
 :: Some of welcome message are of github.com/AnimeKaizoku/SaitamaRobot from modules\sql\welcome_sql.py
@@ -79,7 +89,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 0 = Leave
     echo[
     :brain
-    set /P brn=Feed me just Number so, I can work for you!! [1-6] ? 
+    set /P brn=Feed me just Number so, I can work for you!! [1-6]:  
     if /I "%brn%" EQU "1" ( goto :somewhere
     ) else if  /I "%brn%" EQU "2" ( goto :somewhere_else
     ) else if  /I "%brn%" EQU "3" ( goto :bitfar
@@ -91,14 +101,14 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     
 :somewhere
     echo[
-    echo            :::::::::  :::    ::: :::        :::        :::::::::: ::::::::::: ::::::::::: ::::    ::: 
-    echo            :+:    :+: :+:    :+: :+:        :+:        :+:            :+:         :+:     :+:+:   :+: 
-    echo            +:+    +:+ +:+    +:+ +:+        +:+        +:+            +:+         +:+     :+:+:+  +:+ 
-    echo            +#++:++#+  +#+    +:+ +#+        +#+        +#++:++#       +#+         +#+     +#+ +:+ +#+ 
-    echo            +#+    +#+ +#+    +#+ +#+        +#+        +#+            +#+         +#+     +#+  +#+#+# 
-    echo            #+#    #+# #+#    #+# #+#        #+#        #+#            #+#         #+#     #+#   #+#+# 
-    echo            #########   ########  ########## ########## ##########     ###     ########### ###    #### 
-    echo                           ----- %username% Just teleported into the chat from Jungle!----- 
+    echo                :::::::::  :::    ::: :::        :::        :::::::::: ::::::::::: ::::::::::: ::::    ::: 
+    echo                :+:    :+: :+:    :+: :+:        :+:        :+:            :+:         :+:     :+:+:   :+: 
+    echo                +:+    +:+ +:+    +:+ +:+        +:+        +:+            +:+         +:+     :+:+:+  +:+ 
+    echo                +#++:++#+  +#+    +:+ +#+        +#+        +#++:++#       +#+         +#+     +#+ +:+ +#+ 
+    echo                +#+    +#+ +#+    +#+ +#+        +#+        +#+            +#+         +#+     +#+  +#+#+# 
+    echo                #+#    #+# #+#    #+# #+#        #+#        #+#            #+#         #+#     #+#   #+#+# 
+    echo                #########   ########  ########## ########## ##########     ###     ########### ###    #### 
+    echo                                 ---- %username% Just teleported into the chat from Jungle!----- 
     echo[ 
     echo    Press 1 = World News
     echo    Press 2 = Tech News
@@ -165,7 +175,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :saybye
     echo Check update at https://github.com/aaisalu/Morning
-    ping -n 5 127.0.0.1 > nul 
+    ping -n 3 127.0.0.1 > nul 
     exit
 
 :somewhere_else
@@ -179,15 +189,15 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :bitfar
     echo[
-    echo            ::::::::::: :::     :::    ::: ::::::::::       ::::::::  :::::::::: :::::::::: 
-    echo                :+:   :+: :+:   :+:   :+:  :+:             :+:    :+: :+:        :+:        
-    echo                +:+  +:+   +:+  +:+  +:+   +:+             +:+    +:+ +:+        +:+        
-    echo                +#+ +#++:++#++: +#++:++    +#++:++#        +#+    +:+ :#::+::#   :#::+::#   
-    echo                +#+ +#+     +#+ +#+  +#+   +#+             +#+    +#+ +#+        +#+        
-    echo                #+# #+#     #+# #+#   #+#  #+#             #+#    #+# #+#        #+#        
-    echo                ### ###     ### ###    ### ##########       ########  ###        ###      
-    echo[
-    echo                     --- Brace yourselves...Activating Jasmine flying carpet ---
+    echo                    ::::::::::: :::     :::    ::: ::::::::::       ::::::::  :::::::::: :::::::::: 
+    echo                        :+:   :+: :+:   :+:   :+:  :+:             :+:    :+: :+:        :+:        
+    echo                        +:+  +:+   +:+  +:+  +:+   +:+             +:+    +:+ +:+        +:+        
+    echo                        +#+ +#++:++#++: +#++:++    +#++:++#        +#+    +:+ :#::+::#   :#::+::#   
+    echo                        +#+ +#+     +#+ +#+  +#+   +#+             +#+    +#+ +#+        +#+        
+    echo                        #+# #+#     #+# #+#   #+#  #+#             #+#    #+# #+#        #+#        
+    echo                        ### ###     ### ###    ### ##########       ########  ###        ###      
+    echo[ 
+    echo                              --- Brace yourselves...Activating Jasmine flying carpet ---
     echo[  
     echo    Press 1 = Downloads Folder
     echo    Press 2 = Pictures Folder 
@@ -270,15 +280,15 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :faraway
     echo[
-    echo               :::::::::  :::::::::  :::::::::: ::::::::   ::::::::       :::    ::: :::::::::  
-    echo               :+:    :+: :+:    :+: :+:       :+:    :+: :+:    :+:      :+:    :+: :+:    :+: 
-    echo               +:+    +:+ +:+    +:+ +:+       +:+        +:+             +:+    +:+ +:+    +:+ 
-    echo               +#+    +:+ +#++:++#:  +#++:++#  +#++:++#++ +#++:++#++      +#+    +:+ +#++:++#+  
-    echo               +#+    +#+ +#+    +#+ +#+              +#+        +#+      +#+    +#+ +#+        
-    echo               #+#    #+# #+#    #+# #+#       #+#    #+# #+#    #+#      #+#    #+# #+#        
-    echo               #########  ###    ### ########## ########   ########        ########  ###        
+    echo                       :::::::::  :::::::::  :::::::::: ::::::::   ::::::::       :::    ::: :::::::::  
+    echo                       :+:    :+: :+:    :+: :+:       :+:    :+: :+:    :+:      :+:    :+: :+:    :+: 
+    echo                       +:+    +:+ +:+    +:+ +:+       +:+        +:+             +:+    +:+ +:+    +:+ 
+    echo                       +#+    +:+ +#++:++#:  +#++:++#  +#++:++#++ +#++:++#++      +#+    +:+ +#++:++#+  
+    echo                       +#+    +#+ +#+    +#+ +#+              +#+        +#+      +#+    +#+ +#+        
+    echo                       #+#    #+# #+#    #+# #+#       #+#    #+# #+#    #+#      #+#    #+# #+#        
+    echo                       #########  ###    ### ########## ########   ########        ########  ###        
     echo[
-    echo                        ---- Feels like %username% device needs some medic kit! -----
+    echo                                  ---- Feels like %username% device needs some medic kit! -----
     echo[
     echo    Press 1 = Install/Update software through chocolatey
     echo    Press 2 = Fly to the web of software 
@@ -287,7 +297,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 5 = Reset Network setting 
     echo    Press 0 = Depart
    :farbox 
-        set /P k= Which kit would you like to proceed with? [1-5]:   
+        set /P k= Which kit would you like to proceed with? [1-5]: 
 
     if /I "%k%" EQU "1" (
     goto :choco
@@ -354,23 +364,27 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
             echo Sweet Chocolatey is ready to serve you!
         ) ELSE (
-           echo[
-           echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
-           echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
-           echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
-           echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
-           echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
-           echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
-           echo[                                                  
-           echo                      ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-           echo This script must be run as administrator to work as it installs the chocolatey to install software 
-           echo[
-           echo If you're seeing this, then right click on this script and select "Run As Administrator".
-           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
-           echo[ 
-           ping -n 5 127.0.0.1 > nul 
-           PAUSE
-           EXIT /B 1
+            echo[
+            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
+            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
+            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
+            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
+            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
+            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
+            echo[                                                  
+            echo                      ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo This script must be run as administrator to work as it installs the chocolatey to install software 
+            echo[
+            echo As the task can't be run without the Administrator privileges 
+            echo Do you want to open the script with the Administrator privileges?  
+            echo[
+            pause
+            ::Thanks to Ir Relevant & ceztko for admin prevlge stackoverflow.com/a/24665214
+            net file 1>NUL 2>NUL
+            if not '%errorlevel%' == '0' (
+                powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
+                exit /b)
+            cd /d %1 
         )
         :: Thanks Chocolatey for being it so amazing chocolatey.org
         echo[                                
@@ -674,10 +688,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo Saved at %USERPROFILE%\Desktop
         goto:faraway
 
-    :repairnet
-        echo OFF
+    :repairnet 
         NET SESSION >nul 2>&1
-        IF %ERRORLEVEL% EQU 0 (
+        IF %ERRORLEVEL% EQU 0 ( 
             echo[ 
             echo It resets your network devices and network stack
             echo This should only take another few minutes or less, and then you'll be good to go!
@@ -693,25 +706,29 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo Please! Restart your pc
             goto:faraway
         ) ELSE (
-           echo[
-           echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
-           echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
-           echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
-           echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
-           echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
-           echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
-           echo[                                                     
-           echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-           echo This script must be run as administrator to work as it resets your network devices and network stack
-           echo[
-           echo If you're seeing this, then right click on this script and select "Run As Administrator".
-           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
-           echo[ 
-           ping -n 5 127.0.0.1 > nul 
-           PAUSE
-           EXIT /B 1
-        )
-
+            echo OFF
+            echo[
+            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
+            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
+            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
+            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
+            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
+            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
+            echo[                                                     
+            echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo This script must be run as administrator to work as it resets your network devices and network stack
+            echo[
+            echo If you're seeing this, then right click on this script and select "Run As Administrator".
+            echo[
+            echo As the task can't be run without the Administrator privileges 
+            echo Do you want to open the script with the Administrator privileges?  
+            echo[
+            pause
+            net file 1>NUL 2>NUL
+            if not '%errorlevel%' == '0' (
+                powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
+                exit /b)
+            cd /d %1 ) 
     :repairpc
         echo OFF
         NET SESSION >nul 2>&1
@@ -731,23 +748,28 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo[
             goto:faraway
         ) ELSE (
-           echo[
-           echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
-           echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
-           echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
-           echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
-           echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
-           echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
-           echo[    
-           echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-           echo This script must be run as administrator to work as it uses DISM to Repair a Windows image 
-           echo[
-           echo If you're seeing this, then right click on this script and select "Run As Administrator".
-           echo OR Follow this guide: https://gearupwindows.com/how-to-open-command-prompt-as-administrator-in-windows-10-8-7/
-           echo[ 
-           ping -n 5 127.0.0.1 > nul 
-           PAUSE
-           EXIT /B 1
+            echo[
+            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
+            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
+            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
+            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
+            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
+            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
+            echo[    
+            echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo This script must be run as administrator to work as it uses DISM to Repair a Windows image 
+            echo[
+            echo If you're seeing this, then right click on this script and select "Run As Administrator".
+            echo[
+            echo As the task can't be run without the Administrator privileges 
+            echo Do you want to open the script with the Administrator privileges?  
+            echo[
+            pause
+            net file 1>NUL 2>NUL
+            if not '%errorlevel%' == '0' (
+                powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
+                exit /b)
+            cd /d %1 
         )
 
     :Errorkit 
@@ -757,13 +779,14 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :pyproj 
     echo[
-    echo            :::       :::    ::: ::::    :::  ::::::::  :::    :::                       :::::::::  :::   ::: 
-    echo            :+:       :+:    :+: :+:+:   :+: :+:    :+: :+:    :+:       :+:     :+:     :+:    :+: :+:   :+: 
-    echo            +:+       +:+    +:+ :+:+:+  +:+ +:+        +:+    +:+         +:+ +:+       +:+    +:+  +:+ +:+  
-    echo            +#+       +#+    +:+ +#+ +:+ +#+ +#+        +#++:++#++      +#++:++#++:++    +#++:++#+    +#++:   
-    echo            +#+       +#+    +#+ +#+  +#+#+# +#+        +#+    +#+         +#+ +#+       +#+           +#+    
-    echo            #+#       #+#    #+# #+#   #+#+# #+#    #+# #+#    #+#       #+#     #+# #+# #+#           #+#    
-    echo            ########## ########  ###    ####  ########  ###    ###                   ### ###           ###     
+    echo             :::       :::    ::: ::::    :::  ::::::::  :::    :::                       :::::::::  :::   ::: 
+    echo             :+:       :+:    :+: :+:+:   :+: :+:    :+: :+:    :+:       :+:     :+:     :+:    :+: :+:   :+: 
+    echo             +:+       +:+    +:+ :+:+:+  +:+ +:+        +:+    +:+         +:+ +:+       +:+    +:+  +:+ +:+  
+    echo             +#+       +#+    +:+ +#+ +:+ +#+ +#+        +#++:++#++      +#++:++#++:++    +#++:++#+    +#++:   
+    echo             +#+       +#+    +#+ +#+  +#+#+# +#+        +#+    +#+         +#+ +#+       +#+           +#+    
+    echo             #+#       #+#    #+# #+#   #+#+# #+#    #+# #+#    #+#       #+#     #+# #+# #+#           #+#    
+    echo             ########## ########  ###    ####  ########  ###    ###                   ### ###           ###     
+    echo                                         ---- %username% spawned into snake island ----
     echo[
     echo    Press 1 = Download Youtube Videos
     echo    Press 2 = Scrap IMDb Movies
@@ -830,7 +853,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     python --version >NUL 2>&1
     IF  %ERRORLEVEL% EQU 0 (
     echo[
-    echo                     --------  Python is found lurking around, so I'll lend you my power ---------
+    echo                         Kx-----  Python is found lurking around, so I'll lend you my power -----Cx
     goto:venvreqimnt
     ) ELSE (
     echo[
@@ -842,11 +865,3 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     pause
     goto:choice
     )
-
-
-	 
-
-     
- 
-
-
