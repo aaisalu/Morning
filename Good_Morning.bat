@@ -298,7 +298,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 6 = Repair system files
     echo    Press 0 = Depart
    :farbox 
-        set /P k= Which kit would you like to proceed with? [1-5]: 
+        set /P k= Which kit would you like to proceed with? [1-6]: 
 
     if /I "%k%" EQU "1" (
     goto :choco
