@@ -319,8 +319,18 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )
     :websoft
         echo[
+        echo                       :::       ::: :::::::::: :::::::::       :::::::::: :::     :::   ::: 
+        echo                       :+:       :+: :+:        :+:    :+:      :+:        :+:     :+:   :+: 
+        echo                       +:+       +:+ +:+        +:+    +:+      +:+        +:+      +:+ +:+  
+        echo                       +#+  +:+  +#+ +#++:++#   +#++:++#+       :#::+::#   +#+       +#++:   
+        echo                       +#+ +#+#+ +#+ +#+        +#+    +#+      +#+        +#+        +#+    
+        echo                        #+#+# #+#+#  #+#        #+#    #+#      #+#        #+#        #+#    
+        echo                         ###   ###   ########## #########       ###        ########## ###    
+        echo                                       :-- %username%, fasten your seatbelt --:
+        echo[
         echo This tab opens links to software and extension on your browser.
         echo I suggest you install software from chocolatey fast and simple.
+        echo[
         echo    Press 1 = Fly to the web of Basic kit software
         echo    Press 2 = Fly to the web of Intermediate kit software
         echo    Press 3 = Fly to the browser extensions page
@@ -436,10 +446,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo                                                  Install Basic Software [200] 
         echo                         Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git ,Calibre 
         echo                                                __________________________________     
-        echo[                                        
-        echo                                                    Update all software [00]                                                                                                                              
-        echo                                                             Exit [0]      
-        echo[                                                                         
+        echo[
+        rem echo                                                      Uninstall choco [9841]   
+        echo                                                     Update all software [00]
+        echo                                                             Exit [0]
+        echo[                                                                      
             set /P fun= Welcome, Which of the software would you like to taste? [1-40]: 
         if /I "%fun%" EQU "1" (
         goto :loveOne                                                       
@@ -698,11 +709,12 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install calibre -y
             choco install qbittorrent -y
             goto:choco
-
         :updateall
             choco upgrade all -y
             goto:choco
-
+        :uninstallchoco
+            echo No way!
+            goto:choco
         :bitterchoco
             echo "Ops! Don't you like to have choco bar? "
             goto:choco    
