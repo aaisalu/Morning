@@ -295,7 +295,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 3 = Generate Battery report
     echo    Press 4 = Repair a Windows Image
     echo    Press 5 = Reset Network setting 
-    rem echo    Press 6 = Repair system files
+    echo    Press 6 = Repair system files
     echo    Press 0 = Depart
    :farbox 
         set /P k= Which kit would you like to proceed with? [1-5]: 
@@ -312,12 +312,15 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :repairpc
     )else if /I "%k%" EQU "5" ( 
     goto :repairnet
-    ) else ( 
+    )else if /I "%k%" EQU "6" ( 
+    goto :repairsys
+    )else ( 
     goto :faraway 
     )
     :websoft
         echo[
-        echo This tab opens a link of software on your browser I suggest you install software from chocolatey fast and simple.
+        echo This tab opens links to software and extension on your browser.
+        echo I suggest you install software from chocolatey fast and simple.
         echo    Press 1 = Fly to the web of Basic kit software
         echo    Press 2 = Fly to the web of Intermediate kit software
         echo    Press 3 = Fly to the browser extensions page
@@ -761,7 +764,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo[ 
             echo The Deployment Image Servicing and Management tool can be used to scan and repair potential issues with the .wim store in Windows that may impact system files.
             echo This should take 10-20 minutes to run, but depending on circumstances it can potentially take over an hour.
-            echo Ref: https://dell.to/3d2EqtO
+            echo Ref: https://dell.to/3d2EqtO or https://bit.ly/3BUBZDZ
             echo[
             pause
             Dism /Online /Cleanup-Image /ScanHealth
@@ -783,6 +786,44 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo[    
             echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
             echo This script must be run as administrator to work as it uses DISM to Repair a Windows image 
+            echo[
+            echo If you're seeing this, then right click on this script and select "Run As Administrator".
+            echo[
+            echo As the task can't be run without the Administrator privileges 
+            echo Do you want to open the script with the Administrator privileges?  
+            echo[
+            pause
+            net file 1>NUL 2>NUL
+            if not '%errorlevel%' == '0' (
+                powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
+                exit /b)
+            cd /d %1 
+        )
+    :repairsys
+        echo OFF
+        NET SESSION >nul 2>&1
+        IF %ERRORLEVEL% EQU 0 (
+            echo[ 
+            echo System File Checker is a utility in Microsoft Windows that allows users to scan for and restore corrupted Windows system files.
+            echo It may take several minutes for the command operation to be completed.
+            echo Ref: https://bit.ly/3zOXDHr or https://bit.ly/3BUBZDZ
+            echo[
+            pause
+            sfc /scannow
+            echo[
+            echo SFC scan completed!
+            goto:faraway
+        ) ELSE (
+            echo[
+            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
+            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
+            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
+            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
+            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
+            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
+            echo[    
+            echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo This script must be run as administrator to work as it allows users to scan for and restore corrupted Windows system files. 
             echo[
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
             echo[
