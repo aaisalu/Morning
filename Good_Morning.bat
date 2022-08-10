@@ -291,10 +291,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo                                  ---- Feels like %username% device needs some medic kit! -----
     echo[
     echo    Press 1 = Install/Update software through chocolatey
-    echo    Press 2 = Fly to the web of software 
+    echo    Press 2 = Fly to the soft_links/extensions 
     echo    Press 3 = Generate Battery report
     echo    Press 4 = Repair a Windows Image
     echo    Press 5 = Reset Network setting 
+    rem echo    Press 6 = Repair system files
     echo    Press 0 = Depart
    :farbox 
         set /P k= Which kit would you like to proceed with? [1-5]: 
@@ -316,15 +317,18 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )
     :websoft
         echo[
-        echo This tab opens a link of software on your browser I suggest you install software from chocolatey fast and simple
+        echo This tab opens a link of software on your browser I suggest you install software from chocolatey fast and simple.
         echo    Press 1 = Fly to the web of Basic kit software
         echo    Press 2 = Fly to the web of Intermediate kit software
+        echo    Press 3 = Fly to the browser extensions page
         echo    Press 0 = Depart
-            set /P wb= Welcome, Which web of software do you want to fly ?[1/2]: 
+            set /P wb= Welcome, Which web of software do you want to fly ?[1-3]: 
         if /I "%wb%" EQU "1" (
         goto :basic
         ) else if /I "%wb%" EQU "2" ( 
          goto :mediate
+        )else if /I "%wb%" EQU "3" ( 
+         goto :webext
         )else if /I "%wb%" EQU "0" ( 
          goto :faraway
         )else ( 
@@ -340,6 +344,27 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo Flying to respective links of Intermediate kit software
             start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3bhyTPG https://intel.ly/3bklcQ3 http://www.qbittorrent.org/download.php http://www.virtualbox.org/ http://github.com/hovancik/stretchly/releases  https://git-scm.com/downloads http://www.python.org/downloads/  http://codecguide.com/download_kl.htm http://bit.ly/3nikTZx  http://code.visualstudio.com/download
             goto:websoft
+        :webext
+            echo[
+            echo Please! Choose your browser preferences where you want to install extensions.
+            echo    Press 1 = Chromium Browser
+            echo    Press 2 = Mozilla Firefox
+            set /P wb= Welcome, Which browser do you use ?[1/2]: 
+            if /I "%wb%" EQU "1" (
+            goto :chromiumbrow
+            ) else if /I "%wb%" EQU "2" ( 
+             goto :mozibrow
+            )else if /I "%wb%" EQU "0" ( 
+             goto :websoft
+            )else ( 
+            goto :webext
+            )
+            :chromiumbrow
+                start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://bit.ly/3Q8ZGg5 https://bit.ly/3de69b9 https://privacybadger.org/
+                goto:webext
+            :mozibrow
+                start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe"  https://mzl.la/3Q8ZMEt  https://mzl.la/3JDTxWQ  https://mzl.la/3bDNDIL https://privacybadger.org/
+                goto:webext
     :choco
         echo OFF
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
