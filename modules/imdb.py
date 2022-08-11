@@ -1,66 +1,81 @@
 from bs4 import BeautifulSoup
-import requests,csv
+import requests
+import csv
 import os
 import re
 
+
 def folder(file):
     global Path
-    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') 
-    Path=rf"{desktop}\{file}"
+    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+    Path = rf"{desktop}\{file}"
     if not os.path.exists(Path):
         os.makedirs(Path)
     return Path
- 
+
+
 def cheknet(url):
     try:
-        incoming=requests.get(url)
-        if incoming.status_code !=200:
-            raise RuntimeError("SOORY ERROR OUT due to excess Resonse Status over 200")
+        incoming = requests.get(url)
+        if incoming.status_code != 200:
+            raise RuntimeError(
+                "SOORY ERROR OUT due to excess Resonse Status over 200")
         print(f"\nServer Response : {incoming}")
         print('')
-        return  imdb_v5(incoming)
+        return imdb_v5(incoming)
     except requests.exceptions.ConnectionError:
         print("\nHmmm…can't reach to the server")
         print("Please...Check your network connection.")
 
 
 def imdb_v5(getdata):
-    incoming=getdata.text
-    soup=BeautifulSoup(incoming,'lxml')
-    data=soup.find_all('div',{"class":'lister-item mode-advanced'})
-    for index,box in enumerate(data):
-        title=box.h3.a.text
-        year=box.find('span',class_='lister-item-year text-muted unbold').text.replace('(','').replace(')','')
-        rating=box.find('div','ratings-bar')
-        rate=f'{rating.strong.text}/10'
-        meta=star.span.text if (star:=rating.find('div',class_='inline-block ratings-metascore')) else "Oh ! my Meta_score"
-        Divs=box.find_all('p',{'class':'text-muted'})
-        certificate=cert.text.strip() if (cert:=Divs[0].find('span',class_='certificate')) else "Certificate seems to be lost"
-        time=clock.text if (clock:=Divs[0].find('span',class_='runtime')) else "Time Seems to be unlimited?"
-        genre=dress.text.strip() if (dress:=Divs[0].find('span',class_='genre')) else "Genre seems to be flying"
-        summary=Divs[1].text.strip()
-        ballot =box.find_all('span',{'name':"nv"})
-        vote   =ballot[0].text
-        gross  =ballot[1].text if len(ballot)>2 and '$' in ballot[1].text and '#' not in ballot[1].text  else "Still Collecting Cash"
-        top_250=ballot[2].text if len(ballot)>2 and '#' in ballot[2].text and '$' not in ballot[2].text else "Can't be found in Top 250"     
-        with open(rf"{folder('Moviez')}\Imdb_movies_lists.csv",mode='a+',newline='') as editor:
-            write=csv.writer(editor,delimiter=',')
-            write.writerow([index,title,rate,year,time,genre,summary,vote,meta,gross,certificate,top_250])
-    return print(f'Saved at {Path}')					
+    incoming = getdata.text
+    soup = BeautifulSoup(incoming, 'lxml')
+    data = soup.find_all('div', {"class": 'lister-item mode-advanced'})
+    for index, box in enumerate(data):
+        title = box.h3.a.text
+        year = box.find(
+            'span', class_='lister-item-year text-muted unbold').text.replace('(', '').replace(')', '')
+        rating = box.find('div', 'ratings-bar')
+        rate = f'{rating.strong.text}/10'
+        meta = star.span.text if (star := rating.find(
+            'div', class_='inline-block ratings-metascore')) else "Oh ! my Meta_score"
+        Divs = box.find_all('p', {'class': 'text-muted'})
+        certificate = cert.text.strip() if (cert := Divs[0].find(
+            'span', class_='certificate')) else "Certificate seems to be lost"
+        time = clock.text if (clock := Divs[0].find(
+            'span', class_='runtime')) else "Time Seems to be unlimited?"
+        genre = dress.text.strip() if (dress := Divs[0].find(
+            'span', class_='genre')) else "Genre seems to be flying"
+        summary = Divs[1].text.strip()
+        ballot = box.find_all('span', {'name': "nv"})
+        vote = ballot[0].text
+        gross = ballot[1].text if len(
+            ballot) > 2 and '$' in ballot[1].text and '#' not in ballot[1].text else "Still Collecting Cash"
+        top_250 = ballot[2].text if len(
+            ballot) > 2 and '#' in ballot[2].text and '$' not in ballot[2].text else "Can't be found in Top 250"
+        with open(rf"{folder('Moviez')}\Imdb_movies_lists.csv", mode='a+', newline='') as editor:
+            write = csv.writer(editor, delimiter=',')
+            write.writerow([index, title, rate, year, time, genre,
+                           summary, vote, meta, gross, certificate, top_250])
+    return print(f'Saved at {Path}')
+
 
 def checkbox(url):
     # Thanks to @prashant_srivastava at geeksforgeeks.org/check-if-an-url-is-valid-or-not-using-regular-expression for regex
-    regex = ("((http|https)://)(www.)?" +"[a-zA-Z0-9@:%._\\+~#?&//=]"+"title|imdb|alpha|asc|runtime|year|release_date|your_rating_date|my_ratings|sort|search|num_votes|boxoffice_gross_us|top|count|user_rating|groups|adv_nxt" +"{2,256}\\.[a-z]" +"{2,6}\\b([-a-zA-Z0-9@:%" +"._\\+~#?&//=]*)")
-    compiled = re.compile(regex,flags=re.IGNORECASE)
+    regex = ("((http|https)://)(www.)?" + "[a-zA-Z0-9@:%._\\+~#?&//=]"+"title|imdb|alpha|asc|runtime|year|release_date|your_rating_date|my_ratings|sort|search|num_votes|boxoffice_gross_us|top|count|user_rating|groups|adv_nxt" +
+             "{2,256}\\.[a-z]" + "{2,6}\\b([-a-zA-Z0-9@:%" + "._\\+~#?&//=]*)")
+    compiled = re.compile(regex, flags=re.IGNORECASE)
     if (url == None):
-        print('Starting to Scrap Website by default link')  
+        print('Starting to Scrap Website by default link')
         return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=user_rating,desc&count=100&start=%27+%27&ref_=adv_nxt')
     elif (re.search(compiled, url)):
-        print("I'll crawl like spider! wait & watch")  
+        print("I'll crawl like spider! wait & watch")
         return cheknet(url)
     else:
-        print('Starting to Scrap Website by default link')  
+        print('Starting to Scrap Website by default link')
         return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=alpha,asc')
+
 
 print('')
 print("If you don't understand what the heck is this then simply press enter to scrap with default link")
