@@ -1,14 +1,14 @@
 @ECHO OFF
-::_______________________________________________________________________________
+:: ** _______________________________________________________________________________________________ **
 ::
-::                       Welcome to the good morning project
+::                                      Welcome to the good morning project
 ::
 ::      Github Project link : https://github.com/aaisalu/Morning
 ::      If any bug or issue found please feel free to create a Isuue or submit pull request
 ::      Feel free to contribute.    
 ::      Email: kcpra7@proton.me
 ::
-::________________________________________________________________________________
+:: ** _______________________________________________________________________________________________ **
 
 ::Thanks for the cool ascii banner manytools.org
 color 7
@@ -61,20 +61,17 @@ echo        #+#    #+# #+#    #+# #+#    #+# #+#    #+#      #+#   #+#+#     #+#
 echo         ########   ########   ########  #########       ###    #### ########### ########  ###    ###     ###     
 )
 echo                                  x - ::k:  [92mhttps://github.com/aaisalu/Morning[0m  :c:: - x
-rem echo                                  x - ::k:  https://github.com/aaisalu/Morning  :c:: - x
-
 :: Thanks to mlocati for batch color at https://bit.ly/3zEJDj6
 
 ::check admin right
 NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
-    rem echo                                                      -: Sudo Mode :-
     echo                                                      [31m-: Sudo Mode :-[0m
     goto:faraway
 ) ELSE (
-    echo                                                    [34m-: Normal Mode :-[0m
-    rem echo                                                    -: Normal Mode :-    
+    echo                                                    [94m-: Normal Mode :-[0m
 )
+
 echo[
 echo %date% %time% 
 :: Some of welcome message are of github.com/AnimeKaizoku/SaitamaRobot from modules\sql\welcome_sql.py
@@ -893,6 +890,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 1 = Download Youtube Videos
     echo    Press 2 = Scrap IMDb Movies
     echo    Press 3 = Generate QRcode
+    echo    Press 4 = Internet Speedtest
     echo    [90mPress 0 = Depart[0m
 
         set /P pyt= Welcome, press the secret key to lunch *.py: 
@@ -902,7 +900,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :scrapimdb
     ) else if /I "%pyt%" EQU "3" (
     goto:qrcode
-    ) else if /I "%pyt%" EQU "0" (
+    ) else if /I "%pyt%" EQU "4" (
+    goto:spedtest
+    )else if /I "%pyt%" EQU "0" (
     goto:choice
     )else ( 
     goto :pyproj
@@ -913,17 +913,28 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         :: Thanks to Ashish Gupta user2350219
         :: ref from stackoverflow.com/a/30927921
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        pause
         goto:pyproj           
     :ytdown
         @echo off
         echo[
         echo I'm here because you want to download Youtube Videos
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python youtube.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        pause
         goto:pyproj
     :qrcode
         @echo off
+        echo[
         echo I'm here because you want to Generate QRcode
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python qrcode.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        pause
+        goto:pyproj
+    :spedtest
+        @echo off
+        echo[
+        echo I'm here because you want to test your internet speed
+        cmd /k "cd %~dp0\venv\Scripts & activate & speedtest-cli --secure --share & deactivate.bat & exit"
+        pause
         goto:pyproj
 
 :venvreqimnt
@@ -966,8 +977,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo[
     pause
     goto:choice
+    rem goto:choco
     )
-
 
 :lazyme
     echo somewhere over the rainbow
