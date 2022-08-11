@@ -1,0 +1,10 @@
+venv
+get-pip.py
+*.pyc
+__pycache__/
+.idea/
+.project
+.pydevproject
+.directory
+.vscode
+env
