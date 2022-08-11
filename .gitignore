@@ -8,3 +8,6 @@ __pycache__/
 .directory
 .vscode
 env
+.venv
+.vscode/settings.json
+*.bat
