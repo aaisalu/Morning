@@ -5,7 +5,7 @@
 ::
 ::      Github Project link : https://github.com/aaisalu/Morning
 ::      If any bug or issue found please feel free to create a Isuue or submit pull request
-::      Feel free to contribute.    
+::      Feel free to contribute.
 ::      Email: kcpra7@proton.me
 ::
 :: ** _______________________________________________________________________________________________ **
@@ -14,51 +14,51 @@
 color 7
 for /f "delims=:" %%A in ("%time%") do if %%A LSS 12 (
 echo[
-echo          .d8888b.                         888       888b     d888                           d8b                   
-echo         .88P  Y88b                        888       8888b   d8888                           Y8P                   
-echo        .888    888                        888       88888b.d88888                                                 
-echo        .888         .d88b.   .d88b.   .d88888       888Y88888P888  .d88b.  888d888 88888b.  888 88888b.   .d88b.  
-echo        .888  88888 d88""88b d88""88b d88" 888       888 Y888P 888 d88""88b 888P"   888 "88b 888 888 "88b d88P"88b 
-echo         888    888 888  888 888  888 888  888       888  Y8P  888 888  888 888     888  888 888 888  888 888  888 
-echo         Y88b  d88P Y88..88P Y88..88P Y88b 888       888   "   888 Y88..88P 888     888  888 888 888  888 Y88b 888 
-echo          "Y8888P88  "Y88P"   "Y88P"   "Y88888       888       888  "Y88P"  888     888  888 888 888  888  "Y88888 
-echo                                                                                                               888 
-echo                                                                                                          Y8b d88P 
-echo                                                                                                           "Y88P"  
+echo          .d8888b.                         888       888b     d888                           d8b
+echo         .88P  Y88b                        888       8888b   d8888                           Y8P
+echo        .888    888                        888       88888b.d88888
+echo        .888         .d88b.   .d88b.   .d88888       888Y88888P888  .d88b.  888d888 88888b.  888 88888b.   .d88b.
+echo        .888  88888 d88""88b d88""88b d88" 888       888 Y888P 888 d88""88b 888P"   888 "88b 888 888 "88b d88P"88b
+echo         888    888 888  888 888  888 888  888       888  Y8P  888 888  888 888     888  888 888 888  888 888  888
+echo         Y88b  d88P Y88..88P Y88..88P Y88b 888       888   "   888 Y88..88P 888     888  888 888 888  888 Y88b 888
+echo          "Y8888P88  "Y88P"   "Y88P"   "Y88888       888       888  "Y88P"  888     888  888 888 888  888  "Y88888
+echo                                                                                                               888
+echo                                                                                                          Y8b d88P
+echo                                                                                                           "Y88P"
 )else if %%A LSS 18 (
 echo[
 echo[
-echo                .oOOOo.                   o          Oo    oooo                                             
-echo               .O     o                  O          o  O   O                                                
-echo               o                         o         O    o  o     O                                          
-echo               O                         o        oOooOoOo OoO  oOo                                          
-echo               O   .oOOo .oOo. .oOo. .oOoO        o      O o     o    .oOo. `OoOo. 'OoOo. .oOo. .oOo.  ooOoo 
-echo               o.      O O   o O   o o   O        O      o O     O    OooO'  o      o   O O   o O   o  o   O 
-echo                O.    oO o   O o   O O   o        o      O o     o    O      O      O   o o   O o   O  O   o 
-echo                 `OooO'  `OoO' `OoO' `OoO'o       O.     O O     ooo  `OoO'  o      o   O `OoO' `OoO'  o   O   
-echo[                                                                                                                                                                                           
+echo                .oOOOo.                   o          Oo    oooo
+echo               .O     o                  O          o  O   O
+echo               o                         o         O    o  o     O
+echo               O                         o        oOooOoOo OoO  oOo
+echo               O   .oOOo .oOo. .oOo. .oOoO        o      O o     o    .oOo. `OoOo. 'OoOo. .oOo. .oOo.  ooOoo
+echo               o.      O O   o O   o o   O        O      o O     O    OooO'  o      o   O O   o O   o  o   O
+echo                O.    oO o   O o   O O   o        o      O o     o    O      O      O   o o   O o   O  O   o
+echo                 `OooO'  `OoO' `OoO' `OoO'o       O.     O O     ooo  `OoO'  o      o   O `OoO' `OoO'  o   O
+echo[
 ) else if %%A LSS 22 (
 echo[
-echo        .d8888b.                         888       8888888888                            d8b                   
-echo       .88P  Y88b                        888       888                                   Y8P                   
-echo      .888    888                        888       888                                                         
-echo      .888         .d88b.   .d88b.   .d88888       8888888    888  888  .d88b.  88888b.  888 88888b.   .d88b.  
-echo      .888  88888 d88""88b d88""88b d88" 888       888        888  888 d8P  Y8b 888 "88b 888 888 "88b d88P"88b 
-echo       888    888 888  888 888  888 888  888       888        Y88  88P 88888888 888  888 888 888  888 888  888 
-echo        88b  d88P Y88..88P Y88..88P Y88b 888       888         Y8bd8P  Y8b.     888  888 888 888  888 Y88b 888 
-echo        "Y8888P88  "Y88P"   "Y88P"   "Y88888       8888888888   Y88P    "Y8888  888  888 888 888  888  "Y88888 
-echo                                                                                                           888 
+echo        .d8888b.                         888       8888888888                            d8b
+echo       .88P  Y88b                        888       888                                   Y8P
+echo      .888    888                        888       888
+echo      .888         .d88b.   .d88b.   .d88888       8888888    888  888  .d88b.  88888b.  888 88888b.   .d88b.
+echo      .888  88888 d88""88b d88""88b d88" 888       888        888  888 d8P  Y8b 888 "88b 888 888 "88b d88P"88b
+echo       888    888 888  888 888  888 888  888       888        Y88  88P 88888888 888  888 888 888  888 888  888
+echo        88b  d88P Y88..88P Y88..88P Y88b 888       888         Y8bd8P  Y8b.     888  888 888 888  888 Y88b 888
+echo        "Y8888P88  "Y88P"   "Y88P"   "Y88888       8888888888   Y88P    "Y8888  888  888 888 888  888  "Y88888
+echo                                                                                                           888
 echo                                                                                                      Y8b d88P
-echo                                                                                                       "Y88P" 
+echo                                                                                                       "Y88P"
 ) else (
 echo[
-echo         ::::::::   ::::::::   ::::::::  :::::::::       ::::    ::: ::::::::::: ::::::::  :::    ::: ::::::::::: 
-echo        :+:    :+: :+:    :+: :+:    :+: :+:    :+:      :+:+:   :+:     :+:    :+:    :+: :+:    :+:     :+:     
-echo        +:+        +:+    +:+ +:+    +:+ +:+    +:+      :+:+:+  +:+     +:+    +:+        +:+    +:+     +:+     
-echo        :#:        +#+    +:+ +#+    +:+ +#+    +:+      +#+ +:+ +#+     +#+    :#:        +#++:++#++     +#+     
-echo        +#+   +#+# +#+    +#+ +#+    +#+ +#+    +#+      +#+  +#+#+#     +#+    +#+   +#+# +#+    +#+     +#+     
-echo        #+#    #+# #+#    #+# #+#    #+# #+#    #+#      #+#   #+#+#     #+#    #+#    #+# #+#    #+#     #+#     
-echo         ########   ########   ########  #########       ###    #### ########### ########  ###    ###     ###     
+echo         ::::::::   ::::::::   ::::::::  :::::::::       ::::    ::: ::::::::::: ::::::::  :::    ::: :::::::::::
+echo        :+:    :+: :+:    :+: :+:    :+: :+:    :+:      :+:+:   :+:     :+:    :+:    :+: :+:    :+:     :+:
+echo        +:+        +:+    +:+ +:+    +:+ +:+    +:+      :+:+:+  +:+     +:+    +:+        +:+    +:+     +:+
+echo        :#:        +#+    +:+ +#+    +:+ +#+    +:+      +#+ +:+ +#+     +#+    :#:        +#++:++#++     +#+
+echo        +#+   +#+# +#+    +#+ +#+    +#+ +#+    +#+      +#+  +#+#+#     +#+    +#+   +#+# +#+    +#+     +#+
+echo        #+#    #+# #+#    #+# #+#    #+# #+#    #+#      #+#   #+#+#     #+#    #+#    #+# #+#    #+#     #+#
+echo         ########   ########   ########  #########       ###    #### ########### ########  ###    ###     ###
 )
 echo                                  x - ::k:  [92mhttps://github.com/aaisalu/Morning[0m  :c:: - x
 :: Thanks to mlocati for batch color at https://bit.ly/3zEJDj6
@@ -73,9 +73,9 @@ IF %ERRORLEVEL% EQU 0 (
 )
 
 echo[
-echo %date% %time% 
+echo %date% %time%
 :: Some of welcome message are of github.com/AnimeKaizoku/SaitamaRobot from modules\sql\welcome_sql.py
-echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% device! 
+echo Something just fell from the sky! - oh, its %username% from %COMPUTERNAME% device!
 
 rem echo Copy this code to lunch Firefox browser :  start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe"
 rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -90,76 +90,76 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    [90mPress 0 = Leave[0m
     echo[
     :brain
-    set /P brn=Feed me just Number so, I can work for you!! [1-5]: 
+    set /P brn=Feed me just Number so, I can work for you!! [1-5]:
     if /I "%brn%" EQU "1" ( goto :somewhere
     ) else if  /I "%brn%" EQU "2" ( goto :lilfar
     ) else if  /I "%brn%" EQU "3" ( goto :bitfar
     ) else if  /I "%brn%" EQU "4" ( goto :chkifpy
     ) else if  /I "%brn%" EQU "5" ( goto :faraway
     ) else if  /I "%brn%" EQU "0" ( goto :saybye
-    ) else (goto :choice) 
-    
+    ) else (goto :choice)
+
 :somewhere
     echo[
-    echo                :::::::::  :::    ::: :::        :::        :::::::::: ::::::::::: ::::::::::: ::::    ::: 
-    echo                :+:    :+: :+:    :+: :+:        :+:        :+:            :+:         :+:     :+:+:   :+: 
-    echo                +:+    +:+ +:+    +:+ +:+        +:+        +:+            +:+         +:+     :+:+:+  +:+ 
-    echo                +#++:++#+  +#+    +:+ +#+        +#+        +#++:++#       +#+         +#+     +#+ +:+ +#+ 
-    echo                +#+    +#+ +#+    +#+ +#+        +#+        +#+            +#+         +#+     +#+  +#+#+# 
-    echo                #+#    #+# #+#    #+# #+#        #+#        #+#            #+#         #+#     #+#   #+#+# 
-    echo                #########   ########  ########## ########## ##########     ###     ########### ###    #### 
-    echo                                 ---- %username% Just teleported into the chat from Jungle!----- 
-    echo[ 
+    echo                :::::::::  :::    ::: :::        :::        :::::::::: ::::::::::: ::::::::::: ::::    :::
+    echo                :+:    :+: :+:    :+: :+:        :+:        :+:            :+:         :+:     :+:+:   :+:
+    echo                +:+    +:+ +:+    +:+ +:+        +:+        +:+            +:+         +:+     :+:+:+  +:+
+    echo                +#++:++#+  +#+    +:+ +#+        +#+        +#++:++#       +#+         +#+     +#+ +:+ +#+
+    echo                +#+    +#+ +#+    +#+ +#+        +#+        +#+            +#+         +#+     +#+  +#+#+#
+    echo                #+#    #+# #+#    #+# #+#        #+#        #+#            #+#         #+#     #+#   #+#+#
+    echo                #########   ########  ########## ########## ##########     ###     ########### ###    ####
+    echo                                 ---- %username% Just teleported into the chat from Jungle!-----
+    echo[
     echo    Press 1 = World News
     echo    Press 2 = Tech News
     echo    Press 3 = Stock News
     echo    [90mPress 0 = Depart[0m
-   :ConfirmBox 
-        set /P nws= Which News type do you want to be updated with? [1/2/3]: 
+   :ConfirmBox
+        set /P nws= Which News type do you want to be updated with? [1/2/3]:
 
     if /I "%nws%" EQU "1" (
     goto :WorldNews
-    ) else if /I "%nws%" EQU "2" ( 
+    ) else if /I "%nws%" EQU "2" (
     goto :TechNews
-    ) else if /I "%nws%" EQU "3" ( 
+    ) else if /I "%nws%" EQU "3" (
     goto :StockNews
     ) else if /I "%nws%" EQU "0" (
-    goto:choice 
-    )else ( goto :InERROR 
+    goto:choice
+    )else ( goto :InERROR
     )
     :WorldNews
-        echo[      
+        echo[
         echo I am here because you want to see World News
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://news.google.com/topstories/
         echo[
-        echo Please! Don't close this Window. 
+        echo Please! Don't close this Window.
         echo Please! Wait for 2 min for the next wave of news to lunch
-        ping -n 120 127.0.0.1 > nul 
-    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia  https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/ 
-        goto :END      
-        rem goto :ConfirmBox  
+        ping -n 120 127.0.0.1 > nul
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia  https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/
+        goto :END
+        rem goto :ConfirmBox
     	rem start /min "" explorer.exe shell:AppsFolder\Microsoft.ZuneMusic_8wekyb3d8bbwe!Microsoft.ZuneMusic
     	rem pause
 
     :TechNews
         echo[
-        echo I am here because you want to see Tech News 
-    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/ 
-        
+        echo I am here because you want to see Tech News
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/
+
         echo[
-        echo Please! Don't close this Window. 
+        echo Please! Don't close this Window.
         echo Please! Wait for 2 min for the next wave of news to lunch
-        ping -n 120 127.0.0.1 > nul 
+        ping -n 120 127.0.0.1 > nul
 
-        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/  https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog 
-        
+        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/  https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog
+
         echo[
-        echo Please! Don't close this Window. 
+        echo Please! Don't close this Window.
         echo Please! Wait for 2 min for the final wave of news to lunch
-        ping -n 120 127.0.0.1 > nul 
+        ping -n 120 127.0.0.1 > nul
 
-    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/  
-        goto :END 
+    	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.pcmag.com/  https://www.computerworld.com/in/category/windows/ https://www.linuxtoday.com/ https://thehackernews.com/
+        goto :END
 
     :StockNews
         echo[
@@ -170,39 +170,39 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :InERROR
         echo[
         echo Looks like someone having a hard time selecting a digit: [1/2/3].
-        goto :somewhere 
+        goto :somewhere
     exit
 
 :saybye
     echo Check update at https://github.com/aaisalu/Morning
-    ping -n 3 127.0.0.1 > nul 
+    ping -n 3 127.0.0.1 > nul
     exit
 
 :lilfar
     echo[
-    echo        **********                       ** **                        **      **                                
-    echo        ////**///                       /**//            *****       /**     /**                                
+    echo        **********                       ** **                        **      **
+    echo        ////**///                       /**//            *****       /**     /**
     echo           /**     ******  ******       /** ** *******  **///**      /**     /**  ******  **   ** ******  ******
-    echo           /**    //**//* //////**   ******/**//**///**/**  /**      /********** **////**/**  /**//**//* **//// 
-    echo           /**     /** /   *******  **///**/** /**  /**//******      /**//////**/**   /**/**  /** /** / //***** 
+    echo           /**    //**//* //////**   ******/**//**///**/**  /**      /********** **////**/**  /**//**//* **////
+    echo           /**     /** /   *******  **///**/** /**  /**//******      /**//////**/**   /**/**  /** /** / //*****
     echo           /**     /**    **////** /**  /**/** /**  /** /////**      /**     /**/**   /**/**  /** /**    /////**
-    echo           /**    /***   //********//******/** ***  /**  *****       /**     /**//****** //******/***    ****** 
-    echo           //     ///     ////////  ////// // ///   //  /////        //      //  //////   ////// ///    //////  
+    echo           /**    /***   //********//******/** ***  /**  *****       /**     /**//****** //******/***    ******
+    echo           //     ///     ////////  ////// // ///   //  /////        //      //  //////   ////// ///    //////
     echo[
     echo                 :--   Roses are red, violets are blue, %username% joined this chat to trade with you   --:
-    echo[  
-    echo    Press 1 = Start your business  
+    echo[
+    echo    Press 1 = Start your business
     echo    Press 2 = Summon up Bot to apply IPO!
     echo    [90mPress 0 = Depart[0m
     rem echo    Press 3 = Wake Bot to check IPO
-        set /P stk= Welcome, press the secret key to activate script: 
+        set /P stk= Welcome, press the secret key to activate script:
     if /I "%stk%" EQU "1" (
     goto:tradestk
-    )else if /I "%stk%" EQU "2" ( 
+    )else if /I "%stk%" EQU "2" (
     goto:aplyipo
-    )else if /I "%stk%" EQU "0" ( 
+    )else if /I "%stk%" EQU "0" (
     goto:choice
-    )else ( 
+    )else (
     goto:lilfar
     )
     :tradestk
@@ -210,23 +210,23 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         rem start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
         start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://mail.google.com/mail/u/0/#inbox https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
         echo Opening your Excel balance sheet
-        %SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"   
+        %SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"
         goto:choice
     :aplyipo
         echo[
-        echo             .d8888b.   .d88888b.   .d88888b.  8888888b.       888     888     888  .d8888b.  888    d8P 
-        echo            d88P  Y88b d88P" "Y88b d88P" "Y88b 888  "Y88b      888     888     888 d88P  Y88b 888   d8P  
-        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  d8P   
-        echo            888        888     888 888     888 888    888      888     888     888 888        888d88K    
-        echo            888  88888 888     888 888     888 888    888      888     888     888 888        8888888b   
-        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  Y88b  
-        echo            Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b 
+        echo             .d8888b.   .d88888b.   .d88888b.  8888888b.       888     888     888  .d8888b.  888    d8P
+        echo            d88P  Y88b d88P" "Y88b d88P" "Y88b 888  "Y88b      888     888     888 d88P  Y88b 888   d8P
+        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  d8P
+        echo            888        888     888 888     888 888    888      888     888     888 888        888d88K
+        echo            888  88888 888     888 888     888 888    888      888     888     888 888        8888888b
+        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  Y88b
+        echo            Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b
         echo             "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b
         echo[
         echo                                   :---  Hola %username%, beware of super users ---:
         echo[
         echo Bot on construction it'll be alive someday but today isn't that day!
-        ping -n 2 127.0.0.1 > nul         
+        ping -n 2 127.0.0.1 > nul
         goto :choice
     :InWrong
         echo[
@@ -235,37 +235,37 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :bitfar
     echo[
-    echo                    ::::::::::: :::     :::    ::: ::::::::::       ::::::::  :::::::::: :::::::::: 
-    echo                        :+:   :+: :+:   :+:   :+:  :+:             :+:    :+: :+:        :+:        
-    echo                        +:+  +:+   +:+  +:+  +:+   +:+             +:+    +:+ +:+        +:+        
-    echo                        +#+ +#++:++#++: +#++:++    +#++:++#        +#+    +:+ :#::+::#   :#::+::#   
-    echo                        +#+ +#+     +#+ +#+  +#+   +#+             +#+    +#+ +#+        +#+        
-    echo                        #+# #+#     #+# #+#   #+#  #+#             #+#    #+# #+#        #+#        
-    echo                        ### ###     ### ###    ### ##########       ########  ###        ###      
-    echo[ 
+    echo                    ::::::::::: :::     :::    ::: ::::::::::       ::::::::  :::::::::: ::::::::::
+    echo                        :+:   :+: :+:   :+:   :+:  :+:             :+:    :+: :+:        :+:
+    echo                        +:+  +:+   +:+  +:+  +:+   +:+             +:+    +:+ +:+        +:+
+    echo                        +#+ +#++:++#++: +#++:++    +#++:++#        +#+    +:+ :#::+::#   :#::+::#
+    echo                        +#+ +#+     +#+ +#+  +#+   +#+             +#+    +#+ +#+        +#+
+    echo                        #+# #+#     #+# #+#   #+#  #+#             #+#    #+# #+#        #+#
+    echo                        ### ###     ### ###    ### ##########       ########  ###        ###
+    echo[
     echo                              --- Brace yourselves...Activating Jasmine flying carpet ---
-    echo[  
+    echo[
     echo    Press 1 = Downloads Folder
-    echo    Press 2 = Pictures Folder 
+    echo    Press 2 = Pictures Folder
     echo    Press 3 = Music Folder
     echo    Press 4 = Documents Folder
     echo    [90mPress 0 = Depart[0m
 
    :SUREBOX
-        set /P tvl= Which folder do you want to Travel? [1-4]: 
+        set /P tvl= Which folder do you want to Travel? [1-4]:
 
     if /I "%tvl%" EQU "1" (
-    goto :Fnpy 
-    ) else if /I "%tvl%" EQU "2" ( 
+    goto :Fnpy
+    ) else if /I "%tvl%" EQU "2" (
     goto :Fncmd
-    )  else if /I "%tvl%" EQU "3" ( 
+    )  else if /I "%tvl%" EQU "3" (
     goto :Fnexcel
-    ) else if /I "%tvl%" EQU "4" ( 
+    ) else if /I "%tvl%" EQU "4" (
     goto :Fnproj
     ) else if /I "%tvl%" EQU "0" (
-    goto:choice 
-    )else ( 
-    goto :InValid 
+    goto:choice
+    )else (
+    goto :InValid
     )
     :: You can add you own custom folder to open as eg: D:\office\projectfolder
     :Fnpy
@@ -273,11 +273,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         %SystemRoot%\explorer.exe %USERPROFILE%\Downloads
         goto :END
     :Fncmd
-        echo Traveling to Pictures Folder       
+        echo Traveling to Pictures Folder
         %SystemRoot%\explorer.exe %USERPROFILE%\Pictures
         goto :END
     :Fnexcel
-        echo Traveling to Music Folder    
+        echo Traveling to Music Folder
         %SystemRoot%\explorer.exe %USERPROFILE%\Music
         goto :END
     :Fnproj
@@ -291,52 +291,52 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
 
 :faraway
     echo[
-    echo                       :::::::::  :::::::::  :::::::::: ::::::::   ::::::::       :::    ::: :::::::::  
-    echo                       :+:    :+: :+:    :+: :+:       :+:    :+: :+:    :+:      :+:    :+: :+:    :+: 
-    echo                       +:+    +:+ +:+    +:+ +:+       +:+        +:+             +:+    +:+ +:+    +:+ 
-    echo                       +#+    +:+ +#++:++#:  +#++:++#  +#++:++#++ +#++:++#++      +#+    +:+ +#++:++#+  
-    echo                       +#+    +#+ +#+    +#+ +#+              +#+        +#+      +#+    +#+ +#+        
-    echo                       #+#    #+# #+#    #+# #+#       #+#    #+# #+#    #+#      #+#    #+# #+#        
-    echo                       #########  ###    ### ########## ########   ########        ########  ###        
+    echo                       :::::::::  :::::::::  :::::::::: ::::::::   ::::::::       :::    ::: :::::::::
+    echo                       :+:    :+: :+:    :+: :+:       :+:    :+: :+:    :+:      :+:    :+: :+:    :+:
+    echo                       +:+    +:+ +:+    +:+ +:+       +:+        +:+             +:+    +:+ +:+    +:+
+    echo                       +#+    +:+ +#++:++#:  +#++:++#  +#++:++#++ +#++:++#++      +#+    +:+ +#++:++#+
+    echo                       +#+    +#+ +#+    +#+ +#+              +#+        +#+      +#+    +#+ +#+
+    echo                       #+#    #+# #+#    #+# #+#       #+#    #+# #+#    #+#      #+#    #+# #+#
+    echo                       #########  ###    ### ########## ########   ########        ########  ###
     echo[
     echo                                  ---- Feels like %username% device needs some medic kit! -----
     echo[
     echo    Press 1 = Install/Update software through chocolatey
-    echo    Press 2 = Fly to the soft_links/extensions 
+    echo    Press 2 = Fly to the soft_links/extensions
     echo    Press 3 = Generate Battery report
     echo    Press 4 = Repair a Windows Image
-    echo    Press 5 = Reset Network setting 
+    echo    Press 5 = Reset Network setting
     echo    Press 6 = Repair system files
     echo    [90mPress 0 = Depart[0m
-   :farbox 
-        set /P drs= Which kit would you like to proceed with? [1-6]: 
+   :farbox
+        set /P drs= Which kit would you like to proceed with? [1-6]:
 
     if /I "%drs%" EQU "1" (
     goto :choco
-    ) else if /I "%drs%" EQU "2" ( 
+    ) else if /I "%drs%" EQU "2" (
     goto :websoft
     ) else if /I "%drs%" EQU "0" (
-    goto:choice 
-    ) else if /I "%drs%" EQU "3" ( 
+    goto:choice
+    ) else if /I "%drs%" EQU "3" (
     goto :battreport
-    )else if /I "%drs%" EQU "4" ( 
+    )else if /I "%drs%" EQU "4" (
     goto :repairpc
-    )else if /I "%drs%" EQU "5" ( 
+    )else if /I "%drs%" EQU "5" (
     goto :repairnet
-    )else if /I "%drs%" EQU "6" ( 
+    )else if /I "%drs%" EQU "6" (
     goto :repairsys
-    )else ( 
-    goto :faraway 
+    )else (
+    goto :faraway
     )
     :websoft
         echo[
-        echo                       :::       ::: :::::::::: :::::::::       :::::::::: :::     :::   ::: 
-        echo                       :+:       :+: :+:        :+:    :+:      :+:        :+:     :+:   :+: 
-        echo                       +:+       +:+ +:+        +:+    +:+      +:+        +:+      +:+ +:+  
-        echo                       +#+  +:+  +#+ +#++:++#   +#++:++#+       :#::+::#   +#+       +#++:   
-        echo                       +#+ +#+#+ +#+ +#+        +#+    +#+      +#+        +#+        +#+    
-        echo                        #+#+# #+#+#  #+#        #+#    #+#      #+#        #+#        #+#    
-        echo                         ###   ###   ########## #########       ###        ########## ###    
+        echo                       :::       ::: :::::::::: :::::::::       :::::::::: :::     :::   :::
+        echo                       :+:       :+: :+:        :+:    :+:      :+:        :+:     :+:   :+:
+        echo                       +:+       +:+ +:+        +:+    +:+      +:+        +:+      +:+ +:+
+        echo                       +#+  +:+  +#+ +#++:++#   +#++:++#+       :#::+::#   +#+       +#++:
+        echo                       +#+ +#+#+ +#+ +#+        +#+    +#+      +#+        +#+        +#+
+        echo                        #+#+# #+#+#  #+#        #+#    #+#      #+#        #+#        #+#
+        echo                         ###   ###   ########## #########       ###        ########## ###
         echo                                       :-- Fasten your seatbelt, %username% --:
         echo[
         echo This tab opens links to software and extension on your browser.
@@ -346,16 +346,16 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo    Press 2 = Fly to the web of Intermediate kit software
         echo    Press 3 = Fly to the browser extensions page
         echo    [90mPress 0 = Depart[0m
-            set /P wb= Welcome, Which web of software do you want to fly ?[1-3]: 
+            set /P wb= Welcome, Which web of software do you want to fly ?[1-3]:
         if /I "%wb%" EQU "1" (
         goto :basic
-        ) else if /I "%wb%" EQU "2" ( 
+        ) else if /I "%wb%" EQU "2" (
          goto :mediate
-        )else if /I "%wb%" EQU "3" ( 
+        )else if /I "%wb%" EQU "3" (
          goto :webext
-        )else if /I "%wb%" EQU "0" ( 
+        )else if /I "%wb%" EQU "0" (
          goto :faraway
-        )else ( 
+        )else (
         goto :websoft
         )
         :basic
@@ -370,27 +370,27 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:websoft
         :webext
             echo[
-            echo            :::::::::: :::    ::: ::::::::::: :::::::::: ::::    :::  :::::::: ::::::::::: ::::::::   ::::::::  
-            echo            :+:        :+:    :+:     :+:     :+:        :+:+:   :+: :+:    :+:    :+:    :+:    :+: :+:    :+: 
-            echo            +:+         +:+  +:+      +:+     +:+        :+:+:+  +:+ +:+           +:+    +:+    +:+ +:+        
-            echo            +#++:++#     +#++:+       +#+     +#++:++#   +#+ +:+ +#+ +#++:++#++    +#+    +#+    +:+ +#++:++#++ 
-            echo            +#+         +#+  +#+      +#+     +#+        +#+  +#+#+#        +#+    +#+    +#+    +#+        +#+ 
-            echo            #+#        #+#    #+#     #+#     #+#        #+#   #+#+# #+#    #+#    #+#    #+#    #+# #+#    #+# 
-            echo            ########## ###    ###     ###     ########## ###    ####  ######## ########### ########   ########  
+            echo            :::::::::: :::    ::: ::::::::::: :::::::::: ::::    :::  :::::::: ::::::::::: ::::::::   ::::::::
+            echo            :+:        :+:    :+:     :+:     :+:        :+:+:   :+: :+:    :+:    :+:    :+:    :+: :+:    :+:
+            echo            +:+         +:+  +:+      +:+     +:+        :+:+:+  +:+ +:+           +:+    +:+    +:+ +:+
+            echo            +#++:++#     +#++:+       +#+     +#++:++#   +#+ +:+ +#+ +#++:++#++    +#+    +#+    +:+ +#++:++#++
+            echo            +#+         +#+  +#+      +#+     +#+        +#+  +#+#+#        +#+    +#+    +#+    +#+        +#+
+            echo            #+#        #+#    #+#     #+#     #+#        #+#   #+#+# #+#    #+#    #+#    #+#    #+# #+#    #+#
+            echo            ########## ###    ###     ###     ########## ###    ####  ######## ########### ########   ########
             echo                                           :-- We've been expecting you %username% --:
             echo[
             echo Please! Choose your browser preferences where you want to install extensions.
             echo    Press 1 = Chromium Browser
             echo    Press 2 = Mozilla Firefox
             echo    [90mPress 0 = Depart[0m
-                set /P ext= Welcome, Which browser do you use ?[1/2]: 
+                set /P ext= Welcome, Which browser do you use ?[1/2]:
             if /I "%ext%" EQU "1" (
             goto :chromiumbrow
-            ) else if /I "%ext%" EQU "2" ( 
+            ) else if /I "%ext%" EQU "2" (
              goto :mozibrow
-            )else if /I "%ext%" EQU "0" ( 
+            )else if /I "%ext%" EQU "0" (
              goto :websoft
-            )else ( 
+            )else (
             goto :webext
             )
             :chromiumbrow
@@ -404,38 +404,38 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
         NET SESSION >nul 2>&1
         IF %ERRORLEVEL% EQU 0 (
-            echo[ 
+            echo[
             echo Admin user detected!
             echo Installing Chocolatey Please be patient...
             echo This should only take another few minutes or less, and then you'll be good to go!
             echo[
-            echo             .d8888b.  888                                888          888                     
-            echo            d88P  Y88b 888                                888          888                     
-            echo            888    888 888                                888          888                     
-            echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888 
-            echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888 
-            echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888 
-            echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888 
-            echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888 
-            echo                                                                                           888 
-            echo                                                                                      Y8b d88P 
-            echo                                                                                       "Y88P"  
+            echo             .d8888b.  888                                888          888
+            echo            d88P  Y88b 888                                888          888
+            echo            888    888 888                                888          888
+            echo            888        88888b.   .d88b.   .d8888b .d88b.  888  8888b.  888888 .d88b.  888  888
+            echo            888        888 "88b d88""88b d88P"   d88""88b 888     "88b 888   d8P  Y8b 888  888
+            echo            888    888 888  888 888  888 888     888  888 888 .d888888 888   88888888 888  888
+            echo            Y88b  d88P 888  888 Y88..88P Y88b.   Y88..88P 888 888  888 Y88b. Y8b.     Y88b 888
+            echo             "Y8888P"  888  888  "Y88P"   "Y8888P "Y88P"  888 "Y888888  "Y888 "Y8888   "Y88888
+            echo                                                                                           888
+            echo                                                                                      Y8b d88P
+            echo                                                                                       "Y88P"
             powershell -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
             echo Sweet Chocolatey is ready to serve you!
         ) ELSE (
             echo[
-            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
-            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
-            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
-            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
-            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
-            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
-            echo[                                                  
-            echo                      ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-            echo This script must be run as administrator to work as it installs the chocolatey to install software 
+            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db
+            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88
+            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88
+            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88
+            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888
+            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P
             echo[
-            echo As the task can't be run without the Administrator privileges 
-            echo Do you want to open the script with the Administrator privileges?  
+            echo                      ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo This script must be run as administrator to work as it installs the chocolatey to install software
+            echo[
+            echo As the task can't be run without the Administrator privileges
+            echo Do you want to open the script with the Administrator privileges?
             echo[
             pause
             ::Thanks to Ir Relevant & ceztko for admin prevlge stackoverflow.com/a/24665214
@@ -443,271 +443,271 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             if not '%errorlevel%' == '0' (
                 powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
                 exit /b)
-            cd /d %1 
+            cd /d %1
         )
         :: Thanks Chocolatey for being it so amazing chocolatey.org
-        echo[                                
+        echo[
         echo                                                         Welcome To The
         echo                                                 Chocolatey Packages Repository
-        echo                                   Select the corresponding number to the software to install!                                            
-        echo[             
+        echo                                   Select the corresponding number to the software to install!
+        echo[
         echo       [1] Chrome            [9] Notepad++        [17] VirtualBox            [25] Viber          [33] CrystalDiskInfo
-        echo       [2] Brave            [10] Git              [18] Discord               [26] Telegram       [34] Adobe Acrobat 
+        echo       [2] Brave            [10] Git              [18] Discord               [26] Telegram       [34] Adobe Acrobat
         echo       [3] Firefox          [11] FFmpeg           [19] K-Lite Codec Pack     [27] WhatsApp       [35] AutoHotkey
         echo       [4] Spotify          [12] qBittorrent      [20] VLC media player      [28] Youtube-dl     [36] IrfanView
         echo       [5] Calibre          [13] Malwarebytes     [21] Office 365            [29] Blender        [37] Audacity
         echo       [6] OBS Studio       [14] WinRAR           [22] Libreoffice           [30] Python         [38] Graphics
-        echo       [7] VScode           [15] 7-Zip            [23] Zoom Meetings         [31] Stretchly      [39] PDF24 
+        echo       [7] VScode           [15] 7-Zip            [23] Zoom Meetings         [31] Stretchly      [39] PDF24
         echo       [8] Sublime Text     [16] Google Drive     [24] Microsoft Teams       [32] Greenshot      [40] Atom
-        echo       _____________________________________________________________________________________________________________        
+        echo       _____________________________________________________________________________________________________________
         echo                                                Install Recommended Software [100]
-        echo                      Firefox,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365 
-        echo                                     ___________________________________________________________     
-        echo[     
-        echo                                                  Install Basic Software [200] 
-        echo                         Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git ,Calibre 
-        echo                                                __________________________________     
+        echo                      Firefox,WinRAR,7-Zip,VLC media player,Zoom Meetings,Sublime Text,Spotify,Office 365
+        echo                                     ___________________________________________________________
         echo[
-        rem echo                                                      Uninstall choco [9841]   
+        echo                                                  Install Basic Software [200]
+        echo                         Visual Studio Code, Discord, Telegram, qBittorrent,OBS project, git ,Calibre
+        echo                                                __________________________________
+        echo[
+        rem echo                                                      Uninstall choco [9841]
         echo                                                     Update all software [00]
         echo                                                             Exit [0]
-        echo[                                                                      
-            set /P fun= Welcome, Which of the software would you like to taste? [1-40]: 
+        echo[
+            set /P fun= Welcome, Which of the software would you like to taste? [1-40]:
         if /I "%fun%" EQU "1" (
-        goto :loveOne                                                       
-        ) else if /I "%fun%" EQU "2" ( 
-         goto :loveTwo                                          
-        )else if /I "%fun%" EQU "3" ( 
+        goto :loveOne
+        ) else if /I "%fun%" EQU "2" (
+         goto :loveTwo
+        )else if /I "%fun%" EQU "3" (
          goto :loveThree
-        )else if /I "%fun%" EQU "4" (                        
+        )else if /I "%fun%" EQU "4" (
          goto :loveFour
-        )else if /I "%fun%" EQU "4" ( 
+        )else if /I "%fun%" EQU "4" (
          goto :loveFive
-        )else if /I "%fun%" EQU "6" ( 
+        )else if /I "%fun%" EQU "6" (
          goto :loveSix
-        )else if /I "%fun%" EQU "7" ( 
+        )else if /I "%fun%" EQU "7" (
          goto :loveSeven
-        )else if /I "%fun%" EQU "8" ( 
+        )else if /I "%fun%" EQU "8" (
          goto :loveEight
-        )else if /I "%fun%" EQU "9" ( 
+        )else if /I "%fun%" EQU "9" (
          goto :loveNine
-        )else if /I "%fun%" EQU "10" ( 
+        )else if /I "%fun%" EQU "10" (
          goto :loveTen
-        )else if /I "%fun%" EQU "11" ( 
+        )else if /I "%fun%" EQU "11" (
          goto :loveEleven
-        )else if /I "%fun%" EQU "12" ( 
+        )else if /I "%fun%" EQU "12" (
          goto :loveTwelve
-        )else if /I "%fun%" EQU "13" ( 
+        )else if /I "%fun%" EQU "13" (
          goto :loveThirteen
-        )else if /I "%fun%" EQU "14" ( 
+        )else if /I "%fun%" EQU "14" (
          goto :loveFourteen
-        )else if /I "%fun%" EQU "15" ( 
+        )else if /I "%fun%" EQU "15" (
          goto :loveFifteen
-        )else if /I "%fun%" EQU "16" ( 
+        )else if /I "%fun%" EQU "16" (
          goto :loveSixteen
-        )else if /I "%fun%" EQU "17" ( 
+        )else if /I "%fun%" EQU "17" (
          goto :loveSeventeen
-        )else if /I "%fun%" EQU "18" ( 
+        )else if /I "%fun%" EQU "18" (
          goto :loveEighteen
-        )else if /I "%fun%" EQU "19" ( 
+        )else if /I "%fun%" EQU "19" (
          goto :loveNineteen
-        )else if /I "%fun%" EQU "20" ( 
+        )else if /I "%fun%" EQU "20" (
          goto :loveTwenty
-        )else if /I "%fun%" EQU "21" ( 
+        )else if /I "%fun%" EQU "21" (
          goto :loveTwentyone
-        )else if /I "%fun%" EQU "22" ( 
+        )else if /I "%fun%" EQU "22" (
          goto :loveTwentytwo
-        )else if /I "%fun%" EQU "23" ( 
+        )else if /I "%fun%" EQU "23" (
          goto :loveTwentythree
-        )else if /I "%fun%" EQU "24" ( 
+        )else if /I "%fun%" EQU "24" (
          goto :loveTwentyfour
-        )else if /I "%fun%" EQU "25" ( 
+        )else if /I "%fun%" EQU "25" (
          goto :loveTwentyfive
-        )else if /I "%fun%" EQU "26" ( 
+        )else if /I "%fun%" EQU "26" (
          goto :loveTwentysix
-        )else if /I "%fun%" EQU "27" ( 
+        )else if /I "%fun%" EQU "27" (
          goto :loveTwentyseven
-        )else if /I "%fun%" EQU "28" ( 
+        )else if /I "%fun%" EQU "28" (
          goto :loveTwentyeight
-        )else if /I "%fun%" EQU "29" ( 
+        )else if /I "%fun%" EQU "29" (
          goto :loveTwentynine
-        )else if /I "%fun%" EQU "30" ( 
+        )else if /I "%fun%" EQU "30" (
          goto :loveThirty
-        )else if /I "%fun%" EQU "31" ( 
+        )else if /I "%fun%" EQU "31" (
          goto :loveThirtyOne
-        )else if /I "%fun%" EQU "32" ( 
+        )else if /I "%fun%" EQU "32" (
          goto :loveThirtyTwo
-        )else if /I "%fun%" EQU "33" ( 
+        )else if /I "%fun%" EQU "33" (
          goto :loveThirtyThree
-        )else if /I "%fun%" EQU "34" ( 
+        )else if /I "%fun%" EQU "34" (
          goto :loveThirtyFour
-        )else if /I "%fun%" EQU "35" ( 
+        )else if /I "%fun%" EQU "35" (
          goto :loveThirtyFive
-        )else if /I "%fun%" EQU "36" ( 
+        )else if /I "%fun%" EQU "36" (
          goto :loveThirtySix
-        )else if /I "%fun%" EQU "37" ( 
+        )else if /I "%fun%" EQU "37" (
          goto :loveThirtySeven
-        )else if /I "%fun%" EQU "38" ( 
+        )else if /I "%fun%" EQU "38" (
          goto :loveThirtyEight
-        )else if /I "%fun%" EQU "39" ( 
+        )else if /I "%fun%" EQU "39" (
          goto :loveThirtyNine
-        )else if /I "%fun%" EQU "40" ( 
+        )else if /I "%fun%" EQU "40" (
          goto :loveFourty
-        )else if /I "%fun%" EQU "100" ( 
+        )else if /I "%fun%" EQU "100" (
          goto :lovehundred
-        )else if /I "%fun%" EQU "200" ( 
+        )else if /I "%fun%" EQU "200" (
          goto :lovetwohundred
-        )else if /I "%fun%" EQU "00" ( 
+        )else if /I "%fun%" EQU "00" (
          goto :updateall
-        )else if /I "%fun%" EQU "0" ( 
+        )else if /I "%fun%" EQU "0" (
          goto :faraway
-        )else ( 
+        )else (
         goto :bitterchoco
         )
         :chocogui
             echo[
             echo Installing choco GUI for software management
-            choco install chocolateygui -y 
+            choco install chocolateygui -y
             echo chocolatey GUI is installed sucessfully !
             echo[
-            goto:choco           
-        :loveOne    
-            choco install googlechrome -y  
-            goto:choco           
-        :loveTwo  
-            choco install brave -y       
-            goto:choco 
-        :loveThree  
-            choco install firefox -y 
-            goto:choco   
-        :loveFour   
-            choco install spotify -y 
             goto:choco
-        :loveFive  
-            choco install calibre -y 
-            goto:choco   
-        :loveSix   
-            choco install obs-studio.install -y 
-            goto:choco       
-        :loveSeven  
-            choco install vscode -y 
-            goto:choco   
-        :loveEight  
-            choco install sublimetext4 -y 
-            goto:choco   
-        :loveNine   
-            choco install notepadplusplus.install -y 
-            goto:choco   
-        :loveTen  
+        :loveOne
+            choco install googlechrome -y
+            goto:choco
+        :loveTwo
+            choco install brave -y
+            goto:choco
+        :loveThree
+            choco install firefox -y
+            goto:choco
+        :loveFour
+            choco install spotify -y
+            goto:choco
+        :loveFive
+            choco install calibre -y
+            goto:choco
+        :loveSix
+            choco install obs-studio.install -y
+            goto:choco
+        :loveSeven
+            choco install vscode -y
+            goto:choco
+        :loveEight
+            choco install sublimetext4 -y
+            goto:choco
+        :loveNine
+            choco install notepadplusplus.install -y
+            goto:choco
+        :loveTen
             choco install git.install -y
-            goto:choco       
-        :loveEleven  
+            goto:choco
+        :loveEleven
             choco install ffmpeg -y
             goto:choco
-        :loveTwelve 
-            choco install qbittorrent -y 
+        :loveTwelve
+            choco install qbittorrent -y
             goto:choco
         :loveThirteen
-            choco install malwarebytes -y 
+            choco install malwarebytes -y
             goto:choco
         :loveFourteen
-            choco install winrar -y 
+            choco install winrar -y
             goto:choco
-        :loveFifteen  
-            choco install 7zip.install -y  
+        :loveFifteen
+            choco install 7zip.install -y
             goto:choco
-        :loveSixteen   
-            choco install googledrive -y 
+        :loveSixteen
+            choco install googledrive -y
             goto:choco
         :loveSeventeen
-            choco install virtualbox -y 
+            choco install virtualbox -y
             goto:choco
         :loveEighteen
-            choco install discord.install -y 
+            choco install discord.install -y
             goto:choco
         :loveNineteen
-            choco install k-litecodecpackfull -y 
+            choco install k-litecodecpackfull -y
             goto:choco
-        :loveTwenty 
-            choco install vlc -y  
+        :loveTwenty
+            choco install vlc -y
             :goto:choco
         :loveTwentyone
-            choco install office365proplus -y  
+            choco install office365proplus -y
             goto:choco
-        :loveTwentytwo  
-            choco install libreoffice-fresh -y 
+        :loveTwentytwo
+            choco install libreoffice-fresh -y
             goto:choco
-        :loveTwentythree 
-            choco install zoom -y 
-            goto:choco   
-        :loveTwentyfour  
-            choco install microsoft-teams.install -y 
+        :loveTwentythree
+            choco install zoom -y
+            goto:choco
+        :loveTwentyfour
+            choco install microsoft-teams.install -y
             goto:choco
         :loveTwentyfive
-            choco install viber -y 
+            choco install viber -y
             goto:choco
-        :loveTwentysix 
-            choco install telegram.install -y    
+        :loveTwentysix
+            choco install telegram.install -y
             goto:choco
         :loveTwentyseven
-            choco install whatsapp -y 
-            goto:choco   
+            choco install whatsapp -y
+            goto:choco
         :loveTwentyeight
-            choco install  youtube-dl -y  
+            choco install  youtube-dl -y
             goto:choco
         :loveTwentynine
             choco install blender -y
             goto:choco
-        :loveThirty 
+        :loveThirty
             choco install python3 -y
             goto:choco
-        :loveThirtyOne    
+        :loveThirtyOne
             choco install stretchly -y
-            goto:choco           
-        :loveThirtyTwo  
-            choco install greenshot -y       
-            goto:choco 
-        :loveThirtyThree  
-            choco install crystaldiskinfo -y 
-            goto:choco   
-        :loveThirtyFour   
-            choco install adobereader -y 
             goto:choco
-        :loveThirtyFive  
-            choco install autohotkey.install -y 
-            goto:choco   
-        :loveThirtySix   
+        :loveThirtyTwo
+            choco install greenshot -y
+            goto:choco
+        :loveThirtyThree
+            choco install crystaldiskinfo -y
+            goto:choco
+        :loveThirtyFour
+            choco install adobereader -y
+            goto:choco
+        :loveThirtyFive
+            choco install autohotkey.install -y
+            goto:choco
+        :loveThirtySix
             choco install irfanview -y
-            goto:choco       
-        :loveThirtySeven  
-            choco install audacity -y 
-            goto:choco   
+            goto:choco
+        :loveThirtySeven
+            choco install audacity -y
+            goto:choco
         :loveThirtyEight
             echo[
-            echo [1] Intel  Graphics DCH  
+            echo [1] Intel  Graphics DCH
             echo [2] Nvidia Graphics DCH
-            echo [0] Exit 
-            set /P drv= Welcome, Which Graphics do you want to install?: 
+            echo [0] Exit
+            set /P drv= Welcome, Which Graphics do you want to install?:
             if /I "%drv%" EQU "1" (
             goto:intelgra
-            ) else if /I "%drv%" EQU "2" ( 
+            ) else if /I "%drv%" EQU "2" (
             goto :nvidiagra
-            )else if /I "%drv%" EQU "0" ( 
+            )else if /I "%drv%" EQU "0" (
             goto :choco
-            )else ( 
+            )else (
             goto :lovethirtyeight
             )
             :intelgra
                 choco install intel-graphics-driver
                 goto:choco
             :nvidiagra
-                choco install nvidia-display-driver 
-                goto:choco   
+                choco install nvidia-display-driver
+                goto:choco
         :loveThirtyNine
             choco install pdf24 -y
             goto:choco
         :loveFourty
-            choco install atom -y 
+            choco install atom -y
             goto:choco
 
         :lovehundred
@@ -715,7 +715,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             choco install vlc -y
             choco install firefox -y
             choco install 7zip.install -y
-            choco install office365proplus -y   
+            choco install office365proplus -y
             choco install zoom -y
             choco install sublimetext4 -y
             choco install spotify -y
@@ -738,7 +738,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:choco
         :bitterchoco
             echo "Ops! Don't you like to have choco bar? "
-            goto:choco    
+            goto:choco
 
     :battreport
         echo[
@@ -749,52 +749,52 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo Saved at %USERPROFILE%\Desktop
         goto:faraway
 
-    :repairnet 
+    :repairnet
         NET SESSION >nul 2>&1
-        IF %ERRORLEVEL% EQU 0 ( 
-            echo[ 
+        IF %ERRORLEVEL% EQU 0 (
+            echo[
             echo It resets your network devices and network stack
             echo This should only take another few minutes or less, and then you'll be good to go!
             echo Ref: https://intel.ly/3OP6luA
             echo[
-            pause  
-            ipconfig /release 
+            pause
+            ipconfig /release
             ipconfig /flushdns
-            ipconfig /renew   
-            netsh int ip reset 
-            netsh winsock reset 
+            ipconfig /renew
+            netsh int ip reset
+            netsh winsock reset
             echo[
             echo Please! Restart your pc
             goto:faraway
         ) ELSE (
             echo OFF
             echo[
-            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
-            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
-            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
-            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
-            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
-            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
-            echo[                                                     
+            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db
+            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88
+            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88
+            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88
+            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888
+            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P
+            echo[
             echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
             echo This script must be run as administrator to work as it resets your network devices and network stack
             echo[
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
             echo[
-            echo As the task can't be run without the Administrator privileges 
-            echo Do you want to open the script with the Administrator privileges?  
+            echo As the task can't be run without the Administrator privileges
+            echo Do you want to open the script with the Administrator privileges?
             echo[
             pause
             net file 1>NUL 2>NUL
             if not '%errorlevel%' == '0' (
                 powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
                 exit /b)
-            cd /d %1 ) 
+            cd /d %1 )
     :repairpc
         echo OFF
         NET SESSION >nul 2>&1
         IF %ERRORLEVEL% EQU 0 (
-            echo[ 
+            echo[
             echo The Deployment Image Servicing and Management tool can be used to scan and repair potential issues with the .wim store in Windows that may impact system files.
             echo This should take 10-20 minutes to run, but depending on circumstances it can potentially take over an hour.
             echo Ref: https://dell.to/3d2EqtO or https://bit.ly/3BUBZDZ
@@ -810,33 +810,33 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:faraway
         ) ELSE (
             echo[
-            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
-            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
-            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
-            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
-            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
-            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
-            echo[    
+            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db
+            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88
+            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88
+            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88
+            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888
+            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P
+            echo[
             echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-            echo This script must be run as administrator to work as it uses DISM to Repair a Windows image 
+            echo This script must be run as administrator to work as it uses DISM to Repair a Windows image
             echo[
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
             echo[
-            echo As the task can't be run without the Administrator privileges 
-            echo Do you want to open the script with the Administrator privileges?  
+            echo As the task can't be run without the Administrator privileges
+            echo Do you want to open the script with the Administrator privileges?
             echo[
             pause
             net file 1>NUL 2>NUL
             if not '%errorlevel%' == '0' (
                 powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
                 exit /b)
-            cd /d %1 
+            cd /d %1
         )
     :repairsys
         echo OFF
         NET SESSION >nul 2>&1
         IF %ERRORLEVEL% EQU 0 (
-            echo[ 
+            echo[
             echo System File Checker is a utility in Microsoft Windows that allows users to scan for and restore corrupted Windows system files.
             echo It may take several minutes for the command operation to be completed.
             echo Ref: https://bit.ly/3zOXDHr or https://bit.ly/3BUBZDZ
@@ -848,43 +848,43 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:faraway
         ) ELSE (
             echo[
-            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db 
-            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88 
-            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88 
-            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88 
-            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888 
-            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P 
-            echo[    
+            echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db
+            echo             88  `8D 88    88 888o  88      d8' `8b 88'  YP      d8' `8b 88  `8D 88'YbdP`88   `88'   888o  88
+            echo             88oobY' 88    88 88V8o 88      88ooo88 `8bo.        88ooo88 88   88 88  88  88    88    88V8o 88
+            echo             88`8b   88    88 88 V8o88      88~~~88   `Y8b.      88~~~88 88   88 88  88  88    88    88 V8o88
+            echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888
+            echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P
+            echo[
             echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
-            echo This script must be run as administrator to work as it allows users to scan for and restore corrupted Windows system files. 
+            echo This script must be run as administrator to work as it allows users to scan for and restore corrupted Windows system files.
             echo[
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
             echo[
-            echo As the task can't be run without the Administrator privileges 
-            echo Do you want to open the script with the Administrator privileges?  
+            echo As the task can't be run without the Administrator privileges
+            echo Do you want to open the script with the Administrator privileges?
             echo[
             pause
             net file 1>NUL 2>NUL
             if not '%errorlevel%' == '0' (
                 powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
                 exit /b)
-            cd /d %1 
+            cd /d %1
         )
 
-    :Errorkit 
+    :Errorkit
         echo[
         echo You are playing it wrong, press only one digit! [1-5]
         goto:faraway
 
-:pyproj 
+:pyproj
     echo[
-    echo             :::       :::    ::: ::::    :::  ::::::::  :::    :::                       :::::::::  :::   ::: 
-    echo             :+:       :+:    :+: :+:+:   :+: :+:    :+: :+:    :+:       :+:     :+:     :+:    :+: :+:   :+: 
-    echo             +:+       +:+    +:+ :+:+:+  +:+ +:+        +:+    +:+         +:+ +:+       +:+    +:+  +:+ +:+  
-    echo             +#+       +#+    +:+ +#+ +:+ +#+ +#+        +#++:++#++      +#++:++#++:++    +#++:++#+    +#++:   
-    echo             +#+       +#+    +#+ +#+  +#+#+# +#+        +#+    +#+         +#+ +#+       +#+           +#+    
-    echo             #+#       #+#    #+# #+#   #+#+# #+#    #+# #+#    #+#       #+#     #+# #+# #+#           #+#    
-    echo             ########## ########  ###    ####  ########  ###    ###                   ### ###           ###     
+    echo             :::       :::    ::: ::::    :::  ::::::::  :::    :::                       :::::::::  :::   :::
+    echo             :+:       :+:    :+: :+:+:   :+: :+:    :+: :+:    :+:       :+:     :+:     :+:    :+: :+:   :+:
+    echo             +:+       +:+    +:+ :+:+:+  +:+ +:+        +:+    +:+         +:+ +:+       +:+    +:+  +:+ +:+
+    echo             +#+       +#+    +:+ +#+ +:+ +#+ +#+        +#++:++#++      +#++:++#++:++    +#++:++#+    +#++:
+    echo             +#+       +#+    +#+ +#+  +#+#+# +#+        +#+    +#+         +#+ +#+       +#+           +#+
+    echo             #+#       #+#    #+# #+#   #+#+# #+#    #+# #+#    #+#       #+#     #+# #+# #+#           #+#
+    echo             ########## ########  ###    ####  ########  ###    ###                   ### ###           ###
     echo                                         ---- %username% spawned into snake island ----
     echo[
     echo    Press 1 = Download Youtube Videos
@@ -893,10 +893,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 4 = Internet Speedtest
     echo    [90mPress 0 = Depart[0m
 
-        set /P pyt= Welcome, press the secret key to lunch *.py: 
+        set /P pyt= Welcome, press the secret key to lunch *.py:
     if /I "%pyt%" EQU "1" (
     goto :ytdown
-    ) else if /I "%pyt%" EQU "2" ( 
+    ) else if /I "%pyt%" EQU "2" (
     goto :scrapimdb
     ) else if /I "%pyt%" EQU "3" (
     goto:qrcode
@@ -904,17 +904,17 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:spedtest
     )else if /I "%pyt%" EQU "0" (
     goto:choice
-    )else ( 
+    )else (
     goto :pyproj
     )
-    :scrapimdb        
-        echo[                                                                                                                                    
+    :scrapimdb
+        echo[
         echo Activating spider script to crawl a site to scrap information
         :: Thanks to Ashish Gupta user2350219
         :: ref from stackoverflow.com/a/30927921
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python imdb.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         pause
-        goto:pyproj           
+        goto:pyproj
     :ytdown
         @echo off
         echo[
@@ -932,7 +932,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :spedtest
         @echo off
         echo[
-        echo I'm here because you want to test your internet speed
+        echo I'm here because you want to test your internet speed through CLI
         cmd /k "cd %~dp0\venv\Scripts & activate & speedtest-cli --secure --share & deactivate.bat & exit"
         pause
         goto:pyproj
@@ -945,13 +945,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo Creating venv for your *.py
     cd %~dp0\
     echo Changed directory to %~dp0
-    echo[ 
+    echo[
     echo Please be patient...
     echo This should only take another few minutes or less, and then you'll be good to go!
     python -m venv venv
     echo Initialization of venv completed!
     echo[
-    echo Donwloading get-pip.py from bootstrap.pypa.io/get-pip.py 
+    echo Donwloading get-pip.py from bootstrap.pypa.io/get-pip.py
     echo Installing pip and requirements for the python script to work
     echo[
     cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & cd /d %~dp0 & pip install -U -r requirements.txt & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
@@ -961,7 +961,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:pyproj
 
 :chkifpy
-    :: Thanks to Drej user1536175 ref from stackoverflow.com/a/26241114 
+    :: Thanks to Drej user1536175 ref from stackoverflow.com/a/26241114
     @echo off
     python --version >NUL 2>&1
     IF  %ERRORLEVEL% EQU 0 (
@@ -972,14 +972,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo[
     echo Looks like python is not installed on your pc
     echo Please,Install python to run this script!
-    echo Download from: https://www.python.org/downloads 
-    echo Or Install it by going into Dress up[6] then press [1] to open chocolatey packages finally press [30] to install python 
+    echo Download from: https://www.python.org/downloads
     echo[
+    echo Or Press any key to enter the chocolatey section and then press 30 to install python
     pause
-    goto:choice
-    rem goto:choco
+    goto:choco
     )
 
 :lazyme
     echo somewhere over the rainbow
-    goto:choice 
+    goto:choice
