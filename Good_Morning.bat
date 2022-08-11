@@ -27,14 +27,15 @@ echo                                                                            
 echo                                                                                                           "Y88P"  
 )else if %%A LSS 18 (
 echo[
-echo         .oOOOo.                   o          Oo    oooo                                             
-echo        .O     o                  O          o  O   O                                                
-echo        o                         o         O    o  o     O                                          
-echo        O                         o        oOooOoOo OoO  oOo                                          
-echo        O   .oOOo .oOo. .oOo. .oOoO        o      O o     o    .oOo. `OoOo. 'OoOo. .oOo. .oOo.  ooOoo 
-echo        o.      O O   o O   o o   O        O      o O     O    OooO'  o      o   O O   o O   o  o   O 
-echo         O.    oO o   O o   O O   o        o      O o     o    O      O      O   o o   O o   O  O   o 
-echo          `OooO'  `OoO' `OoO' `OoO'o       O.     O O     ooo  `OoO'  o      o   O `OoO' `OoO'  o   O   
+echo[
+echo                .oOOOo.                   o          Oo    oooo                                             
+echo               .O     o                  O          o  O   O                                                
+echo               o                         o         O    o  o     O                                          
+echo               O                         o        oOooOoOo OoO  oOo                                          
+echo               O   .oOOo .oOo. .oOo. .oOoO        o      O o     o    .oOo. `OoOo. 'OoOo. .oOo. .oOo.  ooOoo 
+echo               o.      O O   o O   o o   O        O      o O     O    OooO'  o      o   O O   o O   o  o   O 
+echo                O.    oO o   O o   O O   o        o      O o     o    O      O      O   o o   O o   O  O   o 
+echo                 `OooO'  `OoO' `OoO' `OoO'o       O.     O O     ooo  `OoO'  o      o   O `OoO' `OoO'  o   O   
 echo[                                                                                                                                                                                           
 ) else if %%A LSS 22 (
 echo[
@@ -59,17 +60,21 @@ echo        +#+   +#+# +#+    +#+ +#+    +#+ +#+    +#+      +#+  +#+#+#     +#+
 echo        #+#    #+# #+#    #+# #+#    #+# #+#    #+#      #+#   #+#+#     #+#    #+#    #+# #+#    #+#     #+#     
 echo         ########   ########   ########  #########       ###    #### ########### ########  ###    ###     ###     
 )
-echo                                  x - ::k:  https://github.com/aaisalu/Morning  :c:: - x
+echo                                  x - ::k:  [92mhttps://github.com/aaisalu/Morning[0m  :c:: - x
+rem echo                                  x - ::k:  https://github.com/aaisalu/Morning  :c:: - x
+
+:: Thanks to mlocati for batch color at https://bit.ly/3zEJDj6
 
 ::check admin right
 NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
-    echo                                                      -: Sudo Mode :-
+    rem echo                                                      -: Sudo Mode :-
+    echo                                                      [31m-: Sudo Mode :-[0m
     goto:faraway
 ) ELSE (
-    echo                                                    -: Normal Mode :-    
+    echo                                                    [34m-: Normal Mode :-[0m
+    rem echo                                                    -: Normal Mode :-    
 )
-
 echo[
 echo %date% %time% 
 :: Some of welcome message are of github.com/AnimeKaizoku/SaitamaRobot from modules\sql\welcome_sql.py
@@ -84,18 +89,16 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 2 = Beep..Beep Boop! It's Stock Time
     echo    Press 3 = Travel to Folders
     echo    Press 4 = Summon *.py
-    echo    Press 5 = Apply IPO
-    echo    Press 6 = Dress up
-    echo    Press 0 = Leave
+    echo    Press 5 = Dress up
+    echo    [90mPress 0 = Leave[0m
     echo[
     :brain
-    set /P brn=Feed me just Number so, I can work for you!! [1-6]:  
+    set /P brn=Feed me just Number so, I can work for you!! [1-5]: 
     if /I "%brn%" EQU "1" ( goto :somewhere
-    ) else if  /I "%brn%" EQU "2" ( goto :somewhere_else
+    ) else if  /I "%brn%" EQU "2" ( goto :lilfar
     ) else if  /I "%brn%" EQU "3" ( goto :bitfar
     ) else if  /I "%brn%" EQU "4" ( goto :chkifpy
-    ) else if  /I "%brn%" EQU "5" ( goto :lazyme
-    ) else if  /I "%brn%" EQU "6" ( goto :faraway
+    ) else if  /I "%brn%" EQU "5" ( goto :faraway
     ) else if  /I "%brn%" EQU "0" ( goto :saybye
     ) else (goto :choice) 
     
@@ -113,17 +116,17 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 1 = World News
     echo    Press 2 = Tech News
     echo    Press 3 = Stock News
-    echo    Press 0 = Depart
+    echo    [90mPress 0 = Depart[0m
    :ConfirmBox 
-        set /P n= Which News type do you want to be updated with? [1/2/3]:  
+        set /P nws= Which News type do you want to be updated with? [1/2/3]: 
 
-    if /I "%n%" EQU "1" (
+    if /I "%nws%" EQU "1" (
     goto :WorldNews
-    ) else if /I "%n%" EQU "2" ( 
+    ) else if /I "%nws%" EQU "2" ( 
     goto :TechNews
-    )  else if /I "%n%" EQU "3" ( 
+    ) else if /I "%nws%" EQU "3" ( 
     goto :StockNews
-    ) else if /I "%n%" EQU "0" (
+    ) else if /I "%nws%" EQU "0" (
     goto:choice 
     )else ( goto :InERROR 
     )
@@ -178,14 +181,60 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     ping -n 3 127.0.0.1 > nul 
     exit
 
-:somewhere_else
+:lilfar
     echo[
-    echo I'm here because it's Business hrs
-    rem start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
-    start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://mail.google.com/mail/u/0/#inbox https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
-    echo Opening your Excel balance sheet
-    %SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"   
+    echo        **********                       ** **                        **      **                                
+    echo        ////**///                       /**//            *****       /**     /**                                
+    echo           /**     ******  ******       /** ** *******  **///**      /**     /**  ******  **   ** ******  ******
+    echo           /**    //**//* //////**   ******/**//**///**/**  /**      /********** **////**/**  /**//**//* **//// 
+    echo           /**     /** /   *******  **///**/** /**  /**//******      /**//////**/**   /**/**  /** /** / //***** 
+    echo           /**     /**    **////** /**  /**/** /**  /** /////**      /**     /**/**   /**/**  /** /**    /////**
+    echo           /**    /***   //********//******/** ***  /**  *****       /**     /**//****** //******/***    ****** 
+    echo           //     ///     ////////  ////// // ///   //  /////        //      //  //////   ////// ///    //////  
+    echo[
+    echo                 :--   Roses are red, violets are blue, %username% joined this chat to trade with you   --:
+    echo[  
+    echo    Press 1 = Start your business  
+    echo    Press 2 = Summon up Bot to apply IPO!
+    echo    [90mPress 0 = Depart[0m
+    rem echo    Press 3 = Wake Bot to check IPO
+        set /P stk= Welcome, press the secret key to activate script: 
+    if /I "%stk%" EQU "1" (
+    goto:tradestk
+    )else if /I "%stk%" EQU "2" ( 
+    goto:aplyipo
+    )else if /I "%stk%" EQU "0" ( 
     goto:choice
+    )else ( 
+    goto:lilfar
+    )
+    :tradestk
+        echo I'm here because it's Business hrs
+        rem start "Firefox" "C:\Program Files\Mozilla Firefox\firefox.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
+        start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://tms51.nepsetms.com.np/login http://www.nepalstock.com/news/category/0 https://meroshare.cdsc.com.np/#/login https://mail.google.com/mail/u/0/#inbox https://newweb.nepalstock.com.np/ https://nepsealpha.com/trading/chart
+        echo Opening your Excel balance sheet
+        %SystemRoot%\explorer.exe "D:\excel Files\hello.xlsx"   
+        goto:choice
+    :aplyipo
+        echo[
+        echo             .d8888b.   .d88888b.   .d88888b.  8888888b.       888     888     888  .d8888b.  888    d8P 
+        echo            d88P  Y88b d88P" "Y88b d88P" "Y88b 888  "Y88b      888     888     888 d88P  Y88b 888   d8P  
+        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  d8P   
+        echo            888        888     888 888     888 888    888      888     888     888 888        888d88K    
+        echo            888  88888 888     888 888     888 888    888      888     888     888 888        8888888b   
+        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  Y88b  
+        echo            Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b 
+        echo             "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b
+        echo[
+        echo                                   :---  Hola %username%, beware of super users ---:
+        echo[
+        echo Bot on construction it'll be alive someday but today isn't that day!
+        ping -n 2 127.0.0.1 > nul         
+        goto :choice
+    :InWrong
+        echo[
+        echo Goodbye %username% ! It's gonna be lonely without ya.,
+        goto :choice
 
 :bitfar
     echo[
@@ -203,20 +252,20 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 2 = Pictures Folder 
     echo    Press 3 = Music Folder
     echo    Press 4 = Documents Folder
-    echo    Press 0 = Depart
+    echo    [90mPress 0 = Depart[0m
 
    :SUREBOX
-        set /P t= Which folder do you want to Travel? [1-4]:    
+        set /P tvl= Which folder do you want to Travel? [1-4]: 
 
-    if /I "%t%" EQU "1" (
+    if /I "%tvl%" EQU "1" (
     goto :Fnpy 
-    ) else if /I "%t%" EQU "2" ( 
+    ) else if /I "%tvl%" EQU "2" ( 
     goto :Fncmd
-    )  else if /I "%t%" EQU "3" ( 
+    )  else if /I "%tvl%" EQU "3" ( 
     goto :Fnexcel
-    ) else if /I "%t%" EQU "4" ( 
+    ) else if /I "%tvl%" EQU "4" ( 
     goto :Fnproj
-    ) else if /I "%t%" EQU "0" (
+    ) else if /I "%tvl%" EQU "0" (
     goto:choice 
     )else ( 
     goto :InValid 
@@ -243,41 +292,6 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto :bitfar
     exit
 
-:lazyme
-    echo[
-    echo Roses are red, violets are blue, %username% joined this chat to apply IPO.
-    echo    Press 1 = Summon up Bot to apply IPO!
-    rem echo    Press 2 = Wake Bot to check IPO
-    echo    Press 0 = See ya!
-   :CHECKBOX 
-        set /P s= Welcome, press the secret key to activate God's eye: 
-
-    if /I "%s%" EQU "1" (
-    goto :APLYIPO
-    ) else ( 
-    goto :InWrong
-    )
-
-    :APLYIPO
-        echo[
-        echo             .d8888b.   .d88888b.   .d88888b.  8888888b.       888     888     888  .d8888b.  888    d8P  
-        echo            d88P  Y88b d88P" "Y88b d88P" "Y88b 888  "Y88b      888     888     888 d88P  Y88b 888   d8P   
-        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  d8P    
-        echo            888        888     888 888     888 888    888      888     888     888 888        888d88K     
-        echo            888  88888 888     888 888     888 888    888      888     888     888 888        8888888b    
-        echo            888    888 888     888 888     888 888    888      888     888     888 888    888 888  Y88b   
-        echo            Y88b  d88P Y88b. .d88P Y88b. .d88P 888  .d88P      888     Y88b. .d88P Y88b  d88P 888   Y88b  
-        echo             "Y8888P88  "Y88888P"   "Y88888P"  8888888P"       88888888 "Y88888P"   "Y8888P"  888    Y88b                                                                                                                                                                                                                                                                                       
-        echo[
-    	echo Bot on construction it'll be alive someday but today isn't that day!
-        ping -n 2 127.0.0.1 > nul         
-        goto :choice
-
-    :InWrong
-        echo[
-        echo Goodbye %username% ! It's gonna be lonely without ya.,
-        goto :choice
-
 :faraway
     echo[
     echo                       :::::::::  :::::::::  :::::::::: ::::::::   ::::::::       :::    ::: :::::::::  
@@ -296,23 +310,23 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 4 = Repair a Windows Image
     echo    Press 5 = Reset Network setting 
     echo    Press 6 = Repair system files
-    echo    Press 0 = Depart
+    echo    [90mPress 0 = Depart[0m
    :farbox 
-        set /P k= Which kit would you like to proceed with? [1-6]: 
+        set /P drs= Which kit would you like to proceed with? [1-6]: 
 
-    if /I "%k%" EQU "1" (
+    if /I "%drs%" EQU "1" (
     goto :choco
-    ) else if /I "%k%" EQU "2" ( 
+    ) else if /I "%drs%" EQU "2" ( 
     goto :websoft
-    ) else if /I "%k%" EQU "0" (
+    ) else if /I "%drs%" EQU "0" (
     goto:choice 
-    ) else if /I "%k%" EQU "3" ( 
+    ) else if /I "%drs%" EQU "3" ( 
     goto :battreport
-    )else if /I "%k%" EQU "4" ( 
+    )else if /I "%drs%" EQU "4" ( 
     goto :repairpc
-    )else if /I "%k%" EQU "5" ( 
+    )else if /I "%drs%" EQU "5" ( 
     goto :repairnet
-    )else if /I "%k%" EQU "6" ( 
+    )else if /I "%drs%" EQU "6" ( 
     goto :repairsys
     )else ( 
     goto :faraway 
@@ -326,7 +340,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo                       +#+ +#+#+ +#+ +#+        +#+    +#+      +#+        +#+        +#+    
         echo                        #+#+# #+#+#  #+#        #+#    #+#      #+#        #+#        #+#    
         echo                         ###   ###   ########## #########       ###        ########## ###    
-        echo                                       :-- %username%, fasten your seatbelt --:
+        echo                                       :-- Fasten your seatbelt, %username% --:
         echo[
         echo This tab opens links to software and extension on your browser.
         echo I suggest you install software from chocolatey fast and simple.
@@ -334,7 +348,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo    Press 1 = Fly to the web of Basic kit software
         echo    Press 2 = Fly to the web of Intermediate kit software
         echo    Press 3 = Fly to the browser extensions page
-        echo    Press 0 = Depart
+        echo    [90mPress 0 = Depart[0m
             set /P wb= Welcome, Which web of software do you want to fly ?[1-3]: 
         if /I "%wb%" EQU "1" (
         goto :basic
@@ -359,15 +373,25 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:websoft
         :webext
             echo[
+            echo            :::::::::: :::    ::: ::::::::::: :::::::::: ::::    :::  :::::::: ::::::::::: ::::::::   ::::::::  
+            echo            :+:        :+:    :+:     :+:     :+:        :+:+:   :+: :+:    :+:    :+:    :+:    :+: :+:    :+: 
+            echo            +:+         +:+  +:+      +:+     +:+        :+:+:+  +:+ +:+           +:+    +:+    +:+ +:+        
+            echo            +#++:++#     +#++:+       +#+     +#++:++#   +#+ +:+ +#+ +#++:++#++    +#+    +#+    +:+ +#++:++#++ 
+            echo            +#+         +#+  +#+      +#+     +#+        +#+  +#+#+#        +#+    +#+    +#+    +#+        +#+ 
+            echo            #+#        #+#    #+#     #+#     #+#        #+#   #+#+# #+#    #+#    #+#    #+#    #+# #+#    #+# 
+            echo            ########## ###    ###     ###     ########## ###    ####  ######## ########### ########   ########  
+            echo                                           :-- We've been expecting you %username% --:
+            echo[
             echo Please! Choose your browser preferences where you want to install extensions.
             echo    Press 1 = Chromium Browser
             echo    Press 2 = Mozilla Firefox
-            set /P wb= Welcome, Which browser do you use ?[1/2]: 
-            if /I "%wb%" EQU "1" (
+            echo    [90mPress 0 = Depart[0m
+                set /P ext= Welcome, Which browser do you use ?[1/2]: 
+            if /I "%ext%" EQU "1" (
             goto :chromiumbrow
-            ) else if /I "%wb%" EQU "2" ( 
+            ) else if /I "%ext%" EQU "2" ( 
              goto :mozibrow
-            )else if /I "%wb%" EQU "0" ( 
+            )else if /I "%ext%" EQU "0" ( 
              goto :websoft
             )else ( 
             goto :webext
@@ -869,16 +893,16 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 1 = Download Youtube Videos
     echo    Press 2 = Scrap IMDb Movies
     echo    Press 3 = Generate QRcode
-    echo    Press 0 = Depart
+    echo    [90mPress 0 = Depart[0m
 
-        set /P p= Welcome, press the secret key to lunch *.py: 
-    if /I "%p%" EQU "1" (
+        set /P pyt= Welcome, press the secret key to lunch *.py: 
+    if /I "%pyt%" EQU "1" (
     goto :ytdown
-    ) else if /I "%p%" EQU "2" ( 
+    ) else if /I "%pyt%" EQU "2" ( 
     goto :scrapimdb
-    ) else if /I "%p%" EQU "3" (
+    ) else if /I "%pyt%" EQU "3" (
     goto:qrcode
-    ) else if /I "%p%" EQU "0" (
+    ) else if /I "%pyt%" EQU "0" (
     goto:choice
     )else ( 
     goto :pyproj
@@ -943,3 +967,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     pause
     goto:choice
     )
+
+
+:lazyme
+    echo somewhere over the rainbow
+    goto:choice 
