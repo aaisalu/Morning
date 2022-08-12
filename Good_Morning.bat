@@ -299,7 +299,12 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo                       #+#    #+# #+#    #+# #+#       #+#    #+# #+#    #+#      #+#    #+# #+#
     echo                       #########  ###    ### ########## ########   ########        ########  ###
     echo[
-    echo                                  ---- Feels like %username% device needs some medic kit! -----
+    NET SESSION >nul 2>&1
+    IF %ERRORLEVEL% EQU 0 (
+        echo                                  [31m---- Feels like %username% device needs some medic kit! -----[0m
+    ) ELSE (
+        echo                                  [94m---- Feels like %username% device needs some medic kit! -----[0m
+    )
     echo[
     echo    Press 1 = Install/Update software through chocolatey
     echo    Press 2 = Fly to the soft_links/extensions
