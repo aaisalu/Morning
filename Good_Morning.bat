@@ -892,10 +892,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo             ########## ########  ###    ####  ########  ###    ###                   ### ###           ###
     echo                                         ---- %username% spawned into snake island ----
     echo[
-    echo    Press 1 = Download Youtube Videos
+    echo    Press 1 = Download Youtube Videos/Music/playlists
     echo    Press 2 = Scrap IMDb Movies
     echo    Press 3 = Generate QRcode
     echo    Press 4 = Internet Speedtest
+    echo    Press 5 = Shorten URL
     echo    [90mPress 0 = Depart[0m
 
         set /P pyt= Welcome, press the secret key to lunch *.py:
@@ -907,7 +908,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:qrcode
     ) else if /I "%pyt%" EQU "4" (
     goto:spedtest
-    )else if /I "%pyt%" EQU "0" (
+    ) else if /I "%pyt%" EQU "5" (
+    goto:shortenurl
+    ) else if /I "%pyt%" EQU "0" (
     goto:choice
     )else (
     goto :pyproj
@@ -939,6 +942,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo I'm here because you want to test your internet speed through CLI
         cmd /k "cd %~dp0\venv\Scripts & activate & speedtest-cli --secure --share & deactivate.bat & exit"
+        pause
+        goto:pyproj
+    :shortenurl
+        @echo off
+        echo[
+        echo I'm here because you want shorten links.
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python shorten.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         pause
         goto:pyproj
 
