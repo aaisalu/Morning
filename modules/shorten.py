@@ -5,7 +5,7 @@ from configparser import ConfigParser
 def get_token():
     tokens = []
     config = ConfigParser()
-    config.read('config.cfg')
+    config.read('../config.ini')
     data = config['API']['Bitly_token']
     if data:
         tokens.append(data.strip())
