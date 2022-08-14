@@ -14,10 +14,18 @@ t1 = time.perf_counter()
 def folder(file):
     global Path
     desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    Path = rf"{desktop}\Youtube\{file}"
-    if not os.path.exists(Path):
-        os.makedirs(Path)
-    return Path
+    try:
+        Path = rf"{desktop}\Youtube\{file}"
+        if not os.path.exists(Path):
+            os.makedirs(Path)
+        return Path
+    # OSError
+    except:
+        cprint('Error at creating folder... saving at default folder', 'red')
+        Path = rf"{desktop}\Youtube\Dropped_contents"
+        if not os.path.exists(Path):
+            os.makedirs(Path)
+        return Path
 
 
 def mp3(url, save_out):
