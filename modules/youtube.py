@@ -20,13 +20,13 @@ def folder(file):
     return Path
 
 
-def mp3(url):
+def mp3(url, save_out):
     yt = pytube.YouTube(url)
     cprint(f"Title: {yt.title} ", 'green')
     cprint(f"Views: {yt.views} Duration:{yt.length}", 'green')
     try:
         out_file = pytube.YouTube(url, on_progress_callback=on_progress).streams.filter(
-            only_audio=True).first().download(folder("Audios"))
+            only_audio=True).first().download(folder(save_out))
         cprint(":) \n", 'cyan')
         base, ext = os.path.splitext(out_file)
         new_file = base + '.mp3'
@@ -36,12 +36,12 @@ def mp3(url):
         cprint(f"Looks like {yt.title} music is already present. \n", 'red')
 
 
-def solo_video(url):
+def solo_video(url, save_out):
     yt = pytube.YouTube(url)
     cprint(f"Title: {yt.title}", 'green')
     cprint(f"Views: {yt.views} Duration: {yt.length}", 'green')
     pytube.YouTube(url, on_progress_callback=on_progress).streams.get_highest_resolution(
-    ).download(folder("Videos"))
+    ).download(folder(save_out))
     cprint(":) \n", 'cyan')
 
 
@@ -52,21 +52,23 @@ def playlists(link, ask):
     if re.search("audio|mp3|music|flac|wav|aac|ogg|audios", ask, flags=re.IGNORECASE):
         cprint("Starting to download MP3s of the videos\n", 'yellow')
         for music_url in playlist.video_urls:
-            mp3(music_url)
+            yt = pytube.YouTube(video_url)
+            mp3(music_url, f'Audios\{yt.author}')
     else:
         cprint("Starting to download videos in 720p\n", 'yellow')
         for video_url in playlist.video_urls:
-            solo_video(video_url)
+            yt = pytube.YouTube(video_url)
+            solo_video(video_url, f'Videos\{yt.author}')
 
 
 def askuser(link, ask):
     try:
         if re.search("audio|mp3|music|flac|wav|aac|ogg|audios", ask, flags=re.IGNORECASE):
             cprint("\nStarting to download MP3s of the video", 'yellow')
-            mp3(link)
+            mp3(link, "Audios")
         else:
             cprint("\nStarting to download video in 720p", 'yellow')
-            solo_video(link)
+            solo_video(link, "Videos")
     except pytube.exceptions.RegexMatchError:
         cprint("\nPlease enter a valid server URL!", 'red')
 
