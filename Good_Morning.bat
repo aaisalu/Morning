@@ -108,7 +108,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo                +#+    +#+ +#+    +#+ +#+        +#+        +#+            +#+         +#+     +#+  +#+#+#
     echo                #+#    #+# #+#    #+# #+#        #+#        #+#            #+#         #+#     #+#   #+#+#
     echo                #########   ########  ########## ########## ##########     ###     ########### ###    ####
-    echo                                 ---- %username% Just teleported into the chat from Jungle!-----
+    echo                                 [92m---- %username% Just teleported into the chat from Jungle!-----[0m
     echo[
     echo    Press 1 = World News
     echo    Press 2 = Tech News
@@ -189,7 +189,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo           /**    /***   //********//******/** ***  /**  *****       /**     /**//****** //******/***    ******
     echo           //     ///     ////////  ////// // ///   //  /////        //      //  //////   ////// ///    //////
     echo[
-    echo                 :--   Roses are red, violets are blue, %username% joined this chat to trade with you   --:
+    echo                 [92m:--   Roses are red, violets are blue, %username% joined this chat to trade with you   --:[0m
     echo[
     echo    Press 1 = Start your business
     echo    Press 2 = Summon up Bot to apply IPO!
@@ -243,7 +243,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo                        #+# #+#     #+# #+#   #+#  #+#             #+#    #+# #+#        #+#
     echo                        ### ###     ### ###    ### ##########       ########  ###        ###
     echo[
-    echo                              --- Brace yourselves...Activating Jasmine flying carpet ---
+    echo                              [92m--- Brace yourselves...Activating Jasmine flying carpet ---[0m
     echo[
     echo    Press 1 = Downloads Folder
     echo    Press 2 = Pictures Folder
@@ -342,7 +342,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo                       +#+ +#+#+ +#+ +#+        +#+    +#+      +#+        +#+        +#+
         echo                        #+#+# #+#+#  #+#        #+#    #+#      #+#        #+#        #+#
         echo                         ###   ###   ########## #########       ###        ########## ###
-        echo                                       :-- Fasten your seatbelt, %username% --:
+        echo                                       [92m:-- Fasten your seatbelt, %username% --:[0m
         echo[
         echo This tab opens links to software and extension on your browser.
         echo I suggest you install software from chocolatey fast and simple.
@@ -382,7 +382,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo            +#+         +#+  +#+      +#+     +#+        +#+  +#+#+#        +#+    +#+    +#+    +#+        +#+
             echo            #+#        #+#    #+#     #+#     #+#        #+#   #+#+# #+#    #+#    #+#    #+#    #+# #+#    #+#
             echo            ########## ###    ###     ###     ########## ###    ####  ######## ########### ########   ########
-            echo                                           :-- We've been expecting you %username% --:
+            echo                                           [92m:-- We've been expecting you %username% --:[0m
             echo[
             echo Please! Choose your browser preferences where you want to install extensions.
             echo    Press 1 = Chromium Browser
@@ -436,7 +436,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888
             echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P
             echo[
-            echo                      ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo                      [31m------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------[0m
             echo This script must be run as administrator to work as it installs the chocolatey to install software
             echo[
             echo As the task can't be run without the Administrator privileges
@@ -751,7 +751,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         cd %USERPROFILE%\Desktop
         powercfg /batteryreport
         echo[
-        echo Saved at %USERPROFILE%\Desktop
+        echo [92mSaved at %USERPROFILE%\Desktop[0m
         goto:faraway
 
     :repairnet
@@ -781,7 +781,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888
             echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P
             echo[
-            echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo                     [31m------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------[0m
             echo This script must be run as administrator to work as it resets your network devices and network stack
             echo[
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
@@ -822,7 +822,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888
             echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P
             echo[
-            echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo                     [31m------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------[0m
             echo This script must be run as administrator to work as it uses DISM to Repair a Windows image
             echo[
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
@@ -860,7 +860,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo             88 `88. 88b  d88 88  V888      88   88 db   8D      88   88 88  .8D 88  88  88   .88.   88  V888
             echo             88   YD ~Y8888P' VP   V8P      YP   YP `8888Y'      YP   YP Y8888D' YP  YP  YP Y888888P VP   V8P
             echo[
-            echo                     ------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------
+            echo                     [31m------------------  ERROR: ADMINISTRATOR PRIVILEGES REQUIRED  -------------------[0m
             echo This script must be run as administrator to work as it allows users to scan for and restore corrupted Windows system files.
             echo[
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
@@ -890,7 +890,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo             +#+       +#+    +#+ +#+  +#+#+# +#+        +#+    +#+         +#+ +#+       +#+           +#+
     echo             #+#       #+#    #+# #+#   #+#+# #+#    #+# #+#    #+#       #+#     #+# #+# #+#           #+#
     echo             ########## ########  ###    ####  ########  ###    ###                   ### ###           ###
-    echo                                         ---- %username% spawned into snake island ----
+    echo                                         [92m---- %username% spawned into snake island ----[0m
     echo[
     echo    Press 1 = Download Youtube Videos/Music/playlists
     echo    Press 2 = Scrap IMDb Movies
@@ -964,14 +964,14 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo Please be patient...
     echo This should only take another few minutes or less, and then you'll be good to go!
     python -m venv venv
-    echo Initialization of venv completed!
+    echo [92mInitialization of venv completed![0m
     echo[
     echo Donwloading get-pip.py from bootstrap.pypa.io/get-pip.py
     echo Installing pip and requirements for the python script to work
     echo[
     cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & cd /d %~dp0 & pip install -U -r requirements.txt & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
     echo[
-    echo Successfully installed pip and required requirements!
+    echo [92mSuccessfully installed pip and required requirements![0m
     echo I apologize for making you wait)
     goto:pyproj
 
@@ -981,15 +981,15 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     python --version >NUL 2>&1
     IF  %ERRORLEVEL% EQU 0 (
     echo[
-    echo                         Kx-----  Python is found lurking around, so I'll lend you my power -----Cx
+    echo                         [92mKx-----  Python is found lurking around, so I'll lend you my power -----Cx[0m
     goto:venvreqimnt
     ) ELSE (
     echo[
-    echo Looks like python is not installed on your pc
+    echo [31mLooks like python is not installed on your pc[0m
     echo Please,Install python to run this script!
     echo Download from: https://www.python.org/downloads
     echo[
-    echo Or Press any key to enter the chocolatey section and then press 30 to install python
+    echo [31mOr Press any key to enter the chocolatey section and then press 30 to install python[0m
     pause
     goto:choco
     )
