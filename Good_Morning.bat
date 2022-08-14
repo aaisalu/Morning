@@ -60,7 +60,7 @@ echo        +#+   +#+# +#+    +#+ +#+    +#+ +#+    +#+      +#+  +#+#+#     +#+
 echo        #+#    #+# #+#    #+# #+#    #+# #+#    #+#      #+#   #+#+#     #+#    #+#    #+# #+#    #+#     #+#
 echo         ########   ########   ########  #########       ###    #### ########### ########  ###    ###     ###
 )
-echo                                  x - ::k:  [92mhttps://github.com/aaisalu/Morning[0m  :c:: - x
+echo                                    x - :k:[92m https://github.com/aaisalu/Morning [0m:c: - x
 :: Thanks to mlocati for batch color at https://bit.ly/3zEJDj6
 
 ::check admin right
@@ -132,7 +132,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo I am here because you want to see World News
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bizshala.com/ https://merolagani.com/ https://www.cnbc.com/world/ https://www.setopati.com/ https://www.onlinekhabar.com/ https://www.ratopati.com/ https://ekantipur.com/ https://www.sciencealert.com/ https://www.insider.com/asia/ https://news.google.com/topstories/
         echo[
-        echo Please! Don't close this Window.
+        echo [31mPlease! Don't close this Window.[0m
         echo Please! Wait for 2 min for the next wave of news to lunch
         ping -n 120 127.0.0.1 > nul
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.bloomberg.com/asia  https://www.theguardian.com/international https://www.businessinsider.com/sai https://www.vice.com/en https://www.thehimalayantimes.com/ https://www.hamropatro.com/news https://annapurnapost.com/ https://www.bbc.com/news/world https://nepsealpha.com/
@@ -147,14 +147,14 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     	start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://news.ycombinator.com/ https://hackersonlineclub.com/ https://www.theverge.com/ https://www.xda-developers.com/ https://www.bleepingcomputer.com/ https://www.maketecheasier.com/   https://www.makeuseof.com/
 
         echo[
-        echo Please! Don't close this Window.
+        echo [31mPlease! Don't close this Window.[0m
         echo Please! Wait for 2 min for the next wave of news to lunch
         ping -n 120 127.0.0.1 > nul
 
         start "Edge" "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" https://www.androidauthority.com/ https://www.gadgetbytenepal.com/ https://mspoweruser.com/ https://beebom.com/  https://www.techpana.com/ ttps://www.androidpolice.com/ https://www.windowscentral.com/blog
 
         echo[
-        echo Please! Don't close this Window.
+        echo [31mPlease! Don't close this Window.[0m
         echo Please! Wait for 2 min for the final wave of news to lunch
         ping -n 120 127.0.0.1 > nul
 
@@ -174,7 +174,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     exit
 
 :saybye
-    echo Check update at https://github.com/aaisalu/Morning
+    echo [92mCheck for update at https://github.com/aaisalu/Morning[0m
     ping -n 3 127.0.0.1 > nul
     exit
 
