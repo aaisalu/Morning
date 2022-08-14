@@ -1,10 +1,13 @@
 from pytube.cli import on_progress
 from pytube import Playlist
+from termcolor import cprint
+import colorama
 import pytube
 import os
 import re
 import time
 
+colorama.init()
 t1 = time.perf_counter()
 
 
@@ -19,38 +22,39 @@ def folder(file):
 
 def mp3(url):
     yt = pytube.YouTube(url)
-    print(f"Title: {yt.title} ")
-    print(f"Views: {yt.views} Duration:{yt.length}")
+    cprint(f"Title: {yt.title} ", 'green')
+    cprint(f"Views: {yt.views} Duration:{yt.length}", 'green')
     try:
         out_file = pytube.YouTube(url, on_progress_callback=on_progress).streams.filter(
             only_audio=True).first().download(folder("Audios"))
-        print(":) \n")
+        cprint(":) \n", 'cyan')
         base, ext = os.path.splitext(out_file)
         new_file = base + '.mp3'
         os.rename(out_file, new_file)
 
     except FileExistsError:
-        print(f"Looks like {yt.title} music is already present. \n")
+        cprint(f"Looks like {yt.title} music is already present. \n", 'red')
 
 
 def solo_video(url):
     yt = pytube.YouTube(url)
-    print(f"Title: {yt.title}")
-    print(f"Views: {yt.views} Duration: {yt.length}")
+    cprint(f"Title: {yt.title}", 'green')
+    cprint(f"Views: {yt.views} Duration: {yt.length}", 'green')
     pytube.YouTube(url, on_progress_callback=on_progress).streams.get_highest_resolution(
     ).download(folder("Videos"))
-    print(":) \n")
+    cprint(":) \n", 'cyan')
 
 
 def playlists(link, ask):
     playlist = Playlist(link)
-    print('\nNumber of videos in playlist: %s' % len(playlist.video_urls))
+    cprint('\nNumber of videos in playlist: %s' %
+           len(playlist.video_urls), 'blue')
     if re.search("audio|mp3|music|flac|wav|aac|ogg|audios", ask, flags=re.IGNORECASE):
-        print("Starting to download MP3s of the videos\n")
+        cprint("Starting to download MP3s of the videos\n", 'yellow')
         for music_url in playlist.video_urls:
             mp3(music_url)
     else:
-        print("Starting to download videos in 720p\n")
+        cprint("Starting to download videos in 720p\n", 'yellow')
         for video_url in playlist.video_urls:
             solo_video(video_url)
 
@@ -58,20 +62,20 @@ def playlists(link, ask):
 def askuser(link, ask):
     try:
         if re.search("audio|mp3|music|flac|wav|aac|ogg|audios", ask, flags=re.IGNORECASE):
-            print("\nStarting to download MP3s of the video")
+            cprint("\nStarting to download MP3s of the video", 'yellow')
             mp3(link)
         else:
-            print("\nStarting to download video in 720p")
+            cprint("\nStarting to download video in 720p", 'yellow')
             solo_video(link)
     except pytube.exceptions.RegexMatchError:
-        print("\nPlease enter a valid server URL!")
+        cprint("\nPlease enter a valid server URL!", 'red')
 
 
 def roulette(link):
     ask = input("Which type do you prefer mp3 or mp4: ")
     try:
         if Playlist(link):
-            print("Playlist Detected..calling playlist function")
+            cprint("Playlist Detected..calling playlist function", 'green')
             return playlists(link, ask)
         else:
             return askuser(link, ask)
@@ -83,6 +87,6 @@ roulette(str(input("Enter the url of the video: ")))
 t2 = time.perf_counter()
 
 try:
-    print(f"Saved at {Path} took {t2-t1} seconds \n")
+    cprint(f"Saved at {Path} took {t2-t1} seconds \n", 'green')
 except NameError:
-    print("Some input or your network connection looks fishy as my AI smells it..")
+    cprint("Some input or your network connection looks fishy as my AI smells it..", 'red')

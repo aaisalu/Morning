@@ -1,5 +1,8 @@
 import bitlyshortener
 from configparser import ConfigParser
+from termcolor import cprint
+import colorama
+colorama.init()
 
 
 def get_token():
@@ -19,11 +22,11 @@ def process_it(url):
             shortener = bitlyshortener.Shortener(
                 tokens=api, max_cache_size=256)
             for shorten in shortener.shorten_urls(url):
-                print(f'Your shorten link is {shorten}')
+                cprint(f'Your shorten link is {shorten}', 'green')
         except bitlyshortener.exc.RequestError:
-            print("Looks like your input or the token is wrong")
+            cprint("Looks like your given URL or the token can't be verified", 'red')
     else:
-        print("Please provide the token")
+        cprint("Please provide the token", 'red')
 
 
 process_it(input("Enter the url: ").split(" "))

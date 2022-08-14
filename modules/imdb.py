@@ -3,6 +3,9 @@ import requests
 import csv
 import os
 import re
+from termcolor import cprint
+import colorama
+colorama.init()
 
 
 def folder(file):
@@ -20,12 +23,12 @@ def cheknet(url):
         if incoming.status_code != 200:
             raise RuntimeError(
                 "SOORY ERROR OUT due to excess Resonse Status over 200")
-        print(f"\nServer Response : {incoming}")
+        cprint(f"\nServer Response : {incoming}", 'green')
         print('')
         return imdb_v5(incoming)
     except requests.exceptions.ConnectionError:
-        print("\nHmmm…can't reach to the server")
-        print("Please...Check your network connection.")
+        cprint("\nHmmm…can't reach to the server", 'red')
+        cprint("Please...Check your network connection.", 'red')
 
 
 def imdb_v5(getdata):
@@ -58,7 +61,7 @@ def imdb_v5(getdata):
             write = csv.writer(editor, delimiter=',')
             write.writerow([index, title, rate, year, time, genre,
                            summary, vote, meta, gross, certificate, top_250])
-    return print(f'Saved at {Path}')
+    return cprint(f'Saved at {Path}', 'green')
 
 
 def checkbox(url):
@@ -67,16 +70,16 @@ def checkbox(url):
              "{2,256}\\.[a-z]" + "{2,6}\\b([-a-zA-Z0-9@:%" + "._\\+~#?&//=]*)")
     compiled = re.compile(regex, flags=re.IGNORECASE)
     if (url == None):
-        print('Starting to Scrap Website by default link')
+        cprint('Starting to Scrap Website by default link', 'yellow')
         return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=user_rating,desc&count=100&start=%27+%27&ref_=adv_nxt')
     elif (re.search(compiled, url)):
-        print("I'll crawl like spider! wait & watch")
+        cprint("I'll crawl like spider! wait & watch", 'green')
         return cheknet(url)
     else:
-        print('Starting to Scrap Website by default link')
+        cprint('Starting to Scrap Website by default link', 'yellow')
         return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=alpha,asc')
 
 
 print('')
-print("If you don't understand what the heck is this then simply press enter to scrap with default link")
+cprint("If you don't understand what the heck is this then simply press enter to scrap with default link", 'green')
 checkbox(str(input("Please provide the link of IMDb movies unsorted list: ")))

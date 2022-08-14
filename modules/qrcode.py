@@ -1,8 +1,12 @@
 from amzqr import amzqr
 import unicodedata
+from termcolor import cprint
+import colorama
 import os
 import re
 import glob
+
+colorama.init()
 
 
 def beautify(info):
@@ -27,35 +31,38 @@ def getimg(string):
         for k in glob.glob(rf'{path}\*.{string}'):
             return k, string
     else:
-        print("Gallery folder can't be found in the Morning project folder")
+        cprint("Gallery folder can't be found in the Morning project folder", 'red')
         return None
 
 
 def imageout(value):
     try:
         if not None is (storeimg := getimg('jpg')):
-            print(f"\nProcessing output as {value[2]} with custom img.")
+            cprint(
+                f"\nProcessing output as {value[2]} with custom img.", 'green')
             return engine(value[0], storeimg[0], value[2], value[3], value[4])
         else:
-            print(
-                f"Picture isn't present in gallery folder so, processing {value[0][:10]}... output with {value[2]}")
+            cprint(
+                f"Picture isn't present in gallery folder so, processing {value[0][:10]}... output with {value[2]}", 'yellow')
             return engine(value[0], value[1], value[2], value[3], value[4])
     except OSError:
-        print("\nError: I can't produce color output in JPEG so, try changing it to png")
+        cprint(
+            "\nError: I can't produce color output in JPEG so, try changing it to png", 'red')
 
 
 def gifout(value):
     try:
         if not None is (storegif := getimg('gif')):
-            print(
-                f"\nProcessing {value[0][:10]}... output as gif with custom img.")
+            cprint(
+                f"\nProcessing {value[0][:10]}... output as gif with custom img.", 'green')
             return engine(value[0], storegif[0], storegif[1], value[3], value[4])
         else:
-            print(
-                f"GIF isn't present in gallery folder so, processing {value[0][:10]}... output with {value[2]}")
+            cprint(
+                f"GIF isn't present in gallery folder so, processing {value[0][:10]}... output with {value[2]}", 'yellow')
             return engine(value[0], value[1], value[2], value[3], value[4])
     except OSError:
-        print("\nError: I can't produce color output in JPEG so, try changing it to png")
+        cprint(
+            "\nError: I can't produce color output in JPEG so, try changing it to png", 'red')
 
 
 def chkreg(answer):
@@ -72,12 +79,12 @@ def roulette(value):
             else:
                 return imageout(value)
         else:
-            print(
-                f"Processing {value[0][:10]}... output as {value[2]} without any custom img")
+            cprint(
+                f"Processing {value[0][:10]}... output as {value[2]} without any custom img", 'yellow')
             return engine(value[0], value[1], value[2], value[3], value[3])
 
     except ValueError:
-        print("\nError: Ohh snap!! Feels like my brain can't process this input")
+        cprint("\nError: Ohh snap!! Feels like my brain can't process this input", 'red')
 
 # ::Thanks to S.Lott & martineau at stackoverflow.com/a/295466
 
@@ -107,7 +114,7 @@ def engine(info, img, ext, color, ver):
         brightness=1.1,
         save_name=f'{slugify(info)[:15]}.{ext}',
         save_dir=folder("Qrcodes"))
-    return print(f"\nSaved at {Path}")
+    return cprint(f"\nSaved at {Path}", 'green')
 
 
 beautify(str(input("Type anything which you want to convert it to QRcode: ")))
