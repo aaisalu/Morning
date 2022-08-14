@@ -5,6 +5,7 @@ import colorama
 import os
 import re
 import glob
+from random import randint
 
 colorama.init()
 
@@ -112,7 +113,7 @@ def engine(info, img, ext, color, ver):
         colorized=color,
         contrast=1.2,
         brightness=1.1,
-        save_name=f'{slugify(info)[:15]}.{ext}',
+        save_name=f'{slugify(info)[:15]}_{randint(0, 1000)}.{ext}',
         save_dir=folder("Qrcodes"))
     return cprint(f"\nSaved at {Path}", 'green')
 
