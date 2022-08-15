@@ -55,7 +55,7 @@ def gifout(value):
     try:
         if not None is (storegif := getimg('gif')):
             cprint(
-                f"\nProcessing {value[0][:10]}... output as gif with custom img.", 'green')
+                f"\nProcessing {value[0][:10]}... output with custom gif.", 'green')
             return engine(value[0], storegif[0], storegif[1], value[3], value[4])
         else:
             cprint(
@@ -104,6 +104,12 @@ def slugify(data, allow_unicode=False):
     return re.sub(r'[-\s]+', '-', data).strip('-_')
 
 
+def eliminate(input, ext):
+    info = re.sub(r'(https|http|ftp)?:\/\/(\.|\/|\?|\=|\&|\%)*\b(www.)*',
+                  f'{randint(0, 1000)}_', input, flags=re.MULTILINE)
+    return f'{slugify(info)[:35]}.{ext}'
+
+
 def engine(info, img, ext, color, ver):
     version, level, qr_name = amzqr.run(
         info,
@@ -113,7 +119,7 @@ def engine(info, img, ext, color, ver):
         colorized=color,
         contrast=1.2,
         brightness=1.1,
-        save_name=f'{slugify(info)[:15]}_{randint(0, 1000)}.{ext}',
+        save_name=eliminate(info, ext),
         save_dir=folder("Qrcodes"))
     return cprint(f"\nSaved at {Path}", 'green')
 
