@@ -9,7 +9,7 @@ colorama.init()
 def get_token():
     try:
         config = ConfigParser()
-        config.read('config.ini')
+        config.read('../config.ini')
         data = config['API']['RapidAPI_token']
         return data.strip()
     except KeyError:
@@ -28,10 +28,11 @@ def calculate(f_name):
         percentages = response['percentage']
         results = response['result']
         cprint(
-            f"Percentage of love between {f_name} & {s_name} is {percentages} %.\nAI message for thier love is :> {results}", 'green')
+            f"\nPercentage of love between {f_name} & {s_name} is {percentages}%.", 'blue')
+        cprint(f'AI message for their love is :> {results}', 'green')
 
     except KeyError:
         cprint("Looks like your love_token is false just like your love", 'red')
 
 
-input(calculate(input("What's your good name? ")))
+calculate(input("What's your good name? "))
