@@ -897,6 +897,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 3 = Generate QRcode
     echo    Press 4 = Internet Speedtest
     echo    Press 5 = Shorten URL
+    echo    Press 6 = Calculate love
     echo    [90mPress 0 = Depart[0m
 
         set /P pyt= Welcome, press the secret key to lunch *.py:
@@ -910,6 +911,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:spedtest
     ) else if /I "%pyt%" EQU "5" (
     goto:shortenurl
+    ) else if /I "%pyt%" EQU "6" (
+    goto:lovecalculate
     ) else if /I "%pyt%" EQU "0" (
     goto:choice
     )else (
@@ -949,6 +952,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo I'm here because you want shorten links.
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python shorten.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        pause
+        goto:pyproj
+    :lovecalculate
+        @echo off
+        echo[
+        echo I'm here because you want calculate your love percentage
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python lovers.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         pause
         goto:pyproj
 
