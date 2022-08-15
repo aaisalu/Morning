@@ -15,23 +15,24 @@ def get_token():
         return None
 
 
-source = '''
-                                                        WELCOME TO THE
-                                               CENTRA BANK OF PROJECT MORNING
- [1] Kuwaiti Dinar      [13] Chinese Yuan           [25] United Arab Emirates [37] Romanian Leu       [49] Jamaican Dollar
- [2] Sri Lankan Rupee   [14] Czech Republic Koruna  [26] Afghan Afghani       [38] Russian Ruble      [50] Japanese Yen
- [3] Mongolian Tugrik   [15] Egyptian Pound         [27] Netherlands Guilder  [39] Saudi Riyal        [51] Cambodian Riel
- [4] Mexican Peso       [16] Ethiopian Birr         [28] Argentine Peso       [40] Sudanese Pound     [52] North Korean Won
- [5] Malaysian Ringgit  [17] Euro                   [29] Australian Dollar    [41] Swedish Krona      [53] South Korean Won
- [6] Nigerian Naira     [18] British Pound Sterling [30] Barbadian Dollar     [42] Singapore Dollar   [54] United States Dollar
- [7] Norwegian Krone    [19] Hong Kong Dollar       [31] Bangladeshi Taka     [43] Syrian Pound       [55] Vietnamese Dong
- [8] Nepalese Rupee     [20] Indonesian Rupiah      [32] Bulgarian Lev        [44] Tajikistani Somoni [56] South African Rand
- [9] New Zealand Dollar [21] Israeli New Sheqel     [33] Brazilian Real       [45] Tunisian Dinar     [57] Zambian Kwacha
- [10] Philippine Peso   [22] Indian Rupee           [34] Bhutanese Ngultrum   [46] Turkish Lira       [58] Zimbabwean Dollar
- [11] Pakistani Rupee   [23] Iraqi Dinar            [35] Canadian Dollar      [47] New Taiwan Dollar
- [12] Qatari Rial       [24] Iranian Rial           [36] Swiss Franc          [48] Ukrainian Hryvnia
-'''
-cprint(source, 'green')
+def country():
+    source = '''
+                                                            WELCOME TO THE
+                                                    CENTRA BANK OF PROJECT MORNING
+    [1] Kuwaiti Dinar      [13] Chinese Yuan           [25] United Arab Emirates [37] Romanian Leu       [49] Jamaican Dollar
+    [2] Sri Lankan Rupee   [14] Czech Republic Koruna  [26] Afghan Afghani       [38] Russian Ruble      [50] Japanese Yen
+    [3] Mongolian Tugrik   [15] Egyptian Pound         [27] Netherlands Guilder  [39] Saudi Riyal        [51] Cambodian Riel
+    [4] Mexican Peso       [16] Ethiopian Birr         [28] Argentine Peso       [40] Sudanese Pound     [52] North Korean Won
+    [5] Malaysian Ringgit  [17] Euro                   [29] Australian Dollar    [41] Swedish Krona      [53] South Korean Won
+    [6] Nigerian Naira     [18] British Pound Sterling [30] Barbadian Dollar     [42] Singapore Dollar   [54] United States Dollar
+    [7] Norwegian Krone    [19] Hong Kong Dollar       [31] Bangladeshi Taka     [43] Syrian Pound       [55] Vietnamese Dong
+    [8] Nepalese Rupee     [20] Indonesian Rupiah      [32] Bulgarian Lev        [44] Tajikistani Somoni [56] South African Rand
+    [9] New Zealand Dollar [21] Israeli New Sheqel     [33] Brazilian Real       [45] Tunisian Dinar     [57] Zambian Kwacha
+    [10] Philippine Peso   [22] Indian Rupee           [34] Bhutanese Ngultrum   [46] Turkish Lira       [58] Zimbabwean Dollar
+    [11] Pakistani Rupee   [23] Iraqi Dinar            [35] Canadian Dollar      [47] New Taiwan Dollar
+    [12] Qatari Rial       [24] Iranian Rial           [36] Swiss Franc          [48] Ukrainian Hryvnia
+    '''
+    return cprint(source, 'green')
 
 
 def controller(money):
@@ -241,6 +242,7 @@ def engine(get):
 
 
 try:
+    country()
     controller(int(input("Enter the amount to convert: ")))
 except ValueError:
     cprint("Please! enter the number to be converted!", 'red')
