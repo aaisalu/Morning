@@ -53,6 +53,9 @@ def controller(money):
                 f"{money} {primary_name}[{primary_code}] equals {calculator} {secondary_name}[{secondary_code}]")
         except KeyError:
             return cprint("Invalid token", 'red')
+        except requests.exceptions.ConnectionError:
+            return cprint("We can’t connect to the bank server at the moment due to a network issue!", 'red')
+
     return cprint("Please provide the token!", 'red')
 
 

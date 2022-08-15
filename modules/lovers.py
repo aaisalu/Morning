@@ -30,9 +30,10 @@ def calculate(f_name):
         cprint(
             f"\nPercentage of love between {f_name} & {s_name} is {percentages}%.", 'blue')
         cprint(f'AI message for their love is :> {results}', 'green')
-
     except KeyError:
         cprint("Looks like your love_token is false just like your love", 'red')
+    except requests.exceptions.ConnectionError:
+        cprint("We can’t connect to the love_calculator server at the moment due to a network issue!", 'red')
 
 
 calculate(input("What's your good name? "))
