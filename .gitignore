@@ -11,3 +11,4 @@ env
 .venv
 .vscode/settings.json
 *.bat
+config.ini
