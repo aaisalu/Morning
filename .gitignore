@@ -12,3 +12,5 @@ env
 .vscode/settings.json
 *.bat
 config.ini
+test1.py
+test2.py
