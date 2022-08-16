@@ -69,7 +69,7 @@ IF %ERRORLEVEL% EQU 0 (
     echo                                                      [31m-: Sudo Mode :-[0m
     goto:faraway
 ) ELSE (
-    echo                                                    [94m-: Normal Mode :-[0m
+    echo                                                    -:[94m Normal Mode [0m:-
 )
 
 echo[
@@ -446,8 +446,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo This script must be run as administrator to work as it installs the chocolatey to install software
             echo[
             echo As the task can't be run without the Administrator privileges
-            echo Do you want to open the script with the Administrator privileges?
-            echo[
+            echo [92mDo you want to open the script with the Administrator privileges?[0m
             pause
             ::Thanks to Ir Relevant & ceztko for admin prevlge stackoverflow.com/a/24665214
             net file 1>NUL 2>NUL
@@ -793,8 +792,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
             echo[
             echo As the task can't be run without the Administrator privileges
-            echo Do you want to open the script with the Administrator privileges?
-            echo[
+            echo [92mDo you want to open the script with the Administrator privileges?[0m
             pause
             net file 1>NUL 2>NUL
             if not '%errorlevel%' == '0' (
@@ -834,8 +832,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
             echo[
             echo As the task can't be run without the Administrator privileges
-            echo Do you want to open the script with the Administrator privileges?
-            echo[
+            echo [92mDo you want to open the script with the Administrator privileges?[0m
             pause
             net file 1>NUL 2>NUL
             if not '%errorlevel%' == '0' (
@@ -872,8 +869,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo If you're seeing this, then right click on this script and select "Run As Administrator".
             echo[
             echo As the task can't be run without the Administrator privileges
-            echo Do you want to open the script with the Administrator privileges?
-            echo[
+            echo [92mDo you want to open the script with the Administrator privileges?[0m
             pause
             net file 1>NUL 2>NUL
             if not '%errorlevel%' == '0' (
