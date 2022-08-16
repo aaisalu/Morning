@@ -971,7 +971,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0 & pip install -U -r requirements.txt & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
     echo [92mSuccessfully installed and updated requirements![0m
     echo[
-    echo                         [92mKx-----  Python is found lurking around, so I'll lend you my power -----Cx
+    echo                         [92mKx-----  Python is found lurking around, so I'll lend you my power -----Cx[0m
     goto:pyproj
     ) ELSE (
     echo Donwloading get-pip.py from bootstrap.pypa.io/get-pip.py
@@ -980,7 +980,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & cd /d %~dp0 & pip install -U -r requirements.txt & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
     echo [92mSuccessfully installed pip and required requirements![0m
     echo[
-    echo                         [92mKx-----  Python is found lurking around, so I'll lend you my power -----Cx
+    echo                         [92mKx-----  Python is found lurking around, so I'll lend you my power -----Cx[0m
     goto:pyproj
     )
 
