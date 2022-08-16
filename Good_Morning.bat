@@ -962,11 +962,40 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         pause
         goto:pyproj
 
+:chkpip
+    @echo off
+    pip --version >NUL 2>&1
+    IF  %ERRORLEVEL% EQU 0 (
+    echo [92mInstalling the required requirements for the python script to work[0m
+    echo[
+    cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0 & pip install -U -r requirements.txt & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+    echo [92mSuccessfully installed and updated requirements![0m
+    echo[
+    echo                         [92mKx-----  Python is found lurking around, so I'll lend you my power -----Cx
+    goto:pyproj
+    ) ELSE (
+    echo Donwloading get-pip.py from bootstrap.pypa.io/get-pip.py
+    echo [92mInstalling pip and requirements for the python script to work[0m
+    echo[
+    cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & cd /d %~dp0 & pip install -U -r requirements.txt & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+    echo [92mSuccessfully installed pip and required requirements![0m
+    echo[
+    echo                         [92mKx-----  Python is found lurking around, so I'll lend you my power -----Cx
+    goto:pyproj
+    )
+
+:chekint
+    Ping www.google.com -n 1 -w 800 >NUL 2>&1
+    if not "%errorlevel%" == "0" (
+    echo[
+    echo             [31mKx---- Some of the features might not work as the device is not connected to the internet ----Cx[0m
+    goto:pyproj)
+    goto:chkpip
+
 :venvreqimnt
     @echo off
     cd %~dp0\
     if not exist "%~dp0\venv\Scripts\activate" (
-    echo[
     echo Creating venv for your *.py
     cd %~dp0\
     echo Changed directory to %~dp0
@@ -974,24 +1003,16 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo Please be patient...
     echo This should only take another few minutes or less, and then you'll be good to go!
     python -m venv venv
-    echo [92mInitialization of venv completed![0m
-    echo[
-    echo Donwloading get-pip.py from bootstrap.pypa.io/get-pip.py
-    echo Installing pip and requirements for the python script to work
-    echo[
-    cmd /k "cd %~dp0\venv\Scripts & activate & cd /d  %~dp0 & curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py & python get-pip.py & python -m pip install -U pip & cd /d %~dp0 & pip install -U -r requirements.txt & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
-    echo[
-    echo [92mSuccessfully installed pip and required requirements![0m
-    echo I apologize for making you wait)
-    goto:pyproj
+    echo Initialization of venv completed!!
+    )
+    goto:chekint
 
 :chkifpy
     :: Thanks to Drej user1536175 ref from stackoverflow.com/a/26241114
     @echo off
     python --version >NUL 2>&1
     IF  %ERRORLEVEL% EQU 0 (
-    echo[
-    echo                         [92mKx-----  Python is found lurking around, so I'll lend you my power -----Cx[0m
+    echo [92mPython detected!![0m
     goto:venvreqimnt
     ) ELSE (
     echo[
