@@ -406,6 +406,12 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
                 goto:webext
     :choco
         echo OFF
+        Ping www.google.com -n 1 -w 800 >NUL 2>&1
+        if not "%errorlevel%" == "0" (
+        echo[
+        echo [31mPlease, check your internet connection[0m
+        echo [31mSoftware can't be downloaded without the internet.[0m
+        goto:faraway)
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
         NET SESSION >nul 2>&1
         IF %ERRORLEVEL% EQU 0 (
