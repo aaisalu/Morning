@@ -2,6 +2,7 @@ import requests
 from configparser import ConfigParser
 from termcolor import cprint
 import colorama
+import sys
 colorama.init()
 
 
@@ -244,8 +245,17 @@ def engine(get):
         return cprint("Please enter the country corresponding digit!", 'red')
 
 
-try:
-    country()
-    controller(int(input("Enter the amount to convert: ")))
-except ValueError:
-    cprint("Please! enter the number to be converted!", 'red')
+def main():
+    try:
+        country()
+        controller(int(input("Enter the amount to convert: ")))
+    except ValueError:
+        cprint("Please! enter the number to be converted!", 'red')
+    except KeyboardInterrupt:
+        print("Exiting from the script....")
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()

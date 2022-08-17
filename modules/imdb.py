@@ -5,6 +5,7 @@ import os
 import re
 from termcolor import cprint
 import colorama
+import sys
 colorama.init()
 
 
@@ -80,6 +81,16 @@ def checkbox(url):
         return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=alpha,asc')
 
 
-print('')
-cprint("If you don't understand what the heck is this then simply press enter to scrap with default link", 'green')
-checkbox(str(input("Please provide the link of IMDb movies unsorted list: ")))
+def main():
+    try:
+        print('')
+        cprint("If you don't understand what the heck is this then simply press enter to scrap with default link", 'green')
+        checkbox(str(input("Please provide the link of IMDb movies unsorted list: ")))
+    except KeyboardInterrupt:
+        print("Exiting from the script....")
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()

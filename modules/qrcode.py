@@ -5,6 +5,7 @@ import colorama
 import os
 import re
 import glob
+import sys
 from random import randint
 
 colorama.init()
@@ -124,4 +125,14 @@ def engine(info, img, ext, color, ver):
     return cprint(f"\nSaved at {Path}", 'green')
 
 
-beautify(str(input("Type anything which you want to convert it to QRcode: ")))
+def main():
+    try:
+        beautify(str(input("Type anything which you want to convert it to QRcode: ")))
+    except KeyboardInterrupt:
+        print("Exiting from the script....")
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()

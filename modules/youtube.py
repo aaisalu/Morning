@@ -6,6 +6,7 @@ import pytube
 import os
 import re
 import time
+import sys
 
 colorama.init()
 t1 = time.perf_counter()
@@ -93,10 +94,21 @@ def roulette(link):
         return askuser(link, ask)
 
 
-roulette(str(input("Enter the url of the video: ")))
 t2 = time.perf_counter()
 
-try:
-    cprint(f"Saved at {Path} took {t2-t1} seconds \n", 'green')
-except NameError:
-    cprint("Some input or your network connection looks fishy as my AI smells it..", 'red')
+
+def main():
+    try:
+        roulette(str(input("Enter the url of the video: ")))
+        cprint(f"Saved at {Path} took {t2-t1} seconds \n", 'green')
+    except NameError:
+        cprint(
+            "Some input or your network connection looks fishy as my AI smells it..", 'red')
+    except KeyboardInterrupt:
+        print("Exiting from the script....")
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()

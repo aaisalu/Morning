@@ -3,6 +3,7 @@ from configparser import ConfigParser
 from termcolor import cprint
 import colorama
 import json
+import sys
 colorama.init()
 
 
@@ -36,4 +37,14 @@ def calculate(f_name):
         cprint("We can’t connect to the love_calculator server at the moment due to a network issue!", 'red')
 
 
-calculate(input("What's your good name? "))
+def main():
+    try:
+        calculate(input("What's your good name? "))
+    except KeyboardInterrupt:
+        print("Exiting from the script....")
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
