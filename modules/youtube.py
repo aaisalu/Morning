@@ -101,6 +101,7 @@ def main():
     try:
         roulette(str(input("Enter the url of the video: ")))
         cprint(f"Saved at {Path} took {t2-t1} seconds \n", 'green')
+        os.startfile(Path)
     except NameError:
         cprint(
             "Some input or your network connection looks fishy as my AI smells it..", 'red')
