@@ -17,7 +17,7 @@ def get_domain():
 
 
 def chkreg(answer):
-    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah", f'{answer}', flags=re.IGNORECASE)
+    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah|r|refresh", f'{answer}', flags=re.IGNORECASE)
 
 
 def archived(first, ask_custom):
@@ -40,24 +40,48 @@ def archived(first, ask_custom):
 def saved():
     global domain_name
     global username
+    global email
     username = f'{archives[0][0]}'
     domain_name = f'{archives[0][1]}'
+    email = f'{username}@{domain_name}'
     return loop()
-
-
-def ask_user():
-    cust_domain = input("Do you want to use domain names on your temp_mail? ")
-    if chkreg(cust_domain):
-        ask_custom = input("Enter your custom username: ")
-        return archived(cust_domain, ask_custom)
-    else:
-        return archived(None, None)
 
 
 def loop():
     while True:
         check_mail()
         time.sleep(10)
+
+
+def check_mail():
+    global count_mails
+    incom_mail = requests.get(
+        f"https://www.1secmail.com/api/v1/?action=getMessages&login={username}&domain={domain_name}").json()
+    if count_mails := len(incom_mail):
+        print(f"You have received {count_mails} mail\n")
+        get_content(incom_mail)
+        refresh()
+    else:
+        print("No mail received!")
+
+
+def refresh():
+    ask = input("Do you want to refresh your mail? ")
+    if chkreg(ask):
+        loop()
+    else:
+        sys.exit(1)
+
+
+def get_id(mail):
+    return [dict(k)['id'] for k in mail]
+
+
+def get_content(incom_mail):
+    for unq_id in get_id(incom_mail):
+        url = requests.get(
+            f'https://www.1secmail.com/api/v1/?action=readMessage&login={username}&domain={domain_name}&id={unq_id}').json()
+        verify_content(url, unq_id)
 
 
 def content(data):
@@ -88,54 +112,32 @@ def attachments(data, uniq_id):
 def verify_content(data, uniq_id):
     saveit = dict(data)
     if not saveit['attachments']:
-        count_mail(data, content(data))
+        count_mail(content(data))
         print(content(data))
     else:
-        count_mail(data, content(data) + attachments(data, uniq_id))
+        count_mail(content(data) + attachments(data, uniq_id))
         print(content(data) + attachments(data, uniq_id))
 
 
-def write_mail(info, mode):
-    with open('testone.txt', f'{mode}') as note:
-        note.write(info)
-
-
-def count_mail(mail, item):
-    if not len(mail) > 1:
+def count_mail(item):
+    if count_mail == 1:
         return write_mail(item, 'w')
     else:
         return write_mail(item, 'a+')
 
 
-def get_id(mail):
-    return [dict(k)['id'] for k in mail]
+def write_mail(item, mode):
+    with open('testone.txt', f'{mode}') as note:
+        note.write(item)
 
 
-def get_content(incom_mail):
-    for unq_id in get_id(incom_mail):
-        url = requests.get(
-            f'https://www.1secmail.com/api/v1/?action=readMessage&login={username}&domain={domain_name}&id={unq_id}').json()
-        verify_content(url, unq_id)
-
-
-def refresh():
-    ask = input("Do you want to refresh your mail? ")
-    if chkreg(ask):
-        loop()
+def ask_user():
+    cust_domain = input("Do you want to use domain names on your temp_mail? ")
+    if chkreg(cust_domain):
+        ask_custom = input("Enter your custom username: ")
+        return archived(cust_domain, ask_custom)
     else:
-        sys.exit(1)
-
-
-def check_mail():
-    print(f'{username}@{domain_name}')
-    incom_mail = requests.get(
-        f"https://www.1secmail.com/api/v1/?action=getMessages&login={username}&domain={domain_name}").json()
-    if mails := len(incom_mail):
-        print(f"You have received {mails} mail\n")
-        get_content(incom_mail)
-        refresh()
-    else:
-        print("No mail received!")
+        return archived(None, None)
 
 
 def main():
