@@ -43,7 +43,7 @@ def saved():
 def ask_user():
     cust_domain = input("Do you want to use domain names on your temp_mail? ")
     if cust_domain:
-        ask_custom = input("Enter the custom username: ")
+        ask_custom = input("Enter your custom username: ")
         return archived(cust_domain, ask_custom)
     else:
         return archived(None, None)
@@ -57,25 +57,26 @@ def loop():
 
 def content(data):
     saveit = dict(data)
-    info = f"Unique email ID: {saveit['id']}\n"
+    string = (f"Attachments of the Message ID: " if saveit['attachments']
+              else f"\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n")
+    info = f"Unique Message ID: {saveit['id']}\n"
     info += f"Email from: {saveit['from']}\n"
     info += f"Subject: {saveit['subject']}\n"
     info += f"Body: {saveit['textBody']}\n"
-    info += f"Date: {saveit['date']}\n\n"
-    info += "----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<!!!!!!!!!!!@@@@@@%%%%%%| k-- Divider --c  |%%%%%%@@@@@@@@!!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>--------\n"
-
+    info += f"Date: {saveit['date']}\n"
+    info += f"{string}"
     return info
 
 
 def attachments(data, uniq_id):
     attachment = data['attachments']
     for content in attachment:
-        info = f"____ Attachments of {uniq_id} ____\n"
+        info = f"{uniq_id}\n"
         info += f"File Name: {content['filename']}\n"
         info += f"Content Type: {content['contentType']}\n"
         info += f"Download Link: https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}\n"
         info += f"Size:{content['size']}\n"
-        info += "----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<!!!!!!!!!!!@@@@@@%%%%%%| k-- Divider --c  |%%%%%%@@@@@@@@!!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>--------\n"
+        info += "\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n"
     return info
 
 
@@ -109,7 +110,15 @@ def get_content(incom_mail):
     for unq_id in get_id(incom_mail):
         url = requests.get(
             f'https://www.1secmail.com/api/v1/?action=readMessage&login={username}&domain={domain_name}&id={unq_id}').json()
-        return verify_content(url, unq_id)
+        verify_content(url, unq_id)
+
+
+def refresh():
+    ask = input("Do you want to refresh your mail? ")
+    if ask:
+        loop()
+    else:
+        sys.exit(1)
 
 
 def check_mail():
@@ -117,8 +126,9 @@ def check_mail():
     incom_mail = requests.get(
         f"https://www.1secmail.com/api/v1/?action=getMessages&login={username}&domain={domain_name}").json()
     if mails := len(incom_mail):
-        print(f"You have received {mails} mail")
+        print(f"You have received {mails} mail\n")
         get_content(incom_mail)
+        refresh()
     else:
         print("No mail received!")
 
