@@ -62,6 +62,8 @@ def content(data):
     info += f"Subject: {saveit['subject']}\n"
     info += f"Body: {saveit['textBody']}\n"
     info += f"Date: {saveit['date']}\n\n"
+    info += "----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<!!!!!!!!!!!@@@@@@%%%%%%| k-- Divider --c  |%%%%%%@@@@@@@@!!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>--------\n"
+
     return info
 
 
@@ -73,6 +75,7 @@ def attachments(data, uniq_id):
         info += f"Content Type: {content['contentType']}\n"
         info += f"Download Link: https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}\n"
         info += f"Size:{content['size']}\n"
+        info += "----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<!!!!!!!!!!!@@@@@@%%%%%%| k-- Divider --c  |%%%%%%@@@@@@@@!!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>--------\n"
     return info
 
 
