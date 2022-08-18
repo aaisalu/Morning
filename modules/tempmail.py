@@ -2,6 +2,7 @@ import requests
 import random
 import time
 import sys
+import re
 
 
 def random_mail():
@@ -13,6 +14,10 @@ def get_domain():
     get_domain_lists = requests.get(
         'https://www.1secmail.com/api/v1/?action=getDomainList').json()
     return random.choice(get_domain_lists)
+
+
+def chkreg(answer):
+    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah", f'{answer}', flags=re.IGNORECASE)
 
 
 def archived(first, ask_custom):
@@ -42,7 +47,7 @@ def saved():
 
 def ask_user():
     cust_domain = input("Do you want to use domain names on your temp_mail? ")
-    if cust_domain:
+    if chkreg(cust_domain):
         ask_custom = input("Enter your custom username: ")
         return archived(cust_domain, ask_custom)
     else:
@@ -115,7 +120,7 @@ def get_content(incom_mail):
 
 def refresh():
     ask = input("Do you want to refresh your mail? ")
-    if ask:
+    if chkreg(ask):
         loop()
     else:
         sys.exit(1)
