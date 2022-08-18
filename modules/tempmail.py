@@ -81,18 +81,23 @@ def get_content(incom_mail):
     for unq_id in get_id(incom_mail):
         url = requests.get(
             f'https://www.1secmail.com/api/v1/?action=readMessage&login={username}&domain={domain_name}&id={unq_id}').json()
-        verify_content(url, unq_id)
+        save_dict = dict(url)
+        if not save_dict['attachments']:
+            count_mail(content(save_dict))
+            print(content(save_dict))
+        else:
+            count_mail(content(save_dict) + attachments(url, unq_id))
+            print(content(save_dict) + attachments(url, unq_id))
 
 
 def content(data):
-    saveit = dict(data)
-    string = (f"Attachments of the Message ID: " if saveit['attachments']
+    string = (f"Attachments of the Message ID: " if data['attachments']
               else f"\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n")
-    info = f"Unique Message ID: {saveit['id']}\n"
-    info += f"Email from: {saveit['from']}\n"
-    info += f"Subject: {saveit['subject']}\n"
-    info += f"Body: {saveit['textBody']}\n"
-    info += f"Date: {saveit['date']}\n"
+    info = f"Unique Message ID: {data['id']}\n"
+    info += f"Email from: {data['from']}\n"
+    info += f"Subject: {data['subject']}\n"
+    info += f"Body: {data['textBody']}\n"
+    info += f"Date: {data['date']}\n"
     info += f"{string}"
     return info
 
@@ -107,16 +112,6 @@ def attachments(data, uniq_id):
         info += f"Size:{content['size']}\n"
         info += "\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n"
     return info
-
-
-def verify_content(data, uniq_id):
-    saveit = dict(data)
-    if not saveit['attachments']:
-        count_mail(content(data))
-        print(content(data))
-    else:
-        count_mail(content(data) + attachments(data, uniq_id))
-        print(content(data) + attachments(data, uniq_id))
 
 
 def count_mail(item):
