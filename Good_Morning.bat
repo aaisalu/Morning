@@ -757,6 +757,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         powercfg /batteryreport
         echo[
         echo [92mSaved at %USERPROFILE%\Desktop[0m
+        %SystemRoot%\explorer.exe %USERPROFILE%\Desktop
         goto:faraway
 
     :repairnet

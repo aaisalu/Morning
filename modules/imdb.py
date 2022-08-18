@@ -62,6 +62,7 @@ def imdb_v5(getdata):
             write = csv.writer(editor, delimiter=',')
             write.writerow([index, title, rate, year, time, genre,
                            summary, vote, meta, gross, certificate, top_250])
+    os.startfile(Path)
     return cprint(f'Saved at {Path}', 'green')
 
 
