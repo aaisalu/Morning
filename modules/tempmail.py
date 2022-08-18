@@ -37,7 +37,7 @@ def saved():
     global username
     username = f'{archives[0][0]}'
     domain_name = f'{archives[0][1]}'
-    return check_mail()
+    return loop()
 
 
 def ask_user():
@@ -71,7 +71,7 @@ def attachments(data, uniq_id):
         info = f"____ Attachments of {uniq_id} ____\n"
         info += f"File Name: {content['filename']}\n"
         info += f"Content Type: {content['contentType']}\n"
-        info += f"Download Link: https://www.1secmail.com/api/v1/?action=download&login=mama&domain=oosln.com&id={uniq_id}&file={content['filename']}\n"
+        info += f"Download Link: https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}\n"
         info += f"Size:{content['size']}\n"
     return info
 
