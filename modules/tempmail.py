@@ -129,6 +129,9 @@ def main():
     except KeyboardInterrupt:
         print("Exiting from the script....")
         sys.exit(1)
+    except requests.exceptions.ConnectionError:
+        print("Please check your internet connection!")
+        sys.exit(1)
     sys.exit(0)
 
 
