@@ -7,6 +7,7 @@ import re
 import glob
 import sys
 from random import randint
+from PIL import Image
 
 colorama.init()
 
@@ -111,6 +112,13 @@ def eliminate(input, ext):
     return f'{slugify(info)[:35]}.{ext}'
 
 
+def view_file(filename, ext):
+    os.startfile(Path)
+    if ext != 'gif':
+        Image.open(rf'{Path}\{filename}').show()
+    return cprint(f"\nSaved at {Path}", 'green')
+
+
 def engine(info, img, ext, color, ver):
     version, level, qr_name = amzqr.run(
         info,
@@ -120,9 +128,9 @@ def engine(info, img, ext, color, ver):
         colorized=color,
         contrast=1.2,
         brightness=1.1,
-        save_name=eliminate(info, ext),
+        save_name=(file_name := eliminate(info, ext)),
         save_dir=folder("Qrcodes"))
-    return cprint(f"\nSaved at {Path}", 'green')
+    return view_file(file_name, ext)
 
 
 def main():
