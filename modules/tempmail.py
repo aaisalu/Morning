@@ -84,13 +84,13 @@ def distribute_content(incom_mail):
         url = requests.get(
             f'https://www.1secmail.com/api/v1/?action=readMessage&login={username}&domain={domain_name}&id={unq_id}').json()
         tabulate_data(url, unq_id)
-        write_mail(get_contents(url, unq_id), unq_id)
+        mails_contents(url, unq_id)
 
 
 def write_mail(contents, unq_id):
     with open(f'{email}_{unq_id}.txt', 'w') as note:
         note.write(contents)
-    with open(f'Email_history.txt', 'a') as note:
+    with open(f'Emails_history.txt', 'a') as note:
         note.write(contents)
 
 
@@ -99,17 +99,14 @@ def tabulate_data(data, uniq_id):
     headers = [f"Message ID {data['id']}", f"Inbox of {email}"]
     table = [["From", f"{data['from']}"], ["Subject", f"{data['subject']}"], [
         "Body", f"{data['textBody']}"], ["Date", f"{data['date']}"]]
-    if not attachments:
-        print(tabulate(table, headers,
-              tablefmt="fancy_grid"))
-    else:
+    if attachments:
         for content in attachments:
             table.extend([["Attachments", "Is present"], ["File Name", f"{content['filename']}"], ["Content Type", f"{content['contentType']}"], [
                 "Donwload Link", f"https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}"], ["Size", f"{content['size']}"]])
-            print(tabulate(table, headers,  tablefmt="fancy_grid"))
+    print(tabulate(table, headers,  tablefmt="fancy_grid"))
 
 
-def get_contents(data, uniq_id):
+def mails_contents(data, uniq_id):
     attachments = data['attachments']
     string = (f"Attachments of the Message ID: " if data['attachments']
               else f"\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n")
@@ -128,7 +125,7 @@ def get_contents(data, uniq_id):
             info += f"Download Link: https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}\n"
             info += f"Size:{content['size']}\n"
             info += "\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n"
-    return info
+    return write_mail(info, uniq_id)
 
 
 def ask_user():
