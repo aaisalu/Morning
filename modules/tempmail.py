@@ -3,6 +3,7 @@ import random
 import time
 import sys
 import re
+from tabulate import tabulate
 
 
 def random_mail():
@@ -62,11 +63,11 @@ def check_mail():
         get_content(incom_mail)
         refresh()
     else:
-        print("No mail received!")
+        print("No mail received!", end="\r")
 
 
 def refresh():
-    ask = input("Do you want to refresh your mail? ")
+    ask = input("Do you want to refresh your inbox? ")
     if chkreg(ask):
         loop()
     else:
@@ -83,11 +84,29 @@ def get_content(incom_mail):
             f'https://www.1secmail.com/api/v1/?action=readMessage&login={username}&domain={domain_name}&id={unq_id}').json()
         save_dict = dict(url)
         if not save_dict['attachments']:
+            tabulate_data(url, unq_id)
             count_mail(content(save_dict))
-            print(content(save_dict))
+            # print(content(save_dict))
         else:
+            tabulate_data(url, unq_id)
             count_mail(content(save_dict) + attachments(url, unq_id))
-            print(content(save_dict) + attachments(url, unq_id))
+            # print(content(save_dict) + attachments(url, unq_id))
+
+
+def tabulate_data(url, uniq_id):
+    data = dict(url)
+    headers = [f"Message ID {data['id']}", f"Inbox of {email}"]
+    table = [["From", f"{data['from']}"], ["Subject", f"{data['subject']}"], [
+        "Body", f"{data['textBody']}"], ["Date", f"{data['date']}"]]
+    if not data['attachments']:
+        print(tabulate(table, headers,
+              tablefmt="fancy_grid"))
+    else:
+        attachment = url['attachments']
+        for content in attachment:
+            table.extend([["Attachments", "Is present"], ["File Name", f"{content['filename']}"], ["Content Type", f"{content['contentType']}"], [
+                "Donwload Link", f"https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}"], ["Size", f"{content['size']}"]])
+            print(tabulate(table, headers,  tablefmt="fancy_grid"))
 
 
 def content(data):
@@ -95,6 +114,7 @@ def content(data):
               else f"\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n")
     info = f"Unique Message ID: {data['id']}\n"
     info += f"Email from: {data['from']}\n"
+    info += f"Email to: {email}\n"
     info += f"Subject: {data['subject']}\n"
     info += f"Body: {data['textBody']}\n"
     info += f"Date: {data['date']}\n"
