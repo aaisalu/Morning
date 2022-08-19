@@ -640,7 +640,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:choco
         :loveTwenty
             choco install vlc -y
-            :goto:choco
+            goto:choco
         :loveTwentyone
             choco install office365proplus -y
             goto:choco
