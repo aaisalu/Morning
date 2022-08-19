@@ -90,6 +90,8 @@ def distribute_content(incom_mail):
 def write_mail(contents, unq_id):
     with open(f'{email}_{unq_id}.txt', 'w') as note:
         note.write(contents)
+    with open(f'Email_history.txt', 'a') as note:
+        note.write(contents)
 
 
 def tabulate_data(data, uniq_id):
@@ -109,20 +111,18 @@ def tabulate_data(data, uniq_id):
 
 def get_contents(data, uniq_id):
     attachments = data['attachments']
-    if not attachments:
-        string = (f"Attachments of the Message ID: " if data['attachments']
-                  else f"\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n")
-        info = f"Unique Message ID: {data['id']}\n"
-        info += f"Email from: {data['from']}\n"
-        info += f"Email to: {email}\n"
-        info += f"Subject: {data['subject']}\n"
-        info += f"Body: {data['textBody']}\n"
-        info += f"Date: {data['date']}\n"
-        info += f"{string}"
-
-    else:
+    string = (f"Attachments of the Message ID: " if data['attachments']
+              else f"\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n")
+    info = f"Unique Message ID: {data['id']}\n"
+    info += f"Email from: {data['from']}\n"
+    info += f"Email to: {email}\n"
+    info += f"Subject: {data['subject']}\n"
+    info += f"Body: {data['textBody']}\n"
+    info += f"Date: {data['date']}\n"
+    info += f"{string}"
+    if attachments:
         for content in attachments:
-            info = f"{uniq_id}\n"
+            info += f"{uniq_id}\n"
             info += f"File Name: {content['filename']}\n"
             info += f"Content Type: {content['contentType']}\n"
             info += f"Download Link: https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}\n"
