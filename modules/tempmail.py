@@ -4,6 +4,9 @@ import time
 import sys
 import re
 from tabulate import tabulate
+from termcolor import cprint
+import colorama
+colorama.init()
 
 
 def random_mail():
@@ -45,14 +48,15 @@ def saved():
     username = f'{archives[0][0]}'
     domain_name = f'{archives[0][1]}'
     email = f'{username}@{domain_name}'
-    print(f"Your temporary email is: {email}")
+    cprint(
+        f"\n -------x        Your temporary email is: {email}       x-------\n", 'green')
     return loop()
 
 
 def loop():
     while True:
         check_mail()
-        time.sleep(10)
+        time.sleep(3)
 
 
 def check_mail():
@@ -60,11 +64,13 @@ def check_mail():
     incom_mail = requests.get(
         f"https://www.1secmail.com/api/v1/?action=getMessages&login={username}&domain={domain_name}").json()
     if count_mails := len(incom_mail):
-        print(f"You have received {count_mails} mail\n")
+        cprint(
+            f"\n\n ------x  You have received {count_mails} mails at your inbox of {email}  x------\n", 'cyan')
         distribute_content(incom_mail)
         refresh()
     else:
-        print("No mail received!", end="\r")
+        cprint(
+            f"   --| Your Inbox is currently empty, Refreshing Inbox of {email} in every 3 sec. |-- ", "yellow", end="\r")
 
 
 def refresh():
@@ -103,7 +109,7 @@ def tabulate_data(data, uniq_id):
         for content in attachments:
             table.extend([["Attachments", "Is present"], ["File Name", f"{content['filename']}"], ["Content Type", f"{content['contentType']}"], [
                 "Donwload Link", f"https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}"], ["Size", f"{content['size']}"]])
-    print(tabulate(table, headers,  tablefmt="fancy_grid"))
+    cprint(tabulate(table, headers,  tablefmt="fancy_grid"), 'green')
 
 
 def mails_contents(data, uniq_id):
@@ -141,10 +147,10 @@ def main():
     try:
         ask_user()
     except KeyboardInterrupt:
-        print("Exiting from the script....")
+        cprint("\nExiting from the script....", 'red')
         sys.exit(1)
     except requests.exceptions.ConnectionError:
-        print("Please check your internet connection!")
+        cprint("\nPlease check your internet connection!", 'red')
         sys.exit(1)
     sys.exit(0)
 
