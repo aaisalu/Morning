@@ -406,7 +406,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
                 goto:webext
     :choco
         echo OFF
-        Ping www.google.com -n 1 -w 800 >NUL 2>&1
+        Ping www.google.com -n 2 -w 1000 >NUL 2>&1
         if not "%errorlevel%" == "0" (
         echo[
         echo [31mPlease, check your internet connection[0m
@@ -988,7 +988,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )
 
 :chekint
-    Ping www.google.com -n 1 -w 800 >NUL 2>&1
+    Ping www.google.com -n 2 -w 1000 >NUL 2>&1
     if not "%errorlevel%" == "0" (
     echo[
     echo             [31mKx---- Some of the features might not work as the device is not connected to the internet ----Cx[0m
