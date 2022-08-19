@@ -67,7 +67,7 @@ echo                                    x - :k:[92m https://github.com/aaisalu/
 NET SESSION >nul 2>&1
 IF %ERRORLEVEL% EQU 0 (
     echo                                                      [31m-: Sudo Mode :-[0m
-    goto:faraway
+    goto:farfrom
 ) ELSE (
     echo                                                    -:[94m Normal Mode [0m:-
 )
@@ -95,7 +95,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     ) else if  /I "%brn%" EQU "2" ( goto :lilfar
     ) else if  /I "%brn%" EQU "3" ( goto :bitfar
     ) else if  /I "%brn%" EQU "4" ( goto :chkifpy
-    ) else if  /I "%brn%" EQU "5" ( goto :faraway
+    ) else if  /I "%brn%" EQU "5" ( goto :farfrom
     ) else if  /I "%brn%" EQU "0" ( goto :saybye
     ) else (goto :choice)
 
@@ -289,7 +289,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto :bitfar
     exit
 
-:faraway
+:farfrom
     echo[
     echo                       :::::::::  :::::::::  :::::::::: ::::::::   ::::::::       :::    ::: :::::::::
     echo                       :+:    :+: :+:    :+: :+:       :+:    :+: :+:    :+:      :+:    :+: :+:    :+:
@@ -303,7 +303,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     IF %ERRORLEVEL% EQU 0 (
         echo                                  [31m---- Feels like %username% device needs some medic kit! -----[0m
     ) ELSE (
-        echo                                  [94m---- Feels like %username% device needs some medic kit! -----[0m
+        echo                                  [92m---- Feels like %username% device needs some medic kit! -----[0m
     )
     echo[
     echo    Press 1 = Install/Update software through chocolatey
@@ -331,7 +331,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     )else if /I "%drs%" EQU "6" (
     goto :repairsys
     )else (
-    goto :faraway
+    goto :farfrom
     )
     :websoft
         echo[
@@ -359,7 +359,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         )else if /I "%wb%" EQU "3" (
          goto :webext
         )else if /I "%wb%" EQU "0" (
-         goto :faraway
+         goto :farfrom
         )else (
         goto :websoft
         )
@@ -411,7 +411,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo [31mPlease, check your internet connection[0m
         echo [31mSoftware can't be downloaded without the internet.[0m
-        goto:faraway)
+        goto:farfrom)
         :: Thanks to @blak3r for check admin rights stackoverflow.com/a/8995407
         NET SESSION >nul 2>&1
         IF %ERRORLEVEL% EQU 0 (
@@ -570,7 +570,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         )else if /I "%fun%" EQU "00" (
          goto :updateall
         )else if /I "%fun%" EQU "0" (
-         goto :faraway
+         goto :farfrom
         )else (
         goto :bitterchoco
         )
@@ -758,7 +758,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo [92mSaved at %USERPROFILE%\Desktop[0m
         %SystemRoot%\explorer.exe %USERPROFILE%\Desktop
-        goto:faraway
+        goto:farfrom
 
     :repairnet
         NET SESSION >nul 2>&1
@@ -776,7 +776,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             netsh winsock reset
             echo[
             echo Please! Restart your pc
-            goto:faraway
+            goto:farfrom
         ) ELSE (
             echo OFF
             echo[
@@ -817,7 +817,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             rem Dism /Online /Cleanup-Image /CheckHealth
             echo Please! Restart your pc
             echo[
-            goto:faraway
+            goto:farfrom
         ) ELSE (
             echo[
             echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db
@@ -854,7 +854,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             sfc /scannow
             echo[
             echo SFC scan completed!
-            goto:faraway
+            goto:farfrom
         ) ELSE (
             echo[
             echo             d8888b. db    db d8b   db       .d8b.  .d8888.       .d8b.  d8888b. .88b  d88. d888888b d8b   db
@@ -882,7 +882,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :Errorkit
         echo[
         echo You are playing it wrong, press only one digit! [1-5]
-        goto:faraway
+        goto:farfrom
 
 :pyproj
     echo[
