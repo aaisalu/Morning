@@ -8,6 +8,7 @@ from termcolor import cprint
 import colorama
 import os
 import webbrowser
+import pyperclip
 colorama.init()
 
 
@@ -59,6 +60,7 @@ def saved():
     username = f'{archives[0][0]}'
     domain_name = f'{archives[0][1]}'
     email = f'{username}@{domain_name}'
+    pyperclip.copy(email)
     cprint(
         f"\n -------x        Your temporary email is: {email}       x-------\n", 'green')
     return loop()
