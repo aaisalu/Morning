@@ -1,19 +1,9 @@
-import requests
-from configparser import ConfigParser
 from termcolor import cprint
 import colorama
 import sys
+import helper_func
+import requests
 colorama.init()
-
-
-def get_token():
-    try:
-        config = ConfigParser()
-        config.read('../config.ini')
-        data = config['API']['Cash_token']
-        return data.strip()
-    except KeyError:
-        return None
 
 
 def country():
@@ -37,7 +27,7 @@ def country():
 
 
 def controller(money):
-    if token := get_token():
+    if token := helper_func.get_token("Cash_token"):
         try:
             from_country = engine("from")
             to_country = engine("to")

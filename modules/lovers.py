@@ -1,27 +1,17 @@
-import requests
-from configparser import ConfigParser
 from termcolor import cprint
+import helper_func
+import requests
 import colorama
 import json
 import sys
 colorama.init()
 
 
-def get_token():
-    try:
-        config = ConfigParser()
-        config.read('../config.ini')
-        data = config['API']['RapidAPI_token']
-        return data.strip()
-    except KeyError:
-        cprint("Please provide the token!", 'red')
-
-
 def calculate(f_name):
     try:
         s_name = input("Please enter the person name you are in love with: ")
         headers = {
-            "X-RapidAPI-Key": f"{get_token()}",
+            "X-RapidAPI-Key": f"{helper_func.get_token('RapidAPI_token')}",
             "X-RapidAPI-Host": "love-calculator.p.rapidapi.com"
         }
         response = requests.request(

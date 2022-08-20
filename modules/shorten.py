@@ -1,28 +1,14 @@
-import bitlyshortener
-from configparser import ConfigParser
 from termcolor import cprint
+import helper_func
+import bitlyshortener
 import colorama
 import pyperclip
 import sys
 colorama.init()
 
 
-def get_token():
-    try:
-        tokens = []
-        config = ConfigParser()
-        config.read('../config.ini')
-        data = config['API']['Bitly_token']
-        if data:
-            tokens.append(data.strip())
-            return tokens
-        return None
-    except KeyError:
-        cprint("Please provide the token!", 'red')
-
-
 def process_it(url):
-    api = get_token()
+    api = [helper_func.get_token('Bitly_token')]
     try:
         shortener = bitlyshortener.Shortener(
             tokens=api, max_cache_size=256)
