@@ -46,12 +46,12 @@ def playlists(link, ask):
         cprint("Starting to download MP3s of the videos\n", 'yellow')
         for music_url in playlist.video_urls:
             yt = pytube.YouTube(video_url)
-            mp3(music_url, f'Audios\{yt.author}')
+            mp3(music_url, f'Youtube\Audios\{yt.author}')
     else:
         cprint("Starting to download videos in 720p\n", 'yellow')
         for video_url in playlist.video_urls:
             yt = pytube.YouTube(video_url)
-            solo_video(video_url, f'Videos\{yt.author}')
+            solo_video(video_url, f'Youtube\Videos\{yt.author}')
 
 
 def askuser(link, ask):
@@ -84,10 +84,10 @@ t2 = time.perf_counter()
 def main():
     try:
         roulette(str(input("Enter the url of the video: ")))
+        helper_func.view_file(helper_func.Path)
         cprint(
-            f"Saved at {helper_func.Path} took {t2-t1} seconds \n", 'green')
-        os.startfile(helper_func.Path)
-    except NameError:
+            f'It took {t2-t1} seconds to download!\n', 'green')
+    except (NameError, AttributeError):
         cprint(
             "Some input or your network connection looks fishy as my AI smells it..", 'red')
     except KeyboardInterrupt:
