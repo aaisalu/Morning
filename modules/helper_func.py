@@ -4,6 +4,7 @@ import os
 import colorama
 import re
 import unicodedata
+import webbrowser
 colorama.init()
 
 
@@ -51,3 +52,9 @@ def slugify(data, allow_unicode=False):
             'ascii', 'ignore').decode('ascii')
     data = re.sub(r'[^\w\s-]', '', data.lower())
     return re.sub(r'[-\s]+', '-', data).strip('-_')
+
+
+def view_file(filename):
+    # Thanks to Máthé Endre-Botond at stackoverflow.com/a/6178200
+    webbrowser.open(rf'{filename}')
+    return cprint(f"\nSaved at {filename}", 'green')
