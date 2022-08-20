@@ -8,7 +8,6 @@ import requests
 import random
 import time
 import sys
-import re
 import os
 colorama.init()
 
@@ -22,10 +21,6 @@ def get_domain():
     get_domain_lists = requests.get(
         'https://www.1secmail.com/api/v1/?action=getDomainList').json()
     return random.choice(get_domain_lists)
-
-
-def chkreg(answer):
-    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah|r|refresh", f'{answer}', flags=re.IGNORECASE)
 
 
 def folder(file):
@@ -89,7 +84,7 @@ def check_mail():
 
 def refresh():
     ask = input("Do you want to refresh your inbox? ")
-    if chkreg(ask):
+    if helper_func.chkreg(ask):
         loop()
     else:
         sys.exit(1)
@@ -155,7 +150,7 @@ def mails_contents(data, uniq_id):
 
 def ask_user():
     cust_domain = input("Do you want to use domain names on your temp_mail? ")
-    if chkreg(cust_domain):
+    if helper_func.chkreg(cust_domain):
         ask_custom = input("Enter your custom username: ")
         return archived(cust_domain, ask_custom)
     else:
