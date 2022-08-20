@@ -1,21 +1,13 @@
 from bs4 import BeautifulSoup
+from termcolor import cprint
+import helper_func
 import requests
 import csv
 import os
 import re
-from termcolor import cprint
 import colorama
 import sys
 colorama.init()
-
-
-def folder(file):
-    global Path
-    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    Path = rf"{desktop}\{file}"
-    if not os.path.exists(Path):
-        os.makedirs(Path)
-    return Path
 
 
 def cheknet(url):
@@ -58,12 +50,12 @@ def imdb_v5(getdata):
             ballot) > 2 and '$' in ballot[1].text and '#' not in ballot[1].text else "Still Collecting Cash"
         top_250 = ballot[2].text if len(
             ballot) > 2 and '#' in ballot[2].text and '$' not in ballot[2].text else "Can't be found in Top 250"
-        with open(rf"{folder('Moviez')}\Imdb_movies_lists.csv", mode='a+', newline='') as editor:
+        with open(rf"{helper_func.create_folder('Moviez')}\Imdb_movies_lists.csv", mode='a+', newline='') as editor:
             write = csv.writer(editor, delimiter=',')
             write.writerow([index, title, rate, year, time, genre,
                            summary, vote, meta, gross, certificate, top_250])
-    os.startfile(Path)
-    return cprint(f'Saved at {Path}', 'green')
+    os.startfile(helper_func.Path)
+    return cprint(f'Saved at {helper_func.Path}', 'green')
 
 
 def checkbox(url):
