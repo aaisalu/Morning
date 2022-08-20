@@ -2,7 +2,6 @@ from termcolor import cprint
 import helper_func
 import requests
 import colorama
-import json
 import sys
 colorama.init()
 

@@ -7,7 +7,6 @@ import os
 import re
 import glob
 import sys
-import webbrowser
 
 colorama.init()
 

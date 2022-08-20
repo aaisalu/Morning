@@ -3,7 +3,6 @@ from termcolor import cprint
 import helper_func
 import requests
 import csv
-import os
 import re
 import colorama
 import sys
