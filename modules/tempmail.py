@@ -6,6 +6,8 @@ import re
 from tabulate import tabulate
 from termcolor import cprint
 import colorama
+import os
+import webbrowser
 colorama.init()
 
 
@@ -22,6 +24,15 @@ def get_domain():
 
 def chkreg(answer):
     return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah|r|refresh", f'{answer}', flags=re.IGNORECASE)
+
+
+def folder(file):
+    global Path
+    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
+    Path = rf"{desktop}\{file}"
+    if not os.path.exists(Path):
+        os.makedirs(Path)
+    return Path
 
 
 def archived(first, ask_custom):
@@ -94,10 +105,15 @@ def distribute_content(incom_mail):
 
 
 def write_mail(contents, unq_id):
-    with open(f'{email}_{unq_id}.txt', 'w') as note:
+    with open(rf'{folder("Emails")}\{email}_{unq_id}.txt', 'w') as note:
         note.write(contents)
-    with open(f'Emails_history.txt', 'a') as note:
+    with open(rf'{folder("Emails")}\Emails_history.txt', 'a') as note:
         note.write(contents)
+
+    # open notepad with your mails
+    # Thanks to Máthé Endre-Botond at stackoverflow.com/a/6178200
+    webbrowser.open(f"{Path}\{email}_{unq_id}.txt")
+    return cprint(f'\nEmails is saved at {Path} in txt', 'green')
 
 
 def tabulate_data(data, uniq_id):
