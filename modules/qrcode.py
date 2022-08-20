@@ -1,12 +1,13 @@
-from amzqr import amzqr
-import unicodedata
 from termcolor import cprint
+from random import randint
+from amzqr import amzqr
+import helper_func
+import unicodedata
 import colorama
 import os
 import re
 import glob
 import sys
-from random import randint
 import webbrowser
 
 colorama.init()
@@ -19,19 +20,10 @@ def beautify(info):
     return roulette(value)
 
 
-def folder(file):
-    global Path
-    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    Path = rf"{desktop}\{file}"
-    if not os.path.exists(Path):
-        os.makedirs(Path)
-    return Path
-
-
 def getimg(string):
-    path = r'..\gallery'
-    if os.path.isdir(path):
-        for k in glob.glob(rf'{path}\*.{string}'):
+    get_gallery = r'..\gallery'
+    if os.path.isdir(get_gallery):
+        for k in glob.glob(rf'{get_gallery}\*.{string}'):
             return k, string
     else:
         cprint("Gallery folder can't be found in the Morning project folder", 'red')
@@ -115,8 +107,8 @@ def eliminate(input, ext):
 def view_file(filename):
     # open notepad with your mails
     # Thanks to Máthé Endre-Botond at stackoverflow.com/a/6178200
-    webbrowser.open(rf'{Path}\{filename}')
-    return cprint(f"\nSaved at {Path}", 'green')
+    webbrowser.open(rf'{helper_func.Path}\{filename}')
+    return cprint(f"\nSaved at {helper_func.Path}", 'green')
 
 
 def engine(info, img, ext, color, ver):
@@ -129,7 +121,7 @@ def engine(info, img, ext, color, ver):
         contrast=1.2,
         brightness=1.1,
         save_name=(file_name := eliminate(info, ext)),
-        save_dir=folder("Qrcodes"))
+        save_dir=helper_func.create_folder("Qrcodes"))
     return view_file(file_name)
 
 

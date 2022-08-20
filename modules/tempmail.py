@@ -1,14 +1,15 @@
+from tabulate import tabulate
+from termcolor import cprint
+import helper_func
+import webbrowser
+import pyperclip
+import colorama
 import requests
 import random
 import time
 import sys
 import re
-from tabulate import tabulate
-from termcolor import cprint
-import colorama
 import os
-import webbrowser
-import pyperclip
 colorama.init()
 
 
@@ -107,15 +108,15 @@ def distribute_content(incom_mail):
 
 
 def write_mail(contents, unq_id):
-    with open(rf'{folder("Emails")}\{email}_{unq_id}.txt', 'w') as note:
+    with open(rf'{helper_func.create_folder("Emails")}\{email}_{unq_id}.txt', 'w') as note:
         note.write(contents)
-    with open(rf'{folder("Emails")}\Emails_history.txt', 'a') as note:
+    with open(rf'{helper_func.create_folder("Emails")}\Emails_history.txt', 'a') as note:
         note.write(contents)
 
     # open notepad with your mails
     # Thanks to Máthé Endre-Botond at stackoverflow.com/a/6178200
-    webbrowser.open(f"{Path}\{email}_{unq_id}.txt")
-    return cprint(f'\nEmails is saved at {Path} in txt', 'green')
+    webbrowser.open(f"{helper_func.Path}\{email}_{unq_id}.txt")
+    return cprint(f'\nEmails is saved at {helper_func.Path} in txt', 'green')
 
 
 def tabulate_data(data, uniq_id):

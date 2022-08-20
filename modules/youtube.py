@@ -1,6 +1,7 @@
 from pytube.cli import on_progress
 from pytube import Playlist
 from termcolor import cprint
+import helper_func
 import colorama
 import pytube
 import os
@@ -12,30 +13,13 @@ colorama.init()
 t1 = time.perf_counter()
 
 
-def folder(file):
-    global Path
-    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    try:
-        Path = rf"{desktop}\Youtube\{file}"
-        if not os.path.exists(Path):
-            os.makedirs(Path)
-        return Path
-    # OSError
-    except:
-        cprint('Error at creating folder... saving at default folder', 'red')
-        Path = rf"{desktop}\Youtube\Dropped_contents"
-        if not os.path.exists(Path):
-            os.makedirs(Path)
-        return Path
-
-
 def mp3(url, save_out):
     yt = pytube.YouTube(url)
     cprint(f"Title: {yt.title} ", 'green')
     cprint(f"Views: {yt.views} Duration:{yt.length}", 'green')
     try:
         out_file = pytube.YouTube(url, on_progress_callback=on_progress).streams.filter(
-            only_audio=True).first().download(folder(save_out))
+            only_audio=True).first().download(helper_func.create_folder(rf"Youtube\{save_out}"))
         cprint(":) \n", 'cyan')
         base, ext = os.path.splitext(out_file)
         new_file = base + '.mp3'
@@ -50,7 +34,7 @@ def solo_video(url, save_out):
     cprint(f"Title: {yt.title}", 'green')
     cprint(f"Views: {yt.views} Duration: {yt.length}", 'green')
     pytube.YouTube(url, on_progress_callback=on_progress).streams.get_highest_resolution(
-    ).download(folder(save_out))
+    ).download(helper_func.create_folder(rf"Youtube\{save_out}"))
     cprint(":) \n", 'cyan')
 
 
@@ -100,8 +84,9 @@ t2 = time.perf_counter()
 def main():
     try:
         roulette(str(input("Enter the url of the video: ")))
-        cprint(f"Saved at {Path} took {t2-t1} seconds \n", 'green')
-        os.startfile(Path)
+        cprint(
+            f"Saved at {helper_func.Path} took {t2-t1} seconds \n", 'green')
+        os.startfile(helper_func.Path)
     except NameError:
         cprint(
             "Some input or your network connection looks fishy as my AI smells it..", 'red')
