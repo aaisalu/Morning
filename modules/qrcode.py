@@ -7,7 +7,7 @@ import re
 import glob
 import sys
 from random import randint
-from PIL import Image
+import webbrowser
 
 colorama.init()
 
@@ -112,10 +112,10 @@ def eliminate(input, ext):
     return f'{slugify(info)[:35]}.{ext}'
 
 
-def view_file(filename, ext):
-    os.startfile(Path)
-    if ext != 'gif':
-        Image.open(rf'{Path}\{filename}').show()
+def view_file(filename):
+    # open notepad with your mails
+    # Thanks to Máthé Endre-Botond at stackoverflow.com/a/6178200
+    webbrowser.open(rf'{Path}\{filename}')
     return cprint(f"\nSaved at {Path}", 'green')
 
 
@@ -130,7 +130,7 @@ def engine(info, img, ext, color, ver):
         brightness=1.1,
         save_name=(file_name := eliminate(info, ext)),
         save_dir=folder("Qrcodes"))
-    return view_file(file_name, ext)
+    return view_file(file_name)
 
 
 def main():
