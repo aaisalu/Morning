@@ -895,7 +895,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo             ########## ########  ###    ####  ########  ###    ###                   ### ###           ###
     echo                                         [92m---- %username% spawned into snake island ----[0m
     echo[
-    echo    Press 1 = Download Youtube Videos/Music/playlists
+    echo    Press 1 = Download Youtube Videos/Music/playlists                Press 7 = Create a temporary email
     echo    Press 2 = Scrap IMDb Movies
     echo    Press 3 = Generate QRcode
     echo    Press 4 = Internet Speedtest
@@ -916,7 +916,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:shortenurl
     ) else if /I "%pyt%" EQU "6" (
     goto:lovecalculate
-    ) else if /I "%pyt%" EQU "0" (
+    ) else if /I "%pyt%" EQU "7" (
+    goto:tempmail
+    )else if /I "%pyt%" EQU "0" (
     goto:choice
     )else (
     goto :pyproj
@@ -962,6 +964,14 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo I'm here because you want calculate your love percentage
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python lovers.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        pause
+        goto:pyproj
+    :tempmail
+        @echo off
+        echo[
+        echo I'm here because you want create a temporary disposable Email Address
+        echo[
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python tempmail.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         pause
         goto:pyproj
 
