@@ -83,13 +83,6 @@ def eliminate(input, ext):
     return f'{helper_func.slugify(info)[:35]}.{ext}'
 
 
-def view_file(filename):
-    # open notepad with your mails
-    # Thanks to Máthé Endre-Botond at stackoverflow.com/a/6178200
-    webbrowser.open(rf'{helper_func.Path}\{filename}')
-    return cprint(f"\nSaved at {helper_func.Path}", 'green')
-
-
 def engine(info, img, ext, color, ver):
     version, level, qr_name = amzqr.run(
         info,
@@ -101,7 +94,7 @@ def engine(info, img, ext, color, ver):
         brightness=1.1,
         save_name=(file_name := eliminate(info, ext)),
         save_dir=helper_func.create_folder("Qrcodes"))
-    return view_file(file_name)
+    return helper_func.view_file(rf'{helper_func.Path}\{file_name}')
 
 
 def main():
