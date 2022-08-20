@@ -2,6 +2,7 @@ from configparser import ConfigParser
 from termcolor import cprint
 import os
 import colorama
+import re
 colorama.init()
 
 
@@ -30,3 +31,7 @@ def create_folder(file_name):
         if not os.path.exists(Path):
             os.makedirs(Path)
         return Path
+
+
+def chkreg(answer):
+    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah|r|refresh", f'{answer}', flags=re.IGNORECASE)
