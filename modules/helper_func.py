@@ -3,6 +3,7 @@ from termcolor import cprint
 import os
 import colorama
 import re
+import unicodedata
 colorama.init()
 
 
@@ -35,3 +36,18 @@ def create_folder(file_name):
 
 def chkreg(answer):
     return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah|r|refresh", f'{answer}', flags=re.IGNORECASE)
+
+
+def slugify(data, allow_unicode=False):
+    """
+    Thanks to S.Lott & martineau at stackoverflow.com/a/295466
+    Thanks for django dev code taken from https://github.com/django/django/blob/master/django/utils/text.py
+    """
+    data = str(data)
+    if allow_unicode:
+        data = unicodedata.normalize('NFKC', data)
+    else:
+        data = unicodedata.normalize('NFKD', data).encode(
+            'ascii', 'ignore').decode('ascii')
+    data = re.sub(r'[^\w\s-]', '', data.lower())
+    return re.sub(r'[-\s]+', '-', data).strip('-_')

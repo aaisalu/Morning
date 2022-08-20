@@ -2,7 +2,6 @@ from termcolor import cprint
 from random import randint
 from amzqr import amzqr
 import helper_func
-import unicodedata
 import colorama
 import os
 import re
@@ -77,27 +76,11 @@ def roulette(value):
     except ValueError:
         cprint("\nError: Ohh snap!! Feels like my brain can't process this input", 'red')
 
-# ::Thanks to S.Lott & martineau at stackoverflow.com/a/295466
-
-
-def slugify(data, allow_unicode=False):
-    """
-    Thanks for django dev code taken from https://github.com/django/django/blob/master/django/utils/text.py
-    """
-    data = str(data)
-    if allow_unicode:
-        data = unicodedata.normalize('NFKC', data)
-    else:
-        data = unicodedata.normalize('NFKD', data).encode(
-            'ascii', 'ignore').decode('ascii')
-    data = re.sub(r'[^\w\s-]', '', data.lower())
-    return re.sub(r'[-\s]+', '-', data).strip('-_')
-
 
 def eliminate(input, ext):
     info = re.sub(r'(https|http|ftp)?:\/\/(\.|\/|\?|\=|\&|\%)*\b(www.)*',
                   f'{randint(0, 1000)}_', input, flags=re.MULTILINE)
-    return f'{slugify(info)[:35]}.{ext}'
+    return f'{helper_func.slugify(info)[:35]}.{ext}'
 
 
 def view_file(filename):
