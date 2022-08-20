@@ -54,8 +54,7 @@ def imdb_v5(getdata):
             write = csv.writer(editor, delimiter=',')
             write.writerow([index, title, rate, year, time, genre,
                            summary, vote, meta, gross, certificate, top_250])
-    os.startfile(helper_func.Path)
-    return cprint(f'Saved at {helper_func.Path}', 'green')
+    return helper_func.view_file(helper_func.Path)
 
 
 def checkbox(url):
