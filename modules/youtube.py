@@ -13,11 +13,16 @@ colorama.init()
 t1 = time.perf_counter()
 
 
-def mp3(url, save_out):
+def header(url):
     yt = pytube.YouTube(url)
     cprint(f"Title: {yt.title} ", 'green')
     cprint(f"Views: {yt.views} Duration:{yt.length}", 'green')
+    return yt.title
+
+
+def mp3(url, save_out):
     try:
+        header(url)
         out_file = pytube.YouTube(url, on_progress_callback=on_progress).streams.filter(
             only_audio=True).first().download(helper_func.create_folder(rf"Youtube\{save_out}"))
         cprint(":) \n", 'cyan')
@@ -26,13 +31,11 @@ def mp3(url, save_out):
         os.rename(out_file, new_file)
 
     except FileExistsError:
-        cprint(f"Looks like {yt.title} music is already present. \n", 'red')
+        cprint(f"Looks like {header(url)} music is already present. \n", 'red')
 
 
 def solo_video(url, save_out):
-    yt = pytube.YouTube(url)
-    cprint(f"Title: {yt.title}", 'green')
-    cprint(f"Views: {yt.views} Duration: {yt.length}", 'green')
+    header(url)
     pytube.YouTube(url, on_progress_callback=on_progress).streams.get_highest_resolution(
     ).download(helper_func.create_folder(rf"Youtube\{save_out}"))
     cprint(":) \n", 'cyan')
@@ -45,13 +48,13 @@ def playlists(link, ask):
     if re.search("audio|mp3|music|flac|wav|aac|ogg|audios", ask, flags=re.IGNORECASE):
         cprint("Starting to download MP3s of the videos\n", 'yellow')
         for music_url in playlist.video_urls:
-            yt = pytube.YouTube(video_url)
-            mp3(music_url, f'Youtube\Audios\{yt.author}')
+            yt = pytube.YouTube(music_url)
+            mp3(music_url, f'Audios\{yt.author}')
     else:
         cprint("Starting to download videos in 720p\n", 'yellow')
         for video_url in playlist.video_urls:
             yt = pytube.YouTube(video_url)
-            solo_video(video_url, f'Youtube\Videos\{yt.author}')
+            solo_video(video_url, f'Videos\{yt.author}')
 
 
 def askuser(link, ask):
