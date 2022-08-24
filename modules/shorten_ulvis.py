@@ -16,10 +16,9 @@ def connect_cloud(data):
     custom_name = data["custom_name"]
     lockit = data["lockit"]
     limit_url = data['limit_url']
-    if mode:
-        get_data = get_cloud_data(long_url, custom_name, lockit, limit_url)
-
-        if get_data['success']:
+    get_data = get_cloud_data(long_url, custom_name, lockit, limit_url)
+    if get_data['success']:
+        if mode:
             if "status" not in get_data['data']:
                 extract_data(get_data)
             elif "custom-taken" in get_data['data']['status']:
@@ -31,7 +30,7 @@ def connect_cloud(data):
             # print(get_data['success']['error'])
             return extract_data(default_action(long_url))
     else:
-        return extract_data(default_action(long_url))
+        print(get_data)
 
 
 def default_action(long_url):
@@ -39,12 +38,11 @@ def default_action(long_url):
 
 
 def get_cloud_data(long_url, custom_name, lockit, limit_url):
-    if custom_name:
-        return requests.get(
-            f'https://ulvis.net/API/write/get?url={long_url}{custom_name}{lockit}{limit_url}').json()
-    else:
+    if not custom_name:
         return requests.get(
             f'https://ulvis.net/API/write/get?url={long_url}{lockit}{limit_url}').json()
+    return requests.get(
+        f'https://ulvis.net/API/write/get?url={long_url}{custom_name}{lockit}{limit_url}').json()
 
 
 def ask_user():
@@ -58,11 +56,9 @@ def ask_user():
             custom_name = input("Enter your own custom username: ")
             lockit = input("Enter the password to link: ")
             limit_url = input("Type the limit to the url:")
-            if custom_name:
-                data.update({"custom_name": f"&custom={custom_name}"})
-            if len(lockit) <= 10:
-                print(f"Your password is: {lockit}")
-                data.update({"lockit": f"&password={lockit}"})
+            data.update({"custom_name": f"&custom={custom_name}"})
+            data.update({"lockit": f"&password={lockit[:10]}"})
+            print(f"Your password is: {lockit[:10]}")
             try:
                 if int(limit_url):
                     data.update({"limit_url": f"&uses={limit_url}"})
@@ -74,4 +70,14 @@ def ask_user():
     sys.exit(1)
 
 
-print(ask_user())
+def main():
+    try:
+        ask_user()
+    except KeyboardInterrupt:
+        print("Exiting from the script....")
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
