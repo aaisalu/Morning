@@ -3,6 +3,10 @@ import helper_func
 import sys
 import pyperclip
 from tabulate import tabulate
+from termcolor import cprint
+import colorama
+colorama.init()
+
 
 utvis_api = "https://ulvis.net/API/write/get?"
 
@@ -14,7 +18,7 @@ def extract_data(get_data):
     pyperclip.copy(short_url)
     table = [[uniq_id, full_url[:40], short_url]]
     headers = ["Uniq_ID", "Full URL", "Shorten URL"]
-    print(tabulate(table, headers,  tablefmt="fancy_grid"))
+    cprint(tabulate(table, headers,  tablefmt="fancy_grid"), 'green')
 
 
 def connect_cloud(data, mode):
@@ -29,6 +33,8 @@ def connect_cloud(data, mode):
             if "status" not in adv_data['data']:
                 return extract_data(adv_data)
             elif "custom-taken" in adv_data['data']['status']:
+                cprint(
+                    "Looks like your custom username is in use so..processing link with default name", 'yellow')
                 return extract_data(get_adv_data(
                     long_url, None, lockit, limit_url))
             else:
@@ -41,7 +47,7 @@ def check_error(long_url):
         f"{utvis_api}url={long_url}").json()
     if not get_data['success']:
         if get_data['error']['code'] == 1:
-            print("Please provide valid invalid url")
+            cprint("Please provide valid URL", 'red')
             sys.exit(1)
         print(get_data)
         sys.exit(1)
@@ -58,18 +64,20 @@ def get_adv_data(long_url, custom_name, lockit, limit_url):
 
 def ask_user():
     data = dict()
-    get_link = input("Enter the url that you want to shrink:  ")
+    get_link = input("Enter the URL that you want to shrink:  ")
     if get_link:
         data.update({"long_url": get_link})
-        adv_mode = input("Do you want to activate advanced mode ?")
+        adv_mode = input("Do you want to activate the advanced mode?: ")
         if helper_func.chkreg(adv_mode):
-            custom_name = input("Enter your own custom username: ")
-            lockit = input("Enter the password to link: ")
-            limit_url = input("Type the limit to the url:")
+            custom_name = input("Enter your custom username: ")
+            lockit = input(
+                "Enter the password to protect this link [maximum 10 char]: ")
+            limit_url = input(
+                "How many times do you want this URL to be used? [Only digits]: ")
             data.update({"custom_name": f"&custom={custom_name}"})
             data.update({"lockit": f"&password={lockit[:10]}"})
             pyperclip.copy(lockit[:10])
-            print(f"Your password is: {lockit[:10]}")
+            cprint(f"Your password is: {lockit[:10]}", 'green')
             try:
                 if int(limit_url):
                     data.update({"limit_url": f"&uses={limit_url}"})
@@ -77,6 +85,7 @@ def ask_user():
                 data.update({"limit_url": f"&uses={2}"})
             return connect_cloud(data, adv_mode)
         return connect_cloud(data, None)
+    cprint("Please provide the URL!", 'red')
     sys.exit(1)
 
 
@@ -84,10 +93,10 @@ def main():
     try:
         ask_user()
     except KeyboardInterrupt:
-        print("Exiting from the script....")
+        cprint("Exiting from the script....", 'red')
         sys.exit(1)
     except requests.exceptions.ConnectionError:
-        print("\nPlease check your internet connection!")
+        cprint("\nPlease check your internet connection!", 'red')
         sys.exit(1)
     sys.exit(0)
 
