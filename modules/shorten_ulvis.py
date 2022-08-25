@@ -71,7 +71,6 @@ def ask_user():
                 data.update({"limit_url": f"&uses={2}"})
             return connect_cloud(data, adv_mode)
         return connect_cloud(data, None)
-
     sys.exit(1)
 
 
@@ -80,6 +79,9 @@ def main():
         ask_user()
     except KeyboardInterrupt:
         print("Exiting from the script....")
+        sys.exit(1)
+    except requests.exceptions.ConnectionError:
+        print("\nPlease check your internet connection!")
         sys.exit(1)
     sys.exit(0)
 
