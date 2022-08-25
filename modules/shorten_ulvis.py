@@ -17,7 +17,7 @@ def extract_data(get_data):
     full_url = get_data['data']['full']
     pyperclip.copy(short_url)
     table = [[uniq_id, full_url[:40], short_url]]
-    headers = ["Uniq_ID", "Full URL", "Shorten URL"]
+    headers = ["Unique ID", "Full URL", "Shorten URL"]
     cprint(tabulate(table, headers,  tablefmt="fancy_grid"), 'green')
 
 
@@ -76,7 +76,6 @@ def ask_user():
                 "How many times do you want this URL to be used? [Only digits]: ")
             data.update({"custom_name": f"&custom={custom_name}"})
             data.update({"lockit": f"&password={lockit[:10]}"})
-            pyperclip.copy(lockit[:10])
             cprint(f"Your password is: {lockit[:10]}", 'green')
             try:
                 if int(limit_url):
