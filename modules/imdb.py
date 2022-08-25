@@ -9,23 +9,10 @@ import sys
 colorama.init()
 
 
-def cheknet(url):
-    try:
-        incoming = requests.get(url)
-        if incoming.status_code != 200:
-            raise RuntimeError(
-                "SOORY ERROR OUT due to excess Resonse Status over 200")
-        cprint(f"\nServer Response : {incoming}", 'green')
-        print('')
-        return imdb_v5(incoming)
-    except requests.exceptions.ConnectionError:
-        cprint("\nHmmm…can't reach to the server", 'red')
-        cprint("Please...Check your network connection.", 'red')
-
-
-def imdb_v5(getdata):
-    incoming = getdata.text
-    soup = BeautifulSoup(incoming, 'lxml')
+def imdb_v5(url):
+    incoming = requests.get(url)
+    cprint(f"\nServer Response : {incoming}", 'green')
+    soup = BeautifulSoup(incoming.text, 'lxml')
     data = soup.find_all('div', {"class": 'lister-item mode-advanced'})
     for index, box in enumerate(data):
         title = box.h3.a.text
@@ -61,15 +48,16 @@ def checkbox(url):
     regex = ("((http|https)://)(www.)?" + "[a-zA-Z0-9@:%._\\+~#?&//=]"+"title|imdb|alpha|asc|runtime|year|release_date|your_rating_date|my_ratings|sort|search|num_votes|boxoffice_gross_us|top|count|user_rating|groups|adv_nxt" +
              "{2,256}\\.[a-z]" + "{2,6}\\b([-a-zA-Z0-9@:%" + "._\\+~#?&//=]*)")
     compiled = re.compile(regex, flags=re.IGNORECASE)
+
     if (url == None):
         cprint('Starting to Scrap Website by default link', 'yellow')
-        return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=user_rating,desc&count=100&start=%27+%27&ref_=adv_nxt')
+        return imdb_v5('https://www.imdb.com/search/title/?groups=top_1000&sort=user_rating,desc&count=100&start=%27+%27&ref_=adv_nxt')
     elif (re.search(compiled, url)):
         cprint("I'll crawl like spider! wait & watch", 'green')
-        return cheknet(url)
+        return imdb_v5(url)
     else:
         cprint('Starting to Scrap Website by default link', 'yellow')
-        return cheknet('https://www.imdb.com/search/title/?groups=top_1000&sort=alpha,asc')
+        return imdb_v5('https://www.imdb.com/search/title/?groups=top_1000&sort=alpha,asc')
 
 
 def main():
@@ -79,6 +67,9 @@ def main():
         checkbox(str(input("Please provide the link of IMDb movies unsorted list: ")))
     except KeyboardInterrupt:
         print("Exiting from the script....")
+        sys.exit(1)
+    except requests.exceptions.ConnectionError:
+        cprint("\nPlease check your internet connection!", 'red')
         sys.exit(1)
     sys.exit(0)
 
