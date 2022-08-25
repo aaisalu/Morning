@@ -1,6 +1,8 @@
 import requests
 import helper_func
 import sys
+import pyperclip
+from tabulate import tabulate
 
 utvis_api = "https://ulvis.net/API/write/get?"
 
@@ -9,7 +11,10 @@ def extract_data(get_data):
     uniq_id = get_data['data']['id']
     short_url = get_data['data']['url']
     full_url = get_data['data']['full']
-    print(uniq_id, short_url, full_url)
+    pyperclip.copy(short_url)
+    table = [[uniq_id, full_url[:40], short_url]]
+    headers = ["Uniq_ID", "Full URL", "Shorten URL"]
+    print(tabulate(table, headers,  tablefmt="fancy_grid"))
 
 
 def connect_cloud(data, mode):
@@ -20,11 +25,11 @@ def connect_cloud(data, mode):
             custom_name = data["custom_name"]
             lockit = data["lockit"]
             limit_url = data['limit_url']
-            adv_data = get_cloud_data(long_url, custom_name, lockit, limit_url)
+            adv_data = get_adv_data(long_url, custom_name, lockit, limit_url)
             if "status" not in adv_data['data']:
                 return extract_data(adv_data)
             elif "custom-taken" in adv_data['data']['status']:
-                return extract_data(get_cloud_data(
+                return extract_data(get_adv_data(
                     long_url, None, lockit, limit_url))
             else:
                 return extract_data(default_data)
@@ -43,7 +48,7 @@ def check_error(long_url):
     return get_data
 
 
-def get_cloud_data(long_url, custom_name, lockit, limit_url):
+def get_adv_data(long_url, custom_name, lockit, limit_url):
     if not custom_name:
         return requests.get(
             f'{utvis_api}url={long_url}{lockit}{limit_url}').json()
@@ -63,6 +68,7 @@ def ask_user():
             limit_url = input("Type the limit to the url:")
             data.update({"custom_name": f"&custom={custom_name}"})
             data.update({"lockit": f"&password={lockit[:10]}"})
+            pyperclip.copy(lockit[:10])
             print(f"Your password is: {lockit[:10]}")
             try:
                 if int(limit_url):
