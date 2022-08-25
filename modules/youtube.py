@@ -41,11 +41,15 @@ def solo_video(url, save_out):
     cprint(":) \n", 'cyan')
 
 
+def regex_audio(ask):
+    return re.search("audio|mp3|music|flac|wav|aac|ogg|audios", ask, flags=re.IGNORECASE)
+
+
 def playlists(link, ask):
     playlist = Playlist(link)
     cprint('\nNumber of videos in playlist: %s' %
            len(playlist.video_urls), 'blue')
-    if re.search("audio|mp3|music|flac|wav|aac|ogg|audios", ask, flags=re.IGNORECASE):
+    if regex_audio(ask):
         cprint("Starting to download MP3s of the videos\n", 'yellow')
         for music_url in playlist.video_urls:
             yt = pytube.YouTube(music_url)
@@ -59,7 +63,7 @@ def playlists(link, ask):
 
 def askuser(link, ask):
     try:
-        if re.search("audio|mp3|music|flac|wav|aac|ogg|audios", ask, flags=re.IGNORECASE):
+        if regex_audio(ask):
             cprint("\nStarting to download MP3s of the video", 'yellow')
             mp3(link, "Audios")
         else:
@@ -86,7 +90,7 @@ t2 = time.perf_counter()
 
 def main():
     try:
-        roulette(str(input("Enter the url of the video: ")))
+        roulette(str(input("Enter the link to the Youtube video: ")))
         helper_func.view_file(helper_func.Path)
         cprint(
             f'It took {t2-t1} seconds to download!\n', 'green')
