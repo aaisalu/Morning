@@ -36,7 +36,7 @@ def create_folder(file_name):
 
 
 def chkreg(answer):
-    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah|r|refresh", f'{answer}', flags=re.IGNORECASE)
+    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah|r|refresh|y", f'{answer}', flags=re.IGNORECASE)
 
 
 def slugify(data, allow_unicode=False):
