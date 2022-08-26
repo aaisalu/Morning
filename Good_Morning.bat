@@ -25,7 +25,7 @@ echo          "Y8888P88  "Y88P"   "Y88P"   "Y88888       888       888  "Y88P"  
 echo                                                                                                               888
 echo                                                                                                          Y8b d88P
 echo                                                                                                           "Y88P"
-)else if %%A LSS 18 (
+) else if %%A LSS 18 (
 echo[
 echo[
 echo                .oOOOo.                   o          Oo    oooo
@@ -125,7 +125,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :StockNews
     ) else if /I "%nws%" EQU "0" (
     goto:choice
-    )else ( goto :InERROR
+    ) else ( goto :InERROR
     )
     :WorldNews
         echo[
@@ -198,11 +198,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         set /P stk= Welcome, press the secret key to activate script:
     if /I "%stk%" EQU "1" (
     goto:tradestk
-    )else if /I "%stk%" EQU "2" (
+    ) else if /I "%stk%" EQU "2" (
     goto:aplyipo
-    )else if /I "%stk%" EQU "0" (
+    ) else if /I "%stk%" EQU "0" (
     goto:choice
-    )else (
+    ) else (
     goto:lilfar
     )
     :tradestk
@@ -264,7 +264,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto :Fnproj
     ) else if /I "%tvl%" EQU "0" (
     goto:choice
-    )else (
+    ) else (
     goto :InValid
     )
     :: You can add you own custom folder to open as eg: D:\office\projectfolder
@@ -310,7 +310,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo    Press 2 = Fly to the soft_links/extensions
     echo    Press 3 = Generate Battery report
     echo    Press 4 = Repair a Windows Image
-    echo    Press 5 = Reset Network setting
+    echo    Press 5 = Reset Network settings
     echo    Press 6 = Repair system files
     echo    [90mPress 0 = Depart[0m
    :farbox
@@ -324,13 +324,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:choice
     ) else if /I "%drs%" EQU "3" (
     goto :battreport
-    )else if /I "%drs%" EQU "4" (
+    ) else if /I "%drs%" EQU "4" (
     goto :repairpc
-    )else if /I "%drs%" EQU "5" (
+    ) else if /I "%drs%" EQU "5" (
     goto :repairnet
-    )else if /I "%drs%" EQU "6" (
+    ) else if /I "%drs%" EQU "6" (
     goto :repairsys
-    )else (
+    ) else (
     goto :farfrom
     )
     :websoft
@@ -356,11 +356,11 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto :basic
         ) else if /I "%wb%" EQU "2" (
          goto :mediate
-        )else if /I "%wb%" EQU "3" (
+        ) else if /I "%wb%" EQU "3" (
          goto :webext
-        )else if /I "%wb%" EQU "0" (
+        ) else if /I "%wb%" EQU "0" (
          goto :farfrom
-        )else (
+        ) else (
         goto :websoft
         )
         :basic
@@ -393,9 +393,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto :chromiumbrow
             ) else if /I "%ext%" EQU "2" (
              goto :mozibrow
-            )else if /I "%ext%" EQU "0" (
+            ) else if /I "%ext%" EQU "0" (
              goto :websoft
-            )else (
+            ) else (
             goto :webext
             )
             :chromiumbrow
@@ -487,91 +487,91 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         goto :loveOne
         ) else if /I "%fun%" EQU "2" (
          goto :loveTwo
-        )else if /I "%fun%" EQU "3" (
+        ) else if /I "%fun%" EQU "3" (
          goto :loveThree
-        )else if /I "%fun%" EQU "4" (
+        ) else if /I "%fun%" EQU "4" (
          goto :loveFour
-        )else if /I "%fun%" EQU "4" (
+        ) else if /I "%fun%" EQU "4" (
          goto :loveFive
-        )else if /I "%fun%" EQU "6" (
+        ) else if /I "%fun%" EQU "6" (
          goto :loveSix
-        )else if /I "%fun%" EQU "7" (
+        ) else if /I "%fun%" EQU "7" (
          goto :loveSeven
-        )else if /I "%fun%" EQU "8" (
+        ) else if /I "%fun%" EQU "8" (
          goto :loveEight
-        )else if /I "%fun%" EQU "9" (
+        ) else if /I "%fun%" EQU "9" (
          goto :loveNine
-        )else if /I "%fun%" EQU "10" (
+        ) else if /I "%fun%" EQU "10" (
          goto :loveTen
-        )else if /I "%fun%" EQU "11" (
+        ) else if /I "%fun%" EQU "11" (
          goto :loveEleven
-        )else if /I "%fun%" EQU "12" (
+        ) else if /I "%fun%" EQU "12" (
          goto :loveTwelve
-        )else if /I "%fun%" EQU "13" (
+        ) else if /I "%fun%" EQU "13" (
          goto :loveThirteen
-        )else if /I "%fun%" EQU "14" (
+        ) else if /I "%fun%" EQU "14" (
          goto :loveFourteen
-        )else if /I "%fun%" EQU "15" (
+        ) else if /I "%fun%" EQU "15" (
          goto :loveFifteen
-        )else if /I "%fun%" EQU "16" (
+        ) else if /I "%fun%" EQU "16" (
          goto :loveSixteen
-        )else if /I "%fun%" EQU "17" (
+        ) else if /I "%fun%" EQU "17" (
          goto :loveSeventeen
-        )else if /I "%fun%" EQU "18" (
+        ) else if /I "%fun%" EQU "18" (
          goto :loveEighteen
-        )else if /I "%fun%" EQU "19" (
+        ) else if /I "%fun%" EQU "19" (
          goto :loveNineteen
-        )else if /I "%fun%" EQU "20" (
+        ) else if /I "%fun%" EQU "20" (
          goto :loveTwenty
-        )else if /I "%fun%" EQU "21" (
+        ) else if /I "%fun%" EQU "21" (
          goto :loveTwentyone
-        )else if /I "%fun%" EQU "22" (
+        ) else if /I "%fun%" EQU "22" (
          goto :loveTwentytwo
-        )else if /I "%fun%" EQU "23" (
+        ) else if /I "%fun%" EQU "23" (
          goto :loveTwentythree
-        )else if /I "%fun%" EQU "24" (
+        ) else if /I "%fun%" EQU "24" (
          goto :loveTwentyfour
-        )else if /I "%fun%" EQU "25" (
+        ) else if /I "%fun%" EQU "25" (
          goto :loveTwentyfive
-        )else if /I "%fun%" EQU "26" (
+        ) else if /I "%fun%" EQU "26" (
          goto :loveTwentysix
-        )else if /I "%fun%" EQU "27" (
+        ) else if /I "%fun%" EQU "27" (
          goto :loveTwentyseven
-        )else if /I "%fun%" EQU "28" (
+        ) else if /I "%fun%" EQU "28" (
          goto :loveTwentyeight
-        )else if /I "%fun%" EQU "29" (
+        ) else if /I "%fun%" EQU "29" (
          goto :loveTwentynine
-        )else if /I "%fun%" EQU "30" (
+        ) else if /I "%fun%" EQU "30" (
          goto :loveThirty
-        )else if /I "%fun%" EQU "31" (
+        ) else if /I "%fun%" EQU "31" (
          goto :loveThirtyOne
-        )else if /I "%fun%" EQU "32" (
+        ) else if /I "%fun%" EQU "32" (
          goto :loveThirtyTwo
-        )else if /I "%fun%" EQU "33" (
+        ) else if /I "%fun%" EQU "33" (
          goto :loveThirtyThree
-        )else if /I "%fun%" EQU "34" (
+        ) else if /I "%fun%" EQU "34" (
          goto :loveThirtyFour
-        )else if /I "%fun%" EQU "35" (
+        ) else if /I "%fun%" EQU "35" (
          goto :loveThirtyFive
-        )else if /I "%fun%" EQU "36" (
+        ) else if /I "%fun%" EQU "36" (
          goto :loveThirtySix
-        )else if /I "%fun%" EQU "37" (
+        ) else if /I "%fun%" EQU "37" (
          goto :loveThirtySeven
-        )else if /I "%fun%" EQU "38" (
+        ) else if /I "%fun%" EQU "38" (
          goto :loveThirtyEight
-        )else if /I "%fun%" EQU "39" (
+        ) else if /I "%fun%" EQU "39" (
          goto :loveThirtyNine
-        )else if /I "%fun%" EQU "40" (
+        ) else if /I "%fun%" EQU "40" (
          goto :loveFourty
-        )else if /I "%fun%" EQU "100" (
+        ) else if /I "%fun%" EQU "100" (
          goto :lovehundred
-        )else if /I "%fun%" EQU "200" (
+        ) else if /I "%fun%" EQU "200" (
          goto :lovetwohundred
-        )else if /I "%fun%" EQU "00" (
+        ) else if /I "%fun%" EQU "00" (
          goto :updateall
-        )else if /I "%fun%" EQU "0" (
+        ) else if /I "%fun%" EQU "0" (
          goto :farfrom
-        )else (
+        ) else (
         goto :bitterchoco
         )
         :chocogui
@@ -702,9 +702,9 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             goto:intelgra
             ) else if /I "%drv%" EQU "2" (
             goto :nvidiagra
-            )else if /I "%drv%" EQU "0" (
+            ) else if /I "%drv%" EQU "0" (
             goto :choco
-            )else (
+            ) else (
             goto :lovethirtyeight
             )
             :intelgra
@@ -895,32 +895,31 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo             ########## ########  ###    ####  ########  ###    ###                   ### ###           ###
     echo                                         [92m---- %username% spawned into snake island ----[0m
     echo[
-    echo    Press 1 = Download Youtube Videos/Music/playlists                Press 7 = Create a temporary email
-    echo    Press 2 = Scrap IMDb Movies
-    echo    Press 3 = Generate QRcode
-    echo    Press 4 = Internet Speedtest
-    echo    Press 5 = Shorten URL
-    echo    Press 6 = Calculate love
+    echo    Press 1 = Download Youtube Videos/Music/Playlists                Press 7 = Misc Projects
+    echo    Press 2 = Create a Temporary email
+    echo    Press 3 = Internet Speedtest
+    echo    Press 4 = Scrap IMDb Movies
+    echo    Press 5 = Generate QRcode
+    echo    Press 6 = Shrink URL
     echo    [90mPress 0 = Depart[0m
-
         set /P pyt= Welcome, press the secret key to lunch *.py:
     if /I "%pyt%" EQU "1" (
     goto :ytdown
     ) else if /I "%pyt%" EQU "2" (
-    goto :scrapimdb
-    ) else if /I "%pyt%" EQU "3" (
-    goto:qrcode
-    ) else if /I "%pyt%" EQU "4" (
-    goto:spedtest
-    ) else if /I "%pyt%" EQU "5" (
-    goto:shortenurl
-    ) else if /I "%pyt%" EQU "6" (
-    goto:lovecalculate
-    ) else if /I "%pyt%" EQU "7" (
     goto:tempmail
-    )else if /I "%pyt%" EQU "0" (
+    ) else if /I "%pyt%" EQU "3" (
+    goto:spedtest
+    ) else if /I "%pyt%" EQU "4" (
+    goto :scrapimdb
+    ) else if /I "%pyt%" EQU "5" (
+    goto:qrcode
+    ) else if /I "%pyt%" EQU "6" (
+    goto:shortenurl
+    ) else if /I "%pyt%" EQU "7" (
+    goto:miscapi
+    ) else if /I "%pyt%" EQU "0" (
     goto:choice
-    )else (
+    ) else (
     goto :pyproj
     )
     :scrapimdb
@@ -955,15 +954,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     :shortenurl
         @echo off
         echo[
-        echo I'm here because you want shorten links.
-        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python shorten.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
-        pause
-        goto:pyproj
-    :lovecalculate
-        @echo off
-        echo[
-        echo I'm here because you want calculate your love percentage
-        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python lovers.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        echo I'm here because you want shrink links.
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python shorten_ulvis.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         pause
         goto:pyproj
     :tempmail
@@ -974,6 +966,46 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python tempmail.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         pause
         goto:pyproj
+    :miscapi
+        @echo off
+        echo[
+        echo                        ------------   --------   ----    ---- ------------ ----    ----
+        echo                        ************  **********  ****   ****  ************ *****   ****
+        echo                        ------------ ----    ---- ----  ----   ----         ------  ----
+        echo                            ****     ***      *** *********    ************ ************
+        echo                            ----     ---      --- ---------    ------------ ------------
+        echo                            ****     ****    **** ****  ****   ****         ****  ******
+        echo                            ----      ----------  ----   ----  ------------ ----   -----
+        echo                            ****       ********   ****    **** ************ ****    ****
+        echo                                      [92m---- Hey %username%, show me your token ----[0m
+        echo[
+        echo    Press 1 = Bitly URL Shortener
+        echo    Press 2 = Calculate love
+        echo    [90mPress 0 = Depart[0m
+            set /P msa= Welcome, Which API project would you like to use ?[1/2]
+        if /I "%msa%" EQU "1" (
+        goto:shortenurlbitly
+        ) else if /I "%msa%" EQU "2" (
+         goto:lovecalculate
+        ) else if /I "%msa%" EQU "0" (
+         goto:pyproj
+        ) else (
+        goto:miscapi
+        )
+        :shortenurlbitly
+            @echo off
+            echo[
+            echo I'm here because you want shorten links from Bitly
+            cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python shorten.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+            pause
+            goto:miscapi
+        :lovecalculate
+            @echo off
+            echo[
+            echo I'm here because you want calculate your love percentage
+            cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python lovers.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+            pause
+            goto:miscapi
 
 :chkpip
     @echo off
