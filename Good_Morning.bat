@@ -982,7 +982,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo    Press 1 = Bitly URL Shortener
         echo    Press 2 = Calculate love
         echo    [90mPress 0 = Depart[0m
-            set /P msa= Welcome, Which API project would you like to use ?[1/2]
+            set /P msa= Welcome, Which API project would you like to use ?[1/2]:
         if /I "%msa%" EQU "1" (
         goto:shortenurlbitly
         ) else if /I "%msa%" EQU "2" (

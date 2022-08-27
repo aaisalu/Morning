@@ -9,7 +9,7 @@ colorama.init()
 def country():
     source = '''
                                                             WELCOME TO THE
-                                                    CENTRA BANK OF PROJECT MORNING
+                                                    CENTRAL BANK OF PROJECT MORNING
     [1] Kuwaiti Dinar      [13] Chinese Yuan           [25] United Arab Emirates [37] Romanian Leu       [49] Jamaican Dollar
     [2] Sri Lankan Rupee   [14] Czech Republic Koruna  [26] Afghan Afghani       [38] Russian Ruble      [50] Japanese Yen
     [3] Mongolian Tugrik   [15] Egyptian Pound         [27] Netherlands Guilder  [39] Saudi Riyal        [51] Cambodian Riel
