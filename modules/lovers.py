@@ -3,12 +3,14 @@ import helper_func
 import requests
 import colorama
 import sys
+import pwinput
 colorama.init()
 
 
 def calculate(f_name):
     try:
-        s_name = input("Please enter the person name you are in love with: ")
+        s_name = pwinput.pwinput(
+            prompt='Please enter the person name you are in love with:  ')
         headers = {
             "X-RapidAPI-Key": f"{helper_func.get_token('RapidAPI_token')}",
             "X-RapidAPI-Host": "love-calculator.p.rapidapi.com"
@@ -18,8 +20,8 @@ def calculate(f_name):
         percentages = response['percentage']
         results = response['result']
         cprint(
-            f"\nPercentage of love between {f_name} & {s_name} is {percentages}%.", 'blue')
-        cprint(f'AI message for their love is :> {results}', 'green')
+            f"\nPercentage of love between you and your lover is {percentages}%.", 'green')
+        cprint(f'AI message for their love is :> {results}', 'blue')
     except KeyError:
         cprint("Looks like your love_token is false just like your love", 'red')
     except requests.exceptions.ConnectionError:
