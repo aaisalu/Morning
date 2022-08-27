@@ -5,8 +5,8 @@ import pyperclip
 from tabulate import tabulate
 from termcolor import cprint
 import colorama
+import pwinput
 colorama.init()
-
 
 utvis_api = "https://ulvis.net/API/write/get?"
 
@@ -16,7 +16,7 @@ def extract_data(get_data):
     short_url = get_data['data']['url']
     full_url = get_data['data']['full']
     pyperclip.copy(short_url)
-    table = [[uniq_id, full_url[:40], short_url]]
+    table = [[uniq_id, full_url[:45], short_url]]
     headers = ["Unique ID", "Full URL", "Shorten URL"]
     cprint(tabulate(table, headers,  tablefmt="fancy_grid"), 'green')
 
@@ -49,7 +49,11 @@ def check_error(long_url):
         if get_data['error']['code'] == 1:
             cprint("Please provide valid URL", 'red')
             sys.exit(1)
-        print(get_data)
+        elif get_data['error']['code'] == 0:
+            cprint("Oops!... This domain is not allowed to shrink", 'red')
+            sys.exit(1)
+        else:
+            print(get_data)
         sys.exit(1)
     return get_data
 
@@ -62,6 +66,29 @@ def get_adv_data(long_url, custom_name, lockit, limit_url):
         f'{utvis_api}url={long_url}{custom_name}{lockit}{limit_url}').json()
 
 
+def get_password():
+    lockit = pwinput.pwinput(
+        prompt='Enter the password to protect this link [maximum 10 char]: ')
+    if len(lockit) >= 10:
+        cprint(
+            r'Your password is more than 10 chars..so, removing your password from the link', 'red')
+        return "&password="
+    return f"&password={lockit[:10]}"
+
+
+def get_uses():
+    limit_url = input(
+        "How many times do you want this URL to be used? [Only digits]: ")
+    try:
+        if int(limit_url):
+            cprint(
+                f'No. of uses for this URL is set to {limit_url}\n', 'green')
+            return f"&uses={limit_url}"
+    except ValueError:
+        cprint('No. of uses for this URL is set to default\n', 'yellow')
+        return f"&uses="
+
+
 def ask_user():
     data = dict()
     get_link = input("Enter the URL that you want to shrink:  ")
@@ -70,18 +97,9 @@ def ask_user():
         adv_mode = input("Do you want to activate the advanced mode?: ")
         if helper_func.chkreg(adv_mode):
             custom_name = input("Enter your custom username: ")
-            lockit = input(
-                "Enter the password to protect this link [maximum 10 char]: ")
-            limit_url = input(
-                "How many times do you want this URL to be used? [Only digits]: ")
             data.update({"custom_name": f"&custom={custom_name}"})
-            data.update({"lockit": f"&password={lockit[:10]}"})
-            cprint(f"Your password is: {lockit[:10]}", 'green')
-            try:
-                if int(limit_url):
-                    data.update({"limit_url": f"&uses={limit_url}"})
-            except ValueError:
-                data.update({"limit_url": f"&uses={2}"})
+            data.update({"lockit": f"{get_password()}"})
+            data.update({"limit_url": f"&uses={get_uses()}"})
             return connect_cloud(data, adv_mode)
         return connect_cloud(data, None)
     cprint("Please provide the URL!", 'red')
