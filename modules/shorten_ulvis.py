@@ -48,10 +48,10 @@ def check_error(long_url):
     if not get_data['success']:
         if get_data['error']['code'] == 1:
             cprint("Please provide valid URL", 'red')
-            sys.exit(1)
+            ask_user()
         elif get_data['error']['code'] == 0:
             cprint("Oops!... This domain is not allowed to shrink", 'red')
-            sys.exit(1)
+            ask_user()
         else:
             print(get_data)
         sys.exit(1)
@@ -85,7 +85,7 @@ def get_uses():
                 f'No. of uses for this URL is set to {limit_url}\n', 'green')
             return f"&uses={limit_url}"
     except ValueError:
-        cprint('No. of uses for this URL is set to default\n', 'yellow')
+        cprint('No. of uses for this link is set to default value\n', 'yellow')
         return f"&uses="
 
 
