@@ -1,5 +1,5 @@
 from pytube.cli import on_progress
-from pytube import Playlist
+from pytube import Playlist, YouTube
 from termcolor import cprint
 import helper_func
 import colorama
@@ -14,7 +14,7 @@ t1 = time.perf_counter()
 
 
 def header(url):
-    yt = pytube.YouTube(url)
+    yt = YouTube(url)
     cprint(f"Title: {yt.title} ", 'green')
     cprint(f"Views: {yt.views} Duration:{yt.length}", 'green')
     return yt.title
@@ -23,7 +23,7 @@ def header(url):
 def mp3(url, save_out):
     try:
         header(url)
-        out_file = pytube.YouTube(url, on_progress_callback=on_progress).streams.filter(
+        out_file = YouTube(url, on_progress_callback=on_progress).streams.filter(
             only_audio=True).first().download(helper_func.create_folder(rf"Youtube\{save_out}"))
         cprint(":) \n", 'cyan')
         base, ext = os.path.splitext(out_file)
@@ -52,12 +52,12 @@ def playlists(link, ask):
     if regex_audio(ask):
         cprint("Starting to download MP3s of the videos\n", 'yellow')
         for music_url in playlist.video_urls:
-            yt = pytube.YouTube(music_url)
+            yt = YouTube(music_url)
             mp3(music_url, f'Audios\{yt.author}')
     else:
         cprint("Starting to download videos in 720p\n", 'yellow')
         for video_url in playlist.video_urls:
-            yt = pytube.YouTube(video_url)
+            yt = YouTube(video_url)
             solo_video(video_url, f'Videos\{yt.author}')
 
 
@@ -96,7 +96,7 @@ def main():
             f'It took {t2-t1} seconds to download!\n', 'green')
     except (NameError, AttributeError):
         cprint(
-            "Some input or your network connection looks fishy as my AI smells it..", 'red')
+            "Some of your input or your network connection looks fishy as my AI smells it..", 'red')
     except KeyboardInterrupt:
         print("Exiting from the script....")
         sys.exit(1)
