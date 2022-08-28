@@ -15,30 +15,41 @@ t1 = time.perf_counter()
 
 def header(url):
     yt = YouTube(url)
-    cprint(f"Title: {yt.title} ", 'green')
-    cprint(f"Views: {yt.views} Duration:{yt.length}", 'green')
-    return yt.title
+    title = yt.title
+    other = f"Views: {yt.views} Duration:{yt.length}"
+    return title, other
 
 
 def mp3(url, save_out):
     try:
-        header(url)
+        cprint(f"Title: {header(url)[0]}\n{header(url)[1]}", 'green')
         out_file = YouTube(url, on_progress_callback=on_progress).streams.filter(
             only_audio=True).first().download(helper_func.create_folder(rf"Youtube\{save_out}"))
         cprint(":) \n", 'cyan')
         base, ext = os.path.splitext(out_file)
         new_file = base + '.mp3'
         os.rename(out_file, new_file)
-
+    except pytube.exceptions.LiveStreamError:
+        cprint(
+            f"Unable to download {header(url)[0]} as it's streaming live..", 'red')
+    except pytube.exceptions.VideoUnavailable:
+        cprint(f'{header(url)[1]} music is unavailable, skipping.', 'red')
     except FileExistsError:
-        cprint(f"Looks like {header(url)} music is already present. \n", 'red')
+        cprint(
+            f"Looks like {header(url)[0]} music is already present. \n", 'red')
 
 
 def solo_video(url, save_out):
-    header(url)
-    pytube.YouTube(url, on_progress_callback=on_progress).streams.get_highest_resolution(
-    ).download(helper_func.create_folder(rf"Youtube\{save_out}"))
-    cprint(":) \n", 'cyan')
+    try:
+        cprint(f"Title: {header(url)[0]}\n{header(url)[1]}", 'green')
+        YouTube(url, on_progress_callback=on_progress).streams.get_highest_resolution(
+        ).download(helper_func.create_folder(rf"Youtube\{save_out}"))
+        cprint(":) \n", 'cyan')
+    except pytube.exceptions.LiveStreamError:
+        cprint(
+            f"Unable to download {header(url)[0]} as it's streaming live..", 'red')
+    except pytube.exceptions.VideoUnavailable:
+        cprint(f'{header(url)[0]} Video is unavailable, skipping.', 'red')
 
 
 def regex_audio(ask):
@@ -71,6 +82,7 @@ def askuser(link, ask):
             solo_video(link, "Videos")
     except pytube.exceptions.RegexMatchError:
         cprint("\nPlease enter a valid server URL!", 'red')
+        sys.exit(1)
 
 
 def roulette(link):
