@@ -1,6 +1,10 @@
 import requests
 from pathlib import Path
-import os
+from tabulate import tabulate
+from termcolor import cprint
+import colorama
+import pyperclip
+colorama.init()
 
 
 def read_data(data):
@@ -9,7 +13,12 @@ def read_data(data):
         unique_id = data['data']['file']["metadata"]['id']
         file_name = data['data']['file']["metadata"]['name']
         file_size = data['data']['file']["metadata"]['size']['readable']
-        print(full_url, unique_id, file_name, file_size)
+        pyperclip.copy(full_url)
+        table = [[unique_id, file_name, full_url, file_size]]
+        headers = ["Unique ID", "File Name",
+                   "Download Link", "Size"]
+        cprint(tabulate(table, headers,  tablefmt="fancy_grid"), 'green')
+
     else:
         error_message = data['error']['message']
         error_type = data['error']['type']
