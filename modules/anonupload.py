@@ -17,18 +17,28 @@ def read_data(data):
         table = [[unique_id, file_name, full_url, file_size]]
         headers = ["Unique ID", "File Name",
                    "Download Link", "Size"]
-        cprint(tabulate(table, headers,  tablefmt="fancy_grid"), 'green')
-
+        tabuate(table, headers, 'green')
     else:
-        error_message = data['error']['message']
-        error_type = data['error']['type']
-        error_code = data['error']['code']
-        print(error_code, error_message, error_type)
+        error_read(data)
+
+
+def tabuate(table, headers, color):
+    return cprint(tabulate(table, headers,  tablefmt="fancy_grid"), color)
+
+
+def error_read(data):
+    error_code = data['error']['code']
+    error_message = data['error']['message']
+    error_type = data['error']['type']
+    table = [[error_code, error_type, error_message]]
+    headers = ["Error Code", "Type",
+               "Message"]
+    return tabuate(table, headers, 'red')
 
 
 def connect_cloud():
     file_paths = input(
-        'Provide the absolute path of file: ').strip().split(" ")
+        'Provide the absolute path of file: ').strip().split("|")
     for filepath in file_paths:
         abs_path = Path(filepath).absolute()
         if abs_path.is_file():
