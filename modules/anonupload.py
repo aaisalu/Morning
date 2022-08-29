@@ -18,16 +18,18 @@ def read_data(data):
 
 
 def connect_cloud():
-    file_path = input('Provide the absolute path of file: ')
-    abs_path = Path(file_path).absolute()
-    if abs_path.is_file():
-        url = f"https://api.anonfiles.com/upload"
-        open_file = open(abs_path, "rb")
-        files = {'file': open_file}
-        raw_data = requests.post(url, files=files).json()
-        return read_data(raw_data)
-    else:
-        return print("Please provide the absolute path of the file: ")
+    file_paths = input(
+        'Provide the absolute path of file: ').strip().split(" ")
+    for filepath in file_paths:
+        abs_path = Path(filepath).absolute()
+        if abs_path.is_file():
+            url = f"https://api.anonfiles.com/upload"
+            open_file = open(abs_path, "rb")
+            files = {'file': open_file}
+            raw_data = requests.post(url, files=files).json()
+            read_data(raw_data)
+        else:
+            return print("Please provide the absolute path of the file: ")
 
 
 connect_cloud()
