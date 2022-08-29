@@ -4,7 +4,6 @@ from tabulate import tabulate
 from termcolor import cprint
 import colorama
 import pyperclip
-import os
 colorama.init()
 
 
@@ -43,7 +42,7 @@ def connect_cloud():
     try:
         for filepath in file_paths:
             abs_path = Path(filepath).absolute()
-            file_size = round(os.stat(abs_path).st_size / (1024 * 1024))
+            file_size = round(Path(abs_path).stat().st_size / (1024 * 1024))
             if abs_path.is_file():
                 if file_size <= 4999:
                     url = f"https://api.anonfiles.com/upload"
@@ -52,7 +51,7 @@ def connect_cloud():
                     raw_data = requests.post(url, files=files).json()
                     read_data(raw_data)
                 else:
-                    return cprint(f"Oops!.. The file is too large...Max file size is 5 GiB so, trim your extra {abs(5000-file_size)}MB from your file to upload", 'red')
+                    return cprint(f"Oops!.. The file is too large...Max file size is 5 GiB so, trim your extra {abs(5000-file_size)} MB from your file to upload", 'red')
             else:
                 return cprint("Please provide the absolute path of the file to upload", 'red')
     except FileNotFoundError:
