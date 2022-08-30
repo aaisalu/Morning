@@ -4,6 +4,7 @@ from termcolor import cprint
 import colorama
 import pyperclip
 import helper_func
+import sys
 colorama.init()
 
 
@@ -55,4 +56,17 @@ def connect_cloud():
         return cprint("The system couldn't find the file that you specified", 'red')
 
 
-connect_cloud()
+def main():
+    try:
+        connect_cloud()
+    except KeyboardInterrupt:
+        cprint("\nExiting from the script....", 'red')
+        sys.exit(1)
+    except requests.exceptions.ConnectionError:
+        cprint("\nPlease check your internet connection!", 'red')
+        sys.exit(1)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()
