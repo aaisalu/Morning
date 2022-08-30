@@ -5,6 +5,8 @@ import colorama
 import re
 import unicodedata
 import webbrowser
+from tabulate import tabulate
+import requests
 colorama.init()
 
 
@@ -58,3 +60,11 @@ def view_file(filename):
     # Thanks to Máthé Endre-Botond at stackoverflow.com/a/6178200
     webbrowser.open(rf'{filename}')
     return cprint(f"\nSaved at {filename}", 'green')
+
+
+def tabuate_it(table, headers, color):
+    return cprint(tabulate(table, headers,  tablefmt="fancy_grid"), color)
+
+
+def shrink_it(url):
+    return requests.get(f'https://ulvis.net/api.php?url={url}').text
