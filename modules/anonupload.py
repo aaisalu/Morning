@@ -1,29 +1,26 @@
 import requests
 from pathlib import Path
-from tabulate import tabulate
 from termcolor import cprint
 import colorama
 import pyperclip
+import helper_func
 colorama.init()
 
 
 def read_data(data):
     if data['status']:
         full_url = data['data']['file']["url"]['full']
+        shrink_url = helper_func.shrink_it(full_url)
         unique_id = data['data']['file']["metadata"]['id']
         file_name = data['data']['file']["metadata"]['name']
         file_size = data['data']['file']["metadata"]['size']['readable']
         pyperclip.copy(full_url)
-        table = [[unique_id, file_name, full_url, file_size]]
+        table = [[unique_id, file_name, shrink_url, file_size]]
         headers = ["Unique ID", "File Name",
                    "Download Link", "Size"]
-        tabuate(table, headers, 'green')
+        helper_func.tabuate_it(table, headers, 'green')
     else:
         error_read(data)
-
-
-def tabuate(table, headers, color):
-    return cprint(tabulate(table, headers,  tablefmt="fancy_grid"), color)
 
 
 def error_read(data):
@@ -33,12 +30,12 @@ def error_read(data):
     table = [[error_code, error_type, error_message]]
     headers = ["Error Code", "Type",
                "Message"]
-    return tabuate(table, headers, 'red')
+    return helper_func.tabuate_it(table, headers, 'red')
 
 
 def connect_cloud():
     file_paths = input(
-        'Provide the absolute path of file: ').strip().split("|")
+        'Provide the absolute path of file: ').strip('"').split("|")
     try:
         for filepath in file_paths:
             abs_path = Path(filepath).absolute()
@@ -54,7 +51,7 @@ def connect_cloud():
                     return cprint(f"Oops!.. The file is too large...Max file size is 5 GiB so, trim your extra {abs(5000-file_size)} MB from your file to upload", 'red')
             else:
                 return cprint("Please provide the absolute path of the file to upload", 'red')
-    except FileNotFoundError:
+    except (FileNotFoundError, OSError):
         return cprint("The system couldn't find the file that you specified", 'red')
 
 
