@@ -23,15 +23,6 @@ def get_domain():
     return random.choice(get_domain_lists)
 
 
-def folder(file):
-    global Path
-    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
-    Path = rf"{desktop}\{file}"
-    if not os.path.exists(Path):
-        os.makedirs(Path)
-    return Path
-
-
 def archived(first, ask_custom):
     global archives
     rand_domain = get_domain()
