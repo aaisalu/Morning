@@ -8,7 +8,7 @@ import sys
 colorama.init()
 
 
-def read_data(data):
+def anon_data(data):
     if data['status']:
         full_url = data['data']['file']["url"]['full']
         shrink_url = helper_func.shrink_it(full_url)
@@ -21,10 +21,10 @@ def read_data(data):
                    "Download Link", "Size"]
         helper_func.tabuate_it(table, headers, 'green')
     else:
-        error_read(data)
+        anon_error(data)
 
 
-def error_read(data):
+def anon_error(data):
     error_code = data['error']['code']
     error_message = data['error']['message']
     error_type = data['error']['type']
@@ -32,6 +32,50 @@ def error_read(data):
     headers = ["Error Code", "Type",
                "Message"]
     return helper_func.tabuate_it(table, headers, 'red')
+
+
+def fileio_data(data):
+    if data['success']:
+        unique_id = data['id']
+        file_type = data['nodeType']
+        full_url = data['link']
+        shrink_url = helper_func.shrink_it(full_url)
+        unique_key = data['key']
+        file_name = data['name']
+        expiry_date = data['expires']
+        file_size = f"{round(data['size']/1000/1000,2)} mb"
+        file_delete = data['autoDelete']
+        pyperclip.copy(full_url)
+        table = [[unique_key, file_name, shrink_url, file_size,
+                  expiry_date, file_delete]]
+        headers = ["Unique key", "File Name",
+                   "Download Link", "Size", "File expiration date", "Auto Delete"]
+        helper_func.tabuate_it(table, headers, 'green')
+    else:
+        fileio_error(data)
+
+
+def fileio_error(data):
+    error_code = data['error']
+    error_message = data['message']
+    table = [[error_code, error_message]]
+    headers = ["Error Code",
+               "Message"]
+    return helper_func.tabuate_it(table, headers, 'red')
+
+
+def redirect_it(url, abs_path):
+    open_file = open(abs_path, "rb")
+    files = {'file': open_file}
+    cprint('\nPlease wait.. uploading your files to the server', 'green')
+    cprint("This might take several minutes depending upon your file size & your internet speed\n", 'green')
+    raw_data = requests.post(url, files=files).json()
+    if "file.io" in url:
+        cprint("Files are uploaded to the file.io server ", 'yellow')
+        fileio_data(raw_data)
+    else:
+        cprint("Files are uploaded to the anon server ", 'yellow')
+        anon_data(raw_data)
 
 
 def connect_cloud():
@@ -42,14 +86,16 @@ def connect_cloud():
             abs_path = Path(filepath).absolute()
             file_size = round(Path(abs_path).stat().st_size / (1024 * 1024))
             if abs_path.is_file():
-                if file_size <= 4999:
-                    url = f"https://api.anonfiles.com/upload"
-                    open_file = open(abs_path, "rb")
-                    files = {'file': open_file}
-                    raw_data = requests.post(url, files=files).json()
-                    read_data(raw_data)
-                else:
-                    return cprint(f"Oops!.. The file is too large...Max file size is 5 GiB so, trim your extra {abs(5000-file_size)} MB from your file to upload", 'red')
+                try:
+                    if file_size <= 1999:
+                        redirect_it("https://file.io", abs_path)
+                    elif file_size > 1999 and file_size <= 4999:
+                        redirect_it(
+                            "https://api.anonfiles.com/upload", abs_path)
+                    else:
+                        return cprint(f"Oops!.. The file is too large...Max file size is 5 GiB so, trim your extra {abs(5000-file_size)} MB from your file to upload", 'red')
+                except requests.exceptions.SSLError:
+                    return cprint('Max retries exceeded with url', 'red')
             else:
                 return cprint("Please provide the absolute path of the file to upload", 'red')
     except (FileNotFoundError, OSError):
