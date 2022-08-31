@@ -20,6 +20,8 @@ def anon_data(data):
         headers = ["Unique ID", "File Name",
                    "Download Link", "Size"]
         helper_func.tabuate_it(table, headers, 'green')
+        write_it(
+            f'Uploaded to: anonfiles server\nUnique ID: {unique_id}\nFile Name: {file_name}\nFile_size: {file_size}\nDownload Link: {full_url}\n\n')
     else:
         anon_error(data)
 
@@ -34,6 +36,11 @@ def anon_error(data):
     return helper_func.tabuate_it(table, headers, 'red')
 
 
+def write_it(content):
+    with open(rf'{helper_func.create_folder("Upload_History")}\Uploadhistory.txt', 'a+') as note:
+        note.write(content)
+
+
 def fileio_data(data):
     if data['success']:
         unique_id = data['id']
@@ -45,12 +52,15 @@ def fileio_data(data):
         expiry_date = data['expires']
         file_size = f"{round(data['size']/1000/1000,2)} mb"
         file_delete = data['autoDelete']
+        file_created = data['created']
         pyperclip.copy(full_url)
         table = [[unique_key, file_name, shrink_url, file_size,
                   expiry_date, file_delete]]
         headers = ["Unique key", "File Name",
                    "Download Link", "Size", "File expiration date", "Auto Delete"]
         helper_func.tabuate_it(table, headers, 'green')
+        write_it(
+            f'Uploaded to: file.io server\nUnique ID: {unique_id}\nUnique key: {unique_key}\nFile Name: {file_name}\nFile_size: {file_size}\nDownload Link: {full_url}\nFile expiration date: {expiry_date}\nAuto Delete: {file_delete}\nFile uploaded date: {file_created}\n\n')
     else:
         fileio_error(data)
 
