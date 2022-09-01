@@ -79,13 +79,16 @@ def redirect_it(url, abs_path):
     files = {'file': open_file}
     cprint('\nPlease wait.. uploading your files to the server', 'green')
     cprint("This might take several minutes depending upon your file size & your internet speed\n", 'green')
-    raw_data = requests.post(url, files=files).json()
-    if "file.io" in url:
-        cprint("Files are uploaded to the file.io server ", 'yellow')
-        fileio_data(raw_data)
-    else:
-        cprint("Files are uploaded to the anon server ", 'yellow')
-        anon_data(raw_data)
+    try:
+        raw_data = requests.post(url, files=files).json()
+        if "file.io" in url:
+            cprint("Files are uploaded to the file.io server ", 'yellow')
+            fileio_data(raw_data)
+        else:
+            cprint("Files are uploaded to the anon server ", 'yellow')
+            anon_data(raw_data)
+    except requests.exceptions.SSLError:
+        return cprint('Max retries exceeded with url', 'red')
 
 
 def connect_cloud():
@@ -96,16 +99,13 @@ def connect_cloud():
             abs_path = Path(filepath).absolute()
             file_size = round(Path(abs_path).stat().st_size / (1024 * 1024))
             if abs_path.is_file():
-                try:
-                    if file_size <= 1999:
-                        redirect_it("https://file.io", abs_path)
-                    elif file_size > 1999 and file_size <= 4999:
-                        redirect_it(
-                            "https://api.anonfiles.com/upload", abs_path)
-                    else:
-                        return cprint(f"Oops!.. The file is too large...Max file size is 5 GiB so, trim your extra {abs(5000-file_size)} MB from your file to upload", 'red')
-                except requests.exceptions.SSLError:
-                    return cprint('Max retries exceeded with url', 'red')
+                if file_size <= 1999:
+                    redirect_it("https://file.io", abs_path)
+                elif file_size > 1999 and file_size <= 4999:
+                    redirect_it(
+                        "https://api.anonfiles.com/upload", abs_path)
+                else:
+                    return cprint(f"Oops!.. The file is too large...Max file size is 5 GiB so, trim your extra {abs(5000-file_size)} MB from your file to upload", 'red')
             else:
                 return cprint("Please provide the absolute path of the file to upload", 'red')
     except (FileNotFoundError, OSError):
