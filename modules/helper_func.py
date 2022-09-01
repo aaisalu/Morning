@@ -23,15 +23,16 @@ def get_token(token_name):
 
 def create_folder(file_name):
     global Path
+    get_user = os.getlogin()
     desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop')
     try:
-        Path = rf"{desktop}\{file_name}"
+        Path = rf"{desktop}\{get_user}_repo\{file_name}"
         if not os.path.exists(Path):
             os.makedirs(Path)
         return Path
     except:
         cprint('Error at creating folder... saving at default folder', 'red')
-        Path = rf"{desktop}\Dropped_contents"
+        Path = rf"{desktop}\{get_user}_repo\Dropped_contents"
         if not os.path.exists(Path):
             os.makedirs(Path)
         return Path
