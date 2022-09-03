@@ -20,9 +20,10 @@ def header(url):
     return title, other
 
 
-def mp3(url, save_out):
+def mp3(url, save_out, count):
     try:
-        cprint(f"Title: {header(url)[0]}\n{header(url)[1]}", 'green')
+        titles = f"{count if count else 1}. Title: {header(url)[0]}\n{header(url)[1]}"
+        cprint(titles, 'green')
         out_file = YouTube(url, on_progress_callback=on_progress).streams.filter(
             only_audio=True).first().download(helper_func.create_folder(rf"Youtube\{save_out}"))
         cprint(":) \n", 'cyan')
@@ -39,9 +40,10 @@ def mp3(url, save_out):
             f"Looks like {header(url)[0]} music is already present. \n", 'red')
 
 
-def solo_video(url, save_out):
+def solo_video(url, save_out, count):
     try:
-        cprint(f"Title: {header(url)[0]}\n{header(url)[1]}", 'green')
+        titles = f"{count if count else 1}. Title: {header(url)[0]}\n{header(url)[1]}"
+        cprint(titles, 'green')
         YouTube(url, on_progress_callback=on_progress).streams.get_highest_resolution(
         ).download(helper_func.create_folder(rf"Youtube\{save_out}"))
         cprint(":) \n", 'cyan')
@@ -59,27 +61,28 @@ def regex_audio(ask):
 def playlists(link, ask):
     playlist = Playlist(link)
     cprint('\nNumber of videos in playlist: %s' %
-           len(playlist.video_urls), 'blue')
+           (final_count := len(playlist.video_urls)), 'blue')
     if regex_audio(ask):
         cprint("Starting to download MP3s of the videos\n", 'yellow')
-        for music_url in playlist.video_urls:
+        for count, music_url in enumerate(playlist.video_urls, start=1):
             yt = YouTube(music_url)
-            mp3(music_url, f'Audios\{yt.author}')
+            mp3(music_url, f'Audios\{yt.author}', f'{count}/{final_count}')
     else:
         cprint("Starting to download videos in 720p\n", 'yellow')
-        for video_url in playlist.video_urls:
+        for count, video_url in enumerate(playlist.video_urls, start=1):
             yt = YouTube(video_url)
-            solo_video(video_url, f'Videos\{yt.author}')
+            solo_video(
+                video_url, f'Videos\{yt.author}', f'{count}/{final_count}')
 
 
 def askuser(link, ask):
     try:
         if regex_audio(ask):
             cprint("\nStarting to download MP3s of the video", 'yellow')
-            mp3(link, "Audios")
+            mp3(link, "Audios", None)
         else:
             cprint("\nStarting to download video in 720p", 'yellow')
-            solo_video(link, "Videos")
+            solo_video(link, "Videos", None)
     except pytube.exceptions.RegexMatchError:
         cprint("\nPlease enter a valid server URL!", 'red')
         sys.exit(1)
