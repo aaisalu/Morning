@@ -7,6 +7,7 @@ import unicodedata
 import webbrowser
 from tabulate import tabulate
 import requests
+from threading import Thread
 colorama.init()
 
 
