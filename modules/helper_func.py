@@ -69,3 +69,8 @@ def tabuate_it(table, headers, color):
 
 def shrink_it(url):
     return requests.get(f'https://ulvis.net/api.php?url={url}').text
+
+
+def threading(strike, arg, kwargs):
+    thread = Thread(target=strike, args=(arg, kwgs,))
+    return thread.start()
