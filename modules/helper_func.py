@@ -73,5 +73,5 @@ def shrink_it(url):
 
 
 def threading(strike, arg, kwargs):
-    thread = Thread(target=strike, args=(arg, kwgs,))
+    thread = Thread(target=strike, args=(arg, kwargs,))
     return thread.start()
