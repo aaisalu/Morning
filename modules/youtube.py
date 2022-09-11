@@ -8,6 +8,7 @@ import os
 import re
 import time
 import sys
+from threading import Thread
 
 colorama.init()
 t1 = time.perf_counter()
@@ -71,8 +72,8 @@ def playlists(link, ask):
         cprint("Starting to download videos in 720p\n", 'yellow')
         for count, video_url in enumerate(playlist.video_urls, start=1):
             yt = YouTube(video_url)
-            solo_video(
-                video_url, f'Videos\{yt.author}', f'{count}/{final_count}')
+            Thread(target=solo_video, args=(
+                video_url, f'Videos\{yt.author}', f'{count}/{final_count}',)).start()
 
 
 def askuser(link, ask):
@@ -107,8 +108,8 @@ def main():
     try:
         roulette(str(input("Enter the link to the Youtube video: ")))
         helper_func.view_file(helper_func.Path)
-        cprint(
-            f'It took {t2-t1} seconds to download!\n', 'green')
+        # cprint(
+        #     f'It took {t2-t1} seconds to download!\n', 'green')
     except (NameError, AttributeError):
         cprint(
             "Some of your input or your network connection looks fishy as my AI smells it..", 'red')
