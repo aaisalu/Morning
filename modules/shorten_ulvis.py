@@ -95,7 +95,7 @@ def ask_user():
     if get_link:
         data.update({"long_url": get_link})
         adv_mode = input("Do you want to activate the advanced mode?: ")
-        if helper_func.chkreg(adv_mode):
+        if helper_func.chkreg("",adv_mode):
             custom_name = input("Enter your custom username: ")
             data.update({"custom_name": f"&custom={custom_name}"})
             data.update({"lockit": f"{get_password()}"})

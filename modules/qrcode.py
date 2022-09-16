@@ -61,9 +61,9 @@ def gifout(value):
 def roulette(value):
     askimg = input("Do you want custom img or gif as output? [yes/no]: ")
     try:
-        if helper_func.chkreg(askimg):
+        if helper_func.chkreg("",askimg):
             asktype = input("Do you want gif as output? [yes/no]: ")
-            if helper_func.chkreg(asktype):
+            if helper_func.chkreg("",asktype):
                 return gifout(value)
             else:
                 return imageout(value)
