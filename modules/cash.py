@@ -17,9 +17,9 @@ def country():
     [5] Malaysian Ringgit  [17] Euro                   [29] Australian Dollar    [41] Swedish Krona      [53] South Korean Won
     [6] Nigerian Naira     [18] British Pound Sterling [30] Barbadian Dollar     [42] Singapore Dollar   [54] United States Dollar
     [7] Norwegian Krone    [19] Hong Kong Dollar       [31] Bangladeshi Taka     [43] Syrian Pound       [55] Vietnamese Dong
-    [8] Nepalese Rupee     [20] Indonesian Rupiah      [32] Bulgarian Lev        [44] Tajikistani Somoni [56] South African Rand
+    [8] Nepalese Rupee     [20] Indonesian Rupiah      [32] Bitcoin              [44] Tajikistani Somoni [56] South African Rand
     [9] New Zealand Dollar [21] Israeli New Sheqel     [33] Brazilian Real       [45] Tunisian Dinar     [57] Zambian Kwacha
-    [10] Philippine Peso   [22] Indian Rupee           [34] Bhutanese Ngultrum   [46] Turkish Lira       [58] Zimbabwean Dollar
+    [10] Philippine Peso   [22] Indian Rupee           [34] Dogecoin             [46] Turkish Lira       [58] Zimbabwean Dollar
     [11] Pakistani Rupee   [23] Iraqi Dinar            [35] Canadian Dollar      [47] New Taiwan Dollar
     [12] Qatari Rial       [24] Iranian Rial           [36] Swiss Franc          [48] Ukrainian Hryvnia
     '''
@@ -27,33 +27,25 @@ def country():
 
 
 def controller(money):
-    if token := helper_func.get_token("Cash_token"):
         try:
-            from_country = engine("from")
-            to_country = engine("to")
-            url = f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={from_country}&to_currency={to_country}&apikey={token}'
+            from_country = engine("from").lower()
+            to_country = engine("to").lower()
+            url=f'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/{from_country}/{to_country}.json'
             data = requests.get(url).json()
-            primary_code = data['Realtime Currency Exchange Rate']['1. From_Currency Code']
-            primary_name = data['Realtime Currency Exchange Rate']['2. From_Currency Name']
-            secondary_code = data['Realtime Currency Exchange Rate']['3. To_Currency Code']
-            secondary_name = data['Realtime Currency Exchange Rate']['4. To_Currency Name']
             currency = float(
-                data['Realtime Currency Exchange Rate']['5. Exchange Rate'])
+                data[to_country])
             calculator = round(currency * float(money), 6)
-            print(
-                f"{money} {primary_name}[{primary_code}] equals {calculator} {secondary_name}[{secondary_code}]")
+            cprint(
+                f"{money} {from_country} equals {calculator} {to_country}",'green')
         except KeyError:
             return cprint("Invalid token", 'red')
         except requests.exceptions.ConnectionError:
             return cprint("We can’t connect to the bank server at the moment due to a network issue!", 'red')
 
-    return cprint("Please provide the token!", 'red')
-
-
 def engine(get):
     try:
-        ask = int(input(
-            f"Enter the corresponding country digits you want to convert {get}: "))
+        ask = abs(int(input(
+            f"Enter the corresponding country digits you want to convert {get}: ")))
         if ask == 1:
             #  print("Kuwaiti Dinar")
             return "KWD"
@@ -148,14 +140,14 @@ def engine(get):
             # print("Bangladeshi Taka")
             return "BDT"
         elif ask == 32:
-            # print("Bulgarian Lev")
-            return "BGN"
+            # print("Bitcoin")
+            return "BTC"
         elif ask == 33:
             # print("Brazilian Real")
             return "BRL"
         elif ask == 34:
-            # print("Bhutanese Ngultrum")
-            return "BTN"
+            # print("Dogecoin")
+            return "DOGE"
         elif ask == 35:
             # print("Canadian Dollar")
             return "CAD"
@@ -228,19 +220,18 @@ def engine(get):
         elif ask == 58:
             # print("Zimbabwean Dollar")
             return "ZWL"
-        else:
-            cprint("Wrong input", 'red')
-            return None
     except ValueError:
-        return cprint("Please enter the country corresponding digit!", 'red')
+        cprint("Please enter the country corresponding digit!", 'red')
+        main()
 
 
 def main():
     try:
         country()
-        controller(int(input("Enter the amount to convert: ")))
+        controller(float(input("Enter the amount to convert: ")))
     except ValueError:
         cprint("Please! enter the number to be converted!", 'red')
+        main()
     except KeyboardInterrupt:
         print("Exiting from the script....")
         sys.exit(1)
