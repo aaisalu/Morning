@@ -39,9 +39,8 @@ def create_folder(file_name):
         return Path
 
 
-def chkreg(answer):
-    return re.search("yes|1|yep|sure|True|yess|hellyeah|yeah|r|refresh|y", f'{answer}', flags=re.IGNORECASE)
-
+def chkreg(string,answer):
+   return re.search(f"{string if string else 'yes|1|yep|sure|True|hellyeah|yeah|y|yea|yup'}", answer, flags=re.IGNORECASE)
 
 def slugify(data, allow_unicode=False):
     """
