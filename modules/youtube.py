@@ -43,11 +43,11 @@ def mp3(url, save_out, count):
 
 def solo_video(url, save_out, count):
     try:
-        titles = f"{count if count else 1}. Title: {header(url)[0]}\n{header(url)[1]}"
+        titles = f"Title: {header(url)[0]}\n{header(url)[1]}"
         cprint(titles, 'green')
         YouTube(url, on_progress_callback=on_progress).streams.get_highest_resolution(
         ).download(helper_func.create_folder(rf"Youtube\{save_out}"))
-        cprint(":) \n", 'cyan')
+        cprint(f":) {count if count else 1} \n", 'cyan')
     except pytube.exceptions.LiveStreamError:
         cprint(
             f"Unable to download {header(url)[0]} as it's streaming live..", 'red')
@@ -70,11 +70,15 @@ def playlists(link, ask):
             mp3(music_url, f'Audios\{yt.author}', f'{count}/{final_count}')
     else:
         cprint("Starting to download videos in 720p\n", 'yellow')
+        threads=[]
         for count, video_url in enumerate(playlist.video_urls, start=1):
             yt = YouTube(video_url)
-            Thread(target=solo_video, args=(
-                video_url, f'Videos\{yt.author}', f'{count}/{final_count}',)).start()
-
+            th=Thread(target=solo_video, args=(
+                video_url, f'Videos\{yt.author}', f'{count}/{final_count}',))
+            threads.append(th)
+            th.start()
+        for k in threads:
+            k.join()
 
 def askuser(link, ask):
     try:
