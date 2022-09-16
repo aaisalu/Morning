@@ -26,22 +26,6 @@ def country():
     return cprint(source, 'green')
 
 
-def controller(money):
-        try:
-            from_country = engine("from").lower()
-            to_country = engine("to").lower()
-            url=f'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/{from_country}/{to_country}.json'
-            data = requests.get(url).json()
-            currency = float(
-                data[to_country])
-            calculator = round(currency * float(money), 6)
-            cprint(
-                f"{money} {from_country} equals {calculator} {to_country}",'green')
-        except KeyError:
-            return cprint("Invalid token", 'red')
-        except requests.exceptions.ConnectionError:
-            return cprint("We can’t connect to the bank server at the moment due to a network issue!", 'red')
-
 def engine(get):
     try:
         ask = abs(int(input(
@@ -224,11 +208,36 @@ def engine(get):
         cprint("Please enter the country corresponding digit!", 'red')
         main()
 
+def connect_cloud(from_country,to_country):
+    try:
+        url=f'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/{from_country}/{to_country}.json'
+        data = requests.get(url).json()
+        currency = float(data[to_country])
+        return currency
+    except requests.exceptions.ConnectionError:
+        return cprint("We can’t connect to the bank server at the moment due to a network issue!", 'red')
+
+def ask_user(answer):
+    user_money=int(input("Enter the amount to convert: "))
+    if helper_func.chkreg("",answer):
+        from_country = engine("from").lower()
+        to_country = engine("to").lower()
+        currency=connect_cloud(from_country,to_country)
+        calculate(from_country,to_country,currency,user_money)
+    else:
+        from_country = input("Enter the currency or country code from which you want to convert: ")
+        to_country = input("To which currency or country code you want to convert: ")
+        currency=connect_cloud(from_country,to_country)
+        calculate(from_country,to_country,currency,user_money)
+
+def calculate(from_country,to_country,currency,user_money):
+    calculator = round(currency * float(user_money), 6)
+    return cprint(f"{user_money} {from_country} equals {calculator} {to_country}",'green')
 
 def main():
     try:
-        country()
-        controller(float(input("Enter the amount to convert: ")))
+       country()
+       ask_user(input("Did you find your country in above list? "))
     except ValueError:
         cprint("Please! enter the number to be converted!", 'red')
         main()
