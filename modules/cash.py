@@ -10,6 +10,7 @@ def country():
     source = '''
                                                             WELCOME TO THE
                                                     CENTRAL BANK OF PROJECT MORNING
+
     [1] Kuwaiti Dinar      [13] Chinese Yuan           [25] United Arab Emirates [37] Romanian Leu       [49] Jamaican Dollar
     [2] Sri Lankan Rupee   [14] Czech Republic Koruna  [26] Afghan Afghani       [38] Russian Ruble      [50] Japanese Yen
     [3] Mongolian Tugrik   [15] Egyptian Pound         [27] Netherlands Guilder  [39] Saudi Riyal        [51] Cambodian Riel
@@ -28,7 +29,7 @@ def country():
 
 def engine(get):
     try:
-        ask = abs(int(input(
+        ask = abs(float(input(
             f"Enter the corresponding country digits you want to convert {get}: ")))
         if ask == 1:
             #  print("Kuwaiti Dinar")
@@ -103,7 +104,7 @@ def engine(get):
             # print("Iranian Rial")
             return "IRR"
         elif ask == 25:
-            # print("    United Arab Emirates Dirham")
+            # print("United Arab Emirates Dirham")
             return "AED"
         elif ask == 26:
             # print("Afghan Afghani")
@@ -211,14 +212,16 @@ def engine(get):
 def connect_cloud(from_country,to_country):
     try:
         url=f'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/{from_country}/{to_country}.json'
-        data = requests.get(url).json()
-        currency = float(data[to_country])
-        return currency
+        data = requests.get(url).json() if requests.get(url).status_code==200 else None
+        if data:
+            return float(data[to_country])
+        cprint("Currency code not supported!",'red')
+        ask_user("No")
     except requests.exceptions.ConnectionError:
         return cprint("We can’t connect to the bank server at the moment due to a network issue!", 'red')
 
 def ask_user(answer):
-    user_money=int(input("Enter the amount to convert: "))
+    user_money=float(input("Enter the amount to convert: "))
     if helper_func.chkreg("",answer):
         from_country = engine("from").lower()
         to_country = engine("to").lower()
@@ -231,7 +234,7 @@ def ask_user(answer):
         calculate(from_country,to_country,currency,user_money)
 
 def calculate(from_country,to_country,currency,user_money):
-    calculator = round(currency * float(user_money), 6)
+    calculator = round(currency * user_money, 6)
     return cprint(f"{user_money} {from_country} equals {calculator} {to_country}",'green')
 
 def main():
@@ -240,7 +243,7 @@ def main():
        ask_user(input("Did you find your country in above list? "))
     except ValueError:
         cprint("Please! enter the number to be converted!", 'red')
-        main()
+        sys.exit(1)
     except KeyboardInterrupt:
         print("Exiting from the script....")
         sys.exit(1)
