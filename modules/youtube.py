@@ -23,11 +23,11 @@ def header(url):
 
 def mp3(url, save_out, count):
     try:
-        titles = f"{count if count else 1}. Title: {header(url)[0]}\n{header(url)[1]}"
+        titles = f"Title: {header(url)[0]}\n{header(url)[1]}"
         cprint(titles, 'green')
         out_file = YouTube(url, on_progress_callback=on_progress).streams.filter(
             only_audio=True).first().download(helper_func.create_folder(rf"Youtube\{save_out}"))
-        cprint(":) \n", 'cyan')
+        cprint(f":) {count if count else 1} \n", 'cyan')
         base, ext = os.path.splitext(out_file)
         new_file = base + '.mp3'
         os.rename(out_file, new_file)
@@ -63,22 +63,24 @@ def playlists(link, ask):
     playlist = Playlist(link)
     cprint('\nNumber of videos in playlist: %s' %
            (final_count := len(playlist.video_urls)), 'blue')
+    threads=[]
     if regex_audio(ask):
         cprint("Starting to download MP3s of the videos\n", 'yellow')
         for count, music_url in enumerate(playlist.video_urls, start=1):
             yt = YouTube(music_url)
-            mp3(music_url, f'Audios\{yt.author}', f'{count}/{final_count}')
+            th=Thread(target=mp3,args=(music_url, f'Audios\{yt.author}', f'{count}/{final_count}',))
+            threads.append(th)
+            th.start()
     else:
         cprint("Starting to download videos in 720p\n", 'yellow')
-        threads=[]
         for count, video_url in enumerate(playlist.video_urls, start=1):
             yt = YouTube(video_url)
             th=Thread(target=solo_video, args=(
                 video_url, f'Videos\{yt.author}', f'{count}/{final_count}',))
             threads.append(th)
             th.start()
-        for k in threads:
-            k.join()
+    for k in threads:
+         k.join()
 
 def askuser(link, ask):
     try:
@@ -111,9 +113,8 @@ t2 = time.perf_counter()
 def main():
     try:
         roulette(str(input("Enter the link to the Youtube video: ")))
+        cprint(f'It took {t2-t1} seconds to download!\n', 'cyan')
         helper_func.view_file(helper_func.Path)
-        # cprint(
-        #     f'It took {t2-t1} seconds to download!\n', 'green')
     except (NameError, AttributeError):
         cprint(
             "Some of your input or your network connection looks fishy as my AI smells it..", 'red')
