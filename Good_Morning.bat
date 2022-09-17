@@ -981,12 +981,15 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo[
         echo    Press 1 = Bitly URL Shortener
         echo    Press 2 = Calculate love
+        echo    Press 3 = Currency converter
         echo    [90mPress 0 = Depart[0m
             set /P msa= Welcome, Which API project would you like to use ?[1/2]:
         if /I "%msa%" EQU "1" (
         goto:shortenurlbitly
         ) else if /I "%msa%" EQU "2" (
          goto:lovecalculate
+        ) else if /I "%msa%" EQU "3" (
+         goto:cashconvert
         ) else if /I "%msa%" EQU "0" (
          goto:pyproj
         ) else (
@@ -1004,6 +1007,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo[
             echo I'm here because you want calculate your love percentage
             cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python lovers.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+            pause
+            goto:miscapi
+        :cashconvert
+            @echo off
+            echo[
+            echo I'm here because you want convert Currency
+            cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python cash.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
             pause
             goto:miscapi
 
