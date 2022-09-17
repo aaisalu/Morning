@@ -27,7 +27,7 @@ def html(data):
 '''
     shugified=helper_func.slugify(title_book)
     create_folder=helper_func.create_folder(fr"Library/{shugified}_{randint(0, 1000)}_books")
-    with open(rf'{create_folder}/{shugified}.html', 'w') as copy:
+    with open(rf'{create_folder}/{shugified}.html', 'w',encoding="UTF-8") as copy:
         copy.write(htmls)
     webbrowser.open(f"{helper_func.Path}/{shugified}.html")
 
