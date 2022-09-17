@@ -5,6 +5,7 @@ import helper_func
 import colorama
 from termcolor import cprint
 import sys
+from random import randint
 
 colorama.init()
 get_rawdata = LibgenSearch()
@@ -24,9 +25,11 @@ def html(data):
 </body>
 </html>
 '''
-    with open("testdata.html", 'w') as kaka:
-        kaka.write(htmls)
-    webbrowser.open(r"testdata.html")
+    shugified=helper_func.slugify(title_book)
+    create_folder=helper_func.create_folder(fr"Library/{shugified}_{randint(0, 1000)}_books")
+    with open(rf'{create_folder}/{shugified}.html', 'w') as copy:
+        copy.write(htmls)
+    webbrowser.open(f"{helper_func.Path}/{shugified}.html")
 
 
 def process_it(chunk):
@@ -80,6 +83,7 @@ def adv_mode(title_book):
        process_it(get_rawdata.search_title(title_book))
 
 def ask_user():
+    global title_book
     title_book= input("Enter the book title: ")
     if len(title_book)>=3:
         return adv_mode(title_book) if helper_func.chkreg("",(input('Do you want to enable advanced book search? [Y/N]: '))) else process_it(get_rawdata.search_title(title_book))
