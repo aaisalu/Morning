@@ -2,6 +2,8 @@ from libgen_api.libgen_search import LibgenSearch
 from tabulate import tabulate
 import webbrowser
 import helper_func
+import colorama
+from termcolor import cprint
 
 get_rawdata = LibgenSearch()
 
@@ -53,20 +55,23 @@ def process_it(chunk):
 
 def adv_mode(title_book):
     book_filters=dict()
+    cprint("\n\tNote: Press Enter to skip the section if you're unsure of the value\n",'green')
     try:
         year=input("In which year book was published ?: ")
         if len(year)>=3:
             book_filters.update({"Year": year})
     except:
-        print('As the book, pubished year is not well defined so, excluding it.')
+        cprint('As the book, pubished year is not well defined so, excluding it.','yellow')
     try:
+        book_filters.update({"Language": lang,}) if (lang:=input("Enter the language of the book: ").lower()) else book_filters.update({"Language": "English",})
         extension=input("Which file format would you like to choose? [pdf/epub]: ").lower()
         if extension in ['pdf', 'ext']:
             book_filters.update({"Extension": extension})
     except:
-        print('Error selecting file format between pdf & epub so, excluding it.')
+        cprint('Error selecting file format between pdf & epub so, excluding it.','yellow')
     if book_filters:
-        exact_filter=True if helper_func.chkreg("",input("Do you want to enable exact match filers? [Yes/No]: ")) else False
+        cprint("\n\tNote: Turning on the strict match filter might show 0 results depending upon your filers..so press enter to skip the match section.\n",'yellow')
+        exact_filter=True if helper_func.chkreg("",input("Do you want to enable strict match filters? [Y/N]: ")) else False
         adv_filter = get_rawdata.search_title_filtered(title_book, book_filters, exact_match=exact_filter)
         process_it(adv_filter)
     else:
@@ -75,8 +80,8 @@ def adv_mode(title_book):
 def ask_user():
     title_book= input("Enter the book title: ")
     if len(title_book)>=3:
-        return adv_mode(title_book) if helper_func.chkreg("",(input('Do you want to enable advanced book search? [Yes/No]: '))) else process_it(get_rawdata.search_title(title_book))
-    print("Please enter at least 3 character book names!")
+        return adv_mode(title_book) if helper_func.chkreg("",(input('Do you want to enable advanced book search? [Y/N]: '))) else process_it(get_rawdata.search_title(title_book))
+    cprint("Please enter at least 3 character book names!",'red')
     return ask_user()
 
 
