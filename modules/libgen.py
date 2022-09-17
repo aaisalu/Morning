@@ -58,7 +58,7 @@ def adv_mode(title_book):
         if len(year)>=3:
             book_filters.update({"Year": year})
     except:
-        print('As the book pubished year is not well defined so, excluding it.')
+        print('As the book, pubished year is not well defined so, excluding it.')
     try:
         extension=input("Which file format would you like to choose? [pdf/epub]: ").lower()
         if extension in ['pdf', 'ext']:
@@ -67,7 +67,7 @@ def adv_mode(title_book):
         print('Error selecting file format between pdf & epub so, excluding it.')
     if book_filters:
         exact_filter=True if helper_func.chkreg("",input("Do you want to enable exact match filers? [Yes/No]: ")) else False
-        adv_filter = get_rawdata.search_title_filtered(" Pride and Prejudice", book_filters, exact_match=exact_filter)
+        adv_filter = get_rawdata.search_title_filtered(title_book, book_filters, exact_match=exact_filter)
         process_it(adv_filter)
     else:
        process_it(get_rawdata.search_title(title_book))
@@ -75,8 +75,8 @@ def adv_mode(title_book):
 def ask_user():
     title_book= input("Enter the book title: ")
     if len(title_book)>=3:
-        return adv_mode(title_book) if helper_func.chkreg("",(input('Do you want to enable advance book search? [Yes/No]: '))) else process_it(get_rawdata.search_title(title_book))
-    print("Please enter at least 3 character book name!!")
+        return adv_mode(title_book) if helper_func.chkreg("",(input('Do you want to enable advanced book search? [Yes/No]: '))) else process_it(get_rawdata.search_title(title_book))
+    print("Please enter at least 3 character book names!")
     return ask_user()
 
 
