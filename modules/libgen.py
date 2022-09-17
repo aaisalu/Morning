@@ -33,31 +33,32 @@ def html(data):
 
 
 def process_it(chunk):
-    body = []
-    for bit in chunk:
-        resolved_download_links = get_rawdata.resolve_download_links(bit)
-        resolved_get = resolved_download_links['GET']
-        unique_id = bit['ID']
-        Title = f"<a class='link_title' href={resolved_get} target='_blank'>{bit['Title']}</a>"
-        Author = bit['Author']
-        Publisher = bit['Publisher']
-        Year = bit['Year']
-        Pages = bit['Pages']
-        Language = bit['Language']
-        Size = bit['Size']
-        Extension = bit['Extension']
-        resolved_cloudfare = resolved_download_links['Cloudflare']
-        resolved_ipfs = resolved_download_links['IPFS.io']
-        Donwload_links = f"<a class='resolved_links' href={resolved_cloudfare} target='_blank'>Link 1</a></br><a class='resolved_links' href={resolved_ipfs} target='_blank'>Link 2</a>"
-        Donwload_mirror = f"<a class='mirror_links' href={bit['Mirror_1']} target='_blank'>Mirror 1</a>&nbsp&nbsp<a class='mirror_links' href={bit['Mirror_2']} target='_blank'>Mirror 2</a></br><a class='mirror_links' href={bit['Mirror_3']} target='_blank'>Mirror 3</a>&nbsp&nbsp<a class='mirror_links' href={bit['Mirror_4']} target='_blank'>Mirror 4</a>"
-        columns = unique_id, Title, Author, Publisher, Year, Pages, Language, Size, Extension, Donwload_links, Donwload_mirror
-        body.append(columns)
-    headers = ["ID", "Title", "Author", "Publisher", "Year",
-               "Pages", "Language", "Size", "Extension", "Donwload Link", "Mirror Link"]
-    formatted = tabulate(body, headers,  tablefmt="unsafehtml")
-    html(formatted)
-
-
+    if chunk:
+        body = []
+        for bit in chunk:
+            resolved_download_links = get_rawdata.resolve_download_links(bit)
+            resolved_get = resolved_download_links['GET']
+            unique_id = bit['ID']
+            Title = f"<a class='link_title' href={resolved_get} target='_blank'>{bit['Title']}</a>"
+            Author = bit['Author']
+            Publisher = bit['Publisher']
+            Year = bit['Year']
+            Pages = bit['Pages']
+            Language = bit['Language']
+            Size = bit['Size']
+            Extension = bit['Extension']
+            resolved_cloudfare = resolved_download_links['Cloudflare']
+            resolved_ipfs = resolved_download_links['IPFS.io']
+            Donwload_links = f"<a class='resolved_links' href={resolved_cloudfare} target='_blank'>Link 1</a></br><a class='resolved_links' href={resolved_ipfs} target='_blank'>Link 2</a>"
+            Donwload_mirror = f"<a class='mirror_links' href={bit['Mirror_1']} target='_blank'>Mirror 1</a>&nbsp&nbsp<a class='mirror_links' href={bit['Mirror_2']} target='_blank'>Mirror 2</a></br><a class='mirror_links' href={bit['Mirror_3']} target='_blank'>Mirror 3</a>&nbsp&nbsp<a class='mirror_links' href={bit['Mirror_4']} target='_blank'>Mirror 4</a>"
+            columns = unique_id, Title, Author, Publisher, Year, Pages, Language, Size, Extension, Donwload_links, Donwload_mirror
+            body.append(columns)
+        headers = ["ID", "Title", "Author", "Publisher", "Year",
+                "Pages", "Language", "Size", "Extension", "Donwload Link", "Mirror Link"]
+        formatted = tabulate(body, headers,  tablefmt="unsafehtml")
+        html(formatted)
+    else:
+        return cprint(f'No results for {title_book} in our database...Try checking your spelling or use advanced search mode.\n','red')
 def adv_mode(title_book):
     book_filters=dict()
     cprint("\n\tNote: Press Enter to skip the section if you're unsure of the value\n",'green')
