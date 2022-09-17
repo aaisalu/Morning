@@ -38,7 +38,7 @@ def process_it(chunk):
         resolved_download_links = get_rawdata.resolve_download_links(bit)
         resolved_get = resolved_download_links['GET']
         unique_id = bit['ID']
-        Title = f"<a class='resolved_links' href={resolved_get} target='_blank'>{bit['Title']}</a>"
+        Title = f"<a class='link_title' href={resolved_get} target='_blank'>{bit['Title']}</a>"
         Author = bit['Author']
         Publisher = bit['Publisher']
         Year = bit['Year']
