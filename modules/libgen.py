@@ -4,7 +4,9 @@ import webbrowser
 import helper_func
 import colorama
 from termcolor import cprint
+import sys
 
+colorama.init()
 get_rawdata = LibgenSearch()
 
 def html(data):
@@ -84,5 +86,14 @@ def ask_user():
     cprint("Please enter at least 3 character book names!",'red')
     return ask_user()
 
+def main():
+    try:
+        ask_user()
+    except KeyboardInterrupt:
+        print("Exiting from the script....")
+        sys.exit(1)
+    sys.exit(0)
 
-ask_user()
+
+if __name__ == "__main__":
+    main()
