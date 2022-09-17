@@ -207,7 +207,7 @@ def engine(get):
             return "ZWL"
     except ValueError:
         cprint("Please enter the country corresponding digit!", 'red')
-        main()
+        sys.exit(1)
 
 def connect_cloud(from_country,to_country):
     try:
@@ -235,12 +235,12 @@ def ask_user(answer):
 
 def calculate(from_country,to_country,currency,user_money):
     calculator = round(currency * user_money, 6)
-    return cprint(f"{user_money} {from_country} equals {calculator} {to_country}",'green')
+    return cprint(f"\n\t{user_money} {from_country} equals {calculator} {to_country}\n",'green')
 
 def main():
     try:
        country()
-       ask_user(input("Did you find your country in above list? "))
+       ask_user(input("Did you find your country in above list? [y/n]"))
     except ValueError:
         cprint("Please! enter the number to be converted!", 'red')
         sys.exit(1)
