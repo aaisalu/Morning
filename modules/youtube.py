@@ -113,8 +113,8 @@ t2 = time.perf_counter()
 def main():
     try:
         roulette(str(input("Enter the link to the Youtube video: ")))
-        cprint(f'It took {t2-t1} seconds to download!\n', 'cyan')
         helper_func.view_file(helper_func.Path)
+        cprint(f'It took {t2-t1} seconds to download!\n', 'cyan')
     except (NameError, AttributeError):
         cprint(
             "Some of your input or your network connection looks fishy as my AI smells it..", 'red')
