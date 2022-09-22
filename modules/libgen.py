@@ -5,6 +5,7 @@ import helper_func
 import colorama
 from termcolor import cprint
 import sys
+import requests
 from random import randint
 
 colorama.init()
@@ -108,7 +109,10 @@ def main():
     try:
         book_search()
     except KeyboardInterrupt:
-        print("Exiting from the script....")
+        cprint("Exiting from the script....", 'red')
+        sys.exit(1)
+    except requests.exceptions.ConnectionError:
+        cprint("\nPlease check your internet connection!", 'red')
         sys.exit(1)
     sys.exit(0)
 
