@@ -25,7 +25,7 @@ def html(data):
 </body>
 </html>
 '''
-    shugified=helper_func.slugify(title_book)
+    shugified=helper_func.slugify(book_title)
     create_folder=helper_func.create_folder(fr"Library/{shugified}_{randint(0, 1000)}_books")
     with open(rf'{create_folder}/{shugified}.html', 'w',encoding="UTF-8") as copy:
         copy.write(htmls)
@@ -58,12 +58,14 @@ def process_it(chunk):
         formatted = tabulate(body, headers,  tablefmt="unsafehtml")
         html(formatted)
     else:
-        return cprint(f'No results for {title_book} in our database...Try checking your spelling or use advanced search mode.\n','red')
-def adv_mode(title_book):
+        cprint(f'No results for {book_title} in our database...Try checking your spelling or use advanced search mode.\n','red')
+        return author_search() if helper_func.chkreg("",(input('Do you want to search book by author name? [Y/N]: '))) else sys.exit(1)
+
+def adv_mode(book_info,search_mode):
     book_filters=dict()
     cprint("\n\tNote: Press Enter to skip the section if you're unsure of the value\n",'green')
     try:
-        year=input("In which year book was published ?: ")
+        year=int(input("In which year book was published ?: "))
         if len(year)>=3:
             book_filters.update({"Year": year})
     except:
@@ -76,24 +78,35 @@ def adv_mode(title_book):
     except:
         cprint('Error selecting file format between pdf & epub so, excluding it.','yellow')
     if book_filters:
-        cprint("\n\tNote: Turning on the strict match filter might show 0 results depending upon your filers..so press enter to skip the match section.\n",'yellow')
+        cprint("\n\tNote: Turning on the strict match filter might show 0 results depending upon your filers..so press enter to skip the match section.\n",'blue')
         exact_filter=True if helper_func.chkreg("",input("Do you want to enable strict match filters? [Y/N]: ")) else False
-        adv_filter = get_rawdata.search_title_filtered(title_book, book_filters, exact_match=exact_filter)
-        process_it(adv_filter)
+        if "search_author" in search_mode:
+            process_it(get_rawdata.search_author_filtered(book_info, book_filters,exact_match=exact_filter))
+        else:
+            process_it(get_rawdata.search_title_filtered(book_info, book_filters,exact_match=exact_filter))
     else:
-       process_it(get_rawdata.search_title(title_book))
+       process_it(f"get_rawdata.{search_mode}({book_info})")
 
-def ask_user():
-    global title_book
-    title_book= input("Enter the book title: ")
-    if len(title_book)>=3:
-        return adv_mode(title_book) if helper_func.chkreg("",(input('Do you want to enable advanced book search? [Y/N]: '))) else process_it(get_rawdata.search_title(title_book))
+def author_search():
+    global author_name
+    author_name=input("Enter the book author name: ").strip()
+    if len(author_name)>=3:
+        return adv_mode(author_name,'search_author') if helper_func.chkreg("",(input('Do you want to enable advanced book search? [Y/N]: '))) else process_it(get_rawdata.search_author(author_name))
+    cprint("Author name must be at least 3 words",'red')
+    return author_search()
+
+
+def book_search():
+    global book_title
+    book_title= input("Enter the book title: ").strip()
+    if len(book_title)>=3:
+        return adv_mode(book_title,'search_title') if helper_func.chkreg("",(input('Do you want to enable advanced book search? [Y/N]: '))) else process_it(get_rawdata.search_title(book_title))
     cprint("Please enter at least 3 character book names!",'red')
-    return ask_user()
+    return book_search()
 
 def main():
     try:
-        ask_user()
+        book_search()
     except KeyboardInterrupt:
         print("Exiting from the script....")
         sys.exit(1)
