@@ -36,7 +36,7 @@ def html(data):
 def process_it(chunk):
     if chunk:
         body = []
-        for bit in chunk:
+        for index,bit in enumerate(chunk, start=1):
             resolved_download_links = get_rawdata.resolve_download_links(bit)
             resolved_get = resolved_download_links['GET']
             unique_id = bit['ID']
@@ -51,10 +51,10 @@ def process_it(chunk):
             resolved_cloudfare = resolved_download_links['Cloudflare']
             resolved_ipfs = resolved_download_links['IPFS.io']
             Donwload_links = f"<a class='resolved_links' href={resolved_cloudfare} target='_blank'>Link 1</a></br><a class='resolved_links' href={resolved_ipfs} target='_blank'>Link 2</a>"
-            Donwload_mirror = f"<a class='mirror_links' href={bit['Mirror_1']} target='_blank'>Mirror 1</a>&nbsp&nbsp<a class='mirror_links' href={bit['Mirror_2']} target='_blank'>Mirror 2</a></br><a class='mirror_links' href={bit['Mirror_3']} target='_blank'>Mirror 3</a>&nbsp&nbsp<a class='mirror_links' href={bit['Mirror_4']} target='_blank'>Mirror 4</a>"
-            columns = unique_id, Title, Author, Publisher, Year, Pages, Language, Size, Extension, Donwload_links, Donwload_mirror
+            Donwload_mirror = f"<a class='mirror_links' href={bit['Mirror_1']} target='_blank'>Mirror 1</a></br><a class='mirror_links' href={bit['Mirror_2']} target='_blank'>Mirror 2</a></br><a class='mirror_links' href={bit['Mirror_3']} target='_blank'>Mirror 3</a></br><a class='mirror_links' href={bit['Mirror_4']} target='_blank'>Mirror 4</a>"
+            columns = index,unique_id, Title, Author, Publisher, Year, Pages, Language, Size, Extension, Donwload_links, Donwload_mirror
             body.append(columns)
-        headers = ["ID", "Title", "Author", "Publisher", "Year",
+        headers = ["S.N","ID", "Title", "Author", "Publisher", "Year",
                 "Pages", "Language", "Size", "Extension", "Donwload Link", "Mirror Link"]
         formatted = tabulate(body, headers,  tablefmt="unsafehtml")
         html(formatted)
