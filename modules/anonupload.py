@@ -8,7 +8,7 @@ import sys
 colorama.init()
 
 
-def anon_data(data):
+def anon_data(data,readable_size):
     if data['status']:
         full_url = data['data']['file']["url"]['full']
         shrink_url = helper_func.shrink_it(full_url)
@@ -16,12 +16,12 @@ def anon_data(data):
         file_name = data['data']['file']["metadata"]['name']
         file_size = data['data']['file']["metadata"]['size']['readable']
         pyperclip.copy(full_url)
-        table = [[ file_name, shrink_url, file_size]]
+        table = [[ file_name, shrink_url, readable_size]]
         headers = ["File Name",
                    "Download Link", "Size"]
         helper_func.tabuate_it(table, headers, 'green')
         write_it(
-            f'Uploaded to: anonfiles server\nUnique ID: {unique_id}\nFile Name: {file_name}\nFile_size: {file_size}\nDownload Link: {full_url}\n\n')
+            f'Uploaded to: anonfiles server\nUnique ID: {unique_id}\nFile Name: {file_name}\nFile_size: {readable_size}\nDownload Link: {full_url}\n\n')
     else:
         anon_error(data)
 
@@ -41,7 +41,7 @@ def write_it(content):
         note.write(content)
 
 
-def fileio_data(data):
+def fileio_data(data,readable_size):
     if data['success']:
         unique_id = data['id']
         file_type = data['nodeType']
@@ -54,13 +54,13 @@ def fileio_data(data):
         file_delete = data['autoDelete']
         file_created = data['created']
         pyperclip.copy(full_url)
-        table = [[file_name, shrink_url, file_size,
+        table = [[file_name, shrink_url, readable_size,
                   expiry_date, file_delete]]
         headers = ["File Name",
                    "Download Link", "Size", "File expiration date", "Auto Delete"]
         helper_func.tabuate_it(table, headers, 'green')
         write_it(
-            f'Uploaded to: file.io server\nUnique ID: {unique_id}\nUnique key: {unique_key}\nFile Name: {file_name}\nFile_size: {file_size}\nDownload Link: {full_url}\nFile expiration date: {expiry_date}\nAuto Delete: {file_delete}\nFile uploaded date: {file_created}\n\n')
+            f'Uploaded to: file.io server\nUnique ID: {unique_id}\nUnique key: {unique_key}\nFile Name: {file_name}\nFile_size: {readable_size}\nDownload Link: {full_url}\nFile expiration date: {expiry_date}\nAuto Delete: {file_delete}\nFile uploaded date: {file_created}\n\n')
     else:
         fileio_error(data)
 
@@ -76,6 +76,7 @@ def fileio_error(data):
 
 def redirect_it(url, abs_path):
     open_file = open(abs_path, "rb")
+    readable_size=helper_func.convert_bytes(Path(abs_path).stat().st_size)
     files = {'file': open_file}
     cprint('\nPlease wait.. uploading your files to the server', 'green')
     cprint("This might take several minutes depending upon your file size & your internet speed\n", 'green')
@@ -83,10 +84,10 @@ def redirect_it(url, abs_path):
         raw_data = requests.post(url, files=files).json()
         if "file.io" in url:
             cprint("Files are uploaded to the file.io server ", 'yellow')
-            fileio_data(raw_data)
+            fileio_data(raw_data,readable_size)
         else:
             cprint("Files are uploaded to the anon server ", 'yellow')
-            anon_data(raw_data)
+            anon_data(raw_data,readable_size)
     except requests.exceptions.SSLError:
         return cprint('Max retries exceeded with url', 'red')
 
