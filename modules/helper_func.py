@@ -74,3 +74,10 @@ def shrink_it(url):
 def threading(strike, arg, kwargs):
     thread = Thread(target=strike, args=(arg, kwargs,))
     return thread.start()
+
+def convert_bytes(bytes):
+    # Thanks to Rajiv Sharma at stackoverflow.com/a/39988702
+    for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
+        if bytes < 1024.0:
+            return "%3.1f %s" % (bytes, x)
+        bytes /= 1024.0
