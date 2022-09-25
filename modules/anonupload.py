@@ -16,8 +16,8 @@ def anon_data(data):
         file_name = data['data']['file']["metadata"]['name']
         file_size = data['data']['file']["metadata"]['size']['readable']
         pyperclip.copy(full_url)
-        table = [[unique_id, file_name, shrink_url, file_size]]
-        headers = ["Unique ID", "File Name",
+        table = [[ file_name, shrink_url, file_size]]
+        headers = ["File Name",
                    "Download Link", "Size"]
         helper_func.tabuate_it(table, headers, 'green')
         write_it(
@@ -54,9 +54,9 @@ def fileio_data(data):
         file_delete = data['autoDelete']
         file_created = data['created']
         pyperclip.copy(full_url)
-        table = [[unique_key, file_name, shrink_url, file_size,
+        table = [[file_name, shrink_url, file_size,
                   expiry_date, file_delete]]
-        headers = ["Unique key", "File Name",
+        headers = ["File Name",
                    "Download Link", "Size", "File expiration date", "Auto Delete"]
         helper_func.tabuate_it(table, headers, 'green')
         write_it(
