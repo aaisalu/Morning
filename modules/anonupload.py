@@ -78,7 +78,7 @@ def redirect_it(url, abs_path):
     open_file = open(abs_path, "rb")
     readable_size=helper_func.convert_bytes(Path(abs_path).stat().st_size)
     files = {'file': open_file}
-    cprint(f"\nPlease wait.. uploading your files to the {'files.io' if 'file.io' in url else 'anon server'} server", 'green')
+    cprint(f"\nPlease wait.. uploading your files to the {'files.io' if 'file.io' in url else 'anon'} server", 'green')
     cprint("This might take several minutes depending upon your file size & your internet speed\n", 'green')
     try:
         raw_data = requests.post(url, files=files).json()
