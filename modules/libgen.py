@@ -7,11 +7,13 @@ from termcolor import cprint
 import sys
 import requests
 from random import randint
+from pathlib import PurePath,Path
 
 colorama.init()
 get_rawdata = LibgenSearch()
 
 def html(data):
+    css_path = PurePath(Path().cwd(), "misc", "styles.css")
     htmls = f'''
 <!DOCTYPE html>
 <html lang="en"">
@@ -19,6 +21,7 @@ def html(data):
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="{css_path}">
 <title>Books</title>
 </head>
 <body>
