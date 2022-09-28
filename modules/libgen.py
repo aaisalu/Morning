@@ -8,31 +8,20 @@ import sys
 import requests
 from random import randint
 from pathlib import PurePath,Path
+from string import Template
 
 colorama.init()
 get_rawdata = LibgenSearch()
 
-def html(data):
+def write_html(data):
     css_path = PurePath(Path().cwd(), "misc", "styles.css")
-    htmls = f'''
-<!DOCTYPE html>
-<html lang="en"">
-<head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="{css_path}">
-<title>Books</title>
-</head>
-<body>
-{data}
-</body>
-</html>
-'''
+    html_path = PurePath(Path().cwd(), "misc", "index.html")
+    wrap_html=Template(Path(html_path).read_text())
+    html_data=wrap_html.safe_substitute(title="Libgen Book",style_path=css_path,header='Welcome to Libgen Book Library',content=data)
     shugified=helper_func.slugify(book_title)
     create_folder=helper_func.create_folder(fr"Library/{shugified}_{randint(0, 1000)}_books")
     with open(rf'{create_folder}/{shugified}.html', 'w',encoding="UTF-8") as copy:
-        copy.write(htmls)
+        copy.write(html_data)
     webbrowser.open(f"{helper_func.Path}/{shugified}.html")
 
 
@@ -60,7 +49,7 @@ def process_it(chunk):
         headers = ["S.N", "Title", "Author", "Publisher", "Year",
                 "Pages", "Language", "Size", "Extension", "Donwload Link", "Mirror Link"]
         formatted = tabulate(body, headers,  tablefmt="unsafehtml")
-        html(formatted)
+        write_html(formatted)
     else:
         cprint(f'No results for {book_title} in our database...Try checking your spelling or use advanced search mode.\n','red')
         return author_search() if helper_func.chkreg("",(input('Do you want to search book by author name? [Y/N]: '))) else sys.exit(1)
@@ -113,6 +102,9 @@ def main():
         book_search()
     except KeyboardInterrupt:
         cprint("Exiting from the script....", 'red')
+        sys.exit(1)
+    except IndexError:
+        cprint("Can't parse input data..Please provide valid data", 'red')
         sys.exit(1)
     except requests.exceptions.ConnectionError:
         cprint("\nPlease check your internet connection!", 'red')
