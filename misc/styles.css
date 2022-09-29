@@ -3,3 +3,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+table {
+  border-collapse: collapse;
+  margin: 64px 0;
+  font-size: 18px;
+  font-family: sans-serif;
+  min-width: 500px;
+}
