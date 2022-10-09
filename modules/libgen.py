@@ -14,8 +14,8 @@ colorama.init()
 get_rawdata = LibgenSearch()
 
 def write_html(data):
-    css_path = PurePath(Path().cwd(), "misc", "styles.css")
-    html_path = PurePath(Path().cwd(), "misc", "index.html")
+    css_path = PurePath(Path().cwd().parent, "misc", "styles.css")
+    html_path = PurePath(Path().cwd().parent, "misc", "index.html")
     wrap_html=Template(Path(html_path).read_text())
     html_data=wrap_html.safe_substitute(title="Libgen Book",style_path=css_path,header='Welcome to Libgen Book Library',content=data)
     shugified=helper_func.slugify(book_title)
