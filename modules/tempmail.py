@@ -120,7 +120,7 @@ def tabulate_data(data, uniq_id):
 def mails_contents(data, uniq_id):
     attachments = data['attachments']
     string = (f"Attachments of the Message ID: " if data['attachments']
-              else f"\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n")
+              else  f"\n----{' -- Divider of Mails -- ':>^78}----\n\n")
     info = f"Unique Message ID: {data['id']}\n"
     info += f"Email from: {data['from']}\n"
     info += f"Email to: {email}\n"
@@ -135,7 +135,7 @@ def mails_contents(data, uniq_id):
             info += f"Content Type: {content['contentType']}\n"
             info += f"Download Link: https://www.1secmail.com/api/v1/?action=download&login={username}&domain={domain_name}&id={uniq_id}&file={content['filename']}\n"
             info += f"Size:{content['size']}\n"
-            info += "\n----<<<<<<<<<<<<<<<<<<<<<<<<<<< -- Divider of Mails -- >>>>>>>>>>>>>>>>>>>>>>>>>>>----\n\n"
+            info += f"\n----{' -- Divider of Mails -- ':>^78}----\n\n"
     return write_mail(info, uniq_id)
 
 
