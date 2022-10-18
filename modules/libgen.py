@@ -7,32 +7,15 @@ from termcolor import cprint
 import sys
 import requests
 from random import randint
-from pathlib import PurePath,Path
+from pathlib import Path
 from string import Template
 
 colorama.init()
 get_rawdata = LibgenSearch()
 
-def create_path(mode,parent_dir,file_name):
-  return PurePath(mode, parent_dir, file_name)
-
-def return_path(parent_dir,file_name):
-    initial_path=create_path(Path().cwd(),parent_dir,file_name)
-    parent_path=create_path(Path().cwd().parent,parent_dir,file_name)
-    default_path=PurePath(initial_path).parent
-    default_filename=PurePath(initial_path).name
-    if  Path(initial_path).exists():
-      return initial_path
-    elif Path(parent_path).exists():
-      return parent_path
-    else:
-      default_path if  Path(default_path).exists() else Path(default_path).mkdir()
-      open(default_path/default_filename, "a+", encoding="utf-8")
-      return initial_path
-
 def write_html(data):
-    css_path = return_path("misc", "styles.css")
-    html_path = return_path("misc", "index.html")
+    css_path = helper_func.return_path("misc", "styles.css")
+    html_path = helper_func.return_path("misc", "index.html")
     wrap_html=Template(Path(html_path).read_text())
     html_data=wrap_html.safe_substitute(title="Libgen Book",style_path=css_path,header='Welcome to Libgen Book Library',content=data)
     shugified=helper_func.slugify(book_title)

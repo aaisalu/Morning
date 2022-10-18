@@ -8,6 +8,7 @@ import webbrowser
 from tabulate import tabulate
 import requests
 from threading import Thread
+from pathlib import PurePath,Path
 colorama.init()
 
 
@@ -81,3 +82,21 @@ def convert_bytes(bytes):
         if bytes < 1024.0:
             return "%3.1f %s" % (bytes, x)
         bytes /= 1024.0
+
+
+def create_path(mode,parent_dir,file_name):
+  return PurePath(mode, parent_dir, file_name)
+
+def return_path(parent_dir,file_name):
+    initial_path=create_path(Path().cwd(),parent_dir,file_name)
+    parent_path=create_path(Path().cwd().parent,parent_dir,file_name)
+    default_path=PurePath(initial_path).parent
+    default_filename=PurePath(initial_path).name
+    if  Path(initial_path).exists():
+      return initial_path
+    elif Path(parent_path).exists():
+      return parent_path
+    else:
+      default_path if  Path(default_path).exists() else Path(default_path).mkdir()
+      open(default_path/default_filename, "a+", encoding="utf-8")
+      return initial_path
