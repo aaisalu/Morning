@@ -896,7 +896,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     echo                                         [92m---- %username% spawned into snake island ----[0m
     echo[
     echo    Press 1 = Download Youtube Videos/Music/Playlists                Press 7 = Misc Projects
-    echo    Press 2 = Create a Temporary email
+    echo    Press 2 = Create a Temporary email                               Press 8 = Download Books
     echo    Press 3 = Internet Speedtest
     echo    Press 4 = Upload Files
     echo    Press 5 = Generate QRcode
@@ -917,6 +917,8 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
     goto:shortenurl
     ) else if /I "%pyt%" EQU "7" (
     goto:miscapi
+    ) else if /I "%pyt%" EQU "8" (
+    goto:libgenbooks
     ) else if /I "%pyt%" EQU "0" (
     goto:choice
     ) else (
@@ -965,6 +967,13 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python anonupload.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
         pause
         goto:pyproj
+    :libgenbooks
+        @echo off
+        echo[
+        echo I'm here because you want to download books from Libgen
+        cmd /k "cd %~dp0\venv\Scripts & activate & cd /d %~dp0\modules & python libgen.py & cd /d%~dp0\venv\Scripts & deactivate.bat & exit"
+        pause
+        goto:pyproj
     :miscapi
         @echo off
         echo[
@@ -983,7 +992,7 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
         echo    Press 3 = Currency converter
         echo    Press 4 = Scrap IMDb Movies
         echo    [90mPress 0 = Depart[0m
-            set /P msa= Welcome, Which API project would you like to use ?[1/2/3]:
+            set /P msa= Welcome, Which API project would you like to use ?[1-4]:
         if /I "%msa%" EQU "1" (
         goto:shortenurlbitly
         ) else if /I "%msa%" EQU "2" (
