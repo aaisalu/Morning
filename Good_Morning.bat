@@ -449,11 +449,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo [92mDo you want to open the script with the Administrator privileges?[0m
             pause
             ::Thanks to Ir Relevant & ceztko for admin prevlge stackoverflow.com/a/24665214
-            net file 1>NUL 2>NUL
+            Net session >nul 2>&1
             if not '%errorlevel%' == '0' (
-                powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
-                exit /b)
-            cd /d %1
+                PowerShell start -verb runas '%~0' &exit /b)
+            cd %~dp0
         )
         :: Thanks Chocolatey for being it so amazing chocolatey.org
         echo[
@@ -795,11 +794,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo As the task can't be run without the Administrator privileges
             echo [92mDo you want to open the script with the Administrator privileges?[0m
             pause
-            net file 1>NUL 2>NUL
+            Net session >nul 2>&1
             if not '%errorlevel%' == '0' (
-                powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
-                exit /b)
-            cd /d %1 )
+                PowerShell start -verb runas '%~0' &exit /b)
+            cd %~dp0 )
     :repairpc
         echo OFF
         NET SESSION >nul 2>&1
@@ -835,11 +833,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo As the task can't be run without the Administrator privileges
             echo [92mDo you want to open the script with the Administrator privileges?[0m
             pause
-            net file 1>NUL 2>NUL
+            Net session >nul 2>&1
             if not '%errorlevel%' == '0' (
-                powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
-                exit /b)
-            cd /d %1
+                PowerShell start -verb runas '%~0' &exit /b)
+            cd %~dp0
         )
     :repairsys
         echo OFF
@@ -872,11 +869,10 @@ rem echo Copy this code to lunch Chrome  browser :   start "Chrome"  "C:\Program
             echo As the task can't be run without the Administrator privileges
             echo [92mDo you want to open the script with the Administrator privileges?[0m
             pause
-            net file 1>NUL 2>NUL
+            Net session >nul 2>&1
             if not '%errorlevel%' == '0' (
-                powershell Start-Process -FilePath "%0" -ArgumentList "%cd%" -verb runas >NUL 2>&1
-                exit /b)
-            cd /d %1
+                PowerShell start -verb runas '%~0' &exit /b)
+            cd %~dp0
         )
 
     :Errorkit
