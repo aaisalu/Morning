@@ -21,12 +21,12 @@ def imdb_v5(url):
         rating = box.find('div', 'ratings-bar')
         rate = f'{rating.strong.text}/10'
         meta = star.span.text if (star := rating.find(
-            'div', class_='inline-block ratings-metascore')) else "Oh ! my Meta_score"
+            'div', class_='inline-block ratings-metascore')) else "Oh ! my Meta score"
         Divs = box.find_all('p', {'class': 'text-muted'})
         certificate = cert.text.strip() if (cert := Divs[0].find(
             'span', class_='certificate')) else "Certificate seems to be lost"
         time = clock.text if (clock := Divs[0].find(
-            'span', class_='runtime')) else "Time Seems to be unlimited?"
+            'span', class_='runtime')) else "Time seems to be unlimited?"
         genre = dress.text.strip() if (dress := Divs[0].find(
             'span', class_='genre')) else "Genre seems to be flying"
         summary = Divs[1].text.strip()
